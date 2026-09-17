@@ -252,16 +252,15 @@
       margin-top: 2px;
     }
 
-    /* Center Brand Logo */
+    /* Right Brand Logo */
+    .wix-brand-right,
     .wix-brand-center {
       display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
       color: var(--color-black);
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-left: auto;
     }
 
     .brand-logo-icon {
@@ -276,11 +275,6 @@
       font-weight: 400;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-
-    /* Header Right Space for layout balance */
-    .wix-nav-right-space {
-      min-width: 140px;
     }
 
     /* Main Content Wrapper */
@@ -324,23 +318,12 @@
       padding: 40px 48px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       min-height: 340px;
     }
 
-    .hero-top-author {
-      align-self: flex-end;
-      font-family: var(--font-display);
-      font-size: clamp(26px, 2.5vw, 36px);
-      letter-spacing: 3px;
-      color: var(--color-black);
-      text-transform: uppercase;
-      font-weight: 400;
-      margin-top: 10px;
-    }
-
     .hero-main-headings {
-      margin-top: 30px;
+      margin-top: 20px;
       margin-bottom: 20px;
     }
 
@@ -1274,6 +1257,7 @@
       .wix-header {
         padding: 0 20px;
       }
+      .wix-brand-right,
       .wix-brand-center {
         position: static;
         transform: none;
@@ -1348,8 +1332,8 @@
         </div>
       </div>
 
-      <!-- Center Logo & Name -->
-      <a href="#hero" class="wix-brand-center">
+      <!-- Right Logo & Name -->
+      <a href="#hero" class="wix-brand-right">
         <svg class="brand-logo-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
           <polygon points="50,5 95,50 50,95 5,50" stroke="#000000" fill="none"/>
           <polygon points="50,20 80,50 50,80 20,50" stroke="#000000" fill="none"/>
@@ -1360,9 +1344,6 @@
         </svg>
         <span class="brand-title-text" id="navBrandName">ChuRan (Olivia) Ma</span>
       </a>
-
-      <!-- Right Header Space for Balanced Alignment -->
-      <div class="wix-nav-right-space"></div>
     </nav>
   </header>
 
@@ -1373,11 +1354,6 @@
       <img src="assets/wix/hero_bg_watermark.jpg" class="hero-watermark-bg" alt="Watercolor Marble Texture Background">
       
       <div class="hero-content-container">
-        <!-- Top Right Author Heading in Aboreto -->
-        <div class="hero-top-author" id="heroAuthorText">
-          ChuRan (Olivia) Ma
-        </div>
-
         <!-- Left Main Title in Aboreto -->
         <div class="hero-main-headings">
           <h1 class="hero-line-welcome">WELCOME TO MY</h1>
