@@ -946,22 +946,105 @@
 
     .lightbox-img-wrapper {
       max-width: 100%;
-      max-height: 78vh;
+      max-height: 74vh;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
     }
 
     .lightbox-img-wrapper img {
       max-width: 100%;
-      max-height: 78vh;
+      max-height: 74vh;
       object-fit: contain;
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform-origin: center center;
+      transition: transform 0.08s ease-out;
+      will-change: transform;
+      cursor: zoom-in;
+    }
+
+    .lightbox-img-wrapper img.is-zoomed {
+      cursor: grab;
+    }
+
+    .lightbox-img-wrapper img.is-dragging {
+      cursor: grabbing !important;
+      transition: none !important;
+    }
+
+    .lightbox-zoom-toolbar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 4px 12px;
+      z-index: 10;
+    }
+
+    .lightbox-zoom-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .lightbox-zoom-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-zoom-btn:active {
+      transform: scale(0.92);
+    }
+
+    .lightbox-zoom-badge {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: 500;
+      min-width: 48px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      user-select: none;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .lightbox-zoom-badge:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .lightbox-zoom-hint {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+      user-select: none;
     }
 
     .lightbox-caption-text {
-      margin-top: 16px;
+      margin-top: 12px;
       color: #eaeaea;
       font-size: 13px;
       text-align: center;
@@ -2008,7 +2091,17 @@
       <div class="lightbox-img-wrapper">
         <img id="lightbox-current-img" src="" alt="Expanded View">
       </div>
+
+      <!-- Zoom Toolbar & Hint -->
+      <div class="lightbox-zoom-toolbar">
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="Zoom Out" title="Zoom Out">&minus;</button>
+        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="Click to Reset 100%">100%</span>
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="Zoom In" title="Zoom In">&plus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="Reset Zoom" title="Reset Zoom">&#x21bb;</button>
+      </div>
+
       <div class="lightbox-caption-text" id="lightbox-caption"></div>
+      <div class="lightbox-zoom-hint">Scroll wheel to zoom &middot; Drag to pan &middot; Double-click to reset</div>
     </div>
   </div>
 
@@ -2121,7 +2214,82 @@
       { src: 'assets/hongdoudou/photos/8.110512.jpg', caption: 'Page 33: Measuring the Torso and Bodily Containment' }
     ];
 
+    // --- 2. Lightbox Modal with Multi-Image Navigation & Mouse Wheel Zoom / Pan ---
     let currentLightboxIndex = 0;
+    let lbScale = 1.0;
+    let lbTranslateX = 0;
+    let lbTranslateY = 0;
+    let lbIsDragging = false;
+    let lbStartX = 0;
+    let lbStartY = 0;
+    let lbDragBaseX = 0;
+    let lbDragBaseY = 0;
+
+    function applyLightboxTransform(smooth = true) {
+      const img = document.getElementById('lightbox-current-img');
+      const badge = document.getElementById('lightbox-zoom-level');
+      if (!img) return;
+
+      if (smooth) {
+        img.style.transition = 'transform 0.08s ease-out';
+      } else {
+        img.style.transition = 'none';
+      }
+
+      img.style.transform = `translate(${lbTranslateX}px, ${lbTranslateY}px) scale(${lbScale})`;
+
+      if (lbScale > 1.02) {
+        img.classList.add('is-zoomed');
+      } else {
+        img.classList.remove('is-zoomed');
+      }
+
+      if (badge) {
+        badge.textContent = Math.round(lbScale * 100) + '%';
+      }
+    }
+
+    function resetLightboxZoom() {
+      lbScale = 1.0;
+      lbTranslateX = 0;
+      lbTranslateY = 0;
+      applyLightboxTransform(true);
+    }
+
+    function zoomLightboxAt(targetScale, clientX, clientY) {
+      const img = document.getElementById('lightbox-current-img');
+      if (!img) return;
+
+      targetScale = Math.max(1.0, Math.min(6.0, targetScale));
+
+      if (targetScale === 1.0) {
+        resetLightboxZoom();
+        return;
+      }
+
+      const rect = img.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      const mouseX = (clientX !== undefined ? clientX : cx) - cx;
+      const mouseY = (clientY !== undefined ? clientY : cy) - cy;
+
+      const scaleRatio = targetScale / lbScale;
+      lbTranslateX = mouseX - (mouseX - lbTranslateX) * scaleRatio;
+      lbTranslateY = mouseY - (mouseY - lbTranslateY) * scaleRatio;
+      lbScale = targetScale;
+
+      applyLightboxTransform(true);
+    }
+
+    function lightboxZoomStep(step) {
+      const factor = step > 0 ? 1.25 : (1 / 1.25);
+      const img = document.getElementById('lightbox-current-img');
+      const rect = img ? img.getBoundingClientRect() : null;
+      const cx = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+      const cy = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+      zoomLightboxAt(lbScale * factor, cx, cy);
+    }
 
     function openLightbox(src, caption) {
       const modal = document.getElementById('lightbox-modal');
@@ -2133,6 +2301,7 @@
         currentLightboxIndex = foundIdx;
       }
 
+      resetLightboxZoom();
       img.src = src;
       cap.innerHTML = caption || '';
       modal.classList.add('show');
@@ -2143,6 +2312,7 @@
       const modal = document.getElementById('lightbox-modal');
       modal.classList.remove('show');
       document.body.style.overflow = 'auto';
+      resetLightboxZoom();
     }
 
     function lightboxNavigate(direction) {
@@ -2154,9 +2324,64 @@
       const img = document.getElementById('lightbox-current-img');
       const cap = document.getElementById('lightbox-caption');
 
+      resetLightboxZoom();
       img.src = item.src;
       cap.innerHTML = item.caption;
     }
+
+    // Wheel zoom & drag pan initialization
+    (function initLightboxInteractions() {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-current-img');
+      if (!modal || !img) return;
+
+      // Mouse Wheel Zoom
+      modal.addEventListener('wheel', function(e) {
+        if (!modal.classList.contains('show')) return;
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.18 : (1 / 1.18);
+        zoomLightboxAt(lbScale * factor, e.clientX, e.clientY);
+      }, { passive: false });
+
+      // Drag to Pan when zoomed
+      img.addEventListener('mousedown', function(e) {
+        if (lbScale > 1.02 && e.button === 0) {
+          lbIsDragging = true;
+          lbStartX = e.clientX;
+          lbStartY = e.clientY;
+          lbDragBaseX = lbTranslateX;
+          lbDragBaseY = lbTranslateY;
+          img.classList.add('is-dragging');
+          e.preventDefault();
+        }
+      });
+
+      window.addEventListener('mousemove', function(e) {
+        if (lbIsDragging) {
+          lbTranslateX = lbDragBaseX + (e.clientX - lbStartX);
+          lbTranslateY = lbDragBaseY + (e.clientY - lbStartY);
+          applyLightboxTransform(false);
+        }
+      });
+
+      window.addEventListener('mouseup', function() {
+        if (lbIsDragging) {
+          lbIsDragging = false;
+          const currentImg = document.getElementById('lightbox-current-img');
+          if (currentImg) currentImg.classList.remove('is-dragging');
+        }
+      });
+
+      // Double-click to toggle zoom
+      img.addEventListener('dblclick', function(e) {
+        e.preventDefault();
+        if (lbScale > 1.05) {
+          resetLightboxZoom();
+        } else {
+          zoomLightboxAt(2.5, e.clientX, e.clientY);
+        }
+      });
+    })();
 
     // Keyboard support for Lightbox
     window.addEventListener('keydown', function(e) {
@@ -2165,6 +2390,9 @@
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') lightboxNavigate(-1);
         if (e.key === 'ArrowRight') lightboxNavigate(1);
+        if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
+        if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
+        if (e.key === '0') resetLightboxZoom();
       }
     });
   </script>
