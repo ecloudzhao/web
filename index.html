@@ -581,56 +581,125 @@
       color: #000000;
     }
 
-    /* FOOTER (Clone of Wix Footer) */
+    /* FOOTER AREA (Matches exhibition.html) */
     .wix-footer-area {
-      padding: 70px 0 50px;
-      background: #ffffff;
-      border-top: 1px solid #f2f2f2;
+      background-color: #e7dee1;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 60px 32px 50px;
     }
 
     .footer-content-grid {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.7;
+      max-width: 380px;
+      font-weight: 300;
+    }
+
+    .footer-brand-contact {
+      margin-top: 14px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: #666666;
+      font-weight: 300;
+    }
+
+    .footer-brand-contact a {
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-brand-contact a:hover {
+      color: #000000;
+      text-decoration: underline;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 16px;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-link-list a {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: #666666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-weight: 400;
+    }
+
+    .footer-link-list a:hover {
+      color: #111111;
+    }
+
+    .footer-bottom-bar {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .footer-brand-info {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .footer-name-title {
-      font-family: var(--font-display);
-      font-size: 18px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .footer-meta-note {
+      gap: 16px;
       font-size: 12px;
-      color: var(--color-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      color: #8e8880;
     }
 
-    .footer-contact-block {
+    .footer-nav-jump {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      text-align: right;
+      gap: 20px;
     }
 
-    .footer-contact-line {
+    .footer-nav-jump a {
       font-family: var(--font-sans);
-      font-size: 14px;
-      color: #333333;
+      color: #666666;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    /* Social icons removed per user specification */
+    .footer-nav-jump a:hover {
+      color: #111111;
+    }
 
     /* ARCHITECTURAL PROJECT DETAILS MODAL */
     .arch-modal {
@@ -1274,7 +1343,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- ADMIN MINI BAR (Studio CMS login & manage) -->
   <aside class="admin-bar-strip">
@@ -1467,23 +1536,45 @@
     </section>
   </main>
 
-  <!-- WIX MINIMALIST FOOTER -->
-  <footer class="wix-footer-area">
-    <div class="wix-container">
-      <div class="footer-content-grid">
-        <div class="footer-brand-info">
-          <div class="footer-name-title">ChuRan (Olivia) Ma</div>
-          <div class="footer-meta-note">Architectural Design &amp; Visual Art Portfolio · 2026</div>
-          <div style="font-size: 11px; color: #999; margin-top: 10px;">
-            &copy; 2026 ChuRan (Olivia) Ma. All Rights Reserved.
-          </div>
+  <!-- WIX FOOTER AREA (Matches exhibition.html) -->
+  <footer class="wix-footer-area" id="contact">
+    <div class="footer-content-grid">
+      <div>
+        <div class="footer-brand-title">ChuRan (Olivia) Ma</div>
+        <p class="footer-brand-desc">
+          Architectural and visual art portfolio exploring spatial envelopes, kinetic thresholds, and domestic bodily discipline.
+        </p>
+        <div class="footer-brand-contact">
+          <a href="mailto:contact@churanma.art">contact@churanma.art</a> &middot; 123-456-7890
         </div>
+      </div>
 
-        <div class="footer-contact-block">
-          <div class="footer-contact-line">123-456-7890</div>
-          <div class="footer-contact-line">contact@churanma.art</div>
-          <!-- Social link icons removed -->
-        </div>
+      <div>
+        <div class="footer-col-title">Portfolio Projects</div>
+        <ul class="footer-link-list">
+          <li><a href="#works" onclick="openArchModal('arch-01')">01 &middot; Spatial Flow</a></li>
+          <li><a href="#works" onclick="openArchModal('arch-02')">02 &middot; Urban Infill</a></li>
+          <li><a href="#works" onclick="openArchModal('arch-03')">03 &middot; Kinetic Assemblies</a></li>
+          <li><a href="exhibition.html">04 &middot; The Blurred Boundary</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-link-list">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#works">View Works</a></li>
+          <li><a href="#about">About the Artist</a></li>
+          <li><a href="mailto:contact@churanma.art">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 ChuRan (Olivia) Ma. All rights reserved.</div>
+      <div class="footer-nav-jump">
+        <a href="#top">Back to Top &uarr;</a>
+        <a href="exhibition.html">View Exhibition &rarr;</a>
       </div>
     </div>
   </footer>
