@@ -2082,7 +2082,7 @@
   </footer>
 
   <!-- 7. LIGHTBOX MODAL -->
-  <div class="lightbox-backdrop" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-backdrop" id="lightbox-modal">
     <div class="lightbox-content-box" onclick="event.stopPropagation()">
       <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
       <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="Previous Image">&#10094;</button>
@@ -2249,6 +2249,31 @@
       }
     }
 
+    function clampLightboxTranslation() {
+      const img = document.getElementById('lightbox-current-img');
+      const wrapper = img ? img.parentElement : null;
+      if (!img || !wrapper) return;
+
+      if (lbScale <= 1.0) {
+        lbTranslateX = 0;
+        lbTranslateY = 0;
+        return;
+      }
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const naturalW = img.offsetWidth || wrapperRect.width;
+      const naturalH = img.offsetHeight || wrapperRect.height;
+      const scaledW = naturalW * lbScale;
+      const scaledH = naturalH * lbScale;
+
+      // Allow panning up to the edge of the image, plus comfortable visual leeway
+      const maxPanX = Math.max(0, (scaledW - wrapperRect.width) / 2) + Math.min(wrapperRect.width * 0.4, 160);
+      const maxPanY = Math.max(0, (scaledH - wrapperRect.height) / 2) + Math.min(wrapperRect.height * 0.4, 160);
+
+      lbTranslateX = Math.max(-maxPanX, Math.min(maxPanX, lbTranslateX));
+      lbTranslateY = Math.max(-maxPanY, Math.min(maxPanY, lbTranslateY));
+    }
+
     function resetLightboxZoom() {
       lbScale = 1.0;
       lbTranslateX = 0;
@@ -2262,7 +2287,7 @@
 
       targetScale = Math.max(1.0, Math.min(6.0, targetScale));
 
-      if (targetScale === 1.0) {
+      if (targetScale <= 1.01) {
         resetLightboxZoom();
         return;
       }
@@ -2279,6 +2304,7 @@
       lbTranslateY = mouseY - (mouseY - lbTranslateY) * scaleRatio;
       lbScale = targetScale;
 
+      clampLightboxTranslation();
       applyLightboxTransform(true);
     }
 
@@ -2329,11 +2355,34 @@
       cap.innerHTML = item.caption;
     }
 
-    // Wheel zoom & drag pan initialization
+    // Wheel zoom & pointer drag pan initialization
     (function initLightboxInteractions() {
       const modal = document.getElementById('lightbox-modal');
       const img = document.getElementById('lightbox-current-img');
       if (!modal || !img) return;
+
+      let lbMouseDownTarget = null;
+      let lbDidDrag = false;
+      let lbDragEndTime = 0;
+
+      // Track mousedown target to ensure backdrop clicks only trigger if initiated on backdrop
+      modal.addEventListener('mousedown', function(e) {
+        lbMouseDownTarget = e.target;
+      });
+
+      // Handle backdrop clicks strictly: NEVER close if user was dragging or mousedown started on image/content
+      modal.addEventListener('click', function(e) {
+        if (e.target.closest('.lightbox-close-btn')) {
+          closeLightbox();
+          return;
+        }
+        if (lbDidDrag || (Date.now() - lbDragEndTime < 300)) {
+          return;
+        }
+        if (e.target === modal && lbMouseDownTarget === modal) {
+          closeLightbox();
+        }
+      });
 
       // Mouse Wheel Zoom
       modal.addEventListener('wheel', function(e) {
@@ -2343,34 +2392,58 @@
         zoomLightboxAt(lbScale * factor, e.clientX, e.clientY);
       }, { passive: false });
 
-      // Drag to Pan when zoomed
-      img.addEventListener('mousedown', function(e) {
+      // Pointer event based drag with pointer capture
+      img.addEventListener('pointerdown', function(e) {
         if (lbScale > 1.02 && e.button === 0) {
           lbIsDragging = true;
+          lbDidDrag = false;
           lbStartX = e.clientX;
           lbStartY = e.clientY;
           lbDragBaseX = lbTranslateX;
           lbDragBaseY = lbTranslateY;
+          try {
+            img.setPointerCapture(e.pointerId);
+          } catch (err) {}
           img.classList.add('is-dragging');
           e.preventDefault();
+          e.stopPropagation();
         }
       });
 
-      window.addEventListener('mousemove', function(e) {
+      img.addEventListener('pointermove', function(e) {
         if (lbIsDragging) {
-          lbTranslateX = lbDragBaseX + (e.clientX - lbStartX);
-          lbTranslateY = lbDragBaseY + (e.clientY - lbStartY);
+          const dx = e.clientX - lbStartX;
+          const dy = e.clientY - lbStartY;
+          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+            lbDidDrag = true;
+          }
+          lbTranslateX = lbDragBaseX + dx;
+          lbTranslateY = lbDragBaseY + dy;
+          clampLightboxTranslation();
           applyLightboxTransform(false);
         }
       });
 
-      window.addEventListener('mouseup', function() {
+      function finishPointerDrag(e) {
         if (lbIsDragging) {
           lbIsDragging = false;
-          const currentImg = document.getElementById('lightbox-current-img');
-          if (currentImg) currentImg.classList.remove('is-dragging');
+          if (lbDidDrag) {
+            lbDragEndTime = Date.now();
+          }
+          try {
+            if (img.hasPointerCapture(e.pointerId)) {
+              img.releasePointerCapture(e.pointerId);
+            }
+          } catch (err) {}
+          img.classList.remove('is-dragging');
+          clampLightboxTranslation();
+          applyLightboxTransform(true);
+          setTimeout(() => { lbDidDrag = false; }, 250);
         }
-      });
+      }
+
+      img.addEventListener('pointerup', finishPointerDrag);
+      img.addEventListener('pointercancel', finishPointerDrag);
 
       // Double-click to toggle zoom
       img.addEventListener('dblclick', function(e) {

@@ -1710,7 +1710,7 @@
   </div>
 
   <!-- LIGHTBOX MODAL -->
-  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+  <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-content" onclick="event.stopPropagation()">
       <button type="button" class="lightbox-close" onclick="closeLightbox()">&times;</button>
       <div class="lightbox-img-wrapper">
@@ -2538,6 +2538,30 @@
       }
     }
 
+    function clampHomeLightboxTranslation() {
+      const img = document.getElementById("lightboxImg");
+      const wrapper = img ? img.parentElement : null;
+      if (!img || !wrapper) return;
+
+      if (homeLbScale <= 1.0) {
+        homeLbTranslateX = 0;
+        homeLbTranslateY = 0;
+        return;
+      }
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const naturalW = img.offsetWidth || wrapperRect.width;
+      const naturalH = img.offsetHeight || wrapperRect.height;
+      const scaledW = naturalW * homeLbScale;
+      const scaledH = naturalH * homeLbScale;
+
+      const maxPanX = Math.max(0, (scaledW - wrapperRect.width) / 2) + Math.min(wrapperRect.width * 0.4, 160);
+      const maxPanY = Math.max(0, (scaledH - wrapperRect.height) / 2) + Math.min(wrapperRect.height * 0.4, 160);
+
+      homeLbTranslateX = Math.max(-maxPanX, Math.min(maxPanX, homeLbTranslateX));
+      homeLbTranslateY = Math.max(-maxPanY, Math.min(maxPanY, homeLbTranslateY));
+    }
+
     function resetHomeLbZoom() {
       homeLbScale = 1.0;
       homeLbTranslateX = 0;
@@ -2551,7 +2575,7 @@
 
       targetScale = Math.max(1.0, Math.min(6.0, targetScale));
 
-      if (targetScale === 1.0) {
+      if (targetScale <= 1.01) {
         resetHomeLbZoom();
         return;
       }
@@ -2568,6 +2592,7 @@
       homeLbTranslateY = mouseY - (mouseY - homeLbTranslateY) * scaleRatio;
       homeLbScale = targetScale;
 
+      clampHomeLightboxTranslation();
       applyHomeLbTransform(true);
     }
 
@@ -2590,17 +2615,37 @@
       modal.classList.add("active");
     }
 
-    function closeLightbox(e) {
-      if (!e || e.target === document.getElementById("lightboxModal") || e.target.classList.contains("lightbox-close")) {
-        document.getElementById("lightboxModal").classList.remove("active");
-        resetHomeLbZoom();
-      }
+    function closeLightbox() {
+      const modal = document.getElementById("lightboxModal");
+      modal.classList.remove("active");
+      resetHomeLbZoom();
     }
 
     (function initHomeLightboxInteractions() {
       const modal = document.getElementById("lightboxModal");
       const img = document.getElementById("lightboxImg");
       if (!modal || !img) return;
+
+      let homeMouseDownTarget = null;
+      let homeDidDrag = false;
+      let homeDragEndTime = 0;
+
+      modal.addEventListener("mousedown", function(e) {
+        homeMouseDownTarget = e.target;
+      });
+
+      modal.addEventListener("click", function(e) {
+        if (e.target.closest(".lightbox-close")) {
+          closeLightbox();
+          return;
+        }
+        if (homeDidDrag || (Date.now() - homeDragEndTime < 300)) {
+          return;
+        }
+        if (e.target === modal && homeMouseDownTarget === modal) {
+          closeLightbox();
+        }
+      });
 
       modal.addEventListener("wheel", function(e) {
         if (!modal.classList.contains("active")) return;
@@ -2609,33 +2654,57 @@
         zoomHomeLbAt(homeLbScale * factor, e.clientX, e.clientY);
       }, { passive: false });
 
-      img.addEventListener("mousedown", function(e) {
+      img.addEventListener("pointerdown", function(e) {
         if (homeLbScale > 1.02 && e.button === 0) {
           homeLbIsDragging = true;
+          homeDidDrag = false;
           homeLbStartX = e.clientX;
           homeLbStartY = e.clientY;
           homeLbDragBaseX = homeLbTranslateX;
           homeLbDragBaseY = homeLbTranslateY;
+          try {
+            img.setPointerCapture(e.pointerId);
+          } catch (err) {}
           img.classList.add("is-dragging");
           e.preventDefault();
+          e.stopPropagation();
         }
       });
 
-      window.addEventListener("mousemove", function(e) {
+      img.addEventListener("pointermove", function(e) {
         if (homeLbIsDragging) {
-          homeLbTranslateX = homeLbDragBaseX + (e.clientX - homeLbStartX);
-          homeLbTranslateY = homeLbDragBaseY + (e.clientY - homeLbStartY);
+          const dx = e.clientX - homeLbStartX;
+          const dy = e.clientY - homeLbStartY;
+          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+            homeDidDrag = true;
+          }
+          homeLbTranslateX = homeLbDragBaseX + dx;
+          homeLbTranslateY = homeLbDragBaseY + dy;
+          clampHomeLightboxTranslation();
           applyHomeLbTransform(false);
         }
       });
 
-      window.addEventListener("mouseup", function() {
+      function finishHomeDrag(e) {
         if (homeLbIsDragging) {
           homeLbIsDragging = false;
-          const cur = document.getElementById("lightboxImg");
-          if (cur) cur.classList.remove("is-dragging");
+          if (homeDidDrag) {
+            homeDragEndTime = Date.now();
+          }
+          try {
+            if (img.hasPointerCapture(e.pointerId)) {
+              img.releasePointerCapture(e.pointerId);
+            }
+          } catch (err) {}
+          img.classList.remove("is-dragging");
+          clampHomeLightboxTranslation();
+          applyHomeLbTransform(true);
+          setTimeout(() => { homeDidDrag = false; }, 250);
         }
-      });
+      }
+
+      img.addEventListener("pointerup", finishHomeDrag);
+      img.addEventListener("pointercancel", finishHomeDrag);
 
       img.addEventListener("dblclick", function(e) {
         e.preventDefault();
