@@ -575,35 +575,13 @@
        5. SPECIFIC PAGE COMPOSITIONS MATCHING ORIGINAL PDF
        ========================================================================== */
 
-    /* PAGE 01: Multi-block layout */
-    /* PAGE 01 white background styling */
-    .p01-layout .img-zoom-target {
+    /* PAGE 01: Full spread presentation */
+    #page-01 .img-zoom-target {
       background: #ffffff !important;
       border: 1px solid var(--color-border-subtle);
     }
-    .p01-layout .img-zoom-target img {
+    #page-01 .img-zoom-target img {
       background-color: #ffffff !important;
-    }
-
-    .p01-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 36px;
-      align-items: start;
-    }
-    @media (max-width: 860px) {
-      /* PAGE 01 white background styling */
-    .p01-layout .img-zoom-target {
-      background: #ffffff !important;
-      border: 1px solid var(--color-border-subtle);
-    }
-    .p01-layout .img-zoom-target img {
-      background-color: #ffffff !important;
-    }
-
-    .p01-layout {
-        grid-template-columns: 1fr;
-      }
     }
 
     .p01-section-title {
@@ -1264,32 +1242,9 @@
         </div>
       </div>
       
-      <div class="p01-layout">
-        <div>
-          <div class="p01-section-title">Inspiration</div>
-          <p class="p01-text-card">
-            During the summer, I accidentally found an old school schedule that my mother had written for me. It recorded my classes, study tasks and daily routines in detail. At first, it seemed like an ordinary document from the past, but as I looked at it, I began to realise that my growth had been carefully arranged and recorded from a very early stage.
-          </p>
-          <p class="p01-text-card">
-            This small discovery made me reflect on my own educational experience. Since childhood, my learning path, school choices and future goals were mostly planned by my mother. Her intentions came from care and protection, but they also created an invisible track that I was expected to follow.
-          </p>
-          
-          <div class="p01-section-title" style="margin-top: 32px;">Statement</div>
-          <p class="p01-text-card">
-            This made me reflect on a wider experience shared by many students. Between constant classes, exams, tutoring and deadlines, we are trained to follow a planned path and become the &ldquo;good student&rdquo; expected by parents, schools and society. Over time, this academic identity can also become a family role: the perfect daughter.
-          </p>
-        </div>
-
-        <div>
-          <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/extracted/p01_img1_6.png', 'Page 01: Primary and Middle School Daily Schedule Archive (Handwritten by Mother)')">
-            <img src="assets/hongdoudou/extracted/p01_img1_6.png" alt="Primary and Middle School Daily Schedule Archive" loading="lazy">
-          </div>
-          <div class="page-caption" style="margin-top: 24px;">
-            <p><span class="caption-highlight">Core Archival Artifact:</span> The handwritten daily timetable defining childhood hours, tutoring schedules, and domestic routines.</p>
-            <p style="margin-top:8px; font-size:13px; color:var(--color-text-muted);">
-              &ldquo;She is expected to be disciplined, obedient, organised and successful. However, in the process of being constantly arranged, trained and evaluated, I began to question whether I had forgotten what I truly wanted. Through photographing desks, textbooks, notes, uniforms and the measured body, this project explores how care and protection can sometimes become a form of control, shaping a daughter into an ideal image while reducing her space for self-discovery.&rdquo;
-            </p>
-          </div>
+      <div class="page-single-wide">
+        <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/page_01.jpg', 'Page 01: Inspiration &amp; Statement Storyboard Spread')">
+          <img src="assets/hongdoudou/page_01.jpg" alt="Page 01: Inspiration &amp; Statement Storyboard Spread" loading="lazy">
         </div>
       </div>
 
@@ -2125,7 +2080,7 @@
 
     // --- 2. Lightbox Modal with Multi-Image Navigation ---
     const allGalleryImages = [
-      { src: 'assets/hongdoudou/extracted/p01_img1_6.png', caption: 'Page 01: Handwritten Daily Schedule Archive' },
+      { src: 'assets/hongdoudou/page_01.jpg', caption: 'Page 01: Inspiration &amp; Statement Storyboard Spread' },
       { src: 'assets/hongdoudou/extracted/p02_img1_17.png', caption: 'Page 02: Calligraphy Apron with Ink Marks' },
       { src: 'assets/hongdoudou/extracted/p03_img1_22.png', caption: 'Page 03: Calligraphy Brush and Inkstone Traces' },
       { src: 'assets/hongdoudou/extracted/p04_img1_27.png', caption: 'Page 04: Calligraphy Practice Sheets' },
