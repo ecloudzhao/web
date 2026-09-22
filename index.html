@@ -723,9 +723,9 @@
 
     .arch-modal-dialog {
       background: #ffffff;
-      width: 900px;
-      max-width: 95vw;
-      max-height: 90vh;
+      width: 1040px;
+      max-width: 96vw;
+      max-height: 92vh;
       overflow-y: auto;
       border: 1px solid #111;
       padding: 44px 40px;
@@ -742,6 +742,83 @@
       border: none;
       color: #111;
       line-height: 1;
+    }
+
+    .arch-modal-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin: 24px 0 32px;
+    }
+
+    .arch-plate-card {
+      background: #fbfbfa;
+      border: 1px solid #e7e5e4;
+      padding: 18px 20px 20px;
+      transition: all 0.2s ease;
+    }
+
+    .arch-plate-card:hover {
+      border-color: #111;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+    }
+
+    .arch-plate-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .arch-plate-badge {
+      font-weight: 600;
+      color: #111;
+      background: #eee7e2;
+      padding: 4px 10px;
+    }
+
+    .arch-plate-expand-hint {
+      color: #888;
+      font-size: 11px;
+    }
+
+    .arch-plate-thumb-wrap {
+      width: 100%;
+      background: #181716;
+      cursor: zoom-in;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .arch-plate-thumb-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .arch-plate-thumb-wrap:hover img {
+      transform: scale(1.012);
+    }
+
+    .arch-plate-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(18, 17, 16, 0.82);
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      pointer-events: none;
+      backdrop-filter: blur(4px);
     }
 
     /* AUTH MODAL */
@@ -1467,20 +1544,20 @@
           <ul class="nav-dropdown-menu">
             <li class="nav-dropdown-item">
               <a href="javascript:void(0)" onclick="openArchModal('arch-01')">
-                <strong>Ⅰ. Spatial Flow &amp; Tectonic Envelope</strong>
-                <span class="sub-note">Architectural Design Project I · 2026</span>
+                <strong>Ⅰ. Timber Archwork: Adaptive Pavilion</strong>
+                <span class="sub-note">Adaptive Timber Architecture · Nanjing · 2026</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="javascript:void(0)" onclick="openArchModal('arch-02')">
-                <strong>Ⅱ. Urban Infill &amp; Porous Thresholds</strong>
-                <span class="sub-note">Architectural Design Project II · 2026</span>
+                <strong>Ⅱ. Sierra Canyon: Everyday Frictions</strong>
+                <span class="sub-note">Campus Research &amp; Spatial Diagnosis · 2026</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="javascript:void(0)" onclick="openArchModal('arch-03')">
-                <strong>Ⅲ. Kinetic Assemblies &amp; Filter</strong>
-                <span class="sub-note">Architectural Design Project III · 2026</span>
+                <strong>Ⅲ. Canyon Echo: Gateway &amp; Art Center</strong>
+                <span class="sub-note">Topographic Arts Architecture · 2026</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
@@ -1563,12 +1640,12 @@
           <!-- CARD 1: ARCHITECTURAL DESIGN PROJECT I -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="openArchModal('arch-01')">
-              <img src="assets/arch/arch1_preview.jpg" alt="Spatial Flow &amp; Tectonic Envelope">
+              <img src="assets/projects/project01/01.jpg" alt="Timber Archwork: Adaptive Pavilion by the Ming City Wall">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Spatial Flow &amp; Tectonic Envelope</h3>
-                <div class="card-work-medium">Architectural Design · 2026</div>
+                <h3 class="card-work-title">Timber Archwork: Adaptive Pavilion</h3>
+                <div class="card-work-medium">Adaptive Timber Architecture · 2026</div>
               </div>
               <button type="button" class="btn-show-more" onclick="openArchModal('arch-01')">
                 Show More
@@ -1579,12 +1656,12 @@
           <!-- CARD 2: ARCHITECTURAL DESIGN PROJECT II -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="openArchModal('arch-02')">
-              <img src="assets/arch/arch2_preview.jpg" alt="Urban Infill &amp; Porous Thresholds">
+              <img src="assets/projects/project02/01.jpg" alt="Sierra Canyon: Everyday Frictions &amp; Spatial Diagnosis">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Urban Infill &amp; Porous Thresholds</h3>
-                <div class="card-work-medium">Urban Architecture · 2026</div>
+                <h3 class="card-work-title">Sierra Canyon: Everyday Frictions</h3>
+                <div class="card-work-medium">Campus Research &amp; Diagnosis · 2026</div>
               </div>
               <button type="button" class="btn-show-more" onclick="openArchModal('arch-02')">
                 Show More
@@ -1595,12 +1672,12 @@
           <!-- CARD 3: ARCHITECTURAL DESIGN PROJECT III -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="openArchModal('arch-03')">
-              <img src="assets/arch/arch3_preview.jpg" alt="Kinetic Assemblies &amp; Filter">
+              <img src="assets/projects/project03/01.jpg" alt="Canyon Echo: Reconfigured Gateway &amp; Topographic Art Center">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Kinetic Assemblies &amp; Filter</h3>
-                <div class="card-work-medium">Parametric Façade · 2026</div>
+                <h3 class="card-work-title">Canyon Echo: Gateway &amp; Art Center</h3>
+                <div class="card-work-medium">Topographic Arts Architecture · 2026</div>
               </div>
               <button type="button" class="btn-show-more" onclick="openArchModal('arch-03')">
                 Show More
@@ -1644,9 +1721,9 @@
       <div>
         <div class="footer-col-title">Portfolio Projects</div>
         <ul class="footer-link-list">
-          <li><a href="#works" onclick="openArchModal('arch-01')">01 &middot; Spatial Flow</a></li>
-          <li><a href="#works" onclick="openArchModal('arch-02')">02 &middot; Urban Infill</a></li>
-          <li><a href="#works" onclick="openArchModal('arch-03')">03 &middot; Kinetic Assemblies</a></li>
+          <li><a href="#works" onclick="openArchModal('arch-01')">01 &middot; Timber Archwork</a></li>
+          <li><a href="#works" onclick="openArchModal('arch-02')">02 &middot; Sierra Canyon Frictions</a></li>
+          <li><a href="#works" onclick="openArchModal('arch-03')">03 &middot; Canyon Echo Gateway</a></li>
           <li><a href="exhibition.html">04 &middot; The Blurred Boundary</a></li>
         </ul>
       </div>
@@ -2112,11 +2189,11 @@
 
 <!-- JAVASCRIPT LOGIC -->
   <script>
-    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V7";
+    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V8";
     const AUTH_KEY = "CHURAN_OLIVIA_MA_AUTH_STATUS";
 
     const INITIAL_SEED_DATA = {
-      version: "6.0",
+      version: "8.0",
       siteInfo: {
         artistName: "ChuRan (Olivia) Ma",
         navBrand: "ChuRan (Olivia) Ma",
@@ -2140,23 +2217,23 @@
         {
           id: "cat-arch",
           code: "01",
-          name: "Architectural Design",
-          medium: "Spatial Morphology & Envelope",
-          description: "Studies in spatial sequencing, tectonic assembly, and environmental synthesis."
+          name: "Adaptive Architecture",
+          medium: "Timber Structure & Heritage Infill",
+          description: "Studies in radial glulam arches, tensile membranes, and adaptive civic programming next to historic masonry city walls."
         },
         {
           id: "cat-urban",
           code: "02",
-          name: "Urban Architecture",
-          medium: "Infill & Public Space",
-          description: "Urban fabric interventions, void circulation, and programmatic matrices."
+          name: "Campus Urbanism",
+          medium: "Behavioral Mapping & Flow Diagnosis",
+          description: "Time-space behavioral tracking, vehicle-pedestrian conflicts, and topographical friction diagnosis for educational campuses."
         },
         {
           id: "cat-facade",
           code: "03",
-          name: "Parametric Façade",
-          medium: "Kinetic Assemblies & Fabrication",
-          description: "Explorations in digital fabrication, kinetic facades, and light-filtering building envelopes."
+          name: "Topographic Architecture",
+          medium: "Ribbon Gateway & Faceted Strata",
+          description: "Bridging campus grade splits with an elevated S-C pedestrian ribbon and folded canyon-rock art center volumes."
         },
         {
           id: "cat-visual",
@@ -2170,14 +2247,27 @@
         {
           id: "proj-1",
           categoryId: "cat-arch",
-          title: "Spatial Flow & Tectonic Envelope",
-          subtitle: "Architectural Design · 2026",
+          title: "Timber Archwork: Adaptive Pavilion by the Ming City Wall",
+          subtitle: "Adaptive Timber Architecture · Nanjing, China · 2026",
           year: "2026",
-          medium: "Spatial Sequencing & Environmental Synthesis",
-          dimension: "Axonometric & Structural Sections",
-          coverImage: "assets/arch/arch1_preview.jpg",
-          gallery: ["assets/arch/arch1_preview.jpg"],
-          statement: "Comprehensive architectural project data, CAD drawings, axonometric projections, structural section cuts, and physical study models will be integrated here upon client data submission. The CMS is equipped to update render assets, plans, and technical specifications seamlessly.",
+          medium: "Glulam Arches, Tensile Membrane & Central Kinetic Stage",
+          dimension: "12 Portfolio Plates · Axonometrics, Joinery Details & Scenarios",
+          coverImage: "assets/projects/project01/01.jpg",
+          gallery: [
+            "assets/projects/project01/01.jpg",
+            "assets/projects/project01/02.jpg",
+            "assets/projects/project01/03.jpg",
+            "assets/projects/project01/04.jpg",
+            "assets/projects/project01/05.jpg",
+            "assets/projects/project01/06.jpg",
+            "assets/projects/project01/07.jpg",
+            "assets/projects/project01/08.jpg",
+            "assets/projects/project01/09.jpg",
+            "assets/projects/project01/10.jpg",
+            "assets/projects/project01/11.jpg",
+            "assets/projects/project01/12.jpg"
+          ],
+          statement: "Situated within Nanjing Guochuang Park adjacent to the 600-year-old Ming Dynasty City Wall, this project investigates how lightweight, contemporary timber tectonics can engage with monumental historic masonry. Reinterpreting the rhythmic masonry arches and defensive perimeter of the ancient wall, the design introduces a radial glulam rib structure sheltered by a translucent tensile mesh roof and anchored by a central multi-media 'Super Trend Box'. Functioning as an adaptive civic apparatus, the pavilion effortlessly transitions across four distinct operational modes—everyday leisure, weekend creative market, corporate roadshow, and curated exhibition—revitalizing industrial heritage while offering a porous, flexible threshold between history and modern public life.",
           status: "published",
           actionType: "modal",
           targetModal: "arch-01"
@@ -2185,14 +2275,23 @@
         {
           id: "proj-2",
           categoryId: "cat-urban",
-          title: "Urban Infill & Porous Thresholds",
-          subtitle: "Urban Architecture · 2026",
+          title: "Sierra Canyon: Everyday Frictions & Spatial Diagnosis",
+          subtitle: "Campus Research & Spatial Diagnosis · Los Angeles, USA · 2026",
           year: "2026",
-          medium: "Urban Fabric & Public Void Interventions",
-          dimension: "Site Matrices & Massing",
-          coverImage: "assets/arch/arch2_preview.jpg",
-          gallery: ["assets/arch/arch2_preview.jpg"],
-          statement: "Site analysis diagrams, volumetric massing studies, programmatic zoning matrices, and detail elevation drawings are currently reserved for incoming materials.",
+          medium: "Time-Space Behavioral Mapping, Axonometric Survey & Flow Diagnosis",
+          dimension: "8 Portfolio Plates · Behavioral Heatmaps, Circulation & Sectional Cuts",
+          coverImage: "assets/projects/project02/01.jpg",
+          gallery: [
+            "assets/projects/project02/01.jpg",
+            "assets/projects/project02/02.jpg",
+            "assets/projects/project02/03.jpg",
+            "assets/projects/project02/04.jpg",
+            "assets/projects/project02/05.jpg",
+            "assets/projects/project02/06.jpg",
+            "assets/projects/project02/07.jpg",
+            "assets/projects/project02/08.jpg"
+          ],
+          statement: "Perched along the rugged topographic threshold of the Santa Susana Canyon and bounded by the Ronald Reagan Freeway in Chatsworth, Los Angeles, Sierra Canyon School embodies acute spatial contradictions between natural grade and rapid vehicular transit. Through extensive on-site mapping, temporal behavioral tracking, and axonometric dissection, this research diagnoses critical everyday frictions across campus: acute vehicle-pedestrian bottlenecks during morning drop-off, abrupt and disorienting grade transitions connected by purely utilitarian staircases, and a lack of climate-tempered outdoor gathering nodes. By decoding student, faculty, and vehicular flows into empirical spatial data, this research uncovers the underlying structural tensions, establishing an indispensable evidentiary foundation for master planning and tectonic intervention.",
           status: "published",
           actionType: "modal",
           targetModal: "arch-02"
@@ -2200,14 +2299,28 @@
         {
           id: "proj-3",
           categoryId: "cat-facade",
-          title: "Kinetic Assemblies & Filter",
-          subtitle: "Parametric Façade · 2026",
+          title: "Canyon Echo: Reconfigured Gateway & Topographic Art Center",
+          subtitle: "Topographic Arts Architecture · Los Angeles, USA · 2026",
           year: "2026",
-          medium: "Material Tectonics & Kinetic Assemblies",
-          dimension: "Digital Joinery Models",
-          coverImage: "assets/arch/arch3_preview.jpg",
-          gallery: ["assets/arch/arch3_preview.jpg"],
-          statement: "Explorations in digital fabrication, kinetic facades, and light-filtering building envelopes. Data slots and image viewports are prepared to receive documentation.",
+          medium: "Faceted Monoliths, Structural Gateway & Handcrafted Physical Models",
+          dimension: "13 Portfolio Plates · Architectural Plans, Physical Models & Terraces",
+          coverImage: "assets/projects/project03/01.jpg",
+          gallery: [
+            "assets/projects/project03/01.jpg",
+            "assets/projects/project03/02.jpg",
+            "assets/projects/project03/03.jpg",
+            "assets/projects/project03/04.jpg",
+            "assets/projects/project03/05.jpg",
+            "assets/projects/project03/06.jpg",
+            "assets/projects/project03/07.jpg",
+            "assets/projects/project03/08.jpg",
+            "assets/projects/project03/09.jpg",
+            "assets/projects/project03/10.jpg",
+            "assets/projects/project03/11.jpg",
+            "assets/projects/project03/12.jpg",
+            "assets/projects/project03/13.jpg"
+          ],
+          statement: "Responding to the spatial and safety diagnoses developed in Project 02, Canyon Echo radically reconceives the arrival threshold and artistic heart of Sierra Canyon School. Rejecting the conventional monolithic institutional box, the scheme deconstructs the school's initials ('S-C') into a continuous, elevated pedestrian gateway ribbon that lifts arriving students entirely clear of driveway traffic. Concurrently, the new Art Center is sculpted into faceted, stepped volumes that echo the surrounding canyon rock strata, housing open visual studios, subterranean performance auditoriums, and panoramic exhibition galleries. A three-dimensional hillside promenade bridges the academic building with the sports gymnasium, transforming once treacherous elevation changes into a vibrant social and artistic landscape. The proposal is substantiated through exhaustive orthographic drawings and meticulously crafted, illuminated physical scale models.",
           status: "published",
           actionType: "modal",
           targetModal: "arch-03"
@@ -2230,40 +2343,42 @@
       ],
       mediaList: [
         "me.jpg",
-        "assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG",
-        "assets/arch/arch1_preview.jpg",
-        "assets/arch/arch2_preview.jpg",
-        "assets/arch/arch3_preview.jpg",
+        "assets/projects/project01/01.jpg",
+        "assets/projects/project01/02.jpg",
+        "assets/projects/project01/03.jpg",
+        "assets/projects/project01/04.jpg",
+        "assets/projects/project01/05.jpg",
+        "assets/projects/project01/06.jpg",
+        "assets/projects/project01/07.jpg",
+        "assets/projects/project01/08.jpg",
+        "assets/projects/project01/09.jpg",
+        "assets/projects/project01/10.jpg",
+        "assets/projects/project01/11.jpg",
+        "assets/projects/project01/12.jpg",
+        "assets/projects/project02/01.jpg",
+        "assets/projects/project02/02.jpg",
+        "assets/projects/project02/03.jpg",
+        "assets/projects/project02/04.jpg",
+        "assets/projects/project02/05.jpg",
+        "assets/projects/project02/06.jpg",
+        "assets/projects/project02/07.jpg",
+        "assets/projects/project02/08.jpg",
+        "assets/projects/project03/01.jpg",
+        "assets/projects/project03/02.jpg",
+        "assets/projects/project03/03.jpg",
+        "assets/projects/project03/04.jpg",
+        "assets/projects/project03/05.jpg",
+        "assets/projects/project03/06.jpg",
+        "assets/projects/project03/07.jpg",
+        "assets/projects/project03/08.jpg",
+        "assets/projects/project03/09.jpg",
+        "assets/projects/project03/10.jpg",
+        "assets/projects/project03/11.jpg",
+        "assets/projects/project03/12.jpg",
+        "assets/projects/project03/13.jpg",
         "assets/hongdoudou/page_01.jpg",
         "assets/hongdoudou/photos/8.110319.jpg",
-        "assets/hongdoudou/photos/8.110342.jpg",
-        "assets/hongdoudou/photos/8.110337.jpg",
-        "assets/hongdoudou/photos/8.110349.jpg",
-        "assets/hongdoudou/photos/8.110355.jpg",
-        "assets/hongdoudou/photos/8.110369.jpg",
-        "assets/hongdoudou/photos/8.110375.jpg",
-        "assets/hongdoudou/photos/8.110383.jpg",
-        "assets/hongdoudou/photos/8.110382.jpg",
-        "assets/hongdoudou/photos/77d28ff44fe2b797e708df5eb8847894.JPG",
-        "assets/hongdoudou/photos/8.110396.jpg",
-        "assets/hongdoudou/photos/8.110402.jpg",
-        "assets/hongdoudou/photos/8.110410.jpg",
-        "assets/hongdoudou/photos/8.110411.jpg",
-        "assets/hongdoudou/photos/8.110417.jpg",
-        "assets/hongdoudou/photos/8.110432.jpg",
-        "assets/hongdoudou/photos/8.110433.jpg",
-        "assets/hongdoudou/photos/8.110442.jpg",
-        "assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG",
-        "assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG",
-        "assets/hongdoudou/photos/8.110484.jpg",
-        "assets/hongdoudou/photos/8.110494.jpg",
-        "assets/hongdoudou/photos/8.110496.jpg",
-        "assets/hongdoudou/photos/8.110508.jpg",
-        "assets/hongdoudou/photos/8.110509.jpg",
-        "assets/hongdoudou/photos/8.110507.jpg",
-        "assets/hongdoudou/photos/8.110513.jpg",
-        "assets/hongdoudou/photos/8.110510.jpg",
-        "assets/hongdoudou/photos/8.110512.jpg"
+        "assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG"
       ],
       inquiries: []
     };
@@ -2462,23 +2577,60 @@
       if (!art) return;
       const modal = document.getElementById("archProjectModal");
       const content = document.getElementById("archModalContent");
+
+      const plates = (art.gallery && art.gallery.length > 0) ? art.gallery : [art.coverImage];
+      const totalPlates = plates.length;
+
+      const galleryMarkup = plates.map((imgSrc, idx) => {
+        const plateNum = String(idx + 1).padStart(2, '0');
+        const plateLabel = `Plate ${plateNum} / ${String(totalPlates).padStart(2, '0')}`;
+        const escapedTitle = (art.title + ' — ' + plateLabel).replace(/"/g, '&quot;').replace(/'/g, "\\'");
+        return `
+          <div class="arch-plate-card">
+            <div class="arch-plate-header">
+              <span class="arch-plate-badge">${plateLabel}</span>
+              <span class="arch-plate-expand-hint">Click plate to zoom &amp; drag-pan</span>
+            </div>
+            <div class="arch-plate-thumb-wrap" onclick="openLightbox('${imgSrc}', '${escapedTitle}')" title="Click to view high-resolution plate in lightbox">
+              <img src="${imgSrc}" alt="${art.title} - ${plateLabel}" loading="lazy">
+              <div class="arch-plate-hint">Inspect Plate &oplus;</div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
       content.innerHTML = `
         <div style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 8px;">
-          Project // Architectural Design
+          Project // ${art.subtitle || 'Architectural Design'}
         </div>
-        <h2 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; color: #000;">
+        <h2 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; color: #000; line-height: 1.3;">
           ${art.title}
         </h2>
-        <div style="font-family: var(--font-sans); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #666; margin-bottom: 24px;">
-          ${art.subtitle}
+        <div style="display: flex; flex-wrap: wrap; gap: 14px 24px; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #666; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid #eee;">
+          <span><strong>Year:</strong> ${art.year || '2026'}</span>
+          <span><strong>Medium:</strong> ${art.medium || 'Architectural System'}</span>
+          <span><strong>Scope:</strong> ${art.dimension || (totalPlates + ' Plates')}</span>
         </div>
-        <div style="width: 100%; aspect-ratio: 316 / 227; overflow: hidden; margin-bottom: 24px; border: 1px solid #eee; background: #111;">
-          <img src="${art.coverImage}" alt="${art.title}" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <p style="font-size: 14px; color: #333; line-height: 1.9; margin-bottom: 24px; font-weight: 300;">
+
+        <div style="font-size: 14px; color: #333; line-height: 1.9; margin-bottom: 28px; font-weight: 300; background: #faf9f8; padding: 20px 24px; border-left: 3px solid var(--color-sand);">
+          <strong style="display: block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #222; margin-bottom: 8px;">Design Concept &amp; Core Value</strong>
           ${art.statement}
-        </p>
-        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+            <h3 style="font-family: var(--font-display); font-size: 16px; letter-spacing: 1px; text-transform: uppercase; margin: 0; color: #111;">
+              Project Portfolio Plates (${totalPlates})
+            </h3>
+            <span style="font-size: 11px; color: #888; font-family: var(--font-sans); letter-spacing: 0.5px; text-transform: uppercase;">Sequence: 01 to ${String(totalPlates).padStart(2, '0')}</span>
+          </div>
+          
+          <div class="arch-modal-gallery">
+            ${galleryMarkup}
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px; margin-top: 28px;">
           <span style="font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase;">Status: ${art.status === 'published' ? 'Published' : 'Draft'}</span>
           <button type="button" class="btn-show-more" onclick="handleArchEditClick('${art.id}')">
             Edit in Studio CMS
