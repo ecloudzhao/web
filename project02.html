@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sierra Canyon: Everyday Frictions &mdash; Project 02 | ChuRan (Olivia) Ma</title>
+  <meta name="description" content="Campus Research &amp; Spatial Diagnosis at Sierra Canyon School, Los Angeles by ChuRan (Olivia) Ma. Time-space behavioral mapping and flow diagnosis.">
+
+  <!-- Google Fonts: Aboreto & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-wix-banner: #e7dee1;
+      --color-wix-footer: #e7dee1;
+      --color-bar-accent: #c5b8bc;
+      --color-bg-page: #ffffff;
+      --color-bg-subtle: #faf8f8;
+      --color-bg-card: #ffffff;
+      --color-text-black: #111111;
+      --color-text-body: #2c2c2c;
+      --color-text-muted: #666666;
+      --color-text-dim: #8e8880;
+      --color-border-subtle: #eae6e7;
+      --color-border-line: #e2dcde;
+      --color-accent-dark: #3a3235;
+
+      --font-display: 'Aboreto', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --container-max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-bg-page);
+      color: var(--color-text-body);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 15px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 1. FIXED WIX NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--color-border-line);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .wix-nav-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      height: 72px;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wix-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .wix-star-icon {
+      width: 18px;
+      height: 18px;
+      stroke: var(--color-text-black);
+      stroke-width: 1.5;
+      fill: none;
+      transition: transform 0.5s ease;
+    }
+    .wix-brand-link:hover .wix-star-icon {
+      transform: rotate(90deg);
+    }
+
+    .wix-brand-text {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 400;
+    }
+
+    .wix-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .wix-nav-item {
+      position: relative;
+    }
+
+    .wix-nav-link {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--color-text-body);
+      text-transform: capitalize;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 0;
+    }
+
+    .wix-nav-link:hover,
+    .wix-nav-link.active {
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    .wix-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--color-text-black);
+    }
+
+    .wix-dropdown-trigger svg {
+      width: 10px;
+      height: 10px;
+      transition: transform 0.2s;
+    }
+    .wix-dropdown:hover .wix-dropdown-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .wix-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 260px;
+      padding: 12px 0;
+      border: 1px solid var(--color-border-line);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      list-style: none;
+      display: none;
+      z-index: 1001;
+    }
+
+    .wix-dropdown:hover .wix-dropdown-menu {
+      display: block;
+    }
+
+    .wix-dropdown-item a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+      line-height: 1.4;
+    }
+    .wix-dropdown-item a strong {
+      display: block;
+      color: var(--color-text-black);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .wix-dropdown-item a span {
+      font-size: 11px;
+      color: #888;
+    }
+    .wix-dropdown-item a:hover {
+      background: var(--color-bg-subtle);
+    }
+
+    .nav-btn-back {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 7px 16px;
+      border: 1px solid var(--color-border-line);
+      background: transparent;
+      color: var(--color-text-black);
+      transition: var(--transition);
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn-back:hover {
+      background: var(--color-text-black);
+      color: #ffffff;
+      border-color: var(--color-text-black);
+    }
+
+    /* 2. SIGNATURE HERO BAND */
+    .project-hero-band {
+      background-color: var(--color-wix-banner);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 70px 32px 60px;
+    }
+
+    .hero-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-category-tag {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 5px 14px;
+      border-radius: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-spread-count {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .hero-title-main {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      line-height: 1.25;
+      color: var(--color-text-black);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      margin-bottom: 36px;
+      max-width: 900px;
+    }
+
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-meta-item .meta-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      margin-bottom: 4px;
+    }
+
+    .hero-meta-item .meta-val {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-black);
+    }
+
+    /* 3. STICKY SUB-NAV */
+    .storyboard-subnav {
+      position: sticky;
+      top: 72px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border-line);
+      padding: 10px 32px;
+    }
+
+    .subnav-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    .subnav-label-wrapper {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .subnav-label {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--color-text-dim);
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .subnav-scroll-wrapper {
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      display: flex;
+      align-items: center;
+      mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+    }
+
+    .subnav-scroll-wrapper::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    .subnav-pages-scroll {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      padding: 4px 0;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+    }
+
+    .subnav-pill {
+      font-size: 11px;
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 2px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      transition: var(--transition);
+      background: #ffffff;
+      display: inline-block;
+      user-select: none;
+    }
+    .subnav-pill:hover,
+    .subnav-pill.active {
+      color: var(--color-text-black);
+      border-color: var(--color-text-black);
+      background: var(--color-bg-subtle);
+    }
+
+    .subnav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .subnav-arrows-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .subnav-arrow-btn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      color: var(--color-text-black);
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+      transition: var(--transition);
+      user-select: none;
+    }
+    .subnav-arrow-btn:hover {
+      background: var(--color-wix-banner);
+      border-color: var(--color-bar-accent);
+      color: var(--color-text-black);
+    }
+
+    /* 4. MAIN CONTAINER & PAGE CARDS */
+    .storyboard-wrapper {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 50px 32px 80px;
+    }
+
+    .project-statement-card {
+      margin-bottom: 60px;
+      background: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border-left: 4px solid var(--color-bar-accent);
+    }
+
+    .statement-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      margin-bottom: 16px;
+    }
+
+    .statement-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #333333;
+      font-weight: 300;
+    }
+    .statement-body p + p {
+      margin-top: 14px;
+    }
+
+    .page-unit {
+      margin-bottom: 60px;
+      background: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 2px;
+      padding: 36px 36px 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .page-unit:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      border-color: #d8cec8;
+    }
+
+    .page-unit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--color-border-subtle);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .page-badge {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      color: var(--color-text-black);
+      background: var(--color-wix-banner);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    .page-theme-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--color-text-black);
+      text-transform: uppercase;
+    }
+
+    .page-scan-link {
+      font-size: 11px;
+      font-family: var(--font-sans);
+      color: var(--color-text-dim);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: color 0.2s;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .page-scan-link:hover {
+      color: var(--color-text-black);
+    }
+
+    .img-zoom-target {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      background: #181716;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      display: block;
+      width: 100%;
+    }
+
+    .img-zoom-target img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-zoom-target:hover img {
+      transform: scale(1.012);
+    }
+
+    .img-zoom-target::after {
+      content: '⤢ Click to Zoom';
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(18, 17, 16, 0.82);
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
+    .img-zoom-target:hover::after {
+      opacity: 1;
+    }
+
+    .page-caption {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--color-bg-subtle);
+      border-left: 2px solid var(--color-bar-accent);
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-body);
+    }
+
+    /* 5. BOTTOM PROJECT NAVIGATION STRIP */
+    .project-bottom-nav {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project-nav-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      transition: var(--transition);
+      min-width: 280px;
+    }
+    .project-nav-card:hover {
+      border-color: var(--color-text-black);
+      background: var(--color-bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .pnav-sub {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+    .pnav-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    /* 6. FOOTER AREA */
+    .wix-footer-area {
+      background-color: var(--color-wix-footer);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 60px 32px 50px;
+    }
+
+    .footer-content-grid {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.7;
+      max-width: 380px;
+      font-weight: 300;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 16px;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-link-list a {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: #666666;
+      transition: color 0.2s;
+    }
+    .footer-link-list a:hover {
+      color: #000000;
+    }
+
+    .footer-bottom-bar {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: #8e8880;
+    }
+
+    .footer-nav-jump {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* 7. LIGHTBOX MODAL WITH ZOOM & PAN */
+    .lightbox-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 17, 16, 0.94);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+    .lightbox-backdrop.show {
+      display: flex;
+    }
+
+    .lightbox-content-box {
+      max-width: 92vw;
+      max-height: 90vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-close-btn {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 36px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      z-index: 2010;
+    }
+    .lightbox-close-btn:hover {
+      opacity: 1;
+    }
+
+    .lightbox-nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 2010;
+      backdrop-filter: blur(4px);
+    }
+    .lightbox-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .lightbox-prev-btn { left: 24px; }
+    .lightbox-next-btn { right: 24px; }
+
+    .lightbox-img-wrapper {
+      max-width: 100%;
+      max-height: 74vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    #lightbox-current-img {
+      max-width: 100%;
+      max-height: 74vh;
+      object-fit: contain;
+      cursor: grab;
+      will-change: transform;
+      transform-origin: center center;
+    }
+    #lightbox-current-img.is-zoomed {
+      cursor: grab;
+    }
+    #lightbox-current-img.is-dragging {
+      cursor: grabbing !important;
+      user-select: none;
+    }
+
+    .lightbox-zoom-toolbar {
+      position: fixed;
+      bottom: 24px;
+      left: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(25, 24, 23, 0.82);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+      padding: 5px 10px;
+      z-index: 2010;
+    }
+
+    .lightbox-zoom-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: opacity 0.2s, background-color 0.2s;
+      border-radius: 2px;
+    }
+    .lightbox-zoom-btn:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .lightbox-zoom-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: #ffffff;
+      min-width: 44px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+      padding: 2px 4px;
+    }
+
+    .lightbox-caption-text {
+      color: #ffffff;
+      margin-top: 14px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      text-align: center;
+      max-width: 800px;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+    }
+
+    .lightbox-zoom-hint {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- 1. FIXED NAVBAR -->
+  <header>
+    <div class="wix-nav-container">
+      <ul class="wix-nav-menu">
+        <li class="wix-nav-item">
+          <a href="index.html" class="nav-btn-back">&larr; Portfolio Home</a>
+        </li>
+        <li class="wix-nav-item wix-dropdown">
+          <a href="index.html#works" class="wix-nav-link wix-dropdown-trigger">
+            All Projects
+            <svg viewBox="0 0 10 6" fill="none" stroke="currentColor"><path d="M1 1L5 5L9 1" stroke-width="1.5"/></svg>
+          </a>
+          <ul class="wix-dropdown-menu">
+            <li class="wix-dropdown-item">
+              <a href="project01.html">
+                <strong>Ⅰ. Timber Archwork</strong>
+                <span>Adaptive Pavilion · Nanjing · 2026</span>
+              </a>
+            </li>
+            <li class="wix-dropdown-item">
+              <a href="project02.html" style="background: var(--color-bg-subtle);">
+                <strong>Ⅱ. Sierra Canyon Frictions</strong>
+                <span>Campus Research &amp; Spatial Diagnosis · 2026</span>
+              </a>
+            </li>
+            <li class="wix-dropdown-item">
+              <a href="project03.html">
+                <strong>Ⅲ. Canyon Echo Gateway</strong>
+                <span>Topographic Arts Architecture · 2026</span>
+              </a>
+            </li>
+            <li class="wix-dropdown-item">
+              <a href="exhibition.html">
+                <strong>Ⅳ. The Blurred Boundary</strong>
+                <span>Visual Art &amp; Archival Installation · 34 Pages</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <a href="index.html" class="wix-brand-link">
+        <svg class="wix-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="50,5 95,50 50,95 5,50" stroke="#000000" fill="none"/>
+          <polygon points="50,20 80,50 50,80 20,50" stroke="#000000" fill="none"/>
+          <line x1="50" y1="5" x2="50" y2="95" stroke="#000000"/>
+          <line x1="5" y1="50" x2="95" y2="50" stroke="#000000"/>
+          <line x1="18" y1="18" x2="82" y2="82" stroke="#000000"/>
+          <line x1="18" y1="82" x2="82" y2="18" stroke="#000000"/>
+        </svg>
+        <span class="wix-brand-text">ChuRan (Olivia) Ma</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. SIGNATURE HERO BAND -->
+  <section class="project-hero-band">
+    <div class="hero-container">
+      <div class="hero-badge-row">
+        <span class="hero-category-tag">Project 02 // Campus Urbanism &amp; Diagnosis</span>
+        <span class="hero-spread-count">8 Portfolio Plates &middot; Field Investigation</span>
+      </div>
+
+      <h1 class="hero-title-main">Sierra Canyon: Everyday Frictions &amp; Spatial Diagnosis</h1>
+      <p class="hero-subtitle">
+        A time-based behavioral mapping and topographical investigation of Sierra Canyon School on the edge of the Santa Susana Canyon, uncovering the structural tensions between natural grade, freeway infrastructure, and student flow.
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="hero-meta-item">
+          <div class="meta-label">Location &amp; Year</div>
+          <div class="meta-val">Los Angeles, USA &middot; 2026</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">Typology</div>
+          <div class="meta-val">Campus Research / Spatial Diagnosis</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">Methodology</div>
+          <div class="meta-val">Time-Space Mapping &amp; Axonometric Survey</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">Scope &amp; Drawings</div>
+          <div class="meta-val">8 Plates &middot; Behavioral Heatmaps &amp; Sections</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. STICKY SUB-NAV FOR QUICK JUMP -->
+  <nav class="storyboard-subnav">
+    <div class="subnav-inner">
+      <div class="subnav-label-wrapper">
+        <span class="subnav-label">JUMP TO PLATE:</span>
+      </div>
+
+      <div class="subnav-scroll-wrapper" id="subnav-scroll-wrapper">
+        <ul class="subnav-pages-scroll">
+          <li><a href="#plate-01" class="subnav-pill">01 &middot; Territory</a></li>
+          <li><a href="#plate-02" class="subnav-pill">02 &middot; Infrastructure</a></li>
+          <li><a href="#plate-03" class="subnav-pill">03 &middot; Drop-Off Flow</a></li>
+          <li><a href="#plate-04" class="subnav-pill">04 &middot; Axonometric</a></li>
+          <li><a href="#plate-05" class="subnav-pill">05 &middot; Topography</a></li>
+          <li><a href="#plate-06" class="subnav-pill">06 &middot; Microclimate</a></li>
+          <li><a href="#plate-07" class="subnav-pill">07 &middot; Frictions Cut</a></li>
+          <li><a href="#plate-08" class="subnav-pill">08 &middot; Synthesis Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="subnav-actions">
+        <div class="subnav-arrows-group">
+          <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(-1)" aria-label="Scroll left">&larr;</button>
+          <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(1)" aria-label="Scroll right">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 4. STORYBOARD MAIN CONTAINER -->
+  <main class="storyboard-wrapper">
+
+    <!-- CONCEPT STATEMENT CARD -->
+    <section class="project-statement-card">
+      <h2 class="statement-title">Research Methodology &amp; Diagnostic Statement</h2>
+      <div class="statement-body">
+        <p>
+          Perched along the rugged topographic threshold of the Santa Susana Canyon and bounded by the Ronald Reagan Freeway in Chatsworth, Los Angeles, Sierra Canyon School embodies acute spatial contradictions between natural mountain grade and rapid vehicular transit.
+        </p>
+        <p>
+          Through extensive on-site mapping, temporal behavioral tracking, and axonometric dissection, this research diagnoses critical everyday frictions across campus: acute vehicle-pedestrian bottlenecks during morning drop-off, abrupt and disorienting grade transitions connected by purely utilitarian staircases, and a lack of climate-tempered outdoor gathering nodes. By decoding student, faculty, and vehicular flows into empirical spatial data, this research uncovers the underlying structural tensions, establishing an indispensable evidentiary baseline for master planning and tectonic intervention.
+        </p>
+      </div>
+    </section>
+
+    <!-- PLATE 01 -->
+    <article class="page-unit" id="plate-01">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 01</span>
+          <span class="page-theme-title">Territorial Macro-Setting &amp; Canyon Geomorphology</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/01.jpg', 'Plate 01: Territorial Macro-Setting &amp; Canyon Geomorphology')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/01.jpg', 'Plate 01: Territorial Macro-Setting &amp; Canyon Geomorphology')">
+        <img src="assets/projects/project02/01.jpg" alt="Plate 01 - Territorial Setting" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 01:</span> Title Plate and Macro-Territorial Geomorphology: Santa Susana mountain range, Chatsworth basin context, and geographic threshold condition.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 02 -->
+    <article class="page-unit" id="plate-02">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 02</span>
+          <span class="page-theme-title">Regional Transit &amp; Freeway Boundary Enclosure</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/02.jpg', 'Plate 02: Regional Transit &amp; Freeway Boundary Enclosure')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/02.jpg', 'Plate 02: Regional Transit &amp; Freeway Boundary Enclosure')">
+        <img src="assets/projects/project02/02.jpg" alt="Plate 02 - Regional Transit Infrastructure" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 02:</span> Ronald Reagan Freeway (CA-118) corridor mapping, high-speed acoustic boundaries, vehicular approach vectors, and perimeter enclosure.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 03 -->
+    <article class="page-unit" id="plate-03">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 03</span>
+          <span class="page-theme-title">Morning Drop-Off Flow &amp; Conflict Bottlenecks</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/03.jpg', 'Plate 03: Morning Drop-Off Flow &amp; Conflict Bottlenecks')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/03.jpg', 'Plate 03: Morning Drop-Off Flow &amp; Conflict Bottlenecks')">
+        <img src="assets/projects/project02/03.jpg" alt="Plate 03 - Drop-off Flow Bottlenecks" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 03:</span> Peak drop-off time (7:45–8:25 AM) behavioral tracking: student pedestrian trajectories intersecting car turnaround loops, waiting queue latency, and safety hazards.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 04 -->
+    <article class="page-unit" id="plate-04">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 04</span>
+          <span class="page-theme-title">High-Density Campus Axonometric &amp; Node Network</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/04.jpg', 'Plate 04: High-Density Campus Axonometric &amp; Node Network')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/04.jpg', 'Plate 04: High-Density Campus Axonometric &amp; Node Network')">
+        <img src="assets/projects/project02/04.jpg" alt="Plate 04 - Campus Axonometric" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 04:</span> Comprehensive 3D axonometric survey of the upper academic plateau, administration hub, sports courts, and intermediate hillside terraces.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 05 -->
+    <article class="page-unit" id="plate-05">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 05</span>
+          <span class="page-theme-title">Topographic Contours &amp; Disconnected Stairs</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/05.jpg', 'Plate 05: Topographic Contours &amp; Disconnected Stairs')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/05.jpg', 'Plate 05: Topographic Contours &amp; Disconnected Stairs')">
+        <img src="assets/projects/project02/05.jpg" alt="Plate 05 - Topography and Stairs" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 05:</span> Elevation gradient analysis: 12-meter drop between upper campus and lower gymnasium, steep utilitarian fire stairs, and vertical fatigue barriers.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 06 -->
+    <article class="page-unit" id="plate-06">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 06</span>
+          <span class="page-theme-title">Microclimate, Solar Radiation &amp; Unshaded Terraces</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/06.jpg', 'Plate 06: Microclimate, Solar Radiation &amp; Unshaded Terraces')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/06.jpg', 'Plate 06: Microclimate, Solar Radiation &amp; Unshaded Terraces')">
+        <img src="assets/projects/project02/06.jpg" alt="Plate 06 - Microclimate Analysis" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 06:</span> San Fernando Valley microclimate conditions: extreme afternoon heat gain, lack of tree canopy shading, wind funneling, and underutilized outdoor gathering spaces.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 07 -->
+    <article class="page-unit" id="plate-07">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 07</span>
+          <span class="page-theme-title">Sectional Elevation Cut: Severe Friction Hotspots</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/07.jpg', 'Plate 07: Sectional Elevation Cut: Severe Friction Hotspots')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/07.jpg', 'Plate 07: Sectional Elevation Cut: Severe Friction Hotspots')">
+        <img src="assets/projects/project02/07.jpg" alt="Plate 07 - Sectional Friction Cut" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 07:</span> Critical Section Cut illustrating friction points where student walkways abruptly end at vehicular asphalt without transitional buffers or weather protection.</p>
+      </div>
+    </article>
+
+    <!-- PLATE 08 -->
+    <article class="page-unit" id="plate-08">
+      <div class="page-unit-header">
+        <div class="page-indicator">
+          <span class="page-badge">PLATE 08</span>
+          <span class="page-theme-title">Diagnostic Synthesis Matrix &amp; Planning Framework</span>
+        </div>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/08.jpg', 'Plate 08: Diagnostic Synthesis Matrix &amp; Planning Framework')">Inspect Full Plate &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/08.jpg', 'Plate 08: Diagnostic Synthesis Matrix &amp; Planning Framework')">
+        <img src="assets/projects/project02/08.jpg" alt="Plate 08 - Diagnostic Synthesis Matrix" loading="lazy">
+      </div>
+      <div class="page-caption">
+        <p><span class="caption-highlight">Plate 08:</span> Empirical synthesis matrix summarizing spatial evidence into design mandates: Decoupling vehicular transit from pedestrian arrival, activating grade transitions through 3D landscape, and crafting an elevated gateway ribbon (directly resolved in Project 03).</p>
+      </div>
+    </article>
+
+    <!-- 5. PROJECT NAVIGATION STRIP -->
+    <nav class="project-bottom-nav">
+      <a href="project01.html" class="project-nav-card">
+        <div>
+          <div class="pnav-sub">&larr; Previous Project</div>
+          <div class="pnav-title">01 &middot; Timber Archwork</div>
+        </div>
+      </a>
+
+      <a href="project03.html" class="project-nav-card" style="margin-left: auto;">
+        <div style="text-align: right;">
+          <div class="pnav-sub">Next Project &rarr;</div>
+          <div class="pnav-title">03 &middot; Canyon Echo Gateway</div>
+        </div>
+      </a>
+    </nav>
+
+  </main>
+
+  <!-- 6. WIX FOOTER -->
+  <footer class="wix-footer-area">
+    <div class="footer-content-grid">
+      <div>
+        <div class="footer-brand-title">ChuRan (Olivia) Ma</div>
+        <p class="footer-brand-desc">
+          Architectural and visual art portfolio exploring spatial envelopes, kinetic thresholds, and domestic bodily discipline.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Portfolio Projects</div>
+        <ul class="footer-link-list">
+          <li><a href="project01.html">01 &middot; Timber Archwork</a></li>
+          <li><a href="project02.html">02 &middot; Sierra Canyon Frictions</a></li>
+          <li><a href="project03.html">03 &middot; Canyon Echo Gateway</a></li>
+          <li><a href="exhibition.html">04 &middot; The Blurred Boundary</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#works">View Works</a></li>
+          <li><a href="index.html#about">About the Artist</a></li>
+          <li><a href="index.html#contact">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 ChuRan (Olivia) Ma. All rights reserved.</div>
+      <div class="footer-nav-jump">
+        <a href="#top">Back to Top &uarr;</a>
+        <a href="index.html#works">&larr; Return to All Works</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 7. LIGHTBOX MODAL -->
+  <div class="lightbox-backdrop" id="lightbox-modal">
+    <div class="lightbox-content-box" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="Previous Image">&#10094;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="Next Image">&#10095;</button>
+
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-current-img" src="" alt="Expanded View">
+      </div>
+
+      <!-- Zoom Toolbar & Hint -->
+      <div class="lightbox-zoom-toolbar">
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="Zoom Out" title="Zoom Out">&minus;</button>
+        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="Click to Reset 100%">100%</span>
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="Zoom In" title="Zoom In">&plus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="Reset Zoom" title="Reset Zoom">&#x21bb;</button>
+      </div>
+
+      <div class="lightbox-caption-text" id="lightbox-caption"></div>
+      <div class="lightbox-zoom-hint">Scroll wheel to zoom &middot; Drag to pan &middot; Double-click to reset</div>
+    </div>
+  </div>
+
+  <!-- 8. JAVASCRIPT LOGIC -->
+  <script>
+    function scrollSubnav(direction) {
+      const scrollWrap = document.getElementById('subnav-scroll-wrapper');
+      if (scrollWrap) {
+        const distance = 280 * direction;
+        scrollWrap.scrollBy({ left: distance, behavior: 'smooth' });
+      }
+    }
+
+    const allGalleryImages = [
+      { src: 'assets/projects/project02/01.jpg', caption: 'Plate 01: Territorial Macro-Setting &amp; Canyon Geomorphology' },
+      { src: 'assets/projects/project02/02.jpg', caption: 'Plate 02: Regional Transit &amp; Freeway Boundary Enclosure' },
+      { src: 'assets/projects/project02/03.jpg', caption: 'Plate 03: Morning Drop-Off Flow &amp; Conflict Bottlenecks' },
+      { src: 'assets/projects/project02/04.jpg', caption: 'Plate 04: High-Density Campus Axonometric &amp; Node Network' },
+      { src: 'assets/projects/project02/05.jpg', caption: 'Plate 05: Topographic Contours &amp; Disconnected Stairs' },
+      { src: 'assets/projects/project02/06.jpg', caption: 'Plate 06: Microclimate, Solar Radiation &amp; Unshaded Terraces' },
+      { src: 'assets/projects/project02/07.jpg', caption: 'Plate 07: Sectional Elevation Cut: Severe Friction Hotspots' },
+      { src: 'assets/projects/project02/08.jpg', caption: 'Plate 08: Diagnostic Synthesis Matrix &amp; Planning Framework' }
+    ];
+
+    let currentLightboxIdx = 0;
+    let lbScale = 1.0;
+    let lbTranslateX = 0;
+    let lbTranslateY = 0;
+    let lbIsDragging = false;
+    let lbStartX = 0;
+    let lbStartY = 0;
+    let lbDragBaseX = 0;
+    let lbDragBaseY = 0;
+
+    function applyLightboxTransform(smooth = true) {
+      const img = document.getElementById('lightbox-current-img');
+      const badge = document.getElementById('lightbox-zoom-level');
+      if (!img) return;
+
+      if (smooth) {
+        img.style.transition = 'transform 0.08s ease-out';
+      } else {
+        img.style.transition = 'none';
+      }
+
+      img.style.transform = `translate(${lbTranslateX}px, ${lbTranslateY}px) scale(${lbScale})`;
+
+      if (lbScale > 1.02) {
+        img.classList.add('is-zoomed');
+      } else {
+        img.classList.remove('is-zoomed');
+      }
+
+      if (badge) {
+        badge.textContent = Math.round(lbScale * 100) + '%';
+      }
+    }
+
+    function clampLightboxTranslation() {
+      const img = document.getElementById('lightbox-current-img');
+      const wrapper = img ? img.parentElement : null;
+      if (!img || !wrapper) return;
+
+      if (lbScale <= 1.0) {
+        lbTranslateX = 0;
+        lbTranslateY = 0;
+        return;
+      }
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const naturalW = img.offsetWidth || wrapperRect.width;
+      const naturalH = img.offsetHeight || wrapperRect.height;
+      const scaledW = naturalW * lbScale;
+      const scaledH = naturalH * lbScale;
+
+      const maxPanX = Math.max(0, (scaledW - wrapperRect.width) / 2) + Math.min(wrapperRect.width * 0.4, 160);
+      const maxPanY = Math.max(0, (scaledH - wrapperRect.height) / 2) + Math.min(wrapperRect.height * 0.4, 160);
+
+      lbTranslateX = Math.max(-maxPanX, Math.min(maxPanX, lbTranslateX));
+      lbTranslateY = Math.max(-maxPanY, Math.min(maxPanY, lbTranslateY));
+    }
+
+    function resetLightboxZoom() {
+      lbScale = 1.0;
+      lbTranslateX = 0;
+      lbTranslateY = 0;
+      applyLightboxTransform(true);
+    }
+
+    function zoomLightboxAt(targetScale, clientX, clientY) {
+      const img = document.getElementById('lightbox-current-img');
+      if (!img) return;
+
+      targetScale = Math.max(1.0, Math.min(6.0, targetScale));
+
+      if (targetScale <= 1.01) {
+        resetLightboxZoom();
+        return;
+      }
+
+      const rect = img.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      const mouseX = (clientX !== undefined ? clientX : cx) - cx;
+      const mouseY = (clientY !== undefined ? clientY : cy) - cy;
+
+      const scaleRatio = targetScale / lbScale;
+      lbTranslateX = mouseX - (mouseX - lbTranslateX) * scaleRatio;
+      lbTranslateY = mouseY - (mouseY - lbTranslateY) * scaleRatio;
+      lbScale = targetScale;
+
+      clampLightboxTranslation();
+      applyLightboxTransform(true);
+    }
+
+    function lightboxZoomStep(step) {
+      const factor = step > 0 ? 1.25 : (1 / 1.25);
+      const img = document.getElementById('lightbox-current-img');
+      const rect = img ? img.getBoundingClientRect() : null;
+      const cx = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+      const cy = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+      zoomLightboxAt(lbScale * factor, cx, cy);
+    }
+
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-current-img');
+      const cap = document.getElementById('lightbox-caption');
+
+      let foundIdx = allGalleryImages.findIndex(item => item.src === src);
+      if (foundIdx === -1) {
+        foundIdx = 0;
+      }
+      currentLightboxIdx = foundIdx;
+
+      resetLightboxZoom();
+      img.src = src;
+      cap.innerHTML = caption || allGalleryImages[foundIdx].caption || '';
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      resetLightboxZoom();
+    }
+
+    function lightboxNavigate(delta) {
+      currentLightboxIdx += delta;
+      if (currentLightboxIdx < 0) currentLightboxIdx = allGalleryImages.length - 1;
+      if (currentLightboxIdx >= allGalleryImages.length) currentLightboxIdx = 0;
+
+      const item = allGalleryImages[currentLightboxIdx];
+      const img = document.getElementById('lightbox-current-img');
+      const cap = document.getElementById('lightbox-caption');
+
+      resetLightboxZoom();
+      img.src = item.src;
+      cap.innerHTML = item.caption;
+    }
+
+    (function initLightboxInteractions() {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-current-img');
+      if (!modal || !img) return;
+
+      let lbMouseDownTarget = null;
+      let lbDidDrag = false;
+      let lbDragEndTime = 0;
+
+      modal.addEventListener('mousedown', function(e) {
+        lbMouseDownTarget = e.target;
+      });
+
+      modal.addEventListener('click', function(e) {
+        if (e.target.closest('.lightbox-close-btn')) {
+          closeLightbox();
+          return;
+        }
+        if (lbDidDrag || (Date.now() - lbDragEndTime < 300)) {
+          return;
+        }
+        if (e.target === modal && lbMouseDownTarget === modal) {
+          closeLightbox();
+        }
+      });
+
+      modal.addEventListener('wheel', function(e) {
+        if (!modal.classList.contains('show')) return;
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.18 : (1 / 1.18);
+        zoomLightboxAt(lbScale * factor, e.clientX, e.clientY);
+      }, { passive: false });
+
+      img.addEventListener('pointerdown', function(e) {
+        if (lbScale > 1.02 && e.button === 0) {
+          lbIsDragging = true;
+          lbDidDrag = false;
+          lbStartX = e.clientX;
+          lbStartY = e.clientY;
+          lbDragBaseX = lbTranslateX;
+          lbDragBaseY = lbTranslateY;
+          try {
+            img.setPointerCapture(e.pointerId);
+          } catch (err) {}
+          img.classList.add('is-dragging');
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+
+      img.addEventListener('pointermove', function(e) {
+        if (lbIsDragging) {
+          const dx = e.clientX - lbStartX;
+          const dy = e.clientY - lbStartY;
+          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+            lbDidDrag = true;
+          }
+          lbTranslateX = lbDragBaseX + dx;
+          lbTranslateY = lbDragBaseY + dy;
+          clampLightboxTranslation();
+          applyLightboxTransform(false);
+        }
+      });
+
+      function finishPointerDrag(e) {
+        if (lbIsDragging) {
+          lbIsDragging = false;
+          if (lbDidDrag) {
+            lbDragEndTime = Date.now();
+          }
+          try {
+            if (img.hasPointerCapture(e.pointerId)) {
+              img.releasePointerCapture(e.pointerId);
+            }
+          } catch (err) {}
+          img.classList.remove('is-dragging');
+          clampLightboxTranslation();
+          applyLightboxTransform(true);
+          setTimeout(() => { lbDidDrag = false; }, 250);
+        }
+      }
+
+      img.addEventListener('pointerup', finishPointerDrag);
+      img.addEventListener('pointercancel', finishPointerDrag);
+
+      img.addEventListener('dblclick', function(e) {
+        e.preventDefault();
+        if (lbScale > 1.05) {
+          resetLightboxZoom();
+        } else {
+          zoomLightboxAt(2.5, e.clientX, e.clientY);
+        }
+      });
+    })();
+
+    window.addEventListener('keydown', function(e) {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal && modal.classList.contains('show')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxNavigate(-1);
+        if (e.key === 'ArrowRight') lightboxNavigate(1);
+        if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
+        if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
+        if (e.key === '0') resetLightboxZoom();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1092,6 +1092,49 @@
       .lightbox-next-btn { right: 10px; }
     }
 
+    /* Bottom Project Navigation Strip */
+    .project-bottom-nav {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .project-nav-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      transition: var(--transition);
+      min-width: 280px;
+      text-decoration: none;
+    }
+    .project-nav-card:hover {
+      border-color: var(--color-text-black);
+      background: var(--color-bg-subtle);
+      transform: translateY(-2px);
+    }
+    .pnav-sub {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+    .pnav-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
     /* ==========================================================================
        10. WIX MINIMALIST FOOTER (#e7dee1)
        ========================================================================== */
@@ -1198,9 +1241,9 @@
               <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 5 5-5z"/></svg>
             </a>
             <ul class="wix-dropdown-menu">
-              <li class="wix-dropdown-item"><a href="index.html#works">Project 01 &middot; Spatial Flow</a></li>
-              <li class="wix-dropdown-item"><a href="index.html#works">Project 02 &middot; Urban Infill</a></li>
-              <li class="wix-dropdown-item"><a href="index.html#works">Project 03 &middot; Kinetic Assemblies</a></li>
+              <li class="wix-dropdown-item"><a href="project01.html">Project 01 &middot; Spatial Flow (Timber Archwork)</a></li>
+              <li class="wix-dropdown-item"><a href="project02.html">Project 02 &middot; Urban Infill (Sierra Canyon)</a></li>
+              <li class="wix-dropdown-item"><a href="project03.html">Project 03 &middot; Kinetic Assemblies (Canyon Echo)</a></li>
               <li class="wix-dropdown-item"><a href="exhibition.html" style="font-weight:600; color:#111;">Project 04 &middot; The Blurred Boundary</a></li>
             </ul>
           </li>
@@ -2037,6 +2080,23 @@
 
     </article>
 
+    <!-- 5. PROJECT NAVIGATION STRIP -->
+    <nav class="project-bottom-nav">
+      <a href="project03.html" class="project-nav-card">
+        <div>
+          <div class="pnav-sub">&larr; Previous Project</div>
+          <div class="pnav-title">03 &middot; Canyon Echo Gateway</div>
+        </div>
+      </a>
+
+      <a href="index.html#works" class="project-nav-card" style="margin-left: auto;">
+        <div style="text-align: right;">
+          <div class="pnav-sub">Return &rarr;</div>
+          <div class="pnav-title">All Portfolio Works</div>
+        </div>
+      </a>
+    </nav>
+
   </main>
 
 
@@ -2054,9 +2114,9 @@
       <div>
         <div class="footer-col-title">Portfolio Projects</div>
         <ul class="footer-link-list">
-          <li><a href="index.html#works">01 &middot; Spatial Flow</a></li>
-          <li><a href="index.html#works">02 &middot; Urban Infill</a></li>
-          <li><a href="index.html#works">03 &middot; Kinetic Assemblies</a></li>
+          <li><a href="project01.html">01 &middot; Spatial Flow (Timber Archwork)</a></li>
+          <li><a href="project02.html">02 &middot; Urban Infill (Sierra Canyon)</a></li>
+          <li><a href="project03.html">03 &middot; Kinetic Assemblies (Canyon Echo)</a></li>
           <li><a href="exhibition.html">04 &middot; The Blurred Boundary</a></li>
         </ul>
       </div>
