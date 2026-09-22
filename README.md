@@ -1,6 +1,6 @@
-# ChuRan (Olivia) Ma &mdash; Portfolio Website
+# Churan (Olivia) Ma &mdash; Portfolio Website
 
-A personal portfolio showcasing architectural design, urban infill research, parametric façades, and visual art installations by ChuRan (Olivia) Ma.
+A personal portfolio showcasing architectural design, urban infill research, parametric façades, and visual art installations by Churan (Olivia) Ma.
 
 ---
 
@@ -40,7 +40,7 @@ A personal portfolio showcasing architectural design, urban infill research, par
    cd web
    git init
    git add .
-   git commit -m "Initial release of ChuRan Ma portfolio"
+   git commit -m "Initial release of Churan Ma portfolio"
    git branch -M main
    git remote add origin https://github.com/<your-username>/<your-repo-name>.git
    git push -u origin main
@@ -77,4 +77,4 @@ A personal portfolio showcasing architectural design, urban infill research, par
 
 ---
 
-&copy; 2026 ChuRan (Olivia) Ma. All rights reserved.
+&copy; 2026 Churan (Olivia) Ma. All rights reserved.
