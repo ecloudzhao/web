@@ -2392,7 +2392,13 @@
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
-          state.data = JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.version === INITIAL_SEED_DATA.version) {
+            state.data = parsed;
+          } else {
+            state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
+            saveData();
+          }
         } else {
           state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
           saveData();
