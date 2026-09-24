@@ -734,50 +734,223 @@
       object-fit: contain;
     }
 
-    /* Layout: Pencilcase 3-Images (Section 3 Slide 2) */
-    .slide-3img-pencilcase {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 20px;
+    /* Layout: Section 3 Slide 2 - Pencilcase 3-Images (matching PDF Page 8: left big, right 2 horizontal bottom-aligned) */
+    .slide-sec3-pencilcase3 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 24px;
       width: 100%;
-      align-items: stretch;
+      max-width: 1140px;
+      margin: 0 auto;
     }
-    .pencilcase-main {
-      height: 480px;
+    .sec3-main-img {
+      flex: 1.45;
+      height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .pencilcase-main img {
+    .sec3-main-img img {
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
-    .pencilcase-right-col {
+    .sec3-right-row {
+      flex: 1.25;
       display: flex;
-      flex-direction: column;
+      align-items: flex-end;
       gap: 16px;
-      height: 480px;
+      height: 440px;
     }
-    .pencilcase-right-col .img-zoom-target {
-      flex: 1;
-      height: calc(50% - 8px);
+    .sec3-sub1-img {
+      flex: 0.85;
+      height: 290px;
     }
-    .pencilcase-right-col img {
+    .sec3-sub1-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .sec3-sub2-img {
+      flex: 1.35;
+      height: 290px;
+    }
+    .sec3-sub2-img img {
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
 
-    /* Layout: Triptych 3-Images (Section 7 Slide 6) */
-    .slide-triptych-3img {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
+    /* Layout: Section 3 Slide 3 - Ballet leotard & pointe shoes (matching PDF Page 9: asymmetric left-big right-small bottom-aligned) */
+    .slide-sec3-ballet2 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
       width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .sec3-ballet-main {
+      flex: 2.35;
+      height: 460px;
+    }
+    .sec3-ballet-main img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .sec3-ballet-sub {
+      flex: 0.95;
+      height: 210px;
+      margin-bottom: 2px;
+    }
+    .sec3-ballet-sub img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 4 Slide 3 - Loose-leaf spread & punch rings (matching PDF Page 13: equal height, side by side) */
+    .slide-sec4-looseleaf2 {
+      display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 28px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .sec4-looseleaf-main {
+      height: 440px;
+      flex: 1.85;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec4-looseleaf-main img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    .sec4-looseleaf-sub {
+      height: 440px;
+      flex: 0.95;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec4-looseleaf-sub img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 6 Slide 2 - Overlap layout (matching PDF Page 20: left full height vertical, right horizontal overlap) */
+    .slide-sec6-overlap {
+      display: grid;
+      grid-template-columns: 1.15fr 1.35fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec6-left-img {
+      height: 520px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec6-left-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .sec6-right-img {
+      height: 400px;
+    }
+    .sec6-right-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 7 Slide 2 & 4 - Model student portraits & posture (matching PDF Page 24 & 28) */
+    .slide-sec7-portrait-split2,
+    .slide-sec7-cuffwaist-split2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 38px;
+      width: 100%;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .sec7-full-img,
+    .sec7-cuff-img {
+      height: 550px;
+      flex: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec7-full-img img,
+    .sec7-cuff-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .sec7-crop-img,
+    .sec7-waist-img {
+      height: 470px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec7-crop-img img,
+    .sec7-waist-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Layout: Triptych 3-Images (Section 7 Slide 6 matching PDF Page 30) */
+    .slide-triptych-3img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
     }
     .slide-triptych-3img .img-zoom-target {
-      height: 520px;
+      height: 450px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .slide-triptych-3img img {
+    .slide-triptych-3img .triptych-vert {
+      flex: 1;
+    }
+    .slide-triptych-3img .triptych-vert img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .slide-triptych-3img .triptych-horiz {
+      flex: 2.2;
+    }
+    .slide-triptych-3img .triptych-horiz img {
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -1537,8 +1710,8 @@
                 <div class="carousel-slide" data-slide-index="0">
                   
                     <div class="slide-media-box">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110349.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110349.jpg')">
-                        <img src="assets/hongdoudou/photos/8.110349.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/p05_desk_overview.png', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/p05_desk_overview.png')">
+                        <img src="assets/hongdoudou/photos/p05_desk_overview.png" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
                       </div>
                     </div>
                     
@@ -1551,15 +1724,15 @@
                 
                 <div class="carousel-slide" data-slide-index="1">
                   
-                    <div class="slide-3img-pencilcase">
-                      <div class="img-zoom-target pencilcase-main" onclick="openLightbox('assets/hongdoudou/photos/8.110355.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110355.jpg')">
+                    <div class="slide-sec3-pencilcase3">
+                      <div class="img-zoom-target sec3-main-img" onclick="openLightbox('assets/hongdoudou/photos/8.110355.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110355.jpg')">
                         <img src="assets/hongdoudou/photos/8.110355.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
                       </div>
-                      <div class="pencilcase-right-col">
-                        <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110353.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110353.jpg')">
+                      <div class="sec3-right-row">
+                        <div class="img-zoom-target sec3-sub1-img" onclick="openLightbox('assets/hongdoudou/photos/8.110353.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110353.jpg')">
                           <img src="assets/hongdoudou/photos/8.110353.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
                         </div>
-                        <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110354.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110354.jpg')">
+                        <div class="img-zoom-target sec3-sub2-img" onclick="openLightbox('assets/hongdoudou/photos/8.110354.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110354.jpg')">
                           <img src="assets/hongdoudou/photos/8.110354.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
                         </div>
                       </div>
@@ -1575,11 +1748,11 @@
                 
                 <div class="carousel-slide" data-slide-index="2">
                   
-                    <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110369.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110369.jpg')">
+                    <div class="slide-sec3-ballet2">
+                      <div class="img-zoom-target sec3-ballet-main" onclick="openLightbox('assets/hongdoudou/photos/8.110369.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110369.jpg')">
                         <img src="assets/hongdoudou/photos/8.110369.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110361.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110361.jpg')">
+                      <div class="img-zoom-target sec3-ballet-sub" onclick="openLightbox('assets/hongdoudou/photos/8.110361.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110361.jpg')">
                         <img src="assets/hongdoudou/photos/8.110361.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
                       </div>
                     </div>
@@ -1659,11 +1832,11 @@
                 
                 <div class="carousel-slide" data-slide-index="2">
                   
-                    <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110396.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110396.jpg')">
-                        <img src="assets/hongdoudou/photos/8.110396.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
+                    <div class="slide-sec4-looseleaf2">
+                      <div class="img-zoom-target sec4-looseleaf-main" onclick="openLightbox('assets/hongdoudou/photos/p12_looseleaf_spread.png', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/p12_looseleaf_spread.png')">
+                        <img src="assets/hongdoudou/photos/p12_looseleaf_spread.png" alt="STUDY MATERIALS &amp; TRANSITION">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110402.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110402.jpg')">
+                      <div class="img-zoom-target sec4-looseleaf-sub" onclick="openLightbox('assets/hongdoudou/photos/8.110402.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110402.jpg')">
                         <img src="assets/hongdoudou/photos/8.110402.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
                       </div>
                     </div>
@@ -1812,11 +1985,11 @@
                 
                 <div class="carousel-slide" data-slide-index="1">
                   
-                    <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110433.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110433.jpg')">
+                    <div class="slide-sec6-overlap">
+                      <div class="img-zoom-target sec6-left-img" onclick="openLightbox('assets/hongdoudou/photos/8.110433.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110433.jpg')">
                         <img src="assets/hongdoudou/photos/8.110433.jpg" alt="OVERSEAS APPLICATION &amp; EXPANDING HORIZONS">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110424.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110424.jpg')">
+                      <div class="img-zoom-target sec6-right-img" onclick="openLightbox('assets/hongdoudou/photos/8.110424.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110424.jpg')">
                         <img src="assets/hongdoudou/photos/8.110424.jpg" alt="OVERSEAS APPLICATION &amp; EXPANDING HORIZONS">
                       </div>
                     </div>
@@ -1896,11 +2069,11 @@
                 
                 <div class="carousel-slide" data-slide-index="1">
                   
-                    <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG')">
+                    <div class="slide-sec7-portrait-split2">
+                      <div class="img-zoom-target sec7-full-img" onclick="openLightbox('assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG')">
                         <img src="assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/357.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/357.JPG')">
+                      <div class="img-zoom-target sec7-crop-img" onclick="openLightbox('assets/hongdoudou/photos/357.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/357.JPG')">
                         <img src="assets/hongdoudou/photos/357.JPG" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
                       </div>
                     </div>
@@ -1940,11 +2113,11 @@
                 
                 <div class="carousel-slide" data-slide-index="3">
                   
-                    <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110496.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110496.jpg')">
+                    <div class="slide-sec7-cuffwaist-split2">
+                      <div class="img-zoom-target sec7-cuff-img" onclick="openLightbox('assets/hongdoudou/photos/8.110496.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110496.jpg')">
                         <img src="assets/hongdoudou/photos/8.110496.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110503.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110503.jpg')">
+                      <div class="img-zoom-target sec7-waist-img" onclick="openLightbox('assets/hongdoudou/photos/8.110503.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110503.jpg')">
                         <img src="assets/hongdoudou/photos/8.110503.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
                       </div>
                     </div>
@@ -1974,14 +2147,14 @@
                 <div class="carousel-slide" data-slide-index="5">
                   
                     <div class="slide-triptych-3img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110507.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110507.jpg')">
+                      <div class="img-zoom-target triptych-vert" onclick="openLightbox('assets/hongdoudou/photos/8.110509.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110509.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110509.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                      <div class="img-zoom-target triptych-vert" onclick="openLightbox('assets/hongdoudou/photos/8.110507.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110507.jpg')">
                         <img src="assets/hongdoudou/photos/8.110507.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110513.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110513.jpg')">
-                        <img src="assets/hongdoudou/photos/8.110513.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
-                      </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110510.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110510.jpg')">
-                        <img src="assets/hongdoudou/photos/8.110510.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      <div class="img-zoom-target triptych-horiz" onclick="openLightbox('assets/hongdoudou/photos/8.110512.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110512.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110512.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
                       </div>
                     </div>
                     
