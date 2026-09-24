@@ -373,9 +373,13 @@
 
     .about-wix-layout {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 70px;
-      align-items: center;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    .about-bio-text {
+      padding-top: 6px;
     }
 
     .about-bio-text p {
@@ -391,11 +395,11 @@
       margin-bottom: 0;
     }
 
-    /* Layered Offset Portrait Frame (Signature Wix Design - Full 2:3 Vertical Portrait) */
+    /* Layered Offset Portrait Frame - Harmonized with Bio Column */
     .wix-layered-frame-wrapper {
       position: relative;
-      width: 380px;
-      height: 550px;
+      width: 440px;
+      height: 645px;
       max-width: 100%;
       margin: 0 auto;
     }
@@ -404,8 +408,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 340px;
-      height: 510px;
+      width: 400px;
+      height: 600px;
       border: 1px solid #cfc5bb;
       z-index: 2;
       pointer-events: none;
@@ -416,8 +420,8 @@
       position: absolute;
       top: 40px;
       left: 40px;
-      width: 340px;
-      height: 510px;
+      width: 400px;
+      height: 600px;
       background: linear-gradient(145deg, #e4ded7 0%, #d8cec4 100%);
       border: 1px solid #d0c5ba;
       z-index: 1;
@@ -428,11 +432,11 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      width: 340px;
-      height: 510px;
+      width: 400px;
+      height: 600px;
       z-index: 3;
       background: #faf8f5;
-      box-shadow: 0 16px 44px rgba(0,0,0,0.09), 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.09), 0 4px 14px rgba(0,0,0,0.03);
       cursor: zoom-in;
       overflow: hidden;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -440,13 +444,14 @@
 
     .frame-photo-container:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 56px rgba(0,0,0,0.13), 0 6px 16px rgba(0,0,0,0.05);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.13), 0 8px 20px rgba(0,0,0,0.05);
     }
 
     .frame-photo-main {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* 340x510 is exactly 2:3, matching 960x1440 100% without any cropping */
+      object-fit: cover;
+      object-position: center 20%;
       display: block;
       transition: transform 0.5s ease;
     }
@@ -455,22 +460,40 @@
       transform: scale(1.02);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 520px) {
       .wix-layered-frame-wrapper {
-        width: 290px;
-        height: 420px;
+        width: 320px;
+        height: 470px;
       }
       .frame-outline-box, .frame-bg-tan-block, .frame-photo-container {
-        width: 260px;
-        height: 390px;
+        width: 290px;
+        height: 435px;
       }
       .frame-photo-container {
-        top: 15px;
-        left: 15px;
+        top: 16px;
+        left: 16px;
       }
       .frame-bg-tan-block {
-        top: 30px;
-        left: 30px;
+        top: 32px;
+        left: 32px;
+      }
+    }
+    @media (max-width: 380px) {
+      .wix-layered-frame-wrapper {
+        width: 270px;
+        height: 400px;
+      }
+      .frame-outline-box, .frame-bg-tan-block, .frame-photo-container {
+        width: 240px;
+        height: 360px;
+      }
+      .frame-photo-container {
+        top: 14px;
+        left: 14px;
+      }
+      .frame-bg-tan-block {
+        top: 28px;
+        left: 28px;
       }
     }
 
