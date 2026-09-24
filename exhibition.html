@@ -846,28 +846,80 @@
     }
 
     .section8-media-col {
+      position: sticky;
+      top: 135px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      align-self: start;
+    }
+
+    .section8-card-frame {
+      background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.3s ease;
+    }
+    .section8-card-frame:hover {
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
     }
 
     .section8-img-box {
       width: 100%;
-      height: 520px;
-      background: transparent;
-      border: none;
+      aspect-ratio: 3 / 2;
+      background: #0d0c0e;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      display: block;
     }
     .section8-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .section8-img-box:hover img {
+      transform: scale(1.02);
     }
 
     .section8-media-caption {
-      font-size: 13px;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      text-align: center;
+      padding: 18px 22px 20px;
+      background: #ffffff;
+    }
+
+    .section8-caption-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .section8-caption-tag {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      font-weight: 600;
+    }
+
+    .section8-caption-badge {
+      font-size: 11px;
+      color: var(--color-text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section8-caption-desc {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--color-text-body);
+      border-left: 2px solid var(--color-bar-accent);
+      padding-left: 12px;
+      margin-top: 8px;
     }
 
     /* ==========================================================================
@@ -1136,8 +1188,12 @@
       .section8-grid {
         grid-template-columns: 1fr;
       }
+      .section8-media-col {
+        position: static;
+      }
       .section8-img-box {
-        height: 420px;
+        aspect-ratio: 3 / 2;
+        height: auto;
       }
       .slide-split-2img,
       .slide-3img-pencilcase,
@@ -1268,7 +1324,6 @@
             <span class="section-badge">SECTION 01</span>
             <span class="section-theme-title">INSPIRATION &amp; STATEMENT</span>
           </div>
-          <span class="section-subtitle-tag">Page 1 · Original Layout &amp; Photo</span>
         </div>
         
           
@@ -1293,7 +1348,6 @@
             <span class="section-badge">SECTION 02</span>
             <span class="section-theme-title">CALLIGRAPHY APRON &amp; INK TRACES</span>
           </div>
-          <span class="section-subtitle-tag">Page 2 · Interactive Carousel</span>
         </div>
         
           
@@ -1363,7 +1417,6 @@
             <span class="section-badge">SECTION 03</span>
             <span class="section-theme-title">PRIMARY SCHOOL &amp; EARLY DISCIPLINE</span>
           </div>
-          <span class="section-subtitle-tag">Page 3 · Study Desk &amp; Stickers</span>
         </div>
         
           
@@ -1457,7 +1510,6 @@
             <span class="section-badge">SECTION 04</span>
             <span class="section-theme-title">STUDY MATERIALS &amp; TRANSITION</span>
           </div>
-          <span class="section-subtitle-tag">Page 4 · Notes &amp; Cutout Case</span>
         </div>
         
           
@@ -1542,7 +1594,6 @@
             <span class="section-badge">SECTION 05</span>
             <span class="section-theme-title">EXAM DRILLS &amp; METHODICAL REPETITION</span>
           </div>
-          <span class="section-subtitle-tag">Page 5 · Grammar Drills &amp; Outlines</span>
         </div>
         
           
@@ -1627,7 +1678,6 @@
             <span class="section-badge">SECTION 06</span>
             <span class="section-theme-title">OVERSEAS APPLICATION &amp; EXPANDING HORIZONS</span>
           </div>
-          <span class="section-subtitle-tag">Page 6 · Los Angeles Application Desk</span>
         </div>
         
           
@@ -1712,7 +1762,6 @@
             <span class="section-badge">SECTION 07</span>
             <span class="section-theme-title">THE MODEL STUDENT &amp; EMBODIED DISCIPLINE</span>
           </div>
-          <span class="section-subtitle-tag">Page 7 · Portraits &amp; Bodily Measurements</span>
         </div>
         
           
@@ -1862,7 +1911,6 @@
             <span class="section-badge">SECTION 08</span>
             <span class="section-theme-title">PROJECT INTRODUCTION &amp; MEASURED TORSO</span>
           </div>
-          <span class="section-subtitle-tag">Page 8 · Curatorial Essay &amp; Final Image</span>
         </div>
         
           
@@ -1877,11 +1925,17 @@
                 </div>
               </div>
               <div class="section8-media-col">
-                <div class="img-zoom-target section8-img-box" onclick="openLightbox('assets/hongdoudou/photos/8.110512.jpg', 'Project Introduction', 'assets/hongdoudou/photos/8.110512.jpg')">
-                  <img src="assets/hongdoudou/photos/8.110512.jpg" alt="Project Introduction">
-                </div>
-                <div class="section8-media-caption">
-                  Measuring back and shoulder width in darkness: the climactic gesture of bodily measurement.
+                <div class="section8-card-frame">
+                  <div class="img-zoom-target section8-img-box" onclick="openLightbox('assets/hongdoudou/photos/8.110510.jpg', 'Project Introduction', 'assets/hongdoudou/photos/8.110510.jpg')">
+                    <img src="assets/hongdoudou/photos/8.110510.jpg" alt="Project Introduction">
+                  </div>
+                  <div class="section8-media-caption">
+                    <div class="section8-caption-meta">
+                      <span class="section8-caption-tag">FINAL ARCHIVE · BODILY MEASUREMENT</span>
+                      <span class="section8-caption-badge">PLATE 08 · CLIMAX</span>
+                    </div>
+                    <p class="section8-caption-desc">Measuring back and shoulder width in darkness: the climactic gesture of bodily measurement.</p>
+                  </div>
                 </div>
               </div>
             </div>
