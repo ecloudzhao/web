@@ -641,6 +641,99 @@
       object-fit: cover;
     }
 
+    /* Layout: Section 5 Slide 2 Overlap matching PDF Page 16 */
+    .slide-sec5-overlap {
+      display: grid;
+      grid-template-columns: 1.15fr 1.35fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec5-left-img {
+      height: 520px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec5-left-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .sec5-right-img {
+      height: 400px;
+    }
+    .sec5-right-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Section 07 Enhancements: Full uncropped vertical photos & vertical centering */
+    #sec-07 .carousel-slide {
+      justify-content: center;
+    }
+    #sec-07 .slide-split-2img {
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-split-2img .img-zoom-target {
+      height: 540px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-split-2img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    #sec-07 .slide-media-box {
+      max-height: 580px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-media-box .img-zoom-target {
+      max-height: 580px;
+      height: 580px;
+      width: auto;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-media-box img {
+      max-height: 580px;
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+    #sec-07 .slide-triptych-3img {
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-triptych-3img .img-zoom-target {
+      height: 520px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-triptych-3img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
     /* Layout: Pencilcase 3-Images (Section 3 Slide 2) */
     .slide-3img-pencilcase {
       display: grid;
@@ -810,7 +903,7 @@
       display: grid;
       grid-template-columns: 1.18fr 1fr;
       gap: 40px;
-      align-items: start;
+      align-items: center;
       background: var(--color-bg-subtle);
       border: 1px solid var(--color-border-line);
       padding: 40px;
@@ -846,14 +939,16 @@
     }
 
     .section8-media-col {
-      position: sticky;
-      top: 135px;
       display: flex;
       flex-direction: column;
-      align-self: start;
+      align-self: center;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
 
     .section8-card-frame {
+      width: 100%;
       background: #ffffff;
       border: 1px solid var(--color-border-line);
       border-radius: 4px;
@@ -1196,9 +1291,14 @@
         height: auto;
       }
       .slide-split-2img,
+      .slide-sec5-overlap,
       .slide-3img-pencilcase,
       .slide-triptych-3img {
         grid-template-columns: 1fr;
+      }
+      .sec5-left-img,
+      .sec5-right-img {
+        height: 320px;
       }
       .pencilcase-right-col {
         height: auto;
@@ -1208,6 +1308,9 @@
       }
       .slide-split-2img .img-zoom-target,
       .slide-triptych-3img .img-zoom-target,
+      #sec-07 .slide-split-2img .img-zoom-target,
+      #sec-07 .slide-triptych-3img .img-zoom-target,
+      #sec-07 .slide-media-box .img-zoom-target,
       .pencilcase-main {
         height: 360px;
       }
@@ -1557,11 +1660,11 @@
                 <div class="carousel-slide" data-slide-index="2">
                   
                     <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110383.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110383.jpg')">
-                        <img src="assets/hongdoudou/photos/8.110383.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110396.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110396.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110396.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110379.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110379.jpg')">
-                        <img src="assets/hongdoudou/photos/8.110379.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110402.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110402.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110402.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
                       </div>
                     </div>
                     
@@ -1625,11 +1728,11 @@
                 
                 <div class="carousel-slide" data-slide-index="1">
                   
-                    <div class="slide-split-2img">
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110411.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110411.jpg')">
+                    <div class="slide-sec5-overlap">
+                      <div class="img-zoom-target sec5-left-img" onclick="openLightbox('assets/hongdoudou/photos/8.110411.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110411.jpg')">
                         <img src="assets/hongdoudou/photos/8.110411.jpg" alt="EXAM DRILLS &amp; METHODICAL REPETITION">
                       </div>
-                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110403.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110403.jpg')">
+                      <div class="img-zoom-target sec5-right-img" onclick="openLightbox('assets/hongdoudou/photos/8.110403.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110403.jpg')">
                         <img src="assets/hongdoudou/photos/8.110403.jpg" alt="EXAM DRILLS &amp; METHODICAL REPETITION">
                       </div>
                     </div>
@@ -1928,13 +2031,6 @@
                 <div class="section8-card-frame">
                   <div class="img-zoom-target section8-img-box" onclick="openLightbox('assets/hongdoudou/photos/8.110510.jpg', 'Project Introduction', 'assets/hongdoudou/photos/8.110510.jpg')">
                     <img src="assets/hongdoudou/photos/8.110510.jpg" alt="Project Introduction">
-                  </div>
-                  <div class="section8-media-caption">
-                    <div class="section8-caption-meta">
-                      <span class="section8-caption-tag">FINAL ARCHIVE · BODILY MEASUREMENT</span>
-                      <span class="section8-caption-badge">PLATE 08 · CLIMAX</span>
-                    </div>
-                    <p class="section8-caption-desc">Measuring back and shoulder width in darkness: the climactic gesture of bodily measurement.</p>
                   </div>
                 </div>
               </div>
