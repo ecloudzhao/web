@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sierra Canyon Campus Reconfiguration: Diagnosis &mdash; Project 02 | Churan (Olivia) Ma</title>
-  <meta name="description" content="Sierra Canyon Campus Reconfiguration: Diagnosis — Spatial Diagnosis — Everyday Frictions by Churan (Olivia) Ma.">
+  <title>Model Making: Wood, Cardboard, and Spatial Structure &mdash; Project 05 | Churan (Olivia) Ma</title>
+  <meta name="description" content="Model Making: Wood, Cardboard, and Spatial Structure — Project 05 by Churan (Olivia) Ma. Handcrafted models exploring material behavior, structural logic, and spatial composition.">
 
   <!-- Google Fonts: Aboreto & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,7 +173,7 @@
       top: 100%;
       left: 0;
       background: #ffffff;
-      min-width: 260px;
+      min-width: 290px;
       padding: 12px 0;
       border: 1px solid var(--color-border-line);
       box-shadow: 0 10px 25px rgba(0,0,0,0.06);
@@ -299,7 +299,7 @@
     .hero-meta-item .meta-label {
       font-family: var(--font-display);
       font-size: 10px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--color-text-dim);
       margin-bottom: 4px;
@@ -307,43 +307,40 @@
 
     .hero-meta-item .meta-val {
       font-size: 13px;
-      font-weight: 400;
       color: var(--color-text-black);
+      font-weight: 400;
+      letter-spacing: 0.02em;
     }
 
     /* 3. STICKY SUB-NAV */
-    .storyboard-subnav {
+    .sticky-subnav {
       position: sticky;
       top: 72px;
-      z-index: 900;
-      background: rgba(255, 255, 255, 0.98);
+      z-index: 990;
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--color-border-line);
-      padding: 10px 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     }
 
-    .subnav-inner {
+    .subnav-container {
       max-width: var(--container-max);
       margin: 0 auto;
+      padding: 10px 32px;
       display: flex;
       align-items: center;
-      gap: 16px;
-      overflow: hidden;
-    }
-
-    .subnav-label-wrapper {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .subnav-label {
       font-family: var(--font-display);
       font-size: 11px;
       letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: var(--color-text-dim);
-      font-weight: 600;
-      user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .subnav-scroll-wrapper {
@@ -351,13 +348,10 @@
       min-width: 0;
       overflow-x: auto;
       scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
       display: flex;
       align-items: center;
-      mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
     }
 
     .subnav-scroll-wrapper::-webkit-scrollbar {
@@ -373,7 +367,6 @@
       list-style: none;
       padding: 4px 0;
       white-space: nowrap;
-      flex-wrap: nowrap;
     }
 
     .subnav-pill {
@@ -588,6 +581,12 @@
       color: var(--color-text-body);
     }
 
+    .caption-highlight {
+      font-weight: 600;
+      color: var(--color-text-black);
+      font-family: var(--font-sans);
+    }
+
     /* 5. BOTTOM PROJECT NAVIGATION STRIP */
     .project-bottom-nav {
       margin-top: 40px;
@@ -632,7 +631,7 @@
       font-weight: 500;
     }
 
-    /* 6. FOOTER AREA */
+    /* 6. WIX FOOTER AREA */
     .wix-footer-area {
       background-color: var(--color-wix-footer);
       border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -644,20 +643,21 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
+      gap: 50px;
+      padding-bottom: 40px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .footer-content-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
       }
     }
 
     .footer-brand-title {
       font-family: var(--font-display);
-      font-size: 15px;
-      letter-spacing: 0.18em;
+      font-size: 14px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #111111;
       margin-bottom: 12px;
@@ -768,7 +768,7 @@
       top: 50%;
       transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #ffffff;
       width: 44px;
       height: 44px;
@@ -777,25 +777,25 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: var(--transition);
+      font-size: 20px;
+      transition: all 0.2s;
       z-index: 2010;
-      backdrop-filter: blur(4px);
     }
     .lightbox-nav-btn:hover {
       background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-50%) scale(1.08);
+      transform: translateY(-50%) scale(1.05);
     }
-    .lightbox-prev-btn { left: 24px; }
-    .lightbox-next-btn { right: 24px; }
+    .lightbox-prev-btn { left: 28px; }
+    .lightbox-next-btn { right: 28px; }
 
     .lightbox-img-wrapper {
+      position: relative;
       max-width: 100%;
       max-height: 74vh;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       user-select: none;
       -webkit-user-select: none;
       touch-action: none;
@@ -908,7 +908,7 @@
               </a>
             </li>
             <li class="wix-dropdown-item">
-              <a href="project02.html" style="background: var(--color-bg-subtle);">
+              <a href="project02.html">
                 <strong>Ⅱ. Sierra Canyon Campus Reconfiguration: Diagnosis</strong>
                 <span>Spatial Diagnosis — Everyday Frictions</span>
               </a>
@@ -920,7 +920,7 @@
               </a>
             </li>
             <li class="wix-dropdown-item">
-              <a href="project04.html">
+              <a href="project04.html" style="background: var(--color-bg-subtle);">
                 <strong>Ⅳ. Model Making</strong>
                 <span>Wood, Cardboard, and Spatial Structure · 5 Plates</span>
               </a>
@@ -959,56 +959,49 @@
   <section class="project-hero-band">
     <div class="hero-container">
       <div class="hero-badge-row">
-        <span class="hero-category-tag">Project 02 // Campus Urbanism &amp; Diagnosis</span>
-        <span class="hero-spread-count">8 Portfolio Plates &middot; Field Investigation</span>
+        <span class="hero-category-tag">Project 04 // Handcrafted Models</span>
+        <span class="hero-spread-count">5 Portfolio Plates &middot; Material &amp; Structure Studies</span>
       </div>
 
-      <h1 class="hero-title-main">Sierra Canyon Campus Reconfiguration: Diagnosis</h1>
+      <h1 class="hero-title-main">Model Making</h1>
       <p class="hero-subtitle">
-        Spatial Diagnosis — Everyday Frictions
+        Wood, Cardboard, and Spatial Structure
       </p>
 
       <div class="hero-meta-grid">
         <div class="hero-meta-item">
           <div class="meta-label">Location &amp; Year</div>
-          <div class="meta-val">Los Angeles, USA &middot; 2026</div>
+          <div class="meta-val">Various &middot; 2025&ndash;2026</div>
         </div>
         <div class="hero-meta-item">
           <div class="meta-label">Typology</div>
-          <div class="meta-val">Campus Research / Spatial Diagnosis</div>
+          <div class="meta-val">Physical Model Making / Material Study</div>
         </div>
         <div class="hero-meta-item">
-          <div class="meta-label">Methodology</div>
-          <div class="meta-val">Time-Space Mapping &amp; Axonometric Survey</div>
+          <div class="meta-label">Media</div>
+          <div class="meta-val">Wood, Cardboard, Wooden Sticks, Glue</div>
         </div>
         <div class="hero-meta-item">
-          <div class="meta-label">Scope &amp; Drawings</div>
-          <div class="meta-val">8 Plates &middot; Behavioral Heatmaps &amp; Sections</div>
+          <div class="meta-label">Scope &amp; Artifacts</div>
+          <div class="meta-val">5 Plates &middot; Process Photos, Model Views, Detail Shots</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 3. STICKY SUB-NAV FOR QUICK JUMP -->
-  <nav class="storyboard-subnav">
-    <div class="subnav-inner">
-      <div class="subnav-label-wrapper">
-        <span class="subnav-label">JUMP TO PLATE:</span>
-      </div>
-
+  <nav class="sticky-subnav">
+    <div class="subnav-container">
+      <span class="subnav-label">Jump to Plate:</span>
       <div class="subnav-scroll-wrapper" id="subnav-scroll-wrapper">
         <ul class="subnav-pages-scroll">
-          <li><a href="#plate-01" class="subnav-pill">01 &middot; Territory</a></li>
-          <li><a href="#plate-02" class="subnav-pill">02 &middot; Infrastructure</a></li>
-          <li><a href="#plate-03" class="subnav-pill">03 &middot; Drop-Off Flow</a></li>
-          <li><a href="#plate-04" class="subnav-pill">04 &middot; Axonometric</a></li>
-          <li><a href="#plate-05" class="subnav-pill">05 &middot; Topography</a></li>
-          <li><a href="#plate-06" class="subnav-pill">06 &middot; Microclimate</a></li>
-          <li><a href="#plate-07" class="subnav-pill">07 &middot; Frictions Cut</a></li>
-          <li><a href="#plate-08" class="subnav-pill">08 &middot; Synthesis Matrix</a></li>
+          <li><a href="#plate-01" class="subnav-pill" data-target="plate-01">01 &middot; Wooden Lattice</a></li>
+          <li><a href="#plate-02" class="subnav-pill" data-target="plate-02">02 &middot; Lattice Projection</a></li>
+          <li><a href="#plate-03" class="subnav-pill" data-target="plate-03">03 &middot; Timber Pavilion</a></li>
+          <li><a href="#plate-04" class="subnav-pill" data-target="plate-04">04 &middot; Pavilion Details</a></li>
+          <li><a href="#plate-05" class="subnav-pill" data-target="plate-05">05 &middot; Folding Model</a></li>
         </ul>
       </div>
-
       <div class="subnav-actions">
         <div class="subnav-arrows-group">
           <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(-1)" aria-label="Scroll left">&larr;</button>
@@ -1018,18 +1011,18 @@
     </div>
   </nav>
 
-  <!-- 4. STORYBOARD MAIN CONTAINER -->
+  <!-- 4. MAIN STORYBOARD CONTAINER -->
   <main class="storyboard-wrapper">
 
-    <!-- CONCEPT STATEMENT CARD -->
+    <!-- DESIGN STATEMENT CARD -->
     <section class="project-statement-card">
-      <h2 class="statement-title">Research Methodology &amp; Diagnostic Statement</h2>
+      <h2 class="statement-title">Design Statement &amp; Architectural Core Value</h2>
       <div class="statement-body">
         <p>
-          Perched along the rugged topographic threshold of the Santa Susana Canyon and bounded by the Ronald Reagan Freeway in Chatsworth, Los Angeles, Sierra Canyon School embodies acute spatial contradictions between natural mountain grade and rapid vehicular transit.
+          This collection brings together three handcrafted models that explore material behavior, structural logic, and spatial composition. From a digitally modeled lattice cube assembled with wooden sticks, to a traditional Chinese double-eave pavilion that reveals its joinery, to a folded cardboard study of flexibility and rhythm—each model translates digital or conceptual ideas into physical form.
         </p>
         <p>
-          Through extensive on-site mapping, temporal behavioral tracking, and axonometric dissection, this research diagnoses critical everyday frictions across campus: acute vehicle-pedestrian bottlenecks during morning drop-off, abrupt and disorienting grade transitions connected by purely utilitarian staircases, and a lack of climate-tempered outdoor gathering nodes. By decoding student, faculty, and vehicular flows into empirical spatial data, this research uncovers the underlying structural tensions, establishing an indispensable evidentiary baseline for master planning and tectonic intervention.
+          Together they demonstrate my commitment to learning through making, and to understanding how structure and material can shape spatial experience. By engaging directly with tactile joinery, gravitational loads, and material tolerances, physical modeling serves as an irreplaceable foundation for my spatial and tectonic design thinking.
         </p>
       </div>
     </section>
@@ -1039,15 +1032,15 @@
       <div class="page-unit-header">
         <div class="page-indicator">
           <span class="page-badge">PLATE 01</span>
-          <span class="page-theme-title">Territorial Macro-Setting &amp; Canyon Geomorphology</span>
+          <span class="page-theme-title">Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/01.jpg', 'Plate 01: Territorial Macro-Setting &amp; Canyon Geomorphology')">Inspect Full Plate &oplus;</span>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/01.jpg', 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix')">Inspect Full Plate &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/01.jpg', 'Plate 01: Territorial Macro-Setting &amp; Canyon Geomorphology')">
-        <img src="assets/projects/project02/01.jpg" alt="Plate 01 - Territorial Setting" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/01.jpg', 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix')">
+        <img src="assets/projects/project04/01.jpg" alt="Plate 01 - Wooden Lattice Cube Axonometric and Spatial Matrix" loading="lazy">
       </div>
       <div class="page-caption">
-        <p><span class="caption-highlight">Plate 01:</span> Title Plate and Macro-Territorial Geomorphology: Santa Susana mountain range, Chatsworth basin context, and geographic threshold condition.</p>
+        <p><span class="caption-highlight">Plate 01:</span> Exploration of modular spatial grids constructed from handcrafted timber sticks. The complex multi-axial lattice cube translates 3D coordinate logic into tactile wood tectonics, examining porosity, density, and structural self-support.</p>
       </div>
     </article>
 
@@ -1056,15 +1049,15 @@
       <div class="page-unit-header">
         <div class="page-indicator">
           <span class="page-badge">PLATE 02</span>
-          <span class="page-theme-title">Regional Transit &amp; Freeway Boundary Enclosure</span>
+          <span class="page-theme-title">Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/02.jpg', 'Plate 02: Regional Transit &amp; Freeway Boundary Enclosure')">Inspect Full Plate &oplus;</span>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/02.jpg', 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies')">Inspect Full Plate &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/02.jpg', 'Plate 02: Regional Transit &amp; Freeway Boundary Enclosure')">
-        <img src="assets/projects/project02/02.jpg" alt="Plate 02 - Regional Transit Infrastructure" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/02.jpg', 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies')">
+        <img src="assets/projects/project04/02.jpg" alt="Plate 02 - Wooden Lattice Cube Orthographic Projections and Process Studies" loading="lazy">
       </div>
       <div class="page-caption">
-        <p><span class="caption-highlight">Plate 02:</span> Ronald Reagan Freeway (CA-118) corridor mapping, high-speed acoustic boundaries, vehicular approach vectors, and perimeter enclosure.</p>
+        <p><span class="caption-highlight">Plate 02:</span> Analytical drawings, orthographic elevation projections, and physical fabrication iterations studying the geometric progression from conceptual coordinate frameworks to physical joint assembly.</p>
       </div>
     </article>
 
@@ -1073,15 +1066,15 @@
       <div class="page-unit-header">
         <div class="page-indicator">
           <span class="page-badge">PLATE 03</span>
-          <span class="page-theme-title">Morning Drop-Off Flow &amp; Conflict Bottlenecks</span>
+          <span class="page-theme-title">Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/03.jpg', 'Plate 03: Morning Drop-Off Flow &amp; Conflict Bottlenecks')">Inspect Full Plate &oplus;</span>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/03.jpg', 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition')">Inspect Full Plate &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/03.jpg', 'Plate 03: Morning Drop-Off Flow &amp; Conflict Bottlenecks')">
-        <img src="assets/projects/project02/03.jpg" alt="Plate 03 - Drop-off Flow Bottlenecks" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/03.jpg', 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition')">
+        <img src="assets/projects/project04/03.jpg" alt="Plate 03 - Timber Pavilion Traditional Double-Eave Tectonic Composition" loading="lazy">
       </div>
       <div class="page-caption">
-        <p><span class="caption-highlight">Plate 03:</span> Peak drop-off time (7:45–8:25 AM) behavioral tracking: student pedestrian trajectories intersecting car turnaround loops, waiting queue latency, and safety hazards.</p>
+        <p><span class="caption-highlight">Plate 03:</span> Full architectural model of a traditional Chinese double-eave wooden pavilion. The physical assembly investigates post-and-beam logic, layered hip roofs, and structural hierarchy through meticulous woodcraft.</p>
       </div>
     </article>
 
@@ -1090,15 +1083,15 @@
       <div class="page-unit-header">
         <div class="page-indicator">
           <span class="page-badge">PLATE 04</span>
-          <span class="page-theme-title">High-Density Campus Axonometric &amp; Node Network</span>
+          <span class="page-theme-title">Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/04.jpg', 'Plate 04: High-Density Campus Axonometric &amp; Node Network')">Inspect Full Plate &oplus;</span>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/04.jpg', 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details')">Inspect Full Plate &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/04.jpg', 'Plate 04: High-Density Campus Axonometric &amp; Node Network')">
-        <img src="assets/projects/project02/04.jpg" alt="Plate 04 - Campus Axonometric" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/04.jpg', 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details')">
+        <img src="assets/projects/project04/04.jpg" alt="Plate 04 - Timber Pavilion Joinery Tectonics and Eave Bracket Details" loading="lazy">
       </div>
       <div class="page-caption">
-        <p><span class="caption-highlight">Plate 04:</span> Comprehensive 3D axonometric survey of the upper academic plateau, administration hub, sports courts, and intermediate hillside terraces.</p>
+        <p><span class="caption-highlight">Plate 04:</span> Macro process photographs focusing on interlocking mortise-and-tenon joints, corner eave rafter cantilevers, and timber craftsmanship, revealing tectonic discipline at an intimate scale.</p>
       </div>
     </article>
 
@@ -1107,82 +1100,31 @@
       <div class="page-unit-header">
         <div class="page-indicator">
           <span class="page-badge">PLATE 05</span>
-          <span class="page-theme-title">Topographic Contours &amp; Disconnected Stairs</span>
+          <span class="page-theme-title">Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/05.jpg', 'Plate 05: Topographic Contours &amp; Disconnected Stairs')">Inspect Full Plate &oplus;</span>
+        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/05.jpg', 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity')">Inspect Full Plate &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/05.jpg', 'Plate 05: Topographic Contours &amp; Disconnected Stairs')">
-        <img src="assets/projects/project02/05.jpg" alt="Plate 05 - Topography and Stairs" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/05.jpg', 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity')">
+        <img src="assets/projects/project04/05.jpg" alt="Plate 05 - Folding Model Curved Cardboard Rhythm and Spatial Continuity" loading="lazy">
       </div>
       <div class="page-caption">
-        <p><span class="caption-highlight">Plate 05:</span> Elevation gradient analysis: 12-meter drop between upper campus and lower gymnasium, steep utilitarian fire stairs, and vertical fatigue barriers.</p>
-      </div>
-    </article>
-
-    <!-- PLATE 06 -->
-    <article class="page-unit" id="plate-06">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 06</span>
-          <span class="page-theme-title">Microclimate, Solar Radiation &amp; Unshaded Terraces</span>
-        </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/06.jpg', 'Plate 06: Microclimate, Solar Radiation &amp; Unshaded Terraces')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/06.jpg', 'Plate 06: Microclimate, Solar Radiation &amp; Unshaded Terraces')">
-        <img src="assets/projects/project02/06.jpg" alt="Plate 06 - Microclimate Analysis" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 06:</span> San Fernando Valley microclimate conditions: extreme afternoon heat gain, lack of tree canopy shading, wind funneling, and underutilized outdoor gathering spaces.</p>
-      </div>
-    </article>
-
-    <!-- PLATE 07 -->
-    <article class="page-unit" id="plate-07">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 07</span>
-          <span class="page-theme-title">Sectional Elevation Cut: Severe Friction Hotspots</span>
-        </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/07.jpg', 'Plate 07: Sectional Elevation Cut: Severe Friction Hotspots')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/07.jpg', 'Plate 07: Sectional Elevation Cut: Severe Friction Hotspots')">
-        <img src="assets/projects/project02/07.jpg" alt="Plate 07 - Sectional Friction Cut" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 07:</span> Critical Section Cut illustrating friction points where student walkways abruptly end at vehicular asphalt without transitional buffers or weather protection.</p>
-      </div>
-    </article>
-
-    <!-- PLATE 08 -->
-    <article class="page-unit" id="plate-08">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 08</span>
-          <span class="page-theme-title">Diagnostic Synthesis Matrix &amp; Planning Framework</span>
-        </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project02/08.jpg', 'Plate 08: Diagnostic Synthesis Matrix &amp; Planning Framework')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project02/08.jpg', 'Plate 08: Diagnostic Synthesis Matrix &amp; Planning Framework')">
-        <img src="assets/projects/project02/08.jpg" alt="Plate 08 - Diagnostic Synthesis Matrix" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 08:</span> Empirical synthesis matrix summarizing spatial evidence into design mandates: Decoupling vehicular transit from pedestrian arrival, activating grade transitions through 3D landscape, and crafting an elevated gateway ribbon (directly resolved in Project 03).</p>
+        <p><span class="caption-highlight">Plate 05:</span> Parametric paper folding investigation utilizing scored and curved white cardboard. Demonstrating how planar sheet material transitions into fluid, self-supporting spatial shells with dynamic light and shadow gradients.</p>
       </div>
     </article>
 
     <!-- 5. PROJECT NAVIGATION STRIP -->
     <nav class="project-bottom-nav">
-      <a href="project01.html" class="project-nav-card">
+      <a href="project03.html" class="project-nav-card">
         <div>
           <div class="pnav-sub">&larr; Previous Project</div>
-          <div class="pnav-title">01 &middot; Wooden Structure Translation</div>
+          <div class="pnav-title">03 &middot; Sierra Canyon: Design Interventions</div>
         </div>
       </a>
 
-      <a href="project03.html" class="project-nav-card" style="margin-left: auto;">
+      <a href="project05.html" class="project-nav-card" style="margin-left: auto;">
         <div style="text-align: right;">
           <div class="pnav-sub">Next Project &rarr;</div>
-          <div class="pnav-title">03 &middot; Sierra Canyon: Design Interventions</div>
+          <div class="pnav-title">05 &middot; The Blurred Boundary</div>
         </div>
       </a>
     </nav>
@@ -1217,7 +1159,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#works">View Works</a></li>
           <li><a href="index.html#about">About the Artist</a></li>
-          <li><a href="index.html#contact">Get in Touch</a></li>
+          <li><a href="mailto:formcr@126.com">Get in Touch</a></li>
         </ul>
       </div>
     </div>
@@ -1266,14 +1208,11 @@
     }
 
     const allGalleryImages = [
-      { src: 'assets/projects/project02/01.jpg', caption: 'Plate 01: Territorial Macro-Setting &amp; Canyon Geomorphology' },
-      { src: 'assets/projects/project02/02.jpg', caption: 'Plate 02: Regional Transit &amp; Freeway Boundary Enclosure' },
-      { src: 'assets/projects/project02/03.jpg', caption: 'Plate 03: Morning Drop-Off Flow &amp; Conflict Bottlenecks' },
-      { src: 'assets/projects/project02/04.jpg', caption: 'Plate 04: High-Density Campus Axonometric &amp; Node Network' },
-      { src: 'assets/projects/project02/05.jpg', caption: 'Plate 05: Topographic Contours &amp; Disconnected Stairs' },
-      { src: 'assets/projects/project02/06.jpg', caption: 'Plate 06: Microclimate, Solar Radiation &amp; Unshaded Terraces' },
-      { src: 'assets/projects/project02/07.jpg', caption: 'Plate 07: Sectional Elevation Cut: Severe Friction Hotspots' },
-      { src: 'assets/projects/project02/08.jpg', caption: 'Plate 08: Diagnostic Synthesis Matrix &amp; Planning Framework' }
+      { src: 'assets/projects/project04/01.jpg', caption: 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix' },
+      { src: 'assets/projects/project04/02.jpg', caption: 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies' },
+      { src: 'assets/projects/project04/03.jpg', caption: 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition' },
+      { src: 'assets/projects/project04/04.jpg', caption: 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details' },
+      { src: 'assets/projects/project04/05.jpg', caption: 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity' }
     ];
 
     let currentLightboxIdx = 0;
@@ -1338,190 +1277,180 @@
       lbScale = 1.0;
       lbTranslateX = 0;
       lbTranslateY = 0;
-      applyLightboxTransform(true);
+      applyLightboxTransform(false);
     }
 
-    function zoomLightboxAt(targetScale, clientX, clientY) {
-      const img = document.getElementById('lightbox-current-img');
-      if (!img) return;
+    function setLightboxZoom(newScale, focalX = 0, focalY = 0) {
+      const prevScale = lbScale;
+      lbScale = Math.min(Math.max(newScale, 0.6), 4.5);
 
-      targetScale = Math.max(1.0, Math.min(6.0, targetScale));
-
-      if (targetScale <= 1.01) {
-        resetLightboxZoom();
-        return;
+      if (lbScale > 1.0 && prevScale > 0) {
+        const factor = lbScale / prevScale;
+        lbTranslateX = focalX - (focalX - lbTranslateX) * factor;
+        lbTranslateY = focalY - (focalY - lbTranslateY) * factor;
       }
 
-      const rect = img.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-
-      const mouseX = (clientX !== undefined ? clientX : cx) - cx;
-      const mouseY = (clientY !== undefined ? clientY : cy) - cy;
-
-      const scaleRatio = targetScale / lbScale;
-      lbTranslateX = mouseX - (mouseX - lbTranslateX) * scaleRatio;
-      lbTranslateY = mouseY - (mouseY - lbTranslateY) * scaleRatio;
-      lbScale = targetScale;
+      if (lbScale <= 1.0) {
+        lbTranslateX = 0;
+        lbTranslateY = 0;
+      }
 
       clampLightboxTranslation();
       applyLightboxTransform(true);
     }
 
-    function lightboxZoomStep(step) {
-      const factor = step > 0 ? 1.25 : (1 / 1.25);
-      const img = document.getElementById('lightbox-current-img');
-      const rect = img ? img.getBoundingClientRect() : null;
-      const cx = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
-      const cy = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
-      zoomLightboxAt(lbScale * factor, cx, cy);
+    function lightboxZoomStep(dir) {
+      const step = dir > 0 ? 1.3 : 1 / 1.3;
+      setLightboxZoom(lbScale * step);
     }
 
-    function openLightbox(src, caption) {
+    function openLightbox(src, captionText) {
       const modal = document.getElementById('lightbox-modal');
       const img = document.getElementById('lightbox-current-img');
-      const cap = document.getElementById('lightbox-caption');
+      const caption = document.getElementById('lightbox-caption');
+      if (!modal || !img) return;
 
-      let foundIdx = allGalleryImages.findIndex(item => item.src === src);
-      if (foundIdx === -1) {
-        foundIdx = 0;
+      const foundIdx = allGalleryImages.findIndex(item => item.src === src);
+      currentLightboxIdx = foundIdx !== -1 ? foundIdx : 0;
+
+      img.src = src;
+      img.alt = captionText || 'Plate Zoom';
+      if (caption) {
+        caption.innerHTML = captionText || (allGalleryImages[currentLightboxIdx] ? allGalleryImages[currentLightboxIdx].caption : '');
       }
-      currentLightboxIdx = foundIdx;
 
       resetLightboxZoom();
-      img.src = src;
-      cap.innerHTML = caption || allGalleryImages[foundIdx].caption || '';
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
       const modal = document.getElementById('lightbox-modal');
+      if (!modal) return;
       modal.classList.remove('show');
       document.body.style.overflow = '';
       resetLightboxZoom();
     }
 
-    function lightboxNavigate(delta) {
-      currentLightboxIdx += delta;
-      if (currentLightboxIdx < 0) currentLightboxIdx = allGalleryImages.length - 1;
-      if (currentLightboxIdx >= allGalleryImages.length) currentLightboxIdx = 0;
-
-      const item = allGalleryImages[currentLightboxIdx];
+    function lightboxNavigate(dir) {
+      if (!allGalleryImages.length) return;
+      currentLightboxIdx = (currentLightboxIdx + dir + allGalleryImages.length) % allGalleryImages.length;
+      const target = allGalleryImages[currentLightboxIdx];
       const img = document.getElementById('lightbox-current-img');
-      const cap = document.getElementById('lightbox-caption');
-
-      resetLightboxZoom();
-      img.src = item.src;
-      cap.innerHTML = item.caption;
+      const caption = document.getElementById('lightbox-caption');
+      if (img && target) {
+        resetLightboxZoom();
+        img.src = target.src;
+        img.alt = target.caption;
+        if (caption) caption.innerHTML = target.caption;
+      }
     }
 
-    (function initLightboxInteractions() {
+    // Modal background click
+    document.getElementById('lightbox-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox-modal') {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard support
+    window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('lightbox-modal');
-      const img = document.getElementById('lightbox-current-img');
-      if (!modal || !img) return;
+      if (!modal || !modal.classList.contains('show')) return;
 
-      let lbMouseDownTarget = null;
-      let lbDidDrag = false;
-      let lbDragEndTime = 0;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxNavigate(-1);
+      if (e.key === 'ArrowRight') lightboxNavigate(1);
+      if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
+      if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
+      if (e.key === '0') resetLightboxZoom();
+    });
 
-      modal.addEventListener('mousedown', function(e) {
-        lbMouseDownTarget = e.target;
-      });
-
-      modal.addEventListener('click', function(e) {
-        if (e.target.closest('.lightbox-close-btn')) {
-          closeLightbox();
-          return;
-        }
-        if (lbDidDrag || (Date.now() - lbDragEndTime < 300)) {
-          return;
-        }
-        if (e.target === modal && lbMouseDownTarget === modal) {
-          closeLightbox();
-        }
-      });
-
-      modal.addEventListener('wheel', function(e) {
-        if (!modal.classList.contains('show')) return;
+    // Mouse wheel zoom
+    const lbModal = document.getElementById('lightbox-modal');
+    if (lbModal) {
+      lbModal.addEventListener('wheel', (e) => {
+        if (!lbModal.classList.contains('show')) return;
         e.preventDefault();
-        const factor = e.deltaY < 0 ? 1.18 : (1 / 1.18);
-        zoomLightboxAt(lbScale * factor, e.clientX, e.clientY);
+
+        const img = document.getElementById('lightbox-current-img');
+        if (!img) return;
+        const rect = img.getBoundingClientRect();
+        const focalX = e.clientX - (rect.left + rect.width / 2);
+        const focalY = e.clientY - (rect.top + rect.height / 2);
+
+        const delta = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+        setLightboxZoom(lbScale * delta, focalX, focalY);
       }, { passive: false });
+    }
 
-      img.addEventListener('pointerdown', function(e) {
-        if (lbScale > 1.02 && e.button === 0) {
-          lbIsDragging = true;
-          lbDidDrag = false;
-          lbStartX = e.clientX;
-          lbStartY = e.clientY;
-          lbDragBaseX = lbTranslateX;
-          lbDragBaseY = lbTranslateY;
-          try {
-            img.setPointerCapture(e.pointerId);
-          } catch (err) {}
-          img.classList.add('is-dragging');
-          e.preventDefault();
-          e.stopPropagation();
-        }
+    // Drag to pan
+    const lbImg = document.getElementById('lightbox-current-img');
+    if (lbImg) {
+      lbImg.addEventListener('pointerdown', (e) => {
+        if (lbScale <= 1.0) return;
+        lbIsDragging = true;
+        lbStartX = e.clientX;
+        lbStartY = e.clientY;
+        lbDragBaseX = lbTranslateX;
+        lbDragBaseY = lbTranslateY;
+        lbImg.classList.add('is-dragging');
+        lbImg.setPointerCapture(e.pointerId);
+        e.preventDefault();
       });
 
-      img.addEventListener('pointermove', function(e) {
-        if (lbIsDragging) {
-          const dx = e.clientX - lbStartX;
-          const dy = e.clientY - lbStartY;
-          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
-            lbDidDrag = true;
-          }
-          lbTranslateX = lbDragBaseX + dx;
-          lbTranslateY = lbDragBaseY + dy;
-          clampLightboxTranslation();
-          applyLightboxTransform(false);
-        }
+      lbImg.addEventListener('pointermove', (e) => {
+        if (!lbIsDragging) return;
+        const dx = e.clientX - lbStartX;
+        const dy = e.clientY - lbStartY;
+        lbTranslateX = lbDragBaseX + dx;
+        lbTranslateY = lbDragBaseY + dy;
+        clampLightboxTranslation();
+        applyLightboxTransform(false);
       });
 
-      function finishPointerDrag(e) {
-        if (lbIsDragging) {
-          lbIsDragging = false;
-          if (lbDidDrag) {
-            lbDragEndTime = Date.now();
-          }
-          try {
-            if (img.hasPointerCapture(e.pointerId)) {
-              img.releasePointerCapture(e.pointerId);
-            }
-          } catch (err) {}
-          img.classList.remove('is-dragging');
-          clampLightboxTranslation();
-          applyLightboxTransform(true);
-          setTimeout(() => { lbDidDrag = false; }, 250);
-        }
+      function endDrag(e) {
+        if (!lbIsDragging) return;
+        lbIsDragging = false;
+        lbImg.classList.remove('is-dragging');
+        try {
+          lbImg.releasePointerCapture(e.pointerId);
+        } catch(err) {}
       }
 
-      img.addEventListener('pointerup', finishPointerDrag);
-      img.addEventListener('pointercancel', finishPointerDrag);
+      lbImg.addEventListener('pointerup', endDrag);
+      lbImg.addEventListener('pointercancel', endDrag);
 
-      img.addEventListener('dblclick', function(e) {
-        e.preventDefault();
+      lbImg.addEventListener('dblclick', () => {
         if (lbScale > 1.05) {
           resetLightboxZoom();
         } else {
-          zoomLightboxAt(2.5, e.clientX, e.clientY);
+          setLightboxZoom(2.2);
         }
       });
-    })();
+    }
 
-    window.addEventListener('keydown', function(e) {
-      const modal = document.getElementById('lightbox-modal');
-      if (modal && modal.classList.contains('show')) {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') lightboxNavigate(-1);
-        if (e.key === 'ArrowRight') lightboxNavigate(1);
-        if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
-        if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
-        if (e.key === '0') resetLightboxZoom();
-      }
-    });
+    // Scroll active link tracking for subnav
+    const observerSections = document.querySelectorAll('.page-unit');
+    const subnavPills = document.querySelectorAll('.subnav-pill');
+
+    window.addEventListener('scroll', () => {
+      let currentId = '';
+      const scrollPos = window.scrollY + 200;
+
+      observerSections.forEach(section => {
+        if (section.offsetTop <= scrollPos) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      subnavPills.forEach(pill => {
+        pill.classList.remove('active');
+        if (pill.getAttribute('data-target') === currentId) {
+          pill.classList.add('active');
+        }
+      });
+    }, { passive: true });
   </script>
 </body>
 </html>

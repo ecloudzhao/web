@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Model Making: Wood, Cardboard, and Spatial Structure &mdash; Project 05 | Churan (Olivia) Ma</title>
-  <meta name="description" content="Model Making: Wood, Cardboard, and Spatial Structure — Project 05 by Churan (Olivia) Ma. Handcrafted models exploring material behavior, structural logic, and spatial composition.">
+  <title>The Blurred Boundary: Care, Protection and Control — Project IV | Churan (Olivia) Ma</title>
+  <meta name="description" content="Visual Art, Archival Installation & Bodily Discipline across 8 curated sections with interactive carousels by Churan (Olivia) Ma.">
 
   <!-- Google Fonts: Aboreto & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,7 @@
       --color-border-subtle: #eae6e7;
       --color-border-line: #e2dcde;
       --color-accent-dark: #3a3235;
+      --color-red-prompt: #c93b2b;
 
       --font-display: 'Aboreto', Georgia, 'Times New Roman', serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -67,7 +68,9 @@
       display: block;
     }
 
-    /* 1. FIXED WIX NAVBAR */
+    /* ==========================================================================
+       1. FIXED WIX NAVBAR
+       ========================================================================== */
     header {
       position: sticky;
       top: 0;
@@ -121,7 +124,7 @@
     .wix-nav-menu {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 32px;
       list-style: none;
     }
 
@@ -135,11 +138,10 @@
       font-weight: 400;
       letter-spacing: 0.05em;
       color: var(--color-text-body);
-      text-transform: capitalize;
       transition: var(--transition);
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       padding: 6px 0;
     }
 
@@ -159,13 +161,11 @@
       background: var(--color-text-black);
     }
 
-    .wix-dropdown-trigger svg {
-      width: 10px;
-      height: 10px;
-      transition: transform 0.2s;
-    }
-    .wix-dropdown:hover .wix-dropdown-trigger svg {
-      transform: rotate(180deg);
+    /* Wix Dropdown Menu */
+    .wix-dropdown:hover .wix-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .wix-dropdown-menu {
@@ -173,326 +173,229 @@
       top: 100%;
       left: 0;
       background: #ffffff;
-      min-width: 290px;
-      padding: 12px 0;
       border: 1px solid var(--color-border-line);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-radius: 2px;
       list-style: none;
-      display: none;
-      z-index: 1001;
-    }
-
-    .wix-dropdown:hover .wix-dropdown-menu {
-      display: block;
+      padding: 10px 0;
+      min-width: 300px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+      z-index: 1010;
     }
 
     .wix-dropdown-item a {
       display: block;
-      padding: 10px 20px;
-      font-size: 13px;
-      color: var(--color-text-muted);
-      transition: var(--transition);
-      line-height: 1.4;
-    }
-    .wix-dropdown-item a strong {
-      display: block;
-      color: var(--color-text-black);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .wix-dropdown-item a span {
-      font-size: 11px;
-      color: #888;
+      padding: 9px 20px;
+      font-size: 12.5px;
+      color: var(--color-text-body);
+      transition: background 0.2s, color 0.2s;
     }
     .wix-dropdown-item a:hover {
       background: var(--color-bg-subtle);
+      color: var(--color-text-black);
     }
 
     .nav-btn-back {
+      font-size: 11.5px;
       font-family: var(--font-display);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      padding: 7px 16px;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
       border: 1px solid var(--color-border-line);
-      background: transparent;
-      color: var(--color-text-black);
-      transition: var(--transition);
       border-radius: 2px;
+      color: var(--color-text-black);
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: var(--transition);
+      background: #ffffff;
     }
     .nav-btn-back:hover {
-      background: var(--color-text-black);
-      color: #ffffff;
-      border-color: var(--color-text-black);
+      background: var(--color-wix-banner);
+      border-color: var(--color-bar-accent);
     }
 
-    /* 2. SIGNATURE HERO BAND */
-    .project-hero-band {
-      background-color: var(--color-wix-banner);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 70px 32px 60px;
+    /* ==========================================================================
+       2. PROJECT HERO HEADER
+       ========================================================================== */
+    .project-hero-header {
+      background-color: var(--color-bg-subtle);
+      border-bottom: 1px solid var(--color-border-line);
+      padding: 55px 0 45px;
     }
 
-    .hero-container {
+    .hero-inner {
       max-width: var(--container-max);
       margin: 0 auto;
+      padding: 0 32px;
     }
 
-    .hero-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .hero-category-tag {
+    .project-category-tag {
       font-family: var(--font-display);
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--color-accent-dark);
-      background: rgba(255, 255, 255, 0.6);
-      padding: 5px 14px;
-      border-radius: 2px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .hero-spread-count {
       font-size: 12px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
       color: var(--color-text-muted);
       text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
     }
 
-    .hero-title-main {
+    .project-main-title {
       font-family: var(--font-display);
-      font-size: clamp(26px, 4vw, 42px);
+      font-size: clamp(26px, 3.8vw, 42px);
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       line-height: 1.25;
       color: var(--color-text-black);
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 22px;
     }
 
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--color-text-muted);
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      margin-bottom: 36px;
-      max-width: 900px;
-    }
-
-    .hero-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .hero-meta-item .meta-label {
-      font-family: var(--font-display);
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-text-dim);
-      margin-bottom: 4px;
-    }
-
-    .hero-meta-item .meta-val {
-      font-size: 13px;
-      color: var(--color-text-black);
+    .project-subtitle-bar {
+      font-size: 15px;
       font-weight: 400;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
+      color: var(--color-accent-dark);
+      margin-bottom: 20px;
     }
 
-    /* 3. STICKY SUB-NAV */
-    .sticky-subnav {
+    .project-lead-desc {
+      max-width: 880px;
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--color-text-body);
+      border-left: 2px solid var(--color-bar-accent);
+      padding-left: 20px;
+    }
+
+    /* ==========================================================================
+       3. STICKY 8-SECTION SUBNAV BAR
+       ========================================================================== */
+    .sticky-subnav-bar {
       position: sticky;
       top: 72px;
-      z-index: 990;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--color-border-line);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
 
-    .subnav-container {
+    .subnav-inner {
       max-width: var(--container-max);
       margin: 0 auto;
-      padding: 10px 32px;
+      padding: 0 32px;
+      height: 52px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-    }
-
-    .subnav-label {
-      font-family: var(--font-display);
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--color-text-dim);
-      white-space: nowrap;
-      flex-shrink: 0;
+      align-items: center;
+      gap: 16px;
     }
 
     .subnav-scroll-wrapper {
-      flex: 1;
-      min-width: 0;
       overflow-x: auto;
-      scroll-behavior: smooth;
+      white-space: nowrap;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      display: flex;
-      align-items: center;
+      flex: 1;
     }
-
     .subnav-scroll-wrapper::-webkit-scrollbar {
       display: none;
-      width: 0;
-      height: 0;
     }
 
     .subnav-pages-scroll {
       display: flex;
       align-items: center;
       gap: 8px;
-      list-style: none;
-      padding: 4px 0;
-      white-space: nowrap;
     }
 
     .subnav-pill {
-      font-size: 11px;
+      font-size: 11.5px;
       font-family: var(--font-display);
       letter-spacing: 0.08em;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border: 1px solid var(--color-border-subtle);
-      border-radius: 2px;
+      border-radius: 20px;
       color: var(--color-text-muted);
-      white-space: nowrap;
-      transition: var(--transition);
       background: #ffffff;
-      display: inline-block;
+      transition: var(--transition);
+      cursor: pointer;
       user-select: none;
+      white-space: nowrap;
     }
     .subnav-pill:hover,
     .subnav-pill.active {
       color: var(--color-text-black);
-      border-color: var(--color-text-black);
-      background: var(--color-bg-subtle);
-    }
-
-    .subnav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
+      border-color: var(--color-accent-dark);
+      background: var(--color-wix-banner);
+      font-weight: 500;
     }
 
     .subnav-arrows-group {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      flex-shrink: 0;
     }
 
     .subnav-arrow-btn {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border: 1px solid var(--color-border-line);
       background: #ffffff;
-      color: var(--color-text-black);
-      border-radius: 2px;
-      display: inline-flex;
+      border-radius: 4px;
+      display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 13px;
       transition: var(--transition);
-      user-select: none;
+      color: var(--color-text-black);
     }
     .subnav-arrow-btn:hover {
       background: var(--color-wix-banner);
       border-color: var(--color-bar-accent);
-      color: var(--color-text-black);
     }
 
-    /* 4. MAIN CONTAINER & PAGE CARDS */
+    /* ==========================================================================
+       4. STORYBOARD MAIN CONTAINER
+       ========================================================================== */
     .storyboard-wrapper {
       max-width: var(--container-max);
       margin: 0 auto;
-      padding: 50px 32px 80px;
+      padding: 45px 32px 75px;
     }
 
-    .project-statement-card {
-      margin-bottom: 60px;
+    .section-unit {
+      margin-bottom: 65px;
       background: #ffffff;
       border: 1px solid var(--color-border-subtle);
-      padding: 40px;
+      border-radius: 4px;
+      padding: 34px 34px 38px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      border-left: 4px solid var(--color-bar-accent);
+      transition: box-shadow 0.3s ease;
+      scroll-margin-top: 140px;
+    }
+    .section-unit:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
     }
 
-    .statement-title {
-      font-family: var(--font-display);
-      font-size: 16px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-text-black);
-      margin-bottom: 16px;
-    }
-
-    .statement-body {
-      font-size: 15px;
-      line-height: 1.9;
-      color: #333333;
-      font-weight: 300;
-    }
-    .statement-body p + p {
-      margin-top: 14px;
-    }
-
-    .page-unit {
-      margin-bottom: 60px;
-      background: #ffffff;
-      border: 1px solid var(--color-border-subtle);
-      border-radius: 2px;
-      padding: 36px 36px 32px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-      position: relative;
-    }
-    .page-unit:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-      border-color: #d8cec8;
-    }
-
-    .page-unit-header {
+    .section-unit-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      padding-bottom: 18px;
+      margin-bottom: 26px;
       border-bottom: 1px solid var(--color-border-subtle);
-      flex-wrap: wrap;
-      gap: 12px;
     }
 
-    .page-indicator {
+    .section-indicator {
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .page-badge {
+    .section-badge {
       font-family: var(--font-display);
       font-size: 12px;
       letter-spacing: 0.16em;
@@ -503,135 +406,836 @@
       border-radius: 2px;
     }
 
-    .page-theme-title {
+    .section-theme-title {
       font-family: var(--font-display);
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.12em;
       color: var(--color-text-black);
       text-transform: uppercase;
     }
 
-    .page-scan-link {
-      font-size: 11px;
-      font-family: var(--font-sans);
-      color: var(--color-text-dim);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: color 0.2s;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    .page-scan-link:hover {
-      color: var(--color-text-black);
+    .section-subtitle-tag {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
     }
 
+    /* Universal Zoomable Image Target */
     .img-zoom-target {
       position: relative;
-      cursor: pointer;
+      cursor: zoom-in;
       overflow: hidden;
-      background: #181716;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: transparent;
+      border: none;
       display: block;
-      width: 100%;
+      border-radius: 0;
     }
-
     .img-zoom-target img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
     .img-zoom-target:hover img {
-      transform: scale(1.012);
+      transform: scale(1.018);
     }
-
     .img-zoom-target::after {
-      content: '⤢ Click to Zoom';
+      content: '⤢';
       position: absolute;
-      bottom: 14px;
-      right: 14px;
-      background: rgba(18, 17, 16, 0.82);
-      color: #ffffff;
-      font-size: 11px;
-      letter-spacing: 1px;
-      padding: 6px 14px;
-      text-transform: uppercase;
-      font-family: var(--font-sans);
-      border-radius: 2px;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--color-text-black);
       opacity: 0;
       transition: opacity 0.2s;
       pointer-events: none;
-      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
     .img-zoom-target:hover::after {
       opacity: 1;
     }
 
+    /* Captions */
     .page-caption {
-      margin-top: 20px;
+      margin-top: 22px;
       padding: 16px 20px;
       background: var(--color-bg-subtle);
       border-left: 2px solid var(--color-bar-accent);
       font-size: 14px;
       line-height: 1.8;
       color: var(--color-text-body);
+      border-radius: 0 2px 2px 0;
     }
-
+    .page-caption p + p {
+      margin-top: 10px;
+    }
     .caption-highlight {
       font-weight: 600;
       color: var(--color-text-black);
-      font-family: var(--font-sans);
     }
 
-    /* 5. BOTTOM PROJECT NAVIGATION STRIP */
-    .project-bottom-nav {
-      margin-top: 40px;
-      padding-top: 40px;
+    /* Section 1 Single Card */
+    .single-slide-card .single-media-box {
+      width: 100%;
+      max-height: 720px;
+      background: transparent;
+      border: none;
+    }
+    .single-slide-card .single-media-box img {
+      object-fit: contain;
+      max-height: 720px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       5. INTERACTIVE CAROUSEL STYLES
+       ========================================================================== */
+    .carousel-container {
+      position: relative;
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border-line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      width: 100%;
+      flex-shrink: 0;
+      padding: 30px 30px 22px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Floating Arrow Controls */
+    .carousel-arrow {
+      position: absolute;
+      top: 42%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 20;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      color: var(--color-text-black);
+    }
+    .carousel-arrow:hover {
+      background: #ffffff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .carousel-arrow.prev { left: 16px; }
+    .carousel-arrow.next { right: 16px; }
+    .carousel-arrow svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    /* Carousel Bottom Bar */
+    .carousel-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 28px;
+      background: #ffffff;
       border-top: 1px solid var(--color-border-line);
+    }
+
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d8d0d2;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--color-accent-dark);
+      width: 24px;
+      border-radius: 8px;
+    }
+
+    .carousel-counter {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--color-text-muted);
+    }
+
+    /* Layout: Single within Slide */
+    .slide-media-box {
+      width: 100%;
+      max-height: 640px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .slide-media-box .img-zoom-target {
+      max-height: 640px;
+      width: auto;
+      max-width: 100%;
+    }
+    .slide-media-box img {
+      max-height: 640px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+    .slide-media-compact {
+      max-width: 720px;
+    }
+
+    /* Layout: Split 2-Images */
+    .slide-split-2img {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+      align-items: center;
+    }
+    .slide-split-2img .img-zoom-target {
+      height: 480px;
+    }
+    .slide-split-2img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 5 Slide 2 Overlap matching PDF Page 16 */
+    .slide-sec5-overlap {
+      display: grid;
+      grid-template-columns: 1.15fr 1.35fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec5-left-img {
+      height: 520px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec5-left-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .sec5-right-img {
+      height: 400px;
+    }
+    .sec5-right-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Section 07 Enhancements: Full uncropped vertical photos & vertical centering */
+    #sec-07 .carousel-slide {
+      justify-content: center;
+    }
+    #sec-07 .slide-split-2img {
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-split-2img .img-zoom-target {
+      height: 540px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-split-2img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    #sec-07 .slide-media-box {
+      max-height: 580px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-media-box .img-zoom-target {
+      max-height: 580px;
+      height: 580px;
+      width: auto;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-media-box img {
+      max-height: 580px;
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+    #sec-07 .slide-triptych-3img {
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-triptych-3img .img-zoom-target {
+      height: 520px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sec-07 .slide-triptych-3img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Layout: Section 3 Slide 2 - Pencilcase 3-Images (matching PDF Page 8: left big, right 2 horizontal bottom-aligned) */
+    .slide-sec3-pencilcase3 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .sec3-main-img {
+      flex: 1.45;
+      height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec3-main-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .sec3-right-row {
+      flex: 1.25;
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      height: 440px;
+    }
+    .sec3-sub1-img {
+      flex: 0.85;
+      height: 290px;
+    }
+    .sec3-sub1-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .sec3-sub2-img {
+      flex: 1.35;
+      height: 290px;
+    }
+    .sec3-sub2-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 3 Slide 3 - Ballet leotard & pointe shoes (matching PDF Page 9: asymmetric left-big right-small bottom-aligned) */
+    .slide-sec3-ballet2 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .sec3-ballet-main {
+      flex: 2.35;
+      height: 460px;
+    }
+    .sec3-ballet-main img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .sec3-ballet-sub {
+      flex: 0.95;
+      height: 210px;
+      margin-bottom: 2px;
+    }
+    .sec3-ballet-sub img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 4 Slide 3 - Loose-leaf spread & punch rings (matching PDF Page 13: equal height, side by side) */
+    .slide-sec4-looseleaf2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .sec4-looseleaf-main {
+      height: 440px;
+      flex: 1.85;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec4-looseleaf-main img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    .sec4-looseleaf-sub {
+      height: 440px;
+      flex: 0.95;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec4-looseleaf-sub img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 6 Slide 2 - Overlap layout (matching PDF Page 20: left full height vertical, right horizontal overlap) */
+    .slide-sec6-overlap {
+      display: grid;
+      grid-template-columns: 1.15fr 1.35fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec6-left-img {
+      height: 520px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec6-left-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .sec6-right-img {
+      height: 400px;
+    }
+    .sec6-right-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Layout: Section 7 Slide 2 & 4 - Model student portraits & posture (matching PDF Page 24 & 28) */
+    .slide-sec7-portrait-split2,
+    .slide-sec7-cuffwaist-split2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 38px;
+      width: 100%;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .sec7-full-img,
+    .sec7-cuff-img {
+      height: 550px;
+      flex: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec7-full-img img,
+    .sec7-cuff-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .sec7-crop-img,
+    .sec7-waist-img {
+      height: 470px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec7-crop-img img,
+    .sec7-waist-img img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Layout: Triptych 3-Images (Section 7 Slide 6 matching PDF Page 30) */
+    .slide-triptych-3img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .slide-triptych-3img .img-zoom-target {
+      height: 450px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-triptych-3img .triptych-vert {
+      flex: 1;
+    }
+    .slide-triptych-3img .triptych-vert img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .slide-triptych-3img .triptych-horiz {
+      flex: 2.2;
+    }
+    .slide-triptych-3img .triptych-horiz img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       6. CAMERA-LOCKED 3-PHASE INTERACTIVE
+       ========================================================================== */
+    .locked-camera-interactive-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .locked-camera-viewport {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 512 / 768;
+      background: #0f0f11;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .locked-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .locked-frame.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .locked-expand-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      z-index: 10;
+    }
+    .locked-expand-btn:hover {
+      background: rgba(201, 59, 43, 0.9);
+      transform: scale(1.1);
+    }
+
+    .locked-camera-ctrls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 480px;
+      margin-top: 16px;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 4px;
+    }
+
+    .locked-hint-label {
+      font-size: 12px;
+      color: var(--color-red-prompt);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .locked-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phase-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-black);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .phase-btn:hover {
+      border-color: var(--color-red-prompt);
+      color: var(--color-red-prompt);
+    }
+    .phase-btn.active {
+      background: var(--color-red-prompt);
+      color: #ffffff;
+      border-color: var(--color-red-prompt);
+      transform: scale(1.1);
+      box-shadow: 0 2px 8px rgba(201, 59, 43, 0.35);
+    }
+
+    /* ==========================================================================
+       7. SECTION 8 DOUBLE-COLUMN ESSAY SPREAD
+       ========================================================================== */
+    .section8-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border-line);
+      padding: 40px;
+      border-radius: 4px;
+    }
+
+    .section8-essay-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.12em;
+      color: var(--color-text-black);
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border-line);
+    }
+
+    .section8-essay-body p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--color-text-body);
+      margin-bottom: 16px;
+    }
+
+    .section8-quote-box {
+      margin: 22px 0;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-left: 3px solid var(--color-bar-accent);
+      font-style: italic;
+      color: var(--color-text-black);
+      line-height: 1.75;
+      font-size: 14.5px;
+    }
+
+    .section8-media-col {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .section8-card-frame {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.3s ease;
+    }
+    .section8-card-frame:hover {
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .section8-img-box {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      background: #0d0c0e;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      display: block;
+    }
+    .section8-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .section8-img-box:hover img {
+      transform: scale(1.02);
+    }
+
+    .section8-media-caption {
+      padding: 18px 22px 20px;
+      background: #ffffff;
+    }
+
+    .section8-caption-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .section8-caption-tag {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      font-weight: 600;
+    }
+
+    .section8-caption-badge {
+      font-size: 11px;
+      color: var(--color-text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section8-caption-desc {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--color-text-body);
+      border-left: 2px solid var(--color-bar-accent);
+      padding-left: 12px;
+      margin-top: 8px;
+    }
+
+    /* ==========================================================================
+       8. PROJECT BOTTOM NAVIGATION STRIP
+       ========================================================================== */
+    .project-bottom-nav {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 32px 80px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 20px;
     }
 
     .project-nav-card {
       display: flex;
       align-items: center;
-      gap: 16px;
       padding: 18px 24px;
-      border: 1px solid var(--color-border-line);
       background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      border-radius: 4px;
       transition: var(--transition);
-      min-width: 280px;
+      max-width: 420px;
     }
     .project-nav-card:hover {
       border-color: var(--color-text-black);
       background: var(--color-bg-subtle);
       transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
     }
-
     .pnav-sub {
+      font-size: 11px;
       font-family: var(--font-display);
-      font-size: 10px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
+      color: var(--color-text-muted);
       text-transform: uppercase;
-      color: var(--color-text-dim);
+      margin-bottom: 4px;
     }
     .pnav-title {
-      font-family: var(--font-display);
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-text-black);
+      font-size: 14px;
       font-weight: 500;
+      color: var(--color-text-black);
     }
 
-    /* 6. WIX FOOTER AREA */
+    /* ==========================================================================
+       9. WIX MINIMALIST FOOTER (#e7dee1)
+       ========================================================================== */
     .wix-footer-area {
       background-color: var(--color-wix-footer);
       border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -643,41 +1247,32 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 50px;
-      padding-bottom: 40px;
-    }
-
-    @media (max-width: 860px) {
-      .footer-content-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
+      gap: 40px;
+      margin-bottom: 40px;
     }
 
     .footer-brand-title {
       font-family: var(--font-display);
-      font-size: 14px;
-      letter-spacing: 0.2em;
+      font-size: 15px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #111111;
+      color: var(--color-text-black);
       margin-bottom: 12px;
     }
 
     .footer-brand-desc {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      color: #666666;
-      line-height: 1.7;
-      max-width: 380px;
-      font-weight: 300;
+      font-size: 13.5px;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      max-width: 460px;
     }
 
     .footer-col-title {
       font-family: var(--font-display);
-      font-size: 11px;
+      font-size: 11.5px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #111111;
+      color: var(--color-text-black);
       margin-bottom: 16px;
     }
 
@@ -685,17 +1280,15 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
-
     .footer-link-list a {
-      font-family: var(--font-sans);
       font-size: 13px;
-      color: #666666;
+      color: var(--color-text-muted);
       transition: color 0.2s;
     }
     .footer-link-list a:hover {
-      color: #000000;
+      color: var(--color-text-black);
     }
 
     .footer-bottom-bar {
@@ -709,427 +1302,934 @@
       flex-wrap: wrap;
       gap: 16px;
       font-size: 12px;
-      color: #8e8880;
+      color: var(--color-text-dim);
     }
 
     .footer-nav-jump {
       display: flex;
       gap: 20px;
     }
+    .footer-nav-jump a {
+      color: var(--color-text-muted);
+    }
+    .footer-nav-jump a:hover {
+      color: var(--color-text-black);
+    }
 
-    /* 7. LIGHTBOX MODAL WITH ZOOM & PAN */
-    .lightbox-backdrop {
+    /* ==========================================================================
+       10. ADVANCED LIGHTBOX MODAL WITH ZOOM & PAN
+       ========================================================================== */
+    .lightbox-modal {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(18, 17, 16, 0.94);
-      backdrop-filter: blur(10px);
+      width: 100vw;
+      height: 100vh;
+      background: rgba(14, 13, 14, 0.94);
+      backdrop-filter: blur(8px);
       z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
-    .lightbox-backdrop.show {
-      display: flex;
-    }
-
-    .lightbox-content-box {
-      max-width: 92vw;
-      max-height: 90vh;
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      touch-action: none;
+      user-select: none;
     }
-
-    .lightbox-close-btn {
-      position: fixed;
-      top: 24px;
-      right: 28px;
-      background: none;
-      border: none;
-      color: #ffffff;
-      font-size: 36px;
-      cursor: pointer;
-      line-height: 1;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-      z-index: 2010;
-    }
-    .lightbox-close-btn:hover {
+    .lightbox-modal.show {
       opacity: 1;
+      pointer-events: auto;
     }
 
-    .lightbox-nav-btn {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.12);
+    .lightbox-toolbar {
+      position: absolute;
+      top: 20px;
+      left: 32px;
+      right: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2020;
+    }
+
+    .lightbox-title-text {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.85);
+      text-transform: uppercase;
+    }
+
+    .lightbox-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-btn {
+      background: rgba(255, 255, 255, 0.14);
       border: 1px solid rgba(255, 255, 255, 0.25);
       color: #ffffff;
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 20px;
-      transition: all 0.2s;
-      z-index: 2010;
-    }
-    .lightbox-nav-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-50%) scale(1.05);
-    }
-    .lightbox-prev-btn { left: 28px; }
-    .lightbox-next-btn { right: 28px; }
-
-    .lightbox-img-wrapper {
-      position: relative;
-      max-width: 100%;
-      max-height: 74vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: none;
-    }
-
-    #lightbox-current-img {
-      max-width: 100%;
-      max-height: 74vh;
-      object-fit: contain;
-      cursor: grab;
-      will-change: transform;
-      transform-origin: center center;
-    }
-    #lightbox-current-img.is-zoomed {
-      cursor: grab;
-    }
-    #lightbox-current-img.is-dragging {
-      cursor: grabbing !important;
-      user-select: none;
-    }
-
-    .lightbox-zoom-toolbar {
-      position: fixed;
-      bottom: 24px;
-      left: 28px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(25, 24, 23, 0.82);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 4px;
-      padding: 5px 10px;
-      z-index: 2010;
-    }
-
-    .lightbox-zoom-btn {
-      background: none;
-      border: none;
-      color: #ffffff;
-      width: 26px;
-      height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-size: 16px;
-      cursor: pointer;
-      opacity: 0.85;
-      transition: opacity 0.2s, background-color 0.2s;
-      border-radius: 2px;
+      transition: all 0.2s;
     }
-    .lightbox-zoom-btn:hover {
-      opacity: 1;
-      background: rgba(255, 255, 255, 0.15);
+    .lightbox-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
     }
 
-    .lightbox-zoom-badge {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      color: #ffffff;
-      min-width: 44px;
-      text-align: center;
-      letter-spacing: 0.5px;
-      font-weight: 500;
-      cursor: pointer;
-      user-select: none;
-      padding: 2px 4px;
+    .lightbox-stage {
+      position: relative;
+      width: 90vw;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .lightbox-caption-text {
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transform-origin: center center;
+      transition: transform 0.15s ease-out;
+      cursor: grab;
+    }
+    .lightbox-img.is-dragging {
+      cursor: grabbing;
+      transition: none !important;
+    }
+
+    .lightbox-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
       color: #ffffff;
-      margin-top: 14px;
-      font-size: 13px;
-      font-family: var(--font-sans);
-      text-align: center;
+      z-index: 2010;
+      transition: all 0.25s;
+    }
+    .lightbox-nav-arrow:hover {
+      background: rgba(255, 255, 255, 0.28);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .lightbox-nav-arrow.prev { left: 24px; }
+    .lightbox-nav-arrow.next { right: 24px; }
+
+    .lightbox-caption-bar {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
       max-width: 800px;
-      letter-spacing: 0.5px;
-      opacity: 0.9;
+      width: 90%;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13.5px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      padding: 10px 24px;
+      border-radius: 20px;
+      pointer-events: none;
     }
 
-    .lightbox-zoom-hint {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 11px;
-      letter-spacing: 0.5px;
-      margin-top: 6px;
-      text-transform: uppercase;
-      font-family: var(--font-sans);
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 992px) {
+      .section8-grid {
+        grid-template-columns: 1fr;
+      }
+      .section8-media-col {
+        position: static;
+      }
+      .section8-img-box {
+        aspect-ratio: 3 / 2;
+        height: auto;
+      }
+      .slide-split-2img,
+      .slide-sec5-overlap,
+      .slide-3img-pencilcase,
+      .slide-triptych-3img {
+        grid-template-columns: 1fr;
+      }
+      .sec5-left-img,
+      .sec5-right-img {
+        height: 320px;
+      }
+      .pencilcase-right-col {
+        height: auto;
+      }
+      .pencilcase-right-col .img-zoom-target {
+        height: 240px;
+      }
+      .slide-split-2img .img-zoom-target,
+      .slide-triptych-3img .img-zoom-target,
+      #sec-07 .slide-split-2img .img-zoom-target,
+      #sec-07 .slide-triptych-3img .img-zoom-target,
+      #sec-07 .slide-media-box .img-zoom-target,
+      .pencilcase-main {
+        height: 360px;
+      }
+      .footer-content-grid {
+        grid-template-columns: 1fr;
+      }
     }
-  </style>
+
+    @media (max-width: 768px) {
+      .wix-nav-container {
+        padding: 0 20px;
+      }
+      .hero-inner, .subnav-inner, .storyboard-wrapper, .project-bottom-nav, .wix-footer-area {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .section-unit {
+        padding: 24px 20px;
+      }
+      .carousel-slide {
+        padding: 20px 16px;
+      }
+      .carousel-arrow {
+        width: 38px;
+        height: 38px;
+      }
+    }
+    </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- 1. FIXED NAVBAR -->
+  <!-- 1. FIXED WIX NAVBAR -->
   <header>
     <div class="wix-nav-container">
-      <ul class="wix-nav-menu">
-        <li class="wix-nav-item">
-          <a href="index.html" class="nav-btn-back">&larr; Portfolio Home</a>
-        </li>
-        <li class="wix-nav-item wix-dropdown">
-          <a href="index.html#works" class="wix-nav-link wix-dropdown-trigger">
-            All Projects
-            <svg viewBox="0 0 10 6" fill="none" stroke="currentColor"><path d="M1 1L5 5L9 1" stroke-width="1.5"/></svg>
-          </a>
-          <ul class="wix-dropdown-menu">
-            <li class="wix-dropdown-item">
-              <a href="project01.html">
-                <strong>Ⅰ. Wooden Structure Translation</strong>
-                <span>A Multi-functional Wooden Structure at the Foot of the Ming City Wall</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project02.html">
-                <strong>Ⅱ. Sierra Canyon Campus Reconfiguration: Diagnosis</strong>
-                <span>Spatial Diagnosis — Everyday Frictions</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project03.html">
-                <strong>Ⅲ. Sierra Canyon Campus Reconfiguration: Design Interventions</strong>
-                <span>Gateway &amp; Art Center</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="exhibition.html">
-                <strong>Ⅳ. The Blurred Boundary</strong>
-                <span>Visual Art &amp; Archival Installation · 34 Pages</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project05.html" style="background: var(--color-bg-subtle);">
-                <strong>Ⅴ. Model Making</strong>
-                <span>Wood, Cardboard, and Spatial Structure · 5 Plates</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project06.html">
-                <strong>Ⅵ. Visual Studies</strong>
-                <span>Light, Composition, and Everyday Life · 7 Plates</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <nav>
+        <ul class="wix-nav-menu">
+          <li class="wix-nav-item">
+            <a href="index.html" class="wix-nav-link">Home</a>
+          </li>
+          <li class="wix-nav-item wix-dropdown">
+            <a href="index.html#works" class="wix-nav-link active">
+              All Projects
+              <svg viewBox="0 0 10 6" fill="currentColor" style="width:8px; height:5px;"><path d="M0 0l5 5 5-5z"/></svg>
+            </a>
+            <ul class="wix-dropdown-menu">
+              <li class="wix-dropdown-item"><a href="project01.html">01 · Wooden Structure Translation</a></li>
+              <li class="wix-dropdown-item"><a href="project02.html">02 · Sierra Canyon: Diagnosis</a></li>
+              <li class="wix-dropdown-item"><a href="project03.html">03 · Sierra Canyon: Design Interventions</a></li>
+              <li class="wix-dropdown-item"><a href="project04.html">04 · Model Making</a></li>
+              <li class="wix-dropdown-item"><a href="project05.html" style="font-weight:600; color:#111;">05 · The Blurred Boundary</a></li>
+              <li class="wix-dropdown-item"><a href="project06.html">06 · Visual Studies</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#about" class="wix-nav-link">About</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#contact" class="wix-nav-link">Contact</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#works" class="nav-btn-back">
+              <span>&larr;</span> Back to Works
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <a href="index.html" class="wix-brand-link">
-        <svg class="wix-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polygon points="50,5 95,50 50,95 5,50" stroke="#000000" fill="none"/>
-          <polygon points="50,20 80,50 50,80 20,50" stroke="#000000" fill="none"/>
-          <line x1="50" y1="5" x2="50" y2="95" stroke="#000000"/>
-          <line x1="5" y1="50" x2="95" y2="50" stroke="#000000"/>
-          <line x1="18" y1="18" x2="82" y2="82" stroke="#000000"/>
-          <line x1="18" y1="82" x2="82" y2="18" stroke="#000000"/>
+      <a href="index.html" class="wix-brand-link" aria-label="Portfolio Homepage">
+        <svg class="wix-star-icon" viewBox="0 0 24 24">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
         <span class="wix-brand-text">Churan (Olivia) Ma</span>
       </a>
     </div>
   </header>
 
-  <!-- 2. SIGNATURE HERO BAND -->
-  <section class="project-hero-band">
-    <div class="hero-container">
-      <div class="hero-badge-row">
-        <span class="hero-category-tag">Project 05 // Handcrafted Models</span>
-        <span class="hero-spread-count">5 Portfolio Plates &middot; Material &amp; Structure Studies</span>
-      </div>
-
-      <h1 class="hero-title-main">Model Making</h1>
-      <p class="hero-subtitle">
-        Wood, Cardboard, and Spatial Structure
-      </p>
-
-      <div class="hero-meta-grid">
-        <div class="hero-meta-item">
-          <div class="meta-label">Location &amp; Year</div>
-          <div class="meta-val">Various &middot; 2025&ndash;2026</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="meta-label">Typology</div>
-          <div class="meta-val">Physical Model Making / Material Study</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="meta-label">Media</div>
-          <div class="meta-val">Wood, Cardboard, Wooden Sticks, Glue</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="meta-label">Scope &amp; Artifacts</div>
-          <div class="meta-val">5 Plates &middot; Process Photos, Model Views, Detail Shots</div>
-        </div>
-      </div>
+  <!-- 2. PROJECT HERO HEADER -->
+  <div class="project-hero-header">
+    <div class="hero-inner">
+      <span class="project-category-tag">Project 05 · Photography, Installation &amp; Visual Art Archive</span>
+      <h1 class="project-main-title">The Blurred Boundary: Care, Protection and Control</h1>
+      <p class="project-lead-desc">Exploring the blurred boundary between care, protection, and control in a mother-daughter relationship across early childhood calligraphy, primary school discipline, middle school exam drills, international applications, and the physical measurements of the &ldquo;model student.&rdquo;</p>
     </div>
-  </section>
+  </div>
 
-  <!-- 3. STICKY SUB-NAV FOR QUICK JUMP -->
-  <nav class="sticky-subnav">
-    <div class="subnav-container">
-      <span class="subnav-label">Jump to Plate:</span>
-      <div class="subnav-scroll-wrapper" id="subnav-scroll-wrapper">
-        <ul class="subnav-pages-scroll">
-          <li><a href="#plate-01" class="subnav-pill" data-target="plate-01">01 &middot; Wooden Lattice</a></li>
-          <li><a href="#plate-02" class="subnav-pill" data-target="plate-02">02 &middot; Lattice Projection</a></li>
-          <li><a href="#plate-03" class="subnav-pill" data-target="plate-03">03 &middot; Timber Pavilion</a></li>
-          <li><a href="#plate-04" class="subnav-pill" data-target="plate-04">04 &middot; Pavilion Details</a></li>
-          <li><a href="#plate-05" class="subnav-pill" data-target="plate-05">05 &middot; Folding Model</a></li>
-        </ul>
-      </div>
-      <div class="subnav-actions">
-        <div class="subnav-arrows-group">
-          <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(-1)" aria-label="Scroll left">&larr;</button>
-          <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(1)" aria-label="Scroll right">&rarr;</button>
+  <!-- 3. STICKY 8-SECTION SUBNAV BAR -->
+  <nav class="sticky-subnav-bar" id="subnav-bar">
+    <div class="subnav-inner">
+      <div class="subnav-scroll-wrapper" id="subnav-scroll">
+        <div class="subnav-pages-scroll">
+          <a href="#sec-01" class="subnav-pill" data-target="sec-01">01 Inspiration</a>
+<a href="#sec-02" class="subnav-pill" data-target="sec-02">02 Calligraphy</a>
+<a href="#sec-03" class="subnav-pill" data-target="sec-03">03 Primary Desk</a>
+<a href="#sec-04" class="subnav-pill" data-target="sec-04">04 Transition</a>
+<a href="#sec-05" class="subnav-pill" data-target="sec-05">05 Exam Drills</a>
+<a href="#sec-06" class="subnav-pill" data-target="sec-06">06 Application</a>
+<a href="#sec-07" class="subnav-pill" data-target="sec-07">07 Model Student</a>
+<a href="#sec-08" class="subnav-pill" data-target="sec-08">08 Introduction</a>
+
         </div>
+      </div>
+      <div class="subnav-arrows-group">
+        <button type="button" class="subnav-arrow-btn" onclick="navigateSections(-1)" title="Previous Section">&larr;</button>
+        <button type="button" class="subnav-arrow-btn" onclick="navigateSections(1)" title="Next Section">&rarr;</button>
       </div>
     </div>
   </nav>
 
-  <!-- 4. MAIN STORYBOARD CONTAINER -->
+  <!-- 4. STORYBOARD MAIN CONTAINER -->
   <main class="storyboard-wrapper">
-
-    <!-- DESIGN STATEMENT CARD -->
-    <section class="project-statement-card">
-      <h2 class="statement-title">Design Statement &amp; Architectural Core Value</h2>
-      <div class="statement-body">
-        <p>
-          This collection brings together three handcrafted models that explore material behavior, structural logic, and spatial composition. From a digitally modeled lattice cube assembled with wooden sticks, to a traditional Chinese double-eave pavilion that reveals its joinery, to a folded cardboard study of flexibility and rhythm—each model translates digital or conceptual ideas into physical form.
-        </p>
-        <p>
-          Together they demonstrate my commitment to learning through making, and to understanding how structure and material can shape spatial experience. By engaging directly with tactile joinery, gravitational loads, and material tolerances, physical modeling serves as an irreplaceable foundation for my spatial and tectonic design thinking.
-        </p>
-      </div>
-    </section>
-
-    <!-- PLATE 01 -->
-    <article class="page-unit" id="plate-01">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 01</span>
-          <span class="page-theme-title">Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix</span>
+    
+        <article class="section-unit" id="sec-01">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 01</span>
+            <span class="section-theme-title">INSPIRATION &amp; STATEMENT</span>
+          </div>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project05/01.jpg', 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project05/01.jpg', 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix')">
-        <img src="assets/projects/project05/01.jpg" alt="Plate 01 - Wooden Lattice Cube Axonometric and Spatial Matrix" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 01:</span> Exploration of modular spatial grids constructed from handcrafted timber sticks. The complex multi-axial lattice cube translates 3D coordinate logic into tactile wood tectonics, examining porosity, density, and structural self-support.</p>
-      </div>
-    </article>
-
-    <!-- PLATE 02 -->
-    <article class="page-unit" id="plate-02">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 02</span>
-          <span class="page-theme-title">Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies</span>
+        
+          
+            <div class="single-slide-card">
+              <div class="img-zoom-target single-media-box" onclick="openLightbox('assets/hongdoudou/page_01.jpg', 'INSPIRATION &amp; STATEMENT', 'assets/hongdoudou/page_01.jpg')">
+                <img src="assets/hongdoudou/page_01.jpg" alt="INSPIRATION &amp; STATEMENT">
+              </div>
+              <div class="page-caption">
+                
+              <p><span class="caption-highlight">During the summer, I accidentally found an old school schedule written by my mother.</span></p>
+              <p>It made me realise that my growth had been arranged and measured from an early age. Textbooks, notes, exam papers, and stationery become archives of a planned life, showing how academic achievement gradually occupied my daily space. I then constructed the image of the &ldquo;perfect student&rdquo; through school uniform, controlled posture, and staged portraiture.</p>
+            
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-02">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 02</span>
+            <span class="section-theme-title">CALLIGRAPHY APRON &amp; INK TRACES</span>
+          </div>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project05/02.jpg', 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project05/02.jpg', 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies')">
-        <img src="assets/projects/project05/02.jpg" alt="Plate 02 - Wooden Lattice Cube Orthographic Projections and Process Studies" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 02:</span> Analytical drawings, orthographic elevation projections, and physical fabrication iterations studying the geometric progression from conceptual coordinate frameworks to physical joint assembly.</p>
-      </div>
-    </article>
+        
+          
+            <div class="carousel-container" id="sec-02-carousel" data-section-id="sec-02" data-current-index="0" data-total-slides="2">
+              <button type="button" class="carousel-arrow prev" onclick="moveSlide('sec-02', -1)" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="carousel-arrow next" onclick="moveSlide('sec-02', 1)" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  
+                <div class="carousel-slide" data-slide-index="0">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110319.jpg', 'CALLIGRAPHY APRON &amp; INK TRACES', 'assets/hongdoudou/photos/8.110319.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110319.jpg" alt="CALLIGRAPHY APRON &amp; INK TRACES">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Calligraphy Apron on Hanger:</span> I practiced calligraphy with a brush pen at the beginning of primary school. The ink spots permanently etched into the cotton apron record countless quiet afternoons spent sitting straight and copying ancient masters.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="1">
+                  
+                    <div class="slide-split-2img">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110342.jpg', 'CALLIGRAPHY APRON &amp; INK TRACES', 'assets/hongdoudou/photos/8.110342.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110342.jpg" alt="CALLIGRAPHY APRON &amp; INK TRACES">
+                      </div>
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110337.jpg', 'CALLIGRAPHY APRON &amp; INK TRACES', 'assets/hongdoudou/photos/8.110337.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110337.jpg" alt="CALLIGRAPHY APRON &amp; INK TRACES">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Laid-out Apron &amp; Nine-Grid Practice Sheets:</span> The laid-out apron reveals the organic accumulation of splashed ink, contrasted with the rigid nine-grid practice sheet repeatedly inscribing &ldquo;Where there is a will, there is a way.&rdquo;</p>
+                    
+                  </div>
+                </div>
+                
+                </div>
+              </div>
 
-    <!-- PLATE 03 -->
-    <article class="page-unit" id="plate-03">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 03</span>
-          <span class="page-theme-title">Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition</span>
+              <div class="carousel-bottom-bar">
+                <div class="carousel-dots">
+                  <button type="button" class="carousel-dot active" onclick="goToSlide('sec-02', 0)" aria-label="Go to slide 1"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-02', 1)" aria-label="Go to slide 2"></button>
+                </div>
+                <div class="carousel-counter">
+                  <span class="curr-num">01</span> / <span class="tot-num">02</span>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-03">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 03</span>
+            <span class="section-theme-title">PRIMARY SCHOOL &amp; EARLY DISCIPLINE</span>
+          </div>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project05/03.jpg', 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project05/03.jpg', 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition')">
-        <img src="assets/projects/project05/03.jpg" alt="Plate 03 - Timber Pavilion Traditional Double-Eave Tectonic Composition" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 03:</span> Full architectural model of a traditional Chinese double-eave wooden pavilion. The physical assembly investigates post-and-beam logic, layered hip roofs, and structural hierarchy through meticulous woodcraft.</p>
-      </div>
-    </article>
+        
+          
+            <div class="carousel-container" id="sec-03-carousel" data-section-id="sec-03" data-current-index="0" data-total-slides="3">
+              <button type="button" class="carousel-arrow prev" onclick="moveSlide('sec-03', -1)" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="carousel-arrow next" onclick="moveSlide('sec-03', 1)" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  
+                <div class="carousel-slide" data-slide-index="0">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/p05_desk_overview.png', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/p05_desk_overview.png')">
+                        <img src="assets/hongdoudou/photos/p05_desk_overview.png" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Primary School Desk Overview:</span> Neatly aligned textbooks, pen holders, timers, and examination supplies constituted the familiar territory of childhood, where every item was positioned according to strict order and efficiency.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="1">
+                  
+                    <div class="slide-sec3-pencilcase3">
+                      <div class="img-zoom-target sec3-main-img" onclick="openLightbox('assets/hongdoudou/photos/8.110355.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110355.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110355.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                      </div>
+                      <div class="sec3-right-row">
+                        <div class="img-zoom-target sec3-sub1-img" onclick="openLightbox('assets/hongdoudou/photos/8.110353.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110353.jpg')">
+                          <img src="assets/hongdoudou/photos/8.110353.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                        </div>
+                        <div class="img-zoom-target sec3-sub2-img" onclick="openLightbox('assets/hongdoudou/photos/8.110354.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110354.jpg')">
+                          <img src="assets/hongdoudou/photos/8.110354.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                        </div>
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Mother&rsquo;s Reminder Sticker &amp; Exam Guidelines:</span> &ldquo;Read the questions carefully, write neatly, double check your work, keep it up!&rdquo;</p>
+                      <p>My mom put this sticker on my pencil case after the first parent-teacher conference. Every time I unzipped it during tests, these instructions were there to remind me of the standards expected.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="2">
+                  
+                    <div class="slide-sec3-ballet2">
+                      <div class="img-zoom-target sec3-ballet-main" onclick="openLightbox('assets/hongdoudou/photos/8.110369.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110369.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110369.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                      </div>
+                      <div class="img-zoom-target sec3-ballet-sub" onclick="openLightbox('assets/hongdoudou/photos/8.110361.jpg', 'PRIMARY SCHOOL &amp; EARLY DISCIPLINE', 'assets/hongdoudou/photos/8.110361.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110361.jpg" alt="PRIMARY SCHOOL &amp; EARLY DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Ballet Leotard &amp; Satin Pointe Shoes:</span> Ballet leotard and pointe shoes: physical discipline through dance alongside academic demands, training muscle memory and posture to embody perfection.</p>
+                    
+                  </div>
+                </div>
+                
+                </div>
+              </div>
 
-    <!-- PLATE 04 -->
-    <article class="page-unit" id="plate-04">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 04</span>
-          <span class="page-theme-title">Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details</span>
+              <div class="carousel-bottom-bar">
+                <div class="carousel-dots">
+                  <button type="button" class="carousel-dot active" onclick="goToSlide('sec-03', 0)" aria-label="Go to slide 1"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-03', 1)" aria-label="Go to slide 2"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-03', 2)" aria-label="Go to slide 3"></button>
+                </div>
+                <div class="carousel-counter">
+                  <span class="curr-num">01</span> / <span class="tot-num">03</span>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-04">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 04</span>
+            <span class="section-theme-title">STUDY MATERIALS &amp; TRANSITION</span>
+          </div>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project05/04.jpg', 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project05/04.jpg', 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details')">
-        <img src="assets/projects/project05/04.jpg" alt="Plate 04 - Timber Pavilion Joinery Tectonics and Eave Bracket Details" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 04:</span> Macro process photographs focusing on interlocking mortise-and-tenon joints, corner eave rafter cantilevers, and timber craftsmanship, revealing tectonic discipline at an intimate scale.</p>
-      </div>
-    </article>
+        
+          
+            <div class="carousel-container" id="sec-04-carousel" data-section-id="sec-04" data-current-index="0" data-total-slides="3">
+              <button type="button" class="carousel-arrow prev" onclick="moveSlide('sec-04', -1)" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="carousel-arrow next" onclick="moveSlide('sec-04', 1)" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  
+                <div class="carousel-slide" data-slide-index="0">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110375.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110375.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110375.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Senior Primary Study Desk &amp; Stationery:</span> Textbooks grew thicker, and correction tapes, highlighters, and draft pads multiplied across the desk as learning transitioned rapidly toward rigorous examination prep.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="1">
+                  
+                    <div class="slide-media-box slide-media-compact">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110382.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110382.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110382.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Heart-Cutout Pink Pencil Case &amp; Pens:</span> The pastel pink pencil case with a delicate heart cutout juxtaposed against severe test papers, revealing quiet childhood warmth within structured routines.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="2">
+                  
+                    <div class="slide-sec4-looseleaf2">
+                      <div class="img-zoom-target sec4-looseleaf-main" onclick="openLightbox('assets/hongdoudou/photos/p12_looseleaf_spread.png', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/p12_looseleaf_spread.png')">
+                        <img src="assets/hongdoudou/photos/p12_looseleaf_spread.png" alt="STUDY MATERIALS &amp; TRANSITION">
+                      </div>
+                      <div class="img-zoom-target sec4-looseleaf-sub" onclick="openLightbox('assets/hongdoudou/photos/8.110402.jpg', 'STUDY MATERIALS &amp; TRANSITION', 'assets/hongdoudou/photos/8.110402.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110402.jpg" alt="STUDY MATERIALS &amp; TRANSITION">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Loose-Leaf Error Notebook &amp; Reinforcement Rings:</span> The loose-leaf binder allowed flexible restructuring of missed exam problems, each punched hole reinforced to withstand endless cycles of revision.</p>
+                    
+                  </div>
+                </div>
+                
+                </div>
+              </div>
 
-    <!-- PLATE 05 -->
-    <article class="page-unit" id="plate-05">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 05</span>
-          <span class="page-theme-title">Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity</span>
+              <div class="carousel-bottom-bar">
+                <div class="carousel-dots">
+                  <button type="button" class="carousel-dot active" onclick="goToSlide('sec-04', 0)" aria-label="Go to slide 1"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-04', 1)" aria-label="Go to slide 2"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-04', 2)" aria-label="Go to slide 3"></button>
+                </div>
+                <div class="carousel-counter">
+                  <span class="curr-num">01</span> / <span class="tot-num">03</span>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-05">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 05</span>
+            <span class="section-theme-title">EXAM DRILLS &amp; METHODICAL REPETITION</span>
+          </div>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project05/05.jpg', 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity')">Inspect Full Plate &oplus;</span>
-      </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project05/05.jpg', 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity')">
-        <img src="assets/projects/project05/05.jpg" alt="Plate 05 - Folding Model Curved Cardboard Rhythm and Spatial Continuity" loading="lazy">
-      </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 05:</span> Parametric paper folding investigation utilizing scored and curved white cardboard. Demonstrating how planar sheet material transitions into fluid, self-supporting spatial shells with dynamic light and shadow gradients.</p>
-      </div>
-    </article>
+        
+          
+            <div class="carousel-container" id="sec-05-carousel" data-section-id="sec-05" data-current-index="0" data-total-slides="3">
+              <button type="button" class="carousel-arrow prev" onclick="moveSlide('sec-05', -1)" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="carousel-arrow next" onclick="moveSlide('sec-05', 1)" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  
+                <div class="carousel-slide" data-slide-index="0">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110410.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110410.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110410.jpg" alt="EXAM DRILLS &amp; METHODICAL REPETITION">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Middle School Entrance Drills &amp; Grammar Workbooks:</span> These are the practice books and notebooks from when I was preparing for the middle school entrance exams. We were required to complete English grammar workbooks three times through until precision became instinct.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="1">
+                  
+                    <div class="slide-sec5-overlap">
+                      <div class="img-zoom-target sec5-left-img" onclick="openLightbox('assets/hongdoudou/photos/8.110411.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110411.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110411.jpg" alt="EXAM DRILLS &amp; METHODICAL REPETITION">
+                      </div>
+                      <div class="img-zoom-target sec5-right-img" onclick="openLightbox('assets/hongdoudou/photos/8.110403.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110403.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110403.jpg" alt="EXAM DRILLS &amp; METHODICAL REPETITION">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Grammar Notes Spread &amp; Error Analysis:</span> Black ink recorded theoretical grammar rules, while red ink dissected exceptions and recurring pitfalls. Notes were maintained with architectural precision.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="2">
+                  
+                    <div class="slide-media-box slide-media-compact">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110417.jpg', 'EXAM DRILLS &amp; METHODICAL REPETITION', 'assets/hongdoudou/photos/8.110417.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110417.jpg" alt="EXAM DRILLS &amp; METHODICAL REPETITION">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">6th Grade Writing Outline &amp; Multi-color Pen:</span> I wrote this in 6th grade as an outline for a writing competition. Introduction, transitions, rhetorical emphasis, and emotional resolution were all engineered like a structural diagram.</p>
+                    
+                  </div>
+                </div>
+                
+                </div>
+              </div>
 
-    <!-- 5. PROJECT NAVIGATION STRIP -->
-    <nav class="project-bottom-nav">
-      <a href="exhibition.html" class="project-nav-card">
-        <div>
-          <div class="pnav-sub">&larr; Previous Project</div>
-          <div class="pnav-title">04 &middot; The Blurred Boundary</div>
+              <div class="carousel-bottom-bar">
+                <div class="carousel-dots">
+                  <button type="button" class="carousel-dot active" onclick="goToSlide('sec-05', 0)" aria-label="Go to slide 1"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-05', 1)" aria-label="Go to slide 2"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-05', 2)" aria-label="Go to slide 3"></button>
+                </div>
+                <div class="carousel-counter">
+                  <span class="curr-num">01</span> / <span class="tot-num">03</span>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-06">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 06</span>
+            <span class="section-theme-title">OVERSEAS APPLICATION &amp; EXPANDING HORIZONS</span>
+          </div>
         </div>
-      </a>
+        
+          
+            <div class="carousel-container" id="sec-06-carousel" data-section-id="sec-06" data-current-index="0" data-total-slides="3">
+              <button type="button" class="carousel-arrow prev" onclick="moveSlide('sec-06', -1)" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="carousel-arrow next" onclick="moveSlide('sec-06', 1)" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  
+                <div class="carousel-slide" data-slide-index="0">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110432.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110432.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110432.jpg" alt="OVERSEAS APPLICATION &amp; EXPANDING HORIZONS">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Los Angeles High School Application Desk:</span> This image represents the period when I was applying to a high school in Los Angeles. School brochures, TOEFL vocabulary, and essay drafts merged as time zones shifted toward California.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="1">
+                  
+                    <div class="slide-sec6-overlap">
+                      <div class="img-zoom-target sec6-left-img" onclick="openLightbox('assets/hongdoudou/photos/8.110433.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110433.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110433.jpg" alt="OVERSEAS APPLICATION &amp; EXPANDING HORIZONS">
+                      </div>
+                      <div class="img-zoom-target sec6-right-img" onclick="openLightbox('assets/hongdoudou/photos/8.110424.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110424.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110424.jpg" alt="OVERSEAS APPLICATION &amp; EXPANDING HORIZONS">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Campus Guides &amp; Standardized Testing Pens:</span> Campus maps and academic guides laid alongside rows of vibrant highlighting markers, aligning global exploration with heightened self-discipline.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="2">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110442.jpg', 'OVERSEAS APPLICATION &amp; EXPANDING HORIZONS', 'assets/hongdoudou/photos/8.110442.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110442.jpg" alt="OVERSEAS APPLICATION &amp; EXPANDING HORIZONS">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Laptop, Beats Headphones &amp; Student ID Card:</span> Digital devices took center stage: noise-cancelling headphones shut out distractions, and the laptop displayed portal submissions, solidifying the modern academic persona.</p>
+                    
+                  </div>
+                </div>
+                
+                </div>
+              </div>
 
-      <a href="project06.html" class="project-nav-card" style="margin-left: auto;">
-        <div style="text-align: right;">
-          <div class="pnav-sub">Next Project &rarr;</div>
-          <div class="pnav-title">06 &middot; Visual Studies</div>
+              <div class="carousel-bottom-bar">
+                <div class="carousel-dots">
+                  <button type="button" class="carousel-dot active" onclick="goToSlide('sec-06', 0)" aria-label="Go to slide 1"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-06', 1)" aria-label="Go to slide 2"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-06', 2)" aria-label="Go to slide 3"></button>
+                </div>
+                <div class="carousel-counter">
+                  <span class="curr-num">01</span> / <span class="tot-num">03</span>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-07">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 07</span>
+            <span class="section-theme-title">THE MODEL STUDENT &amp; EMBODIED DISCIPLINE</span>
+          </div>
         </div>
-      </a>
-    </nav>
+        
+          
+            <div class="carousel-container" id="sec-07-carousel" data-section-id="sec-07" data-current-index="0" data-total-slides="6">
+              <button type="button" class="carousel-arrow prev" onclick="moveSlide('sec-07', -1)" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="carousel-arrow next" onclick="moveSlide('sec-07', 1)" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  
+                <div class="carousel-slide" data-slide-index="0">
+                  
+                    <div class="slide-media-box slide-media-compact">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG')">
+                        <img src="assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">The Blue-Background Institutional Portrait:</span> She appears to be the perfect student: calm, intelligent, elegant. Yet this portrait also conceals an invisible standard, standardising facial composure within an institutional frame.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="1">
+                  
+                    <div class="slide-sec7-portrait-split2">
+                      <div class="img-zoom-target sec7-full-img" onclick="openLightbox('assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG')">
+                        <img src="assets/hongdoudou/photos/a7351f19244f9e5017b2d462642845cf.JPG" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                      <div class="img-zoom-target sec7-crop-img" onclick="openLightbox('assets/hongdoudou/photos/357.JPG', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/357.JPG')">
+                        <img src="assets/hongdoudou/photos/357.JPG" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Full Standing Uniform Portrait &amp; 3/4 Stance:</span> Strict uniform tailoring, an upright spine, and a poised demeanor. The physical posture responds flawlessly to the expectations projected upon it.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="2">
+                  
+                    <div class="locked-camera-interactive-wrapper">
+                      <div class="locked-camera-viewport" id="locked-box" onclick="cycleLockedPhase()" title="Click to cycle stages">
+                        <img src="assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG" class="locked-frame active" data-phase="1" alt="Phase 1">
+                        <img src="assets/hongdoudou/photos/8.110484.jpg" class="locked-frame" data-phase="2" alt="Phase 2">
+                        <img src="assets/hongdoudou/photos/8.110494.jpg" class="locked-frame" data-phase="3" alt="Phase 3">
+                        <div class="locked-expand-btn" onclick="event.stopPropagation(); openActiveLockedLightbox();" title="Zoom in full resolution">⤢</div>
+                      </div>
+                      <div class="locked-camera-ctrls">
+                        <span class="locked-hint-label">✦ Click image or buttons 1 - 3 to toggle the three camera-locked stages</span>
+                        <div class="locked-btns">
+                          <button type="button" class="phase-btn active" data-p="1" onclick="setLockedPhase(1)">1</button>
+                          <button type="button" class="phase-btn" data-p="2" onclick="setLockedPhase(2)">2</button>
+                          <button type="button" class="phase-btn" data-p="3" onclick="setLockedPhase(3)">3</button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Three-Phase Camera-Locked Continuum:</span> From bright institutional light into deep shadow, hands reach up and tighten the tie. Under a locked camera angle, psychological compression tightens across three sequential phases (Click image or numbers 1-3 to toggle).</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="3">
+                  
+                    <div class="slide-sec7-cuffwaist-split2">
+                      <div class="img-zoom-target sec7-cuff-img" onclick="openLightbox('assets/hongdoudou/photos/8.110496.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110496.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110496.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                      <div class="img-zoom-target sec7-waist-img" onclick="openLightbox('assets/hongdoudou/photos/8.110503.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110503.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110503.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Gripping Cuffs &amp; Pinching the Waistline:</span> In darkness, hands pull sleeves over the knuckles and fingers pinch the uniform fabric. The clothing operates simultaneously as protective armor and an instrument of restraint.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="4">
+                  
+                    <div class="slide-media-box">
+                      <div class="img-zoom-target" onclick="openLightbox('assets/hongdoudou/photos/8.110508.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110508.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110508.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Measuring Sleeve Length in Darkness:</span> The bright yellow tape measure glows against deep shadow. Evaluation moves from academic paper rulers directly onto the human limbs, turning the body into quantifiable dimensions.</p>
+                    
+                  </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide-index="5">
+                  
+                    <div class="slide-triptych-3img">
+                      <div class="img-zoom-target triptych-vert" onclick="openLightbox('assets/hongdoudou/photos/8.110509.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110509.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110509.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                      <div class="img-zoom-target triptych-vert" onclick="openLightbox('assets/hongdoudou/photos/8.110507.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110507.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110507.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                      <div class="img-zoom-target triptych-horiz" onclick="openLightbox('assets/hongdoudou/photos/8.110512.jpg', 'THE MODEL STUDENT &amp; EMBODIED DISCIPLINE', 'assets/hongdoudou/photos/8.110512.jpg')">
+                        <img src="assets/hongdoudou/photos/8.110512.jpg" alt="THE MODEL STUDENT &amp; EMBODIED DISCIPLINE">
+                      </div>
+                    </div>
+                    
+                  <div class="page-caption">
+                    
+                      <p><span class="caption-highlight">Triptych: Measuring Wrist, Arm Length &amp; Neckline:</span> Tape measure encircling wrist, tracking arm extension, and wrapping the neckline. Every millimeter evaluates compliance, while unquantifiable emotions linger silently in the dark.</p>
+                    
+                  </div>
+                </div>
+                
+                </div>
+              </div>
 
+              <div class="carousel-bottom-bar">
+                <div class="carousel-dots">
+                  <button type="button" class="carousel-dot active" onclick="goToSlide('sec-07', 0)" aria-label="Go to slide 1"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-07', 1)" aria-label="Go to slide 2"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-07', 2)" aria-label="Go to slide 3"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-07', 3)" aria-label="Go to slide 4"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-07', 4)" aria-label="Go to slide 5"></button><button type="button" class="carousel-dot " onclick="goToSlide('sec-07', 5)" aria-label="Go to slide 6"></button>
+                </div>
+                <div class="carousel-counter">
+                  <span class="curr-num">01</span> / <span class="tot-num">06</span>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
+        <article class="section-unit" id="sec-08">
+          
+        <div class="section-unit-header">
+          <div class="section-indicator">
+            <span class="section-badge">SECTION 08</span>
+            <span class="section-theme-title">PROJECT INTRODUCTION &amp; MEASURED TORSO</span>
+          </div>
+        </div>
+        
+          
+            <div class="section8-grid">
+              <div class="section8-essay-col">
+                <h2 class="section8-essay-title">Project Introduction</h2>
+                <div class="section8-essay-body">
+                  <p>This project explores the blurred boundary between care, protection, and control within high-expectation family environments. It began with an old school schedule written by my mother, which made me realize that my growth had been meticulously arranged and measured from an early age. This personal discovery led me to reflect on a wider experience shared by many students: between classes, exams, tutoring, and deadlines, we are trained to become the &ldquo;good student&rdquo; expected by family, school, and society.</p>
+                  <p>Through still life photography, I photographed desks from different stages of my education. Textbooks, notes, exam papers, and stationery become archives of a planned life, showing how academic achievement gradually occupied my daily space. I then constructed the image of the &ldquo;perfect student&rdquo; through school uniform, controlled posture, and staged portraiture. This figure appears calm and successful, but also artificial, as if she has been shaped into an ideal role.</p>
+                  <div class="section8-quote-box">&ldquo;In the final images, the body enters darkness. Hands tighten the collar, adjust the tie, and measure the body with a tape measure. Measurement becomes a symbol of evaluation and standardization, suggesting how external expectations move from the desk onto the body itself.&rdquo;</div>
+                  <p>This project does not aim to reject my mother&rsquo;s love, but to reveal the complexity within care. A carefully planned life may offer safety, but it can also reduce the space for self-discovery. By photographing desks, uniforms, and measured bodies, I want to ask: when a daughter is shaped into a perfect student, what part of herself is left unmeasured?</p>
+                </div>
+              </div>
+              <div class="section8-media-col">
+                <div class="section8-card-frame">
+                  <div class="img-zoom-target section8-img-box" onclick="openLightbox('assets/hongdoudou/photos/8.110510.jpg', 'Project Introduction', 'assets/hongdoudou/photos/8.110510.jpg')">
+                    <img src="assets/hongdoudou/photos/8.110510.jpg" alt="Project Introduction">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+        </article>
+        
   </main>
+
+  <!-- 5. PROJECT BOTTOM NAVIGATION STRIP -->
+  <nav class="project-bottom-nav">
+    <a href="project04.html" class="project-nav-card">
+      <div>
+        <div class="pnav-sub">&larr; Previous Project</div>
+        <div class="pnav-title">04 · Model Making</div>
+      </div>
+    </a>
+    <a href="project06.html" class="project-nav-card" style="margin-left: auto;">
+      <div style="text-align: right;">
+        <div class="pnav-sub">Next Project &rarr;</div>
+        <div class="pnav-title">06 · Visual Studies</div>
+      </div>
+    </a>
+  </nav>
 
   <!-- 6. WIX FOOTER -->
   <footer class="wix-footer-area">
@@ -1144,12 +2244,12 @@
       <div>
         <div class="footer-col-title">Portfolio Projects</div>
         <ul class="footer-link-list">
-          <li><a href="project01.html">01 &middot; Wooden Structure Translation</a></li>
-          <li><a href="project02.html">02 &middot; Sierra Canyon: Diagnosis</a></li>
-          <li><a href="project03.html">03 &middot; Sierra Canyon: Design Interventions</a></li>
-          <li><a href="exhibition.html">04 &middot; The Blurred Boundary</a></li>
-          <li><a href="project05.html">05 &middot; Model Making</a></li>
-          <li><a href="project06.html">06 &middot; Visual Studies</a></li>
+          <li><a href="project01.html">01 · Wooden Structure Translation</a></li>
+          <li><a href="project02.html">02 · Sierra Canyon: Diagnosis</a></li>
+          <li><a href="project03.html">03 · Sierra Canyon: Design Interventions</a></li>
+          <li><a href="project04.html">04 · Model Making</a></li>
+          <li><a href="project05.html">05 · The Blurred Boundary</a></li>
+          <li><a href="project06.html">06 · Visual Studies</a></li>
         </ul>
       </div>
 
@@ -1157,9 +2257,9 @@
         <div class="footer-col-title">Navigation</div>
         <ul class="footer-link-list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#works">View Works</a></li>
-          <li><a href="index.html#about">About the Artist</a></li>
-          <li><a href="mailto:formcr@126.com">Get in Touch</a></li>
+          <li><a href="index.html#works">All Projects</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -1173,152 +2273,193 @@
     </div>
   </footer>
 
-  <!-- 7. LIGHTBOX MODAL -->
-  <div class="lightbox-backdrop" id="lightbox-modal">
-    <div class="lightbox-content-box" onclick="event.stopPropagation()">
-      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
-      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="Previous Image">&#10094;</button>
-      <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="Next Image">&#10095;</button>
-
-      <div class="lightbox-img-wrapper">
-        <img id="lightbox-current-img" src="" alt="Expanded View">
+  <!-- 7. LIGHTBOX MODAL WITH ZOOM & PAN -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true">
+    <div class="lightbox-toolbar">
+      <span class="lightbox-title-text" id="lightbox-title">EXHIBITION ARCHIVE</span>
+      <div class="lightbox-tools">
+        <button type="button" class="lightbox-btn" onclick="lightboxZoomStep(1)" title="Zoom in">+</button>
+        <button type="button" class="lightbox-btn" onclick="lightboxZoomStep(-1)" title="Zoom out">&minus;</button>
+        <button type="button" class="lightbox-btn" onclick="resetLightboxZoom()" title="Reset zoom">1:1</button>
+        <button type="button" class="lightbox-btn" onclick="closeLightbox()" title="Close">&times;</button>
       </div>
-
-      <!-- Zoom Toolbar & Hint -->
-      <div class="lightbox-zoom-toolbar">
-        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="Zoom Out" title="Zoom Out">&minus;</button>
-        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="Click to Reset 100%">100%</span>
-        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="Zoom In" title="Zoom In">&plus;</button>
-        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="Reset Zoom" title="Reset Zoom">&#x21bb;</button>
-      </div>
-
-      <div class="lightbox-caption-text" id="lightbox-caption"></div>
-      <div class="lightbox-zoom-hint">Scroll wheel to zoom &middot; Drag to pan &middot; Double-click to reset</div>
     </div>
+
+    <button type="button" class="lightbox-nav-arrow prev" onclick="lightboxNavigate(-1)" title="Previous">&larr;</button>
+    <button type="button" class="lightbox-nav-arrow next" onclick="lightboxNavigate(1)" title="Next">&rarr;</button>
+
+    <div class="lightbox-stage" id="lightbox-stage">
+      <img id="lightbox-current-img" class="lightbox-img" src="" alt="Exhibition High-Resolution Image">
+    </div>
+
+    <div class="lightbox-caption-bar" id="lightbox-caption"></div>
   </div>
 
-  <!-- 8. JAVASCRIPT LOGIC -->
   <script>
-    function scrollSubnav(direction) {
-      const scrollWrap = document.getElementById('subnav-scroll-wrapper');
-      if (scrollWrap) {
-        const distance = 280 * direction;
-        scrollWrap.scrollBy({ left: distance, behavior: 'smooth' });
+    /* ==========================================================================
+       CAROUSEL SYSTEM: SLIDING, DOTS & COUNTERS
+       ========================================================================== */
+    function moveSlide(sectionId, delta) {
+      const container = document.getElementById(sectionId + '-carousel');
+      if (!container) return;
+      let curr = parseInt(container.getAttribute('data-current-index') || '0', 10);
+      const total = parseInt(container.getAttribute('data-total-slides') || '1', 10);
+      let target = curr + delta;
+      if (target < 0) target = total - 1;
+      if (target >= total) target = 0;
+      goToSlide(sectionId, target);
+    }
+
+    function goToSlide(sectionId, targetIdx) {
+      const container = document.getElementById(sectionId + '-carousel');
+      if (!container) return;
+      const total = parseInt(container.getAttribute('data-total-slides') || '1', 10);
+      if (targetIdx < 0) targetIdx = 0;
+      if (targetIdx >= total) targetIdx = total - 1;
+
+      container.setAttribute('data-current-index', targetIdx);
+      const track = container.querySelector('.carousel-track');
+      if (track) {
+        track.style.transform = `translateX(-${targetIdx * 100}%)`;
+      }
+
+      // Update dots
+      const dots = container.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === targetIdx);
+      });
+
+      // Update counter
+      const currNum = container.querySelector('.curr-num');
+      if (currNum) {
+        currNum.textContent = String(targetIdx + 1).padStart(2, '0');
       }
     }
 
-    const allGalleryImages = [
-      { src: 'assets/projects/project05/01.jpg', caption: 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix' },
-      { src: 'assets/projects/project05/02.jpg', caption: 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies' },
-      { src: 'assets/projects/project05/03.jpg', caption: 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition' },
-      { src: 'assets/projects/project05/04.jpg', caption: 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details' },
-      { src: 'assets/projects/project05/05.jpg', caption: 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity' }
-    ];
+    /* ==========================================================================
+       SECTION 7: CAMERA-LOCKED 3-PHASE INTERACTIVE
+       ========================================================================== */
+    let currentLockedPhase = 1;
+    function setLockedPhase(p) {
+      currentLockedPhase = p;
+      const box = document.getElementById('locked-box');
+      if (!box) return;
+      const frames = box.querySelectorAll('.locked-frame');
+      frames.forEach(f => {
+        f.classList.toggle('active', parseInt(f.getAttribute('data-phase'), 10) === p);
+      });
 
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach(b => {
+        b.classList.toggle('active', parseInt(b.getAttribute('data-p'), 10) === p);
+      });
+    }
+
+    function cycleLockedPhase() {
+      let nextP = currentLockedPhase + 1;
+      if (nextP > 3) nextP = 1;
+      setLockedPhase(nextP);
+    }
+
+    function openActiveLockedLightbox() {
+      const box = document.getElementById('locked-box');
+      if (!box) return;
+      const activeImg = box.querySelector('.locked-frame.active');
+      if (activeImg) {
+        openLightbox(activeImg.src, 'Camera-Locked Phase ' + currentLockedPhase, activeImg.src);
+      }
+    }
+
+    /* ==========================================================================
+       STICKY SUBNAV SECTION HIGHLIGHTING & NAVIGATION
+       ========================================================================== */
+    const sectionIds = ['sec-01', 'sec-02', 'sec-03', 'sec-04', 'sec-05', 'sec-06', 'sec-07', 'sec-08'];
+
+    function navigateSections(delta) {
+      let currActive = 0;
+      sectionIds.forEach((id, idx) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom > 200) {
+            currActive = idx;
+          }
+        }
+      });
+      let nextIdx = currActive + delta;
+      if (nextIdx < 0) nextIdx = 0;
+      if (nextIdx >= sectionIds.length) nextIdx = sectionIds.length - 1;
+      const targetEl = document.getElementById(sectionIds[nextIdx]);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      let activeId = sectionIds[0];
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 220) {
+            activeId = id;
+          }
+        }
+      });
+
+      const pills = document.querySelectorAll('.subnav-pill');
+      pills.forEach(pill => {
+        const isMatch = pill.getAttribute('data-target') === activeId;
+        pill.classList.toggle('active', isMatch);
+        if (isMatch) {
+          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+    });
+
+    /* ==========================================================================
+       LIGHTBOX WITH FLUID ZOOM, POINTER-PAN & KEYBOARD
+       ========================================================================== */
+    let allLightboxImages = [];
     let currentLightboxIdx = 0;
-    let lbScale = 1.0;
+    let lbScale = 1;
     let lbTranslateX = 0;
     let lbTranslateY = 0;
     let lbIsDragging = false;
     let lbStartX = 0;
     let lbStartY = 0;
-    let lbDragBaseX = 0;
-    let lbDragBaseY = 0;
+    let lbBaseX = 0;
+    let lbBaseY = 0;
 
-    function applyLightboxTransform(smooth = true) {
-      const img = document.getElementById('lightbox-current-img');
-      const badge = document.getElementById('lightbox-zoom-level');
-      if (!img) return;
-
-      if (smooth) {
-        img.style.transition = 'transform 0.08s ease-out';
-      } else {
-        img.style.transition = 'none';
-      }
-
-      img.style.transform = `translate(${lbTranslateX}px, ${lbTranslateY}px) scale(${lbScale})`;
-
-      if (lbScale > 1.02) {
-        img.classList.add('is-zoomed');
-      } else {
-        img.classList.remove('is-zoomed');
-      }
-
-      if (badge) {
-        badge.textContent = Math.round(lbScale * 100) + '%';
-      }
+    function buildLightboxIndex() {
+      const imgs = document.querySelectorAll('.img-zoom-target img, .locked-frame');
+      allLightboxImages = [];
+      imgs.forEach((img) => {
+        const src = img.src;
+        if (!allLightboxImages.some(item => item.src === src)) {
+          allLightboxImages.push({
+            src: src,
+            title: img.alt || 'Exhibition Image',
+            caption: img.closest('article') ? (img.closest('article').querySelector('.section-theme-title') ? img.closest('article').querySelector('.section-theme-title').innerText : '') : ''
+          });
+        }
+      });
     }
 
-    function clampLightboxTranslation() {
-      const img = document.getElementById('lightbox-current-img');
-      const wrapper = img ? img.parentElement : null;
-      if (!img || !wrapper) return;
-
-      if (lbScale <= 1.0) {
-        lbTranslateX = 0;
-        lbTranslateY = 0;
-        return;
-      }
-
-      const wrapperRect = wrapper.getBoundingClientRect();
-      const naturalW = img.offsetWidth || wrapperRect.width;
-      const naturalH = img.offsetHeight || wrapperRect.height;
-      const scaledW = naturalW * lbScale;
-      const scaledH = naturalH * lbScale;
-
-      const maxPanX = Math.max(0, (scaledW - wrapperRect.width) / 2) + Math.min(wrapperRect.width * 0.4, 160);
-      const maxPanY = Math.max(0, (scaledH - wrapperRect.height) / 2) + Math.min(wrapperRect.height * 0.4, 160);
-
-      lbTranslateX = Math.max(-maxPanX, Math.min(maxPanX, lbTranslateX));
-      lbTranslateY = Math.max(-maxPanY, Math.min(maxPanY, lbTranslateY));
-    }
-
-    function resetLightboxZoom() {
-      lbScale = 1.0;
-      lbTranslateX = 0;
-      lbTranslateY = 0;
-      applyLightboxTransform(false);
-    }
-
-    function setLightboxZoom(newScale, focalX = 0, focalY = 0) {
-      const prevScale = lbScale;
-      lbScale = Math.min(Math.max(newScale, 0.6), 4.5);
-
-      if (lbScale > 1.0 && prevScale > 0) {
-        const factor = lbScale / prevScale;
-        lbTranslateX = focalX - (focalX - lbTranslateX) * factor;
-        lbTranslateY = focalY - (focalY - lbTranslateY) * factor;
-      }
-
-      if (lbScale <= 1.0) {
-        lbTranslateX = 0;
-        lbTranslateY = 0;
-      }
-
-      clampLightboxTranslation();
-      applyLightboxTransform(true);
-    }
-
-    function lightboxZoomStep(dir) {
-      const step = dir > 0 ? 1.3 : 1 / 1.3;
-      setLightboxZoom(lbScale * step);
-    }
-
-    function openLightbox(src, captionText) {
+    function openLightbox(src, title, capText) {
+      buildLightboxIndex();
       const modal = document.getElementById('lightbox-modal');
       const img = document.getElementById('lightbox-current-img');
-      const caption = document.getElementById('lightbox-caption');
-      if (!modal || !img) return;
+      const titleEl = document.getElementById('lightbox-title');
+      const capEl = document.getElementById('lightbox-caption');
 
-      const foundIdx = allGalleryImages.findIndex(item => item.src === src);
-      currentLightboxIdx = foundIdx !== -1 ? foundIdx : 0;
+      currentLightboxIdx = allLightboxImages.findIndex(item => item.src === src);
+      if (currentLightboxIdx < 0) currentLightboxIdx = 0;
 
       img.src = src;
-      img.alt = captionText || 'Plate Zoom';
-      if (caption) {
-        caption.innerHTML = captionText || (allGalleryImages[currentLightboxIdx] ? allGalleryImages[currentLightboxIdx].caption : '');
-      }
-
+      titleEl.textContent = title || 'EXHIBITION ARCHIVE';
+      capEl.textContent = capText ? (capText.split('/').pop()) : '';
+      
       resetLightboxZoom();
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -1326,131 +2467,115 @@
 
     function closeLightbox() {
       const modal = document.getElementById('lightbox-modal');
-      if (!modal) return;
       modal.classList.remove('show');
       document.body.style.overflow = '';
       resetLightboxZoom();
     }
 
-    function lightboxNavigate(dir) {
-      if (!allGalleryImages.length) return;
-      currentLightboxIdx = (currentLightboxIdx + dir + allGalleryImages.length) % allGalleryImages.length;
-      const target = allGalleryImages[currentLightboxIdx];
+    function resetLightboxZoom() {
+      lbScale = 1;
+      lbTranslateX = 0;
+      lbTranslateY = 0;
+      applyLightboxTransform();
+    }
+
+    function applyLightboxTransform() {
       const img = document.getElementById('lightbox-current-img');
-      const caption = document.getElementById('lightbox-caption');
-      if (img && target) {
-        resetLightboxZoom();
-        img.src = target.src;
-        img.alt = target.caption;
-        if (caption) caption.innerHTML = target.caption;
+      if (img) {
+        img.style.transform = `translate(${lbTranslateX}px, ${lbTranslateY}px) scale(${lbScale})`;
       }
     }
 
-    // Modal background click
-    document.getElementById('lightbox-modal')?.addEventListener('click', (e) => {
-      if (e.target.id === 'lightbox-modal') {
-        closeLightbox();
+    function lightboxZoomStep(dir) {
+      const factor = dir > 0 ? 1.25 : (1 / 1.25);
+      lbScale = Math.min(Math.max(lbScale * factor, 0.6), 4.5);
+      if (lbScale <= 1) {
+        lbTranslateX = 0;
+        lbTranslateY = 0;
       }
-    });
+      applyLightboxTransform();
+    }
 
-    // Keyboard support
-    window.addEventListener('keydown', (e) => {
+    function lightboxNavigate(dir) {
+      if (allLightboxImages.length === 0) buildLightboxIndex();
+      currentLightboxIdx += dir;
+      if (currentLightboxIdx < 0) currentLightboxIdx = allLightboxImages.length - 1;
+      if (currentLightboxIdx >= allLightboxImages.length) currentLightboxIdx = 0;
+      const item = allLightboxImages[currentLightboxIdx];
+      const img = document.getElementById('lightbox-current-img');
+      const titleEl = document.getElementById('lightbox-title');
+      const capEl = document.getElementById('lightbox-caption');
+      resetLightboxZoom();
+      img.src = item.src;
+      titleEl.textContent = item.title;
+      capEl.textContent = item.caption;
+    }
+
+    // Lightbox pointer drag & wheel zoom
+    (function initLightboxControls() {
       const modal = document.getElementById('lightbox-modal');
-      if (!modal || !modal.classList.contains('show')) return;
+      const img = document.getElementById('lightbox-current-img');
+      if (!modal || !img) return;
 
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') lightboxNavigate(-1);
-      if (e.key === 'ArrowRight') lightboxNavigate(1);
-      if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
-      if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
-      if (e.key === '0') resetLightboxZoom();
-    });
-
-    // Mouse wheel zoom
-    const lbModal = document.getElementById('lightbox-modal');
-    if (lbModal) {
-      lbModal.addEventListener('wheel', (e) => {
-        if (!lbModal.classList.contains('show')) return;
+      modal.addEventListener('wheel', (e) => {
+        if (!modal.classList.contains('show')) return;
         e.preventDefault();
-
-        const img = document.getElementById('lightbox-current-img');
-        if (!img) return;
-        const rect = img.getBoundingClientRect();
-        const focalX = e.clientX - (rect.left + rect.width / 2);
-        const focalY = e.clientY - (rect.top + rect.height / 2);
-
-        const delta = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-        setLightboxZoom(lbScale * delta, focalX, focalY);
+        const factor = e.deltaY < 0 ? 1.15 : (1 / 1.15);
+        lbScale = Math.min(Math.max(lbScale * factor, 0.6), 4.5);
+        if (lbScale <= 1) {
+          lbTranslateX = 0;
+          lbTranslateY = 0;
+        }
+        applyLightboxTransform();
       }, { passive: false });
-    }
 
-    // Drag to pan
-    const lbImg = document.getElementById('lightbox-current-img');
-    if (lbImg) {
-      lbImg.addEventListener('pointerdown', (e) => {
-        if (lbScale <= 1.0) return;
-        lbIsDragging = true;
-        lbStartX = e.clientX;
-        lbStartY = e.clientY;
-        lbDragBaseX = lbTranslateX;
-        lbDragBaseY = lbTranslateY;
-        lbImg.classList.add('is-dragging');
-        lbImg.setPointerCapture(e.pointerId);
-        e.preventDefault();
+      img.addEventListener('pointerdown', (e) => {
+        if (lbScale > 1.05 && e.button === 0) {
+          lbIsDragging = true;
+          lbStartX = e.clientX;
+          lbStartY = e.clientY;
+          lbBaseX = lbTranslateX;
+          lbBaseY = lbTranslateY;
+          img.classList.add('is-dragging');
+          img.setPointerCapture(e.pointerId);
+          e.preventDefault();
+        }
       });
 
-      lbImg.addEventListener('pointermove', (e) => {
-        if (!lbIsDragging) return;
-        const dx = e.clientX - lbStartX;
-        const dy = e.clientY - lbStartY;
-        lbTranslateX = lbDragBaseX + dx;
-        lbTranslateY = lbDragBaseY + dy;
-        clampLightboxTranslation();
-        applyLightboxTransform(false);
+      img.addEventListener('pointermove', (e) => {
+        if (lbIsDragging) {
+          lbTranslateX = lbBaseX + (e.clientX - lbStartX);
+          lbTranslateY = lbBaseY + (e.clientY - lbStartY);
+          applyLightboxTransform();
+        }
       });
 
       function endDrag(e) {
-        if (!lbIsDragging) return;
-        lbIsDragging = false;
-        lbImg.classList.remove('is-dragging');
-        try {
-          lbImg.releasePointerCapture(e.pointerId);
-        } catch(err) {}
+        if (lbIsDragging) {
+          lbIsDragging = false;
+          img.classList.remove('is-dragging');
+          try { img.releasePointerCapture(e.pointerId); } catch(err) {}
+        }
       }
+      img.addEventListener('pointerup', endDrag);
+      img.addEventListener('pointercancel', endDrag);
 
-      lbImg.addEventListener('pointerup', endDrag);
-      lbImg.addEventListener('pointercancel', endDrag);
-
-      lbImg.addEventListener('dblclick', () => {
-        if (lbScale > 1.05) {
-          resetLightboxZoom();
-        } else {
-          setLightboxZoom(2.2);
-        }
-      });
-    }
-
-    // Scroll active link tracking for subnav
-    const observerSections = document.querySelectorAll('.page-unit');
-    const subnavPills = document.querySelectorAll('.subnav-pill');
-
-    window.addEventListener('scroll', () => {
-      let currentId = '';
-      const scrollPos = window.scrollY + 200;
-
-      observerSections.forEach(section => {
-        if (section.offsetTop <= scrollPos) {
-          currentId = section.getAttribute('id');
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.id === 'lightbox-stage') {
+          closeLightbox();
         }
       });
 
-      subnavPills.forEach(pill => {
-        pill.classList.remove('active');
-        if (pill.getAttribute('data-target') === currentId) {
-          pill.classList.add('active');
-        }
+      window.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('show')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxNavigate(-1);
+        if (e.key === 'ArrowRight') lightboxNavigate(1);
+        if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
+        if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
+        if (e.key === '0') resetLightboxZoom();
       });
-    }, { passive: true });
+    })();
   </script>
 </body>
 </html>
