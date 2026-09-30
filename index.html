@@ -1589,6 +1589,18 @@
                 <span class="sub-note">Visual Art &amp; Archival Installation · 34 Pages</span>
               </a>
             </li>
+            <li class="nav-dropdown-item">
+              <a href="project05.html">
+                <strong>Ⅴ. Model Making</strong>
+                <span class="sub-note">Wood, Cardboard, and Spatial Structure · 5 Plates</span>
+              </a>
+            </li>
+            <li class="nav-dropdown-item">
+              <a href="project06.html">
+                <strong>Ⅵ. Visual Studies</strong>
+                <span class="sub-note">Light, Composition, and Everyday Life · 7 Plates</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -1720,6 +1732,38 @@
               </a>
             </div>
           </article>
+
+          <!-- CARD 5: HANDCRAFTED MODELS -->
+          <article class="wix-work-card">
+            <div class="card-thumb-frame" onclick="window.location.href='project05.html'">
+              <img src="assets/projects/project05/03.jpg" alt="Model Making">
+            </div>
+            <div class="card-info-pane">
+              <div>
+                <h3 class="card-work-title">Model Making</h3>
+                <div class="card-work-medium">Wood, Cardboard, and Spatial Structure · 5 Plates</div>
+              </div>
+              <a href="project05.html" class="btn-show-more">
+                Show More
+              </a>
+            </div>
+          </article>
+
+          <!-- CARD 6: VISUAL STUDIES -->
+          <article class="wix-work-card">
+            <div class="card-thumb-frame" onclick="window.location.href='project06.html'">
+              <img src="assets/projects/project06/01.jpg" alt="Visual Studies">
+            </div>
+            <div class="card-info-pane">
+              <div>
+                <h3 class="card-work-title">Visual Studies</h3>
+                <div class="card-work-medium">Light, Composition, and Everyday Life · 7 Plates</div>
+              </div>
+              <a href="project06.html" class="btn-show-more">
+                Show More
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1745,6 +1789,8 @@
           <li><a href="project02.html">02 &middot; Sierra Canyon: Diagnosis</a></li>
           <li><a href="project03.html">03 &middot; Sierra Canyon: Design Interventions</a></li>
           <li><a href="exhibition.html">04 &middot; The Blurred Boundary</a></li>
+          <li><a href="project05.html">05 &middot; Model Making</a></li>
+          <li><a href="project06.html">06 &middot; Visual Studies</a></li>
         </ul>
       </div>
 
@@ -2209,11 +2255,11 @@
 
 <!-- JAVASCRIPT LOGIC -->
   <script>
-    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V15";
+    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V16";
     const AUTH_KEY = "CHURAN_OLIVIA_MA_AUTH_STATUS";
 
     const INITIAL_SEED_DATA = {
-      version: "15.0",
+      version: "16.0",
       siteInfo: {
         artistName: "Churan (Olivia) Ma",
         navBrand: "Churan (Olivia) Ma",
@@ -2260,6 +2306,20 @@
           name: "Visual Art & Archival Installation",
           medium: "Photography & Staged Archival Storyboard",
           description: "Investigation of educational discipline, posture surveillance, and familial care boundaries across 34 curated pages."
+        },
+        {
+          id: "cat-model",
+          code: "05",
+          name: "Handcrafted Models",
+          medium: "Wood, Cardboard & Spatial Structure",
+          description: "Physical model making exploring material behavior, structural joinery, and folded planar geometry across 5 plates."
+        },
+        {
+          id: "cat-photo",
+          code: "06",
+          name: "Visual Studies",
+          medium: "Photography & Observational Composition",
+          description: "Photographic observations on light, spatial framing, and everyday atmosphere, featuring the 2026 Scholastic Silver Key winner."
         }
       ],
       artworks: [
@@ -2358,10 +2418,66 @@
           status: "published",
           actionType: "link",
           targetUrl: "exhibition.html"
+        },
+        {
+          id: "proj-5",
+          categoryId: "cat-model",
+          title: "Model Making",
+          subtitle: "Wood, Cardboard, and Spatial Structure · 5 Plates",
+          year: "2026",
+          medium: "Timber Sticks, Traditional Joinery & Curved Cardboard",
+          dimension: "5 Portfolio Plates · Material & Structure Studies",
+          coverImage: "assets/projects/project05/03.jpg",
+          gallery: [
+            "assets/projects/project05/01.jpg",
+            "assets/projects/project05/02.jpg",
+            "assets/projects/project05/03.jpg",
+            "assets/projects/project05/04.jpg",
+            "assets/projects/project05/05.jpg"
+          ],
+          statement: "This collection brings together three handcrafted models that explore material behavior, structural logic, and spatial composition. From a digitally modeled lattice cube assembled with wooden sticks, to a traditional Chinese double-eave pavilion that reveals its joinery, to a folded cardboard study of flexibility and rhythm—each model translates digital or conceptual ideas into physical form. Together they demonstrate my commitment to learning through making, and to understanding how structure and material can shape spatial experience.",
+          status: "published",
+          actionType: "link",
+          targetUrl: "project05.html"
+        },
+        {
+          id: "proj-6",
+          categoryId: "cat-photo",
+          title: "Visual Studies",
+          subtitle: "Light, Composition, and Everyday Life · 7 Plates",
+          year: "2026",
+          medium: "Digital Photography, Observational Framing & Spatial Atmosphere",
+          dimension: "7 Portfolio Plates · 2026 Scholastic Silver Key Winner",
+          coverImage: "assets/projects/project06/01.jpg",
+          gallery: [
+            "assets/projects/project06/01.jpg",
+            "assets/projects/project06/02.jpg",
+            "assets/projects/project06/03.jpg",
+            "assets/projects/project06/04.jpg",
+            "assets/projects/project06/05.jpg",
+            "assets/projects/project06/06.jpg",
+            "assets/projects/project06/07.jpg"
+          ],
+          statement: "This photographic series explores how composition, light, and framing shape our perception of space and place. From snow-covered roads to architectural interiors and candid human moments, each image is an exercise in visual balance and spatial observation. The first work, 'Through the Silent Snow,' received a 2026 Scholastic Art & Writing Awards Silver Key. Photography has sharpened my sensitivity to proportion, depth, and atmosphere—skills that directly inform my architectural design process.",
+          status: "published",
+          actionType: "link",
+          targetUrl: "project06.html"
         }
       ],
       mediaList: [
         "me.jpg",
+        "assets/projects/project05/01.jpg",
+        "assets/projects/project05/02.jpg",
+        "assets/projects/project05/03.jpg",
+        "assets/projects/project05/04.jpg",
+        "assets/projects/project05/05.jpg",
+        "assets/projects/project06/01.jpg",
+        "assets/projects/project06/02.jpg",
+        "assets/projects/project06/03.jpg",
+        "assets/projects/project06/04.jpg",
+        "assets/projects/project06/05.jpg",
+        "assets/projects/project06/06.jpg",
+        "assets/projects/project06/07.jpg",
         "assets/projects/project01/01.jpg",
         "assets/projects/project01/02.jpg",
         "assets/projects/project01/03.jpg",
