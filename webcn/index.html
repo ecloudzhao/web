@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Churan (Olivia) Ma | Portfolio Website</title>
-  <meta name="description" content="Portfolio of Churan (Olivia) Ma: Architectural Design, Spatial Exploration, and Visual Art Exhibition 'The Blurred Boundary: Care, Protection and Control'.">
+  <title>马楚然 (Churan Olivia Ma) | 个人作品集网站</title>
+  <meta name="description" content="马楚然 (Churan Olivia Ma) 个人作品集网站：收录建筑设计、空间探索以及视觉艺术展览《模糊的边界：关爱、庇护与控制》。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;500;600&amp;family=Noto+Serif+SC:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --font-display: "Aboreto", "Times New Roman", serif;
-      --font-sans: "Montserrat", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Aboreto", "Noto Serif SC", "Songti SC", "SimSun", serif;
+      --font-sans: "Montserrat", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --color-black: #000000;
       --color-charcoal: #1a1a1a;
       --color-dark-gray: #404040;
@@ -379,15 +379,16 @@
     }
 
     .about-bio-text {
-      padding-top: 6px;
+      padding-top: 4px;
     }
 
     .about-bio-text p {
       font-family: var(--font-sans);
       font-size: 15px;
       color: #222222;
-      line-height: 1.95;
-      margin-bottom: 24px;
+      line-height: 2.15;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
       font-weight: 300;
     }
 
@@ -398,8 +399,8 @@
     /* Layered Offset Portrait Frame - Harmonized with Bio Column */
     .wix-layered-frame-wrapper {
       position: relative;
-      width: 440px;
-      height: 645px;
+      width: 400px;
+      height: 550px;
       max-width: 100%;
       margin: 0 auto;
     }
@@ -408,8 +409,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 400px;
-      height: 600px;
+      width: 360px;
+      height: 510px;
       border: 1px solid #cfc5bb;
       z-index: 2;
       pointer-events: none;
@@ -418,10 +419,10 @@
 
     .frame-bg-tan-block {
       position: absolute;
-      top: 40px;
-      left: 40px;
-      width: 400px;
-      height: 600px;
+      top: 36px;
+      left: 36px;
+      width: 360px;
+      height: 510px;
       background: linear-gradient(145deg, #e4ded7 0%, #d8cec4 100%);
       border: 1px solid #d0c5ba;
       z-index: 1;
@@ -430,13 +431,13 @@
 
     .frame-photo-container {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 400px;
-      height: 600px;
+      top: 18px;
+      left: 18px;
+      width: 360px;
+      height: 510px;
       z-index: 3;
       background: #faf8f5;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.09), 0 4px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.09), 0 4px 14px rgba(0,0,0,0.03);
       cursor: zoom-in;
       overflow: hidden;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -497,7 +498,7 @@
       }
     }
 
-    /* VIEW MY WORKS SECTION (Clone of Wix View My Works) */
+    /* 浏览作品集 SECTION (Clone of Wix View My Works) */
     .works-section-wix {
       padding: 100px 0 120px;
       background: linear-gradient(180deg, #ffffff 0%, #fbf8f6 30%, #f5eee9 70%, #ffffff 100%);
@@ -1541,14 +1542,14 @@
   <aside class="admin-bar-strip">
     <div class="status-tag">
       <span class="status-dot" id="adminStatusDot"></span>
-      <span id="adminStatusText">Studio CMS (Visitor Mode)</span>
+      <span id="adminStatusText">工作台 CMS (访客模式)</span>
     </div>
     <div class="admin-bar-btns">
       <button type="button" class="btn-admin-action highlight" id="btnManageCms" style="display: none;" onclick="openCmsModal('artworks')">
-        Manage CMS
+        管理工作台
       </button>
       <button type="button" class="btn-admin-action" id="btnAuthToggle" onclick="toggleAuthModal()">
-        Admin Login
+        管理员登录
       </button>
     </div>
   </aside>
@@ -1558,47 +1559,47 @@
     <nav class="wix-header">
       <!-- Left Menu: Home + All Projects Dropdown -->
       <div class="wix-nav-left">
-        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#hero" class="nav-link active">首页</a>
         
         <div class="nav-dropdown" id="projectsDropdown">
           <a href="#works" class="nav-link">
-            All Projects <span>▾</span>
+            全部项目 <span>▾</span>
           </a>
           <ul class="nav-dropdown-menu">
             <li class="nav-dropdown-item">
               <a href="project01.html">
-                <strong>Ⅰ. Wooden Structure Translation</strong>
-                <span class="sub-note">A Multi-functional Wooden Structure at the Foot of the Ming City Wall</span>
+                <strong>Ⅰ. 木构转译</strong>
+                <span class="sub-note">明城墙脚下的多功能木构</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="project02.html">
-                <strong>Ⅱ. Sierra Canyon Campus Reconfiguration: Diagnosis</strong>
-                <span class="sub-note">Spatial Diagnosis — Everyday Frictions</span>
+                <strong>Ⅱ. 塞拉峡谷校园改造：诊断</strong>
+                <span class="sub-note">空间诊断 — 日常摩擦</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="project03.html">
-                <strong>Ⅲ. Sierra Canyon Campus Reconfiguration: Design Interventions</strong>
-                <span class="sub-note">Gateway &amp; Art Center</span>
+                <strong>Ⅲ. 塞拉峡谷校园改造：设计介入</strong>
+                <span class="sub-note">入口天桥与艺术中心</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="project04.html">
-                <strong>Ⅳ. Model Making</strong>
-                <span class="sub-note">Wood, Cardboard, and Spatial Structure · 5 Plates</span>
+                <strong>Ⅳ. 手工模型合集</strong>
+                <span class="sub-note">木材、卡纸与空间结构探索 · 5张展板</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="project05.html">
-                <strong>Ⅴ. The Blurred Boundary: Care, Protection and Control</strong>
-                <span class="sub-note">Visual Art &amp; Archival Installation · 34 Pages</span>
+                <strong>Ⅴ. 模糊的边界：关爱、庇护与控制</strong>
+                <span class="sub-note">视觉艺术与摄影策展画卷 · 34页</span>
               </a>
             </li>
             <li class="nav-dropdown-item">
               <a href="project06.html">
-                <strong>Ⅵ. Visual Studies</strong>
-                <span class="sub-note">Light, Composition, and Everyday Life · 7 Plates</span>
+                <strong>Ⅵ. 摄影作品合集</strong>
+                <span class="sub-note">光影、构图与日常生活 · 7幅作品</span>
               </a>
             </li>
           </ul>
@@ -1615,7 +1616,7 @@
           <line x1="18" y1="18" x2="82" y2="82" stroke="#000000"/>
           <line x1="18" y1="82" x2="82" y2="18" stroke="#000000"/>
         </svg>
-        <span class="brand-title-text" id="navBrandName">Churan (Olivia) Ma</span>
+        <span class="brand-title-text" id="navBrandName">马楚然 (Churan Olivia Ma)</span>
       </a>
     </nav>
   </header>
@@ -1624,13 +1625,13 @@
   <main>
     <!-- HERO SECTION WITH EXACT WIX WATERMARK BACKGROUND -->
     <section class="hero-wix-banner" id="hero">
-      <img src="assets/wix/hero_bg_watermark.jpg" class="hero-watermark-bg" alt="Watercolor Marble Texture Background">
+      <img src="../assets/wix/hero_bg_watermark.jpg" class="hero-watermark-bg" alt="Watercolor Marble Texture Background" onerror="handleImgError(this)">
       
       <div class="hero-content-container">
         <!-- Left Main Title in Aboreto -->
         <div class="hero-main-headings">
-          <h1 class="hero-line-welcome">WELCOME TO MY</h1>
-          <h2 class="hero-line-portfolio">PORTFOLIO WEBSITE</h2>
+          <h1 class="hero-line-welcome">欢迎访问我的</h1>
+          <h2 class="hero-line-portfolio">个人作品集网站</h2>
         </div>
       </div>
     </section>
@@ -1638,16 +1639,16 @@
     <!-- ABOUT ME SECTION (Clone of Wix About Me) -->
     <section class="about-section-wix" id="about">
       <div class="wix-container">
-        <h2 class="wix-section-heading">ABOUT ME</h2>
+        <h2 class="wix-section-heading">关于我</h2>
 
         <div class="about-wix-layout">
           <!-- Bio Narrative Column -->
           <div class="about-bio-text" id="aboutBioContent">
             <p>
-              Since I was a child, my father, an architect, taught me to see the world through the lens of design. Our home was filled with architecture books and models; I’d listen to him describe his projects, not fully understanding the technical details, but I could feel his infectious love for the field. Wherever we traveled, whether it’s the CCTV building in Beijing or the Eiffel Tower, he couldn’t help but stop us excitedly and explain the building structures around us. I come to notice things that are only “visible” to an architect: how the placement of a staircase shapes the way people move, how windows bring light into a room, or why an entrance faces one direction rather than another.
+              从孩提时代起，身为建筑师的父亲就教我透过设计的视角去观察世界。我们的家里摆满了建筑书籍和模型；我常听他讲述他的项目，那时我虽无法完全理解复杂的工程细节，却能深切感受到他对建筑那份极具感染力的热爱。无论我们去哪里旅行，从北京的央视大楼到巴黎的埃菲尔铁塔，他总会兴奋地停下脚步，向我们剖析身旁的建筑结构。我逐渐学会去觉察那些唯有建筑师才能看到的细节：楼梯的置入如何引导人们的动线，窗户如何将自然光引入室内，以及入口为何会朝向某一特定的方位。
             </p>
             <p>
-              While my father shaped the way I initially experienced the world, I would come to see and feel the world through my own eyes. I recall the most memorable moments in my life—when I feel completely present and immersed in the environment—whether it’s standing atop a snowy mountain, gazing out across an open landscape, or exploring a thoughtfully designed building. These experiences taught me that spaces influence how we feel, think, and connect with others. As an aspiring architect and designer, I pay attention to the relationship between people and their surroundings, exploring why certain places inspire, comfort, or remain unforgettable. This curiosity is the foundation of my passion for architecture. In my projects, I strive to find a balance between creativity and practicality, creating spaces that respond to people and their surroundings. My goal is to experiment more freely with materials and structures and develop a design language of my own.
+              如果说父亲塑造了我最初感知世界的方式，那么后来我便开始用自己的双眼去观察和体验这个世界。我回想起生命中最难忘的那些时刻——当我完全沉浸在当下环境之中：不论是伫立在雪山之巅眺望辽阔的天地，还是穿行在一座构思精妙的建筑之中。这些经历让我领悟到，空间深刻地影响着我们的情绪、思维以及与他人的连接方式。作为一名满怀憧憬的年轻建筑与空间创作者，我时刻关注人与周围环境的互动，探寻为何某些场所能激发灵感、抚慰心灵或令人久久难以忘怀。这份好奇心构成了我对建筑热情的基石。在设计实践中，我努力在创造力与实用性之间探寻平衡，打造能够回应人与周围环境的空间。我的目标是在材料与结构的自由探索中逐步建立属于自己的设计语言。
             </p>
           </div>
 
@@ -1655,113 +1656,101 @@
           <div class="wix-layered-frame-wrapper">
             <div class="frame-outline-box"></div>
             <div class="frame-bg-tan-block"></div>
-            <div class="frame-photo-container" onclick="openLightbox('me2.jpg', 'Churan (Olivia) Ma - Architectural Designer &amp; Visual Artist')">
-              <img src="me2.jpg" class="frame-photo-main" alt="Churan (Olivia) Ma Portrait">
+            <div class="frame-photo-container" onclick="openLightbox('../me2.jpg', '马楚然 (Churan Olivia Ma) - 建筑设计师与视觉艺术家')">
+              <img src="../me2.jpg" class="frame-photo-main" alt="马楚然 (Churan Olivia Ma) 个人肖像" onerror="handleImgError(this)">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIEW MY WORKS SECTION (Clone of Wix View My Works) -->
+    <!-- 浏览作品集 SECTION (Clone of Wix View My Works) -->
     <section class="works-section-wix" id="works">
       <div class="wix-container">
-        <h2 class="wix-section-heading">VIEW MY WORKS</h2>
+        <h2 class="wix-section-heading">浏览作品集</h2>
 
         <div class="works-cards-grid">
           <!-- CARD 1: ARCHITECTURAL DESIGN PROJECT I -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project01.html'">
-              <img src="assets/projects/project01/07.jpg" alt="Wooden Structure Translation">
+              <img src="../assets/projects/project01/07.jpg" alt="木构转译" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Wooden Structure Translation</h3>
-                <div class="card-work-medium">A Multi-functional Wooden Structure at the Foot of the Ming City Wall · 12 Plates</div>
+                <h3 class="card-work-title">木构转译</h3>
+                <div class="card-work-medium">明城墙脚下的多功能木构</div>
               </div>
-              <a href="project01.html" class="btn-show-more">
-                Show More
-              </a>
+              <a href="project01.html" class="btn-show-more">查看详情</a>
             </div>
           </article>
 
           <!-- CARD 2: ARCHITECTURAL DESIGN PROJECT II -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project02.html'">
-              <img src="assets/projects/project02/01.jpg" alt="Sierra Canyon Campus Reconfiguration: Diagnosis">
+              <img src="../assets/projects/project02/01.jpg" alt="塞拉峡谷校园改造：诊断" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Sierra Canyon Campus Reconfiguration: Diagnosis</h3>
-                <div class="card-work-medium">Spatial Diagnosis — Everyday Frictions · 8 Plates</div>
+                <h3 class="card-work-title">塞拉峡谷校园改造：诊断</h3>
+                <div class="card-work-medium">空间诊断 — 日常摩擦</div>
               </div>
-              <a href="project02.html" class="btn-show-more">
-                Show More
-              </a>
+              <a href="project02.html" class="btn-show-more">查看详情</a>
             </div>
           </article>
 
           <!-- CARD 3: ARCHITECTURAL DESIGN PROJECT III -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project03.html'">
-              <img src="assets/projects/project03/01.jpg" alt="Sierra Canyon Campus Reconfiguration: Design Interventions">
+              <img src="../assets/projects/project03/01.jpg" alt="塞拉峡谷校园改造：设计介入" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Sierra Canyon Campus Reconfiguration: Design Interventions</h3>
-                <div class="card-work-medium">Gateway &amp; Art Center · 13 Plates</div>
+                <h3 class="card-work-title">塞拉峡谷校园改造：设计介入</h3>
+                <div class="card-work-medium">入口天桥与艺术中心</div>
               </div>
-              <a href="project03.html" class="btn-show-more">
-                Show More
-              </a>
+              <a href="project03.html" class="btn-show-more">查看详情</a>
             </div>
           </article>
 
           <!-- CARD 4: HANDCRAFTED MODELS -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project04.html'">
-              <img src="assets/projects/project04/03.jpg" alt="Model Making">
+              <img src="../assets/projects/project04/03.jpg" alt="手工模型合集" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Model Making</h3>
-                <div class="card-work-medium">Wood, Cardboard, and Spatial Structure · 5 Plates</div>
+                <h3 class="card-work-title">手工模型合集</h3>
+                <div class="card-work-medium">木材、卡纸与空间结构探索 · 5张展板</div>
               </div>
-              <a href="project04.html" class="btn-show-more">
-                Show More
-              </a>
+              <a href="project04.html" class="btn-show-more">查看详情</a>
             </div>
           </article>
 
           <!-- CARD 5: THE BLURRED BOUNDARY (VISUAL ART & ARCHIVAL CORE) -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project05.html'">
-              <img src="assets/hongdoudou/page_01.jpg" alt="The Blurred Boundary Exhibition">
+              <img src="../assets/hongdoudou/page_01.jpg" alt="模糊的边界" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">The Blurred Boundary</h3>
-                <div class="card-work-medium">Care, Protection and Control · 34 Pages</div>
+                <h3 class="card-work-title">模糊的边界</h3>
+                <div class="card-work-medium">关爱、庇护与控制 · 34页画卷</div>
               </div>
-              <a href="project05.html" class="btn-show-more">
-                Show More
-              </a>
+              <a href="project05.html" class="btn-show-more">查看详情</a>
             </div>
           </article>
 
           <!-- CARD 6: VISUAL STUDIES -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project06.html'">
-              <img src="assets/projects/project06/01.jpg" alt="Visual Studies">
+              <img src="../assets/projects/project06/01.jpg" alt="摄影作品合集" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Visual Studies</h3>
-                <div class="card-work-medium">Light, Composition, and Everyday Life · 7 Plates</div>
+                <h3 class="card-work-title">摄影作品合集</h3>
+                <div class="card-work-medium">光影、构图与日常生活 · 7幅作品 · 银钥匙奖</div>
               </div>
-              <a href="project06.html" class="btn-show-more">
-                Show More
-              </a>
+              <a href="project06.html" class="btn-show-more">查看详情</a>
             </div>
           </article>
         </div>
@@ -1773,9 +1762,9 @@
   <footer class="wix-footer-area" id="contact">
     <div class="footer-content-grid">
       <div>
-        <div class="footer-brand-title">Churan (Olivia) Ma</div>
+        <div class="footer-brand-title">马楚然 (Churan Olivia Ma)</div>
         <p class="footer-brand-desc">
-          Architectural and visual art portfolio exploring spatial envelopes, kinetic thresholds, and domestic bodily discipline.
+          建筑设计与视觉艺术作品集，探索空间围护、动态门槛与家庭身体规训。
         </p>
         <div class="footer-brand-contact">
           <a href="mailto:formcr@126.com">formcr@126.com</a> &middot; <a href="tel:+18188368439">+1 (818) 836-8439</a>
@@ -1783,32 +1772,32 @@
       </div>
 
       <div>
-        <div class="footer-col-title">Portfolio Projects</div>
+        <div class="footer-col-title">作品项目</div>
         <ul class="footer-link-list">
-          <li><a href="project01.html">01 &middot; Wooden Structure Translation</a></li>
-          <li><a href="project02.html">02 &middot; Sierra Canyon: Diagnosis</a></li>
-          <li><a href="project03.html">03 &middot; Sierra Canyon: Design Interventions</a></li>
-          <li><a href="project04.html">04 &middot; Model Making</a></li>
-          <li><a href="project05.html">05 &middot; The Blurred Boundary</a></li>
-          <li><a href="project06.html">06 &middot; Visual Studies</a></li>
+          <li><a href="project01.html">01 &middot; 木构转译</a></li>
+          <li><a href="project02.html">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+          <li><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+          <li><a href="project04.html">04 &middot; 手工模型合集</a></li>
+          <li><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+          <li><a href="project06.html">06 &middot; 摄影作品合集</a></li>
         </ul>
       </div>
 
       <div>
-        <div class="footer-col-title">Navigation</div>
+        <div class="footer-col-title">快捷导航</div>
         <ul class="footer-link-list">
-          <li><a href="#top">Home</a></li>
-          <li><a href="#works">View Works</a></li>
-          <li><a href="#about">About the Artist</a></li>
-          <li><a href="mailto:formcr@126.com">Get in Touch</a></li>
+          <li><a href="#top">首页</a></li>
+          <li><a href="#works">浏览作品</a></li>
+          <li><a href="#about">关于艺术家</a></li>
+          <li><a href="mailto:formcr@126.com">联系方式</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom-bar">
-      <div>&copy; 2026 Churan (Olivia) Ma. All rights reserved.</div>
+      <div>&copy; 2026 马楚然 (Churan Olivia Ma)。保留所有权利。</div>
       <div class="footer-nav-jump">
-        <a href="#top">Back to Top &uarr;</a>
+        <a href="#top">返回顶部 &uarr;</a>
       </div>
     </div>
   </footer>
@@ -1828,25 +1817,25 @@
     <div class="auth-box" onclick="event.stopPropagation()">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
         <h3 style="font-family: var(--font-display); font-size: 18px; text-transform: uppercase; letter-spacing: 1.5px; color: #000;">
-          Studio CMS Sign In
+          工作台 CMS 登录
         </h3>
         <button type="button" onclick="toggleAuthModal(false)" style="background:none; border:none; font-size:24px; cursor:pointer; line-height:1; color:#888;">&times;</button>
       </div>
       <p style="font-size: 13px; color: #666; margin-bottom: 22px; line-height: 1.6; font-weight: 300;">
-        Enter administrator credentials to unlock Studio CMS and manage portfolio projects.
+        请输入管理员凭据以解锁工作台 CMS 并管理作品集项目。
       </p>
       <form onsubmit="event.preventDefault(); handleAuthLogin(event);">
         <div class="form-group">
-          <label class="form-label" for="adminUser">Username</label>
-          <input type="text" id="adminUser" class="form-control" placeholder="Enter username" autocomplete="username" required>
+          <label class="form-label" for="adminUser">用户名</label>
+          <input type="text" id="adminUser" class="form-control" placeholder="请输入用户名" autocomplete="username" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="adminPass">Password</label>
+          <label class="form-label" for="adminPass">密码</label>
           <input type="password" id="adminPass" class="form-control" placeholder="••••••••" autocomplete="current-password" required>
         </div>
         <div style="display: flex; gap: 10px; margin-top: 24px;">
-          <button type="button" class="btn-submit" style="flex: 1.2;" onclick="handleAuthLogin(event)">Sign In &amp; Manage</button>
-          <button type="button" class="btn-submit" style="background: #e4e4e7; color: #18181b; border-color: #d4d4d8; flex: 1;" onclick="toggleAuthModal(false)">Cancel</button>
+          <button type="button" class="btn-submit" style="flex: 1.2;" onclick="handleAuthLogin(event)">登录并管理</button>
+          <button type="button" class="btn-submit" style="background: #e4e4e7; color: #18181b; border-color: #d4d4d8; flex: 1;" onclick="toggleAuthModal(false)">取消</button>
         </div>
       </form>
     </div>
@@ -1862,14 +1851,14 @@
 
       <!-- Zoom Toolbar & Hint -->
       <div class="lightbox-zoom-toolbar">
-        <button type="button" class="lightbox-zoom-btn" onclick="homeLbZoomStep(-1)" aria-label="Zoom Out" title="Zoom Out">&minus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="homeLbZoomStep(-1)" aria-label="Zoom Out" title="缩小">&minus;</button>
         <span class="lightbox-zoom-badge" id="home-lightbox-zoom-level" onclick="resetHomeLbZoom()" title="Click to Reset 100%">100%</span>
-        <button type="button" class="lightbox-zoom-btn" onclick="homeLbZoomStep(1)" aria-label="Zoom In" title="Zoom In">&plus;</button>
-        <button type="button" class="lightbox-zoom-btn" onclick="resetHomeLbZoom()" aria-label="Reset Zoom" title="Reset Zoom">&#x21bb;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="homeLbZoomStep(1)" aria-label="Zoom In" title="放大">&plus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="resetHomeLbZoom()" aria-label="Reset Zoom" title="重置缩放">&#x21bb;</button>
       </div>
 
       <div id="lightboxCaption" class="lightbox-caption"></div>
-      <div class="lightbox-zoom-hint">Scroll wheel to zoom &middot; Drag to pan &middot; Double-click to reset</div>
+      <div class="lightbox-zoom-hint">鼠标滚轮缩放 &middot; 按住拖动画布 &middot; 双击重置</div>
     </div>
   </div>
 
@@ -1878,8 +1867,8 @@
     <div class="cms-dialog" onclick="event.stopPropagation()">
       <div class="cms-header">
         <div class="cms-header-left">
-          <h3>Studio CMS · Administration Dashboard</h3>
-          <span class="cms-admin-badge">Super Administrator</span>
+          <h3>工作台 CMS · 综合管理控制台</h3>
+          <span class="cms-admin-badge">超级管理员</span>
         </div>
         <button type="button" class="cms-header-close" onclick="closeCmsModal()">&times;</button>
       </div>
@@ -1887,30 +1876,30 @@
       <div class="cms-body">
         <!-- Sidebar Navigation -->
         <nav class="cms-sidebar">
-          <div class="cms-sidebar-title">Workspace Menu</div>
+          <div class="cms-sidebar-title">控制台菜单</div>
           <button type="button" class="cms-nav-item active" onclick="switchCmsPane('artworks', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-            Projects &amp; Sections
+            项目与版块
           </button>
           <button type="button" class="cms-nav-item" onclick="switchCmsPane('categories', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-            Categories &amp; Columns
+            分类与栏目
           </button>
           <button type="button" class="cms-nav-item" onclick="switchCmsPane('media', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            Media &amp; Image Assets
+            媒体与图像资源
           </button>
           <button type="button" class="cms-nav-item" onclick="switchCmsPane('profile', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            About Me &amp; Profile
+            关于我与个人资料
           </button>
           <button type="button" class="cms-nav-item" onclick="switchCmsPane('inquiries', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            Visitor Inquiries
+            访客留言与咨询
           </button>
           <button type="button" class="cms-nav-item" onclick="switchCmsPane('data', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-            Data Backup &amp; Reset
+            数据备份与重置
           </button>
         </nav>
 
@@ -1921,11 +1910,11 @@
           <div id="pane-artworks" class="cms-pane active">
             <div class="cms-pane-header">
               <div>
-                <div class="cms-pane-title">Projects &amp; Sections Management</div>
-                <div class="cms-pane-desc">Manage portfolio project cards, statements, specifications, cover images, and multi-image galleries</div>
+                <div class="cms-pane-title">项目与版块管理</div>
+                <div class="cms-pane-desc">管理作品集卡片、创作陈述、技术规格、封面图像以及多图画廊</div>
               </div>
               <div>
-                <button type="button" class="btn-submit" onclick="openAddArtworkModal()">+ Publish New Project</button>
+                <button type="button" class="btn-submit" onclick="openAddArtworkModal()">+ 发布新项目</button>
               </div>
             </div>
 
@@ -1933,12 +1922,12 @@
               <table class="cms-table">
                 <thead>
                   <tr>
-                    <th>Thumbnail</th>
-                    <th>Project Title</th>
-                    <th>Category</th>
-                    <th>Subtitle / Medium</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>封面缩略图</th>
+                    <th>项目标题</th>
+                    <th>所属分类</th>
+                    <th>副标题 / 媒介</th>
+                    <th>发布状态</th>
+                    <th>操作</th>
                   </tr>
                 </thead>
                 <tbody id="cmsArtworksTableBody">
@@ -1952,22 +1941,22 @@
           <div id="pane-categories" class="cms-pane">
             <div class="cms-pane-header">
               <div>
-                <div class="cms-pane-title">Categories &amp; Columns Management</div>
-                <div class="cms-pane-desc">Organize portfolio series, roman codes, medium classifications, and descriptions</div>
+                <div class="cms-pane-title">分类与栏目管理</div>
+                <div class="cms-pane-desc">管理作品集分类系列、罗马数字编号、媒介属性与分类说明</div>
               </div>
-              <button type="button" class="btn-submit" onclick="openAddCategoryModal()">+ Create New Category</button>
+              <button type="button" class="btn-submit" onclick="openAddCategoryModal()">+ 新增分类</button>
             </div>
 
             <div class="cms-table-wrap">
               <table class="cms-table">
                 <thead>
                   <tr>
-                    <th>Code</th>
-                    <th>Category Name</th>
-                    <th>Medium Classification</th>
-                    <th>Linked Works</th>
-                    <th>Description</th>
-                    <th>Actions</th>
+                    <th>编号</th>
+                    <th>分类名称</th>
+                    <th>媒介分类</th>
+                    <th>关联作品</th>
+                    <th>描述说明</th>
+                    <th>操作</th>
                   </tr>
                 </thead>
                 <tbody id="cmsCategoriesTableBody">
@@ -1981,15 +1970,15 @@
           <div id="pane-media" class="cms-pane">
             <div class="cms-pane-header">
               <div>
-                <div class="cms-pane-title">Media &amp; Image Assets</div>
-                <div class="cms-pane-desc">Upload local image files (persisted as Base64 DataURL) or add external image URLs</div>
+                <div class="cms-pane-title">媒体与图像资源</div>
+                <div class="cms-pane-desc">上传本地图片文件（持久化存储为 Base64）或添加外部图片链接</div>
               </div>
               <div style="display: flex; gap: 10px;">
                 <label class="btn-submit" style="cursor: pointer; display: inline-block;">
-                  + Upload Local Image
+                  + 上传本地图片
                   <input type="file" accept="image/*" style="display: none;" onchange="handleLocalImageUpload(event)">
                 </label>
-                <button type="button" class="btn-cms-action" onclick="promptAddImageUrl()">+ Add Image URL</button>
+                <button type="button" class="btn-cms-action" onclick="promptAddImageUrl()">+ 添加图片链接</button>
               </div>
             </div>
 
@@ -2002,68 +1991,68 @@
           <div id="pane-profile" class="cms-pane">
             <div class="cms-pane-header">
               <div>
-                <div class="cms-pane-title">About Me &amp; Profile Settings</div>
-                <div class="cms-pane-desc">Update artist name, hero slogans, personal portrait photo, statement, and contact information</div>
+                <div class="cms-pane-title">关于我与个人资料设置</div>
+                <div class="cms-pane-desc">更新艺术家姓名、首页标语、个人肖像照片、创作陈述与联系信息</div>
               </div>
-              <button type="button" class="btn-submit" onclick="saveSiteProfile(event)">Save Profile Changes</button>
+              <button type="button" class="btn-submit" onclick="saveSiteProfile(event)">保存个人资料修改</button>
             </div>
 
             <form id="profileForm" action="javascript:void(0);" onsubmit="saveSiteProfile(event)">
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                 <div class="form-group">
-                  <label class="form-label">Artist Name</label>
+                  <label class="form-label">艺术家姓名</label>
                   <input type="text" id="profArtistName" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Hero Title</label>
+                  <label class="form-label">首页大标题</label>
                   <input type="text" id="profHeroTitle" class="form-control" required>
                 </div>
               </div>
 
               <!-- About Me Photo Field with 2:3 Live Preview -->
               <div class="form-group" style="margin-bottom: 20px;">
-                <label class="form-label">About Me Portrait Photo (File path / Base64 / Image URL)</label>
+                <label class="form-label">个人肖像照片（文件路径 / Base64 / 图片链接）</label>
                 <div style="display: flex; gap: 10px;">
-                  <input type="text" id="profAboutPhoto" class="form-control" placeholder="me.jpg or https://..." oninput="updateProfilePhotoPreview(this.value)">
+                  <input type="text" id="profAboutPhoto" class="form-control" placeholder="../me.jpg or https://..." oninput="updateProfilePhotoPreview(this.value)">
                   <label class="btn-cms-action" style="cursor: pointer; display: flex; align-items: center; white-space: nowrap;">
-                    Choose Local Photo
+                    选择本地照片
                     <input type="file" accept="image/*" style="display: none;" onchange="handleAboutPhotoUpload(event)">
                   </label>
                 </div>
                 <div style="margin-top: 12px; display: flex; align-items: center; gap: 16px;">
                   <div style="width: 90px; height: 135px; border: 1px solid #ccc; background: #faf8f5; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                    <img id="profAboutPhotoPreviewImg" src="me.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img id="profAboutPhotoPreviewImg" src="../me.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                   </div>
-                  <span style="font-size: 12px; color: #666;">2:3 vertical portrait preview (matches 960x1440 ratio with zero crop)</span>
+                  <span style="font-size: 12px; color: #666;">2:3 纵向肖像预览（完美匹配 960x1440 比例，无裁切）</span>
                 </div>
               </div>
 
               <div class="form-group" style="margin-bottom: 20px;">
-                <label class="form-label">Hero Slogan / Statement Line</label>
+                <label class="form-label">首页核心标语 / 陈述语句</label>
                 <textarea id="profHeroSlogan" class="form-control" rows="2" required></textarea>
               </div>
 
               <div class="form-group" style="margin-bottom: 20px;">
-                <label class="form-label">About Me Narrative (Separate paragraphs by double newlines)</label>
+                <label class="form-label">“关于我”个人叙事陈述（段落之间请用两个换行分隔）</label>
                 <textarea id="profAboutBio" class="form-control" rows="8" required></textarea>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
                 <div class="form-group">
-                  <label class="form-label">Contact Email</label>
+                  <label class="form-label">联系邮箱</label>
                   <input type="text" id="profEmail" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Contact Phone</label>
+                  <label class="form-label">联系电话</label>
                   <input type="text" id="profPhone" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Base Location</label>
+                  <label class="form-label">常驻地区 / 城市</label>
                   <input type="text" id="profLocation" class="form-control">
                 </div>
               </div>
 
-              <button type="submit" class="btn-submit">Save Changes &amp; Sync to Site</button>
+              <button type="submit" class="btn-submit">保存修改并同步至前台</button>
             </form>
           </div>
 
@@ -2071,8 +2060,8 @@
           <div id="pane-inquiries" class="cms-pane">
             <div class="cms-pane-header">
               <div>
-                <div class="cms-pane-title">Visitor Inquiries &amp; Collaboration Proposals</div>
-                <div class="cms-pane-desc">Review messages submitted via the frontend contact form</div>
+                <div class="cms-pane-title">访客留言与合作咨询</div>
+                <div class="cms-pane-desc">查看访客通过前台联系表单提交的留言信息</div>
               </div>
             </div>
 
@@ -2080,12 +2069,12 @@
               <table class="cms-table">
                 <thead>
                   <tr>
-                    <th>Status</th>
-                    <th>Sender Name &amp; Organization</th>
-                    <th>Email Address</th>
-                    <th>Timestamp</th>
-                    <th>Message Content</th>
-                    <th>Actions</th>
+                    <th>发布状态</th>
+                    <th>发送者姓名与机构</th>
+                    <th>电子邮箱</th>
+                    <th>提交时间</th>
+                    <th>留言内容</th>
+                    <th>操作</th>
                   </tr>
                 </thead>
                 <tbody id="cmsInquiriesTableBody">
@@ -2099,35 +2088,35 @@
           <div id="pane-data" class="cms-pane">
             <div class="cms-pane-header">
               <div>
-                <div class="cms-pane-title">Data Persistence, Backup &amp; Reset</div>
-                <div class="cms-pane-desc">Auto-saved in browser LocalStorage. Export to a single JSON file for cross-device migration.</div>
+                <div class="cms-pane-title">数据持久化、备份与重置</div>
+                <div class="cms-pane-desc">自动保存在浏览器 LocalStorage 中。可导出为单个 JSON 文件以便跨设备迁移。</div>
               </div>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 24px;">
               <div style="background: #ffffff; border: 1px solid #e5e5e5; padding: 24px;">
-                <h4 style="font-family: var(--font-display); font-size: 15px; margin-bottom: 8px; text-transform: uppercase;">📥 Export Data Backup (JSON)</h4>
+                <h4 style="font-family: var(--font-display); font-size: 15px; margin-bottom: 8px; text-transform: uppercase;">📥 导出数据备份 (JSON)</h4>
                 <p style="font-size: 13px; color: #666; margin-bottom: 16px; line-height: 1.6;">
-                  Save all current artworks, categories, media links, and statements into a standalone <code>.json</code> file for safe archiving.
+                  将当前所有作品数据、分类、媒体链接与陈述导出为独立的 <code>.json</code> 文件进行安全归档。
                 </p>
-                <button type="button" class="btn-submit" onclick="exportDataJson()">Download JSON Backup File</button>
+                <button type="button" class="btn-submit" onclick="exportDataJson()">下载 JSON 备份文件</button>
               </div>
 
               <div style="background: #ffffff; border: 1px solid #e5e5e5; padding: 24px;">
-                <h4 style="font-family: var(--font-display); font-size: 15px; margin-bottom: 8px; text-transform: uppercase;">📤 Import Data Restore</h4>
+                <h4 style="font-family: var(--font-display); font-size: 15px; margin-bottom: 8px; text-transform: uppercase;">📤 导入数据恢复</h4>
                 <p style="font-size: 13px; color: #666; margin-bottom: 16px; line-height: 1.6;">
-                  Select a previously exported <code>.json</code> backup to restore site data.
+                  选择此前导出的 <code>.json</code> 备份文件以恢复整站数据。
                 </p>
                 <input type="file" id="importJsonFileInput" accept=".json" style="margin-bottom: 12px; display: block; font-size: 13px;">
-                <button type="button" class="btn-cms-action" onclick="handleImportJsonFile()">Execute Data Restore</button>
+                <button type="button" class="btn-cms-action" onclick="handleImportJsonFile()">执行数据恢复</button>
               </div>
 
               <div style="background: #fffafa; border: 1px solid #fecaca; padding: 24px;">
-                <h4 style="font-family: var(--font-display); font-size: 15px; color: #dc2626; margin-bottom: 8px; text-transform: uppercase;">⚠️ Reset to Factory Data</h4>
+                <h4 style="font-family: var(--font-display); font-size: 15px; color: #dc2626; margin-bottom: 8px; text-transform: uppercase;">⚠️ 重置为初始预设数据</h4>
                 <p style="font-size: 13px; color: #666; margin-bottom: 16px; line-height: 1.6;">
-                  Clear all local edits and restore the factory seed data for Churan (Olivia) Ma.
+                  清除所有本地修改，恢复马楚然 (Churan Olivia Ma) 的初始出厂数据。
                 </p>
-                <button type="button" class="btn-cms-action btn-danger" onclick="resetToInitialData()">Reset to Initial Default Data</button>
+                <button type="button" class="btn-cms-action btn-danger" onclick="resetToInitialData()">恢复初始默认数据</button>
               </div>
             </div>
           </div>
@@ -2141,7 +2130,7 @@
   <div id="artworkEditModal" class="modal-overlay" onclick="closeModal('artworkEditModal', event)">
     <div class="modal-box modal-box-lg" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <div class="modal-title" id="artworkEditModalTitle">Edit Project / Artwork</div>
+        <div class="modal-title" id="artworkEditModalTitle">编辑项目 / 艺术作品</div>
         <button type="button" class="modal-close-btn" onclick="closeModal('artworkEditModal')">&times;</button>
       </div>
       <form action="javascript:void(0);" onsubmit="handleSaveArtworkForm(event)">
@@ -2149,48 +2138,48 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
           <div class="form-group">
-            <label class="form-label">Category / Section *</label>
+            <label class="form-label">所属分类 / 版块 *</label>
             <select id="editArtCategory" class="form-control" required>
               <!-- Dynamically populated -->
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Display Status *</label>
+            <label class="form-label">显示状态 *</label>
             <select id="editArtStatus" class="form-control">
-              <option value="published">Published (Visible to all)</option>
-              <option value="draft">Draft (Admin only)</option>
+              <option value="published">已发布 (公开可见)</option>
+              <option value="draft">草稿 (仅管理员可见)</option>
             </select>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px;">
           <div class="form-group">
-            <label class="form-label">Project Title *</label>
+            <label class="form-label">项目标题 *</label>
             <input type="text" id="editArtTitle" class="form-control" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Year</label>
+            <label class="form-label">创作年份</label>
             <input type="text" id="editArtYear" class="form-control">
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
           <div class="form-group">
-            <label class="form-label">Subtitle / Medium</label>
+            <label class="form-label">副标题 / 媒介属性</label>
             <input type="text" id="editArtMedium" class="form-control">
           </div>
           <div class="form-group">
-            <label class="form-label">Dimensions / Pages</label>
+            <label class="form-label">尺寸规格 / 页数</label>
             <input type="text" id="editArtDimension" class="form-control">
           </div>
         </div>
 
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Cover Image (URL or Local Upload) *</label>
+          <label class="form-label">封面图片 (URL 链接或本地上传) *</label>
           <div style="display: flex; gap: 10px;">
             <input type="text" id="editArtCover" class="form-control" required oninput="updateCoverPreview()">
             <label class="btn-cms-action" style="cursor: pointer; display: flex; align-items: center; white-space: nowrap;">
-              Choose Local File
+              选择本地文件
               <input type="file" accept="image/*" style="display: none;" onchange="handleCoverImageUpload(event)">
             </label>
           </div>
@@ -2200,18 +2189,18 @@
         </div>
 
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Gallery Images (One URL per line)</label>
+          <label class="form-label">画廊图集图片 (每行一个 URL 链接)</label>
           <textarea id="editArtGallery" class="form-control" rows="3"></textarea>
         </div>
 
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Project Statement / Description *</label>
+          <label class="form-label">项目陈述 / 详细描述 *</label>
           <textarea id="editArtStatement" class="form-control" rows="5" required></textarea>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn-cms-action" onclick="closeModal('artworkEditModal')">Cancel</button>
-          <button type="submit" class="btn-submit">Save Project Data</button>
+          <button type="button" class="btn-cms-action" onclick="closeModal('artworkEditModal')">取消</button>
+          <button type="submit" class="btn-submit">保存项目数据</button>
         </div>
       </form>
     </div>
@@ -2221,30 +2210,30 @@
   <div id="categoryEditModal" class="modal-overlay" onclick="closeModal('categoryEditModal', event)">
     <div class="modal-box modal-box-sm" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <div class="modal-title" id="catModalTitle">Category &amp; Column Settings</div>
+        <div class="modal-title" id="catModalTitle">分类与栏目设置</div>
         <button type="button" class="modal-close-btn" onclick="closeModal('categoryEditModal')">&times;</button>
       </div>
       <form action="javascript:void(0);" onsubmit="handleSaveCategoryForm(event)">
         <input type="hidden" id="editCatId">
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Category Code (e.g. 01, 02, I, II) *</label>
+          <label class="form-label">分类编号 (如 01, 02, I, II) *</label>
           <input type="text" id="editCatCode" class="form-control" required>
         </div>
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Category Name *</label>
+          <label class="form-label">分类名称 *</label>
           <input type="text" id="editCatName" class="form-control" required>
         </div>
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Medium Classification</label>
+          <label class="form-label">媒介类型</label>
           <input type="text" id="editCatMedium" class="form-control">
         </div>
         <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Description</label>
+          <label class="form-label">详细描述</label>
           <textarea id="editCatDesc" class="form-control" rows="3"></textarea>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn-cms-action" onclick="closeModal('categoryEditModal')">Cancel</button>
-          <button type="submit" class="btn-submit">Save Category</button>
+          <button type="button" class="btn-cms-action" onclick="closeModal('categoryEditModal')">取消</button>
+          <button type="submit" class="btn-submit">保存分类</button>
         </div>
       </form>
     </div>
@@ -2255,98 +2244,142 @@
 
 <!-- JAVASCRIPT LOGIC -->
   <script>
-    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V18";
+    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_CN_V18";
     const AUTH_KEY = "CHURAN_OLIVIA_MA_AUTH_STATUS";
 
+    function resolveAssetPath(p) {
+      if (!p || typeof p !== "string") return p || "";
+      if (p.startsWith("data:") || p.startsWith("http://") || p.startsWith("https://") || p.startsWith("blob:")) return p;
+      if (p.includes("/web/")) p = p.replace("/web/", "/");
+      if (p.startsWith("../assets/")) return p;
+      if (p === "../me.jpg" || p === "../me2.jpg") return p;
+      if (p === "me.jpg" || p === "./me.jpg") return "../me.jpg";
+      if (p === "me2.jpg" || p === "./me2.jpg") return "../me2.jpg";
+      if (p.startsWith("assets/")) return "../" + p;
+      if (p.startsWith("./assets/")) return "../" + p.slice(2);
+      return p;
+    }
+
+    function sanitizeDataPaths(data) {
+      if (!data) return;
+      if (data.siteInfo && data.siteInfo.aboutPhoto) {
+        data.siteInfo.aboutPhoto = resolveAssetPath(data.siteInfo.aboutPhoto);
+      }
+      if (Array.isArray(data.artworks)) {
+        data.artworks.forEach(art => {
+          if (art.coverImage) art.coverImage = resolveAssetPath(art.coverImage);
+          if (Array.isArray(art.gallery)) {
+            art.gallery = art.gallery.map(resolveAssetPath);
+          }
+        });
+      }
+      if (Array.isArray(data.mediaList)) {
+        data.mediaList = data.mediaList.map(resolveAssetPath);
+      }
+    }
+
+    function handleImgError(img) {
+      if (!img || img.dataset.fallbackTried) return;
+      img.dataset.fallbackTried = "true";
+      const src = img.getAttribute("src") || "";
+      if (src.includes("/web/")) {
+        img.src = src.replace("/web/", "/");
+      } else if (src.startsWith("../assets/")) {
+        img.src = src.replace("../assets/", "assets/");
+      } else if (src.startsWith("assets/")) {
+        img.src = "../" + src;
+      }
+    }
+
     const INITIAL_SEED_DATA = {
-      version: "18.0",
+      version: "18.0-CN",
       siteInfo: {
-        artistName: "Churan (Olivia) Ma",
-        navBrand: "Churan (Olivia) Ma",
-        heroWelcome: "WELCOME TO MY",
-        heroTitle: "PORTFOLIO WEBSITE",
-        heroSubtitle: "Churan (Olivia) Ma",
-        slogan: "Exploring the Intersections of Spatial Structure, Material Tectonics & Visual Archives",
-        aboutPhoto: "me2.jpg",
+        artistName: "马楚然 (Churan Olivia Ma)",
+        navBrand: "马楚然 (Churan Olivia Ma)",
+        heroWelcome: "欢迎访问我的",
+        heroTitle: "个人作品集网站",
+        heroSubtitle: "马楚然 (Churan Olivia Ma)",
+        slogan: "探索空间结构、材料建构与视觉档案的交叉边界",
+        aboutPhoto: "../me2.jpg",
         aboutBio: [
-          "Since I was a child, my father, an architect, taught me to see the world through the lens of design. Our home was filled with architecture books and models; I’d listen to him describe his projects, not fully understanding the technical details, but I could feel his infectious love for the field. Wherever we traveled, whether it’s the CCTV building in Beijing or the Eiffel Tower, he couldn’t help but stop us excitedly and explain the building structures around us. I come to notice things that are only “visible” to an architect: how the placement of a staircase shapes the way people move, how windows bring light into a room, or why an entrance faces one direction rather than another.",
-          "While my father shaped the way I initially experienced the world, I would come to see and feel the world through my own eyes. I recall the most memorable moments in my life—when I feel completely present and immersed in the environment—whether it’s standing atop a snowy mountain, gazing out across an open landscape, or exploring a thoughtfully designed building. These experiences taught me that spaces influence how we feel, think, and connect with others. As an aspiring architect and designer, I pay attention to the relationship between people and their surroundings, exploring why certain places inspire, comfort, or remain unforgettable. This curiosity is the foundation of my passion for architecture. In my projects, I strive to find a balance between creativity and practicality, creating spaces that respond to people and their surroundings. My goal is to experiment more freely with materials and structures and develop a design language of my own."
+          "从孩提时代起，身为建筑师的父亲就教我透过设计的视角去观察世界。我们的家里摆满了建筑书籍和模型；我常听他讲述他的项目，那时我虽无法完全理解复杂的工程细节，却能深切感受到他对建筑那份极具感染力的热爱。无论我们去哪里旅行，从北京的央视大楼到巴黎的埃菲尔铁塔，他总会兴奋地停下脚步，向我们剖析身旁的建筑结构。我逐渐学会去觉察那些唯有建筑师才能看到的细节：楼梯的置入如何引导人们的动线，窗户如何将自然光引入室内，以及入口为何会朝向某一特定的方位。",
+          "如果说父亲塑造了我最初感知世界的方式，那么后来我便开始用自己的双眼去观察和体验这个世界。我回想起生命中最难忘的那些时刻——当我完全沉浸在当下环境之中：不论是伫立在雪山之巅眺望辽阔的天地，还是穿行在一座构思精妙的建筑之中。这些经历让我领悟到，空间深刻地影响着我们的情绪、思维以及与他人的连接方式。作为一名满怀憧憬的年轻建筑与空间创作者，我时刻关注人与周围环境的互动，探寻为何某些场所能激发灵感、抚慰心灵或令人久久难以忘怀。这份好奇心构成了我对建筑热情的基石。在设计实践中，我努力在创造力与实用性之间探寻平衡，打造能够回应人与周围环境的空间。我的目标是在材料与结构的自由探索中逐步建立属于自己的设计语言。"
         ],
         contact: {
           email: "formcr@126.com",
           phone: "+1 (818) 836-8439",
-          location: "Los Angeles / Beijing"
+          location: "洛杉矶 / 北京"
         }
       },
       categories: [
         {
           id: "cat-arch",
           code: "01",
-          name: "Adaptive Architecture",
-          medium: "Timber Structure & Heritage Infill",
-          description: "Studies in radial glulam arches, tensile membranes, and adaptive civic programming next to historic masonry city walls."
+          name: "柔性与自适应建筑",
+          medium: "木构体系与历史织补",
+          description: "发散式胶合木拱肋、透光张拉膜顶与明代古城墙砌体界面的跨时空对话与自适应公共运营。"
         },
         {
           id: "cat-urban",
           code: "02",
-          name: "Campus Urbanism",
-          medium: "Behavioral Mapping & Flow Diagnosis",
-          description: "Time-space behavioral tracking, vehicle-pedestrian conflicts, and topographical friction diagnosis for educational campuses."
+          name: "校园城市学与空间诊断",
+          medium: "行为测绘与流线诊断",
+          description: "针对复杂峡谷地貌校园的全天候时空行为追踪、人车流线交织痛点与高差摩擦诊断。"
         },
         {
           id: "cat-facade",
           code: "03",
-          name: "Topographic Architecture",
-          medium: "Ribbon Gateway & Faceted Strata",
-          description: "Bridging campus grade splits with an elevated S-C pedestrian ribbon and folded canyon-rock art center volumes."
+          name: "地形整合艺术建筑",
+          medium: "立体门廊与折面岩石体量",
+          description: "以 S-C 字母解构漂浮步行门廊天桥，层叠折面岩石体量艺术中心缝合校园陡峭高差。"
         },
         {
           id: "cat-visual",
           code: "04",
-          name: "Visual Art & Archival Installation",
-          medium: "Photography & Staged Archival Storyboard",
-          description: "Investigation of educational discipline, posture surveillance, and familial care boundaries across 34 curated pages."
+          name: "视觉艺术与档案装置",
+          medium: "静物摆拍摄影与策展画卷",
+          description: "贯穿34页独立画卷，深入审视教育规训、身体姿态与家庭关爱边界。"
         },
         {
           id: "cat-model",
           code: "05",
-          name: "Handcrafted Models",
-          medium: "Wood, Cardboard & Spatial Structure",
-          description: "Physical model making exploring material behavior, structural joinery, and folded planar geometry across 5 plates."
+          name: "手工实体模型",
+          medium: "木构体系、榫卯与折叠卡纸",
+          description: "探索材料物理性能、结构传力逻辑与空间构成法则的物理手工模型研究。"
         },
         {
           id: "cat-photo",
           code: "06",
-          name: "Visual Studies",
-          medium: "Photography & Observational Composition",
-          description: "Photographic observations on light, spatial framing, and everyday atmosphere, featuring the 2026 Scholastic Silver Key winner."
+          name: "视觉观察与摄影",
+          medium: "数码摄影、空间光影与框景",
+          description: "关于构图、光影与场所感知的摄影观察系列，包含2026全美银钥匙奖获奖作品。"
         }
       ],
       artworks: [
         {
           id: "proj-1",
           categoryId: "cat-arch",
-          title: "Wooden Structure Translation",
-          subtitle: "A Multi-functional Wooden Structure at the Foot of the Ming City Wall",
+          title: "木构转译",
+          subtitle: "明城墙脚下的多功能木构",
           year: "2026",
-          medium: "Glulam Arches, Tensile Membrane & Central Kinetic Stage",
-          dimension: "12 Portfolio Plates · Axonometrics, Joinery Details & Scenarios",
-          coverImage: "assets/projects/project01/07.jpg",
+          medium: "胶合木拱肋、张拉膜顶与升降动力舞台",
+          dimension: "12页完整图版 · 轴测分解、榫卯节点与四大运营场景",
+          coverImage: "../assets/projects/project01/07.jpg",
           gallery: [
-            "assets/projects/project01/01.jpg",
-            "assets/projects/project01/02.jpg",
-            "assets/projects/project01/03.jpg",
-            "assets/projects/project01/04.jpg",
-            "assets/projects/project01/05.jpg",
-            "assets/projects/project01/06.jpg",
-            "assets/projects/project01/07.jpg",
-            "assets/projects/project01/08.jpg",
-            "assets/projects/project01/09.jpg",
-            "assets/projects/project01/10.jpg",
-            "assets/projects/project01/11.jpg",
-            "assets/projects/project01/12.jpg"
+            "../assets/projects/project01/01.jpg",
+            "../assets/projects/project01/02.jpg",
+            "../assets/projects/project01/03.jpg",
+            "../assets/projects/project01/04.jpg",
+            "../assets/projects/project01/05.jpg",
+            "../assets/projects/project01/06.jpg",
+            "../assets/projects/project01/07.jpg",
+            "../assets/projects/project01/08.jpg",
+            "../assets/projects/project01/09.jpg",
+            "../assets/projects/project01/10.jpg",
+            "../assets/projects/project01/11.jpg",
+            "../assets/projects/project01/12.jpg"
           ],
-          statement: "Situated within Nanjing Guochuang Park adjacent to the 600-year-old Ming Dynasty City Wall, this project investigates how lightweight, contemporary timber tectonics can engage with monumental historic masonry. Reinterpreting the rhythmic masonry arches and defensive perimeter of the ancient wall, the design introduces a radial glulam rib structure sheltered by a translucent tensile mesh roof and anchored by a central multi-media 'Super Trend Box'. Functioning as an adaptive civic apparatus, the pavilion effortlessly transitions across four distinct operational modes—everyday leisure, weekend creative market, corporate roadshow, and curated exhibition—revitalizing industrial heritage while offering a porous, flexible threshold between history and modern public life.",
+          statement: "项目选址于南京国创园，紧邻具有600年历史的明代古城墙。本方案探讨了当代轻量化木构体系如何与厚重的历史砌体遗存产生跨时空对话。设计将古城墙连续起伏的拱券意象与防御性边界转译为发散式胶合木拱肋系统，覆盖半透明透光张拉网膜，并置入中央升降舞台与多媒体“超级潮流魔盒”。展亭作为可自如适应城市事件的复合空间装置，能够自由切换于日常休憩、周末创意市集、商业路演与艺术展览四大运营模式，既激活了老厂区的工业遗存，又为当代市民公共生活构建了一个通透、灵活的历史对话界面。",
           status: "published",
           actionType: "link",
           targetUrl: "project01.html"
@@ -2354,23 +2387,23 @@
         {
           id: "proj-2",
           categoryId: "cat-urban",
-          title: "Sierra Canyon Campus Reconfiguration: Diagnosis",
-          subtitle: "Spatial Diagnosis — Everyday Frictions",
+          title: "塞拉峡谷校园改造：诊断",
+          subtitle: "空间诊断 — 日常摩擦",
           year: "2026",
-          medium: "Time-Space Behavioral Mapping, Axonometric Survey & Flow Diagnosis",
-          dimension: "8 Portfolio Plates · Behavioral Heatmaps, Circulation & Sectional Cuts",
-          coverImage: "assets/projects/project02/01.jpg",
+          medium: "时空行为测绘、流线摩擦诊断与轴测剖面分析",
+          dimension: "8页完整图版 · 行为热力图、人车交织流线与高差测绘",
+          coverImage: "../assets/projects/project02/01.jpg",
           gallery: [
-            "assets/projects/project02/01.jpg",
-            "assets/projects/project02/02.jpg",
-            "assets/projects/project02/03.jpg",
-            "assets/projects/project02/04.jpg",
-            "assets/projects/project02/05.jpg",
-            "assets/projects/project02/06.jpg",
-            "assets/projects/project02/07.jpg",
-            "assets/projects/project02/08.jpg"
+            "../assets/projects/project02/01.jpg",
+            "../assets/projects/project02/02.jpg",
+            "../assets/projects/project02/03.jpg",
+            "../assets/projects/project02/04.jpg",
+            "../assets/projects/project02/05.jpg",
+            "../assets/projects/project02/06.jpg",
+            "../assets/projects/project02/07.jpg",
+            "../assets/projects/project02/08.jpg"
           ],
-          statement: "Perched along the rugged topographic threshold of the Santa Susana Canyon and bounded by the Ronald Reagan Freeway in Chatsworth, Los Angeles, Sierra Canyon School embodies acute spatial contradictions between natural grade and rapid vehicular transit. Through extensive on-site mapping, temporal behavioral tracking, and axonometric dissection, this research diagnoses critical everyday frictions across campus: acute vehicle-pedestrian bottlenecks during morning drop-off, abrupt and disorienting grade transitions connected by purely utilitarian staircases, and a lack of climate-tempered outdoor gathering nodes. By decoding student, faculty, and vehicular flows into empirical spatial data, this research uncovers the underlying structural tensions, establishing an indispensable evidentiary foundation for master planning and tectonic intervention.",
+          statement: "项目聚焦于洛杉矶查茨沃斯（Chatsworth）圣苏珊娜峡谷边缘、紧邻里根高速公路的 Sierra Canyon 校园。在陡峭的峡谷地形与高密度交通的夹缝中，校园面临着剧烈的空间冲突。本调研通过深入的现场空间测绘、全天候时空行为追踪与三维轴测解构，系统诊断出校园日常运营中的三大核心痛点：早高峰严重的“人车动线交织与接送安全隐患”、割裂陡峭且缺乏场所感的高差楼梯、以及缺乏遮阳避风功能的消极户外休憩空间。通过将师生行为路径与车流瓶颈转化为定量化的空间证据，调研揭示了校园深层的结构性张力，为后续门廊重构与艺术中心规划提供了坚实的实证基础。",
           status: "published",
           actionType: "link",
           targetUrl: "project02.html"
@@ -2378,28 +2411,28 @@
         {
           id: "proj-3",
           categoryId: "cat-facade",
-          title: "Sierra Canyon Campus Reconfiguration: Design Interventions",
-          subtitle: "Gateway & Art Center",
+          title: "塞拉峡谷校园改造：设计介入",
+          subtitle: "入口天桥与艺术中心",
           year: "2026",
-          medium: "Faceted Monoliths, Structural Gateway & Handcrafted Physical Models",
-          dimension: "13 Portfolio Plates · Architectural Plans, Physical Models & Terraces",
-          coverImage: "assets/projects/project03/01.jpg",
+          medium: "折面岩石体量、立体人行天桥与发光实体手工模型",
+          dimension: "13页完整图版 · 建筑平立剖、立体步道与实体发光模型",
+          coverImage: "../assets/projects/project03/01.jpg",
           gallery: [
-            "assets/projects/project03/01.jpg",
-            "assets/projects/project03/02.jpg",
-            "assets/projects/project03/03.jpg",
-            "assets/projects/project03/04.jpg",
-            "assets/projects/project03/05.jpg",
-            "assets/projects/project03/06.jpg",
-            "assets/projects/project03/07.jpg",
-            "assets/projects/project03/08.jpg",
-            "assets/projects/project03/09.jpg",
-            "assets/projects/project03/10.jpg",
-            "assets/projects/project03/11.jpg",
-            "assets/projects/project03/12.jpg",
-            "assets/projects/project03/13.jpg"
+            "../assets/projects/project03/01.jpg",
+            "../assets/projects/project03/02.jpg",
+            "../assets/projects/project03/03.jpg",
+            "../assets/projects/project03/04.jpg",
+            "../assets/projects/project03/05.jpg",
+            "../assets/projects/project03/06.jpg",
+            "../assets/projects/project03/07.jpg",
+            "../assets/projects/project03/08.jpg",
+            "../assets/projects/project03/09.jpg",
+            "../assets/projects/project03/10.jpg",
+            "../assets/projects/project03/11.jpg",
+            "../assets/projects/project03/12.jpg",
+            "../assets/projects/project03/13.jpg"
           ],
-          statement: "Responding to the spatial and safety diagnoses developed in Project 02, Canyon Echo radically reconceives the arrival threshold and artistic heart of Sierra Canyon School. Rejecting the conventional monolithic institutional box, the scheme deconstructs the school's initials ('S-C') into a continuous, elevated pedestrian gateway ribbon that lifts arriving students entirely clear of driveway traffic. Concurrently, the new Art Center is sculpted into faceted, stepped volumes that echo the surrounding canyon rock strata, housing open visual studios, subterranean performance auditoriums, and panoramic exhibition galleries. A three-dimensional hillside promenade bridges the academic building with the sports gymnasium, transforming once treacherous elevation changes into a vibrant social and artistic landscape. The proposal is substantiated through exhaustive orthographic drawings and meticulously crafted, illuminated physical scale models.",
+          statement: "作为对 Project 02 校园调研诊断的创造性回应，本方案颠覆了 Sierra Canyon 传统的校园入口与艺术中心设计。方案摒弃了封闭僵化的巨型体量，将学校首字母“S-C”解构为一条漂浮蜿蜒的立体步行门廊天桥，彻底实现了人车分流与安全归家动线。新建的艺术中心则以层叠起伏的折面几何呼应加州峡谷的粗犷岩层，囊括通透的视觉艺术工坊、嵌于地下的沉浸式多功能剧场与全景展览画廊。一条三维立体景观漫步道无缝缝合了上方教学楼与下方体育馆，将昔日危险消极的陡峭高差转化为充满活力的艺术社交看台与观景平台。项目通过严谨的建筑平立剖图纸与精细考究的暗室发光实体模型得以完整论证与呈现。",
           status: "published",
           actionType: "link",
           targetUrl: "project03.html"
@@ -2407,20 +2440,20 @@
         {
           id: "proj-4",
           categoryId: "cat-model",
-          title: "Model Making",
-          subtitle: "Wood, Cardboard, and Spatial Structure · 5 Plates",
+          title: "手工模型合集",
+          subtitle: "木材、卡纸与空间结构探索 · 5张展板",
           year: "2026",
-          medium: "Timber Sticks, Traditional Joinery & Curved Cardboard",
-          dimension: "5 Portfolio Plates · Material & Structure Studies",
-          coverImage: "assets/projects/project04/03.jpg",
+          medium: "手工木棍、中式传统大木作榫卯与白色折叠卡纸",
+          dimension: "5张完整展板 · 制作过程、模型全景与结构特写",
+          coverImage: "../assets/projects/project04/03.jpg",
           gallery: [
-            "assets/projects/project04/01.jpg",
-            "assets/projects/project04/02.jpg",
-            "assets/projects/project04/03.jpg",
-            "assets/projects/project04/04.jpg",
-            "assets/projects/project04/05.jpg"
+            "../assets/projects/project04/01.jpg",
+            "../assets/projects/project04/02.jpg",
+            "../assets/projects/project04/03.jpg",
+            "../assets/projects/project04/04.jpg",
+            "../assets/projects/project04/05.jpg"
           ],
-          statement: "This collection brings together three handcrafted models that explore material behavior, structural logic, and spatial composition. From a digitally modeled lattice cube assembled with wooden sticks, to a traditional Chinese double-eave pavilion that reveals its joinery, to a folded cardboard study of flexibility and rhythm—each model translates digital or conceptual ideas into physical form. Together they demonstrate my commitment to learning through making, and to understanding how structure and material can shape spatial experience.",
+          statement: "本系列汇集了三组手工物理模型，分别探索材料物理性能、结构传力逻辑与空间构成法则。从以数字建模为基础、手工木棍搭建的网格立方体，到展示精准榫卯梁架构造的传统中式重檐木构凉亭，再到探索材料柔韧度与韵律节奏的白色折叠卡纸空间模型——每一组作品都致力于将数字化与概念构思转化为真实的物理空间形态。记录了在制作中学习的严谨探索，展现结构与材料如何共同塑造空间体验。",
           status: "published",
           actionType: "link",
           targetUrl: "project04.html"
@@ -2428,14 +2461,14 @@
         {
           id: "proj-5",
           categoryId: "cat-visual",
-          title: "The Blurred Boundary",
-          subtitle: "Care, Protection and Control · 34 Pages",
+          title: "模糊的边界",
+          subtitle: "关爱、庇护与控制 · 34页画卷",
           year: "2026",
-          medium: "Comprehensive 7-Chapter Photographic Portfolio",
-          dimension: "34 Editorial Exhibition Pages",
-          coverImage: "assets/hongdoudou/page_01.jpg",
-          gallery: ["assets/hongdoudou/page_01.jpg", "assets/hongdoudou/photos/8.110319.jpg"],
-          statement: "An extensive visual inquiry into the disciplinary mechanisms of maternal care, childhood scheduling, and bodily posture, corresponding to the 34-page curated storyboard.",
+          medium: "全套7大章节摄影叙事作品集",
+          dimension: "34页策展排版展厅",
+          coverImage: "../assets/hongdoudou/page_01.jpg",
+          gallery: ["../assets/hongdoudou/page_01.jpg", "../assets/hongdoudou/photos/8.110319.jpg"],
+          statement: "一场关于母爱关怀、童年日程表与身体姿态规训机制的深刻视觉审视，完整对应34页精心策划的视觉排版画卷。",
           status: "published",
           actionType: "link",
           targetUrl: "project05.html"
@@ -2443,77 +2476,77 @@
         {
           id: "proj-6",
           categoryId: "cat-photo",
-          title: "Visual Studies",
-          subtitle: "Light, Composition, and Everyday Life · 7 Plates",
+          title: "摄影作品合集",
+          subtitle: "光影、构图与日常生活 · 7幅作品",
           year: "2026",
-          medium: "Digital Photography, Observational Framing & Spatial Atmosphere",
-          dimension: "7 Portfolio Plates · 2026 Scholastic Silver Key Winner",
-          coverImage: "assets/projects/project06/01.jpg",
+          medium: "数码摄影、环境框景与空间纵深研究",
+          dimension: "7幅摄影力作 · 2026 Scholastic 银钥匙奖获奖力作",
+          coverImage: "../assets/projects/project06/01.jpg",
           gallery: [
-            "assets/projects/project06/01.jpg",
-            "assets/projects/project06/02.jpg",
-            "assets/projects/project06/03.jpg",
-            "assets/projects/project06/04.jpg",
-            "assets/projects/project06/05.jpg",
-            "assets/projects/project06/06.jpg",
-            "assets/projects/project06/07.jpg"
+            "../assets/projects/project06/01.jpg",
+            "../assets/projects/project06/02.jpg",
+            "../assets/projects/project06/03.jpg",
+            "../assets/projects/project06/04.jpg",
+            "../assets/projects/project06/05.jpg",
+            "../assets/projects/project06/06.jpg",
+            "../assets/projects/project06/07.jpg"
           ],
-          statement: "This photographic series explores how composition, light, and framing shape our perception of space and place. From snow-covered roads to architectural interiors and candid human moments, each image is an exercise in visual balance and spatial observation. The first work, 'Through the Silent Snow,' received a 2026 Scholastic Art & Writing Awards Silver Key. Photography has sharpened my sensitivity to proportion, depth, and atmosphere—skills that directly inform my architectural design process.",
+          statement: "这一摄影系列探索了构图、光影与框景如何重塑我们对空间与场所的感知。从积雪覆盖的冬日林道，到现代与传统建筑的内部光影，再到日常人物的不经意瞬间，每一幅图像都是对视觉平衡与空间观察的实验。第一幅作品《雪霁长路》荣获 2026 年 Scholastic Art & Writing Awards 全美艺术与写作大奖银钥匙奖。摄影训练极大磨砺了对建筑比例、空间纵深与光影氛围的敏锐洞察力。",
           status: "published",
           actionType: "link",
           targetUrl: "project06.html"
         }
       ],
       mediaList: [
-        "me.jpg",
-        "assets/projects/project04/01.jpg",
-        "assets/projects/project04/02.jpg",
-        "assets/projects/project04/03.jpg",
-        "assets/projects/project04/04.jpg",
-        "assets/projects/project04/05.jpg",
-        "assets/projects/project06/01.jpg",
-        "assets/projects/project06/02.jpg",
-        "assets/projects/project06/03.jpg",
-        "assets/projects/project06/04.jpg",
-        "assets/projects/project06/05.jpg",
-        "assets/projects/project06/06.jpg",
-        "assets/projects/project06/07.jpg",
-        "assets/projects/project01/01.jpg",
-        "assets/projects/project01/02.jpg",
-        "assets/projects/project01/03.jpg",
-        "assets/projects/project01/04.jpg",
-        "assets/projects/project01/05.jpg",
-        "assets/projects/project01/06.jpg",
-        "assets/projects/project01/07.jpg",
-        "assets/projects/project01/08.jpg",
-        "assets/projects/project01/09.jpg",
-        "assets/projects/project01/10.jpg",
-        "assets/projects/project01/11.jpg",
-        "assets/projects/project01/12.jpg",
-        "assets/projects/project02/01.jpg",
-        "assets/projects/project02/02.jpg",
-        "assets/projects/project02/03.jpg",
-        "assets/projects/project02/04.jpg",
-        "assets/projects/project02/05.jpg",
-        "assets/projects/project02/06.jpg",
-        "assets/projects/project02/07.jpg",
-        "assets/projects/project02/08.jpg",
-        "assets/projects/project03/01.jpg",
-        "assets/projects/project03/02.jpg",
-        "assets/projects/project03/03.jpg",
-        "assets/projects/project03/04.jpg",
-        "assets/projects/project03/05.jpg",
-        "assets/projects/project03/06.jpg",
-        "assets/projects/project03/07.jpg",
-        "assets/projects/project03/08.jpg",
-        "assets/projects/project03/09.jpg",
-        "assets/projects/project03/10.jpg",
-        "assets/projects/project03/11.jpg",
-        "assets/projects/project03/12.jpg",
-        "assets/projects/project03/13.jpg",
-        "assets/hongdoudou/page_01.jpg",
-        "assets/hongdoudou/photos/8.110319.jpg",
-        "assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG"
+        "../me.jpg",
+        "../assets/projects/project04/01.jpg",
+        "../assets/projects/project04/02.jpg",
+        "../assets/projects/project04/03.jpg",
+        "../assets/projects/project04/04.jpg",
+        "../assets/projects/project04/05.jpg",
+        "../assets/projects/project06/01.jpg",
+        "../assets/projects/project06/02.jpg",
+        "../assets/projects/project06/03.jpg",
+        "../assets/projects/project06/04.jpg",
+        "../assets/projects/project06/05.jpg",
+        "../assets/projects/project06/06.jpg",
+        "../assets/projects/project06/07.jpg",
+        "../assets/projects/project01/01.jpg",
+        "../assets/projects/project01/02.jpg",
+        "../assets/projects/project01/03.jpg",
+        "../assets/projects/project01/04.jpg",
+        "../assets/projects/project01/05.jpg",
+        "../assets/projects/project01/06.jpg",
+        "../assets/projects/project01/07.jpg",
+        "../assets/projects/project01/08.jpg",
+        "../assets/projects/project01/09.jpg",
+        "../assets/projects/project01/10.jpg",
+        "../assets/projects/project01/11.jpg",
+        "../assets/projects/project01/12.jpg",
+        "../assets/projects/project02/01.jpg",
+        "../assets/projects/project02/02.jpg",
+        "../assets/projects/project02/03.jpg",
+        "../assets/projects/project02/04.jpg",
+        "../assets/projects/project02/05.jpg",
+        "../assets/projects/project02/06.jpg",
+        "../assets/projects/project02/07.jpg",
+        "../assets/projects/project02/08.jpg",
+        "../assets/projects/project03/01.jpg",
+        "../assets/projects/project03/02.jpg",
+        "../assets/projects/project03/03.jpg",
+        "../assets/projects/project03/04.jpg",
+        "../assets/projects/project03/05.jpg",
+        "../assets/projects/project03/06.jpg",
+        "../assets/projects/project03/07.jpg",
+        "../assets/projects/project03/08.jpg",
+        "../assets/projects/project03/09.jpg",
+        "../assets/projects/project03/10.jpg",
+        "../assets/projects/project03/11.jpg",
+        "../assets/projects/project03/12.jpg",
+        "../assets/projects/project03/13.jpg",
+        "../assets/hongdoudou/page_01.jpg",
+        "../assets/hongdoudou/photos/8.110319.jpg",
+        "../assets/hongdoudou/photos/df6032c679359d59700fbc9e2d218811.JPG"
       ],
       inquiries: []
     };
@@ -2532,14 +2565,15 @@
             state.data = parsed;
           } else {
             state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
-            saveData();
           }
         } else {
           state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
-          saveData();
         }
+        sanitizeDataPaths(state.data);
+        saveData();
       } catch(e) {
         state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
+        sanitizeDataPaths(state.data);
       }
     }
 
@@ -2576,14 +2610,14 @@
 
       if (state.isAdmin) {
         if (dot) dot.classList.add("active");
-        if (text) text.innerText = "Studio CMS Connected (Admin)";
+        if (text) text.innerText = "工作台 CMS 已连接 (管理员)";
         if (btnManage) btnManage.style.display = "inline-block";
-        if (btnAuth) btnAuth.innerText = "Logout";
+        if (btnAuth) btnAuth.innerText = "退出登录";
       } else {
         if (dot) dot.classList.remove("active");
-        if (text) text.innerText = "Studio CMS (Visitor Mode)";
+        if (text) text.innerText = "工作台 CMS (访客模式)";
         if (btnManage) btnManage.style.display = "none";
-        if (btnAuth) btnAuth.innerText = "Admin Login";
+        if (btnAuth) btnAuth.innerText = "管理员登录";
       }
     }
 
@@ -2592,7 +2626,7 @@
       localStorage.setItem(AUTH_KEY, "false");
       updateAuthUI();
       renderFrontendWorks();
-      showToast("Logged out from Studio CMS.");
+      showToast("已退出工作台 CMS。");
     }
 
     function toggleAuthModal(show) {
@@ -2670,7 +2704,7 @@
       }
       const photoElem = document.querySelector(".frame-photo-main");
       if (photoElem && info.aboutPhoto) {
-        photoElem.src = info.aboutPhoto;
+        photoElem.src = resolveAssetPath(info.aboutPhoto);
       }
     }
 
@@ -2686,19 +2720,19 @@
 
         if (art.actionType === 'modal') {
           clickAttr = `onclick="openArchModal('${art.targetModal || 'arch-01'}')"`;
-          btnMarkup = `<button type="button" class="btn-show-more" onclick="openArchModal('${art.targetModal || 'arch-01'}')">Show More</button>`;
+          btnMarkup = `<button type="button" class="btn-show-more" onclick="openArchModal('${art.targetModal || 'arch-01'}')">查看详情</button>`;
         } else {
           const url = art.targetUrl || 'exhibition.html';
           clickAttr = `onclick="window.location.href='${url}'"`;
-          btnMarkup = `<a href="${url}" class="btn-show-more" aria-label="Explore ${art.title}">Show More</a>`;
+          btnMarkup = `<a href="${url}" class="btn-show-more" aria-label="Explore ${art.title}">查看详情</a>`;
         }
 
-        const draftBadge = isDraft ? `<span class="card-draft-badge">Draft</span>` : "";
+        const draftBadge = isDraft ? `<span class="card-draft-badge">草稿</span>` : "";
 
         return `
           <article class="wix-work-card">
             <div class="card-thumb-frame" ${clickAttr}>
-              <img src="${art.coverImage}" alt="${art.title}" loading="lazy">
+              <img src="${resolveAssetPath(art.coverImage)}" alt="${art.title}" loading="lazy" onerror="handleImgError(this)">
             </div>
             <div class="card-info-pane">
               <div>
@@ -2719,22 +2753,23 @@
       const modal = document.getElementById("archProjectModal");
       const content = document.getElementById("archModalContent");
 
-      const plates = (art.gallery && art.gallery.length > 0) ? art.gallery : [art.coverImage];
+      const rawPlates = (art.gallery && art.gallery.length > 0) ? art.gallery : [art.coverImage];
+      const plates = rawPlates.map(resolveAssetPath);
       const totalPlates = plates.length;
 
       const galleryMarkup = plates.map((imgSrc, idx) => {
         const plateNum = String(idx + 1).padStart(2, '0');
-        const plateLabel = `Plate ${plateNum} / ${String(totalPlates).padStart(2, '0')}`;
+        const plateLabel = `图版 ${plateNum} / ${String(totalPlates).padStart(2, '0')}`;
         const escapedTitle = (art.title + ' — ' + plateLabel).replace(/"/g, '&quot;').replace(/'/g, "\\'");
         return `
           <div class="arch-plate-card">
             <div class="arch-plate-header">
               <span class="arch-plate-badge">${plateLabel}</span>
-              <span class="arch-plate-expand-hint">Click plate to zoom &amp; drag-pan</span>
+              <span class="arch-plate-expand-hint">点击图版可放大滚轮缩放与鼠标拖拽</span>
             </div>
-            <div class="arch-plate-thumb-wrap" onclick="openLightbox('${imgSrc}', '${escapedTitle}')" title="Click to view high-resolution plate in lightbox">
-              <img src="${imgSrc}" alt="${art.title} - ${plateLabel}" loading="lazy">
-              <div class="arch-plate-hint">Inspect Plate &oplus;</div>
+            <div class="arch-plate-thumb-wrap" onclick="openLightbox('${imgSrc}', '${escapedTitle}')" title="点击查看高清大图并缩放">
+              <img src="${imgSrc}" alt="${art.title} - ${plateLabel}" loading="lazy" onerror="handleImgError(this)">
+              <div class="arch-plate-hint">检视高清图版 &oplus;</div>
             </div>
           </div>
         `;
@@ -2742,28 +2777,28 @@
 
       content.innerHTML = `
         <div style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 8px;">
-          Project // ${art.subtitle || 'Architectural Design'}
+          项目 // ${art.subtitle || '建筑设计'}
         </div>
-        <h2 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; color: #000; line-height: 1.3;">
+        <h2 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; color: #000; line-height: 1.35;">
           ${art.title}
         </h2>
         <div style="display: flex; flex-wrap: wrap; gap: 14px 24px; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #666; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid #eee;">
-          <span><strong>Year:</strong> ${art.year || '2026'}</span>
-          <span><strong>Medium:</strong> ${art.medium || 'Architectural System'}</span>
-          <span><strong>Scope:</strong> ${art.dimension || (totalPlates + ' Plates')}</span>
+          <span><strong>创作年份：</strong> ${art.year || '2026'}</span>
+          <span><strong>媒介体系：</strong> ${art.medium || '建筑系统'}</span>
+          <span><strong>成果规模：</strong> ${art.dimension || (totalPlates + ' 页图版')}</span>
         </div>
 
         <div style="font-size: 14px; color: #333; line-height: 1.9; margin-bottom: 28px; font-weight: 300; background: #faf9f8; padding: 20px 24px; border-left: 3px solid var(--color-sand);">
-          <strong style="display: block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #222; margin-bottom: 8px;">Design Concept &amp; Core Value</strong>
+          <strong style="display: block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #222; margin-bottom: 8px;">设计理念与核心价值</strong>
           ${art.statement}
         </div>
 
         <div style="margin-bottom: 20px;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
             <h3 style="font-family: var(--font-display); font-size: 16px; letter-spacing: 1px; text-transform: uppercase; margin: 0; color: #111;">
-              Project Portfolio Plates (${totalPlates})
+              项目完整成果图版图纸 (${totalPlates})
             </h3>
-            <span style="font-size: 11px; color: #888; font-family: var(--font-sans); letter-spacing: 0.5px; text-transform: uppercase;">Sequence: 01 to ${String(totalPlates).padStart(2, '0')}</span>
+            <span style="font-size: 11px; color: #888; font-family: var(--font-sans); letter-spacing: 0.5px;">序号顺序：01 至 ${String(totalPlates).padStart(2, '0')}</span>
           </div>
           
           <div class="arch-modal-gallery">
@@ -2772,9 +2807,9 @@
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px; margin-top: 28px;">
-          <span style="font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase;">Status: ${art.status === 'published' ? 'Published' : 'Draft'}</span>
+          <span style="font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase;">发布状态：${art.status === 'published' ? '已发布' : '草稿'}</span>
           <button type="button" class="btn-show-more" onclick="handleArchEditClick('${art.id}')">
-            Edit in Studio CMS
+            在工作台 CMS 中编辑
           </button>
         </div>
       `;
@@ -2786,7 +2821,7 @@
       if (state.isAdmin) {
         openEditArtworkModal(artId);
       } else {
-        showToast("Please sign in as administrator to edit.");
+        showToast("请以管理员身份登录以进行编辑。");
         toggleAuthModal(true);
       }
     }
@@ -2903,7 +2938,7 @@
       const img = document.getElementById("lightboxImg");
       const cap = document.getElementById("lightboxCaption");
       resetHomeLbZoom();
-      img.src = src;
+      img.src = resolveAssetPath(src);
       cap.innerText = caption || "";
       modal.classList.add("active");
     }
@@ -3068,19 +3103,19 @@
         const cat = state.data.categories.find(c => c.id === art.categoryId) || { name: 'Uncategorized' };
         return `
           <tr>
-            <td><img class="cms-thumb-mini" src="${art.coverImage}" onerror="this.src='assets/arch/arch1_preview.jpg'"></td>
+            <td><img class="cms-thumb-mini" src="${resolveAssetPath(art.coverImage)}" onerror="this.src='../assets/arch/arch1_preview.jpg'"></td>
             <td><strong>${art.title}</strong><div style="font-size:11px; color:#777;">${art.year || ''} · ${art.dimension || ''}</div></td>
             <td>${cat.name}</td>
             <td>${art.subtitle || '-'}</td>
             <td>
               <span class="status-badge ${art.status === 'published' ? 'published' : 'draft'}">
-                ${art.status === 'published' ? 'Published' : 'Draft'}
+                ${art.status === 'published' ? '已发布' : '草稿'}
               </span>
             </td>
             <td>
-              <button type="button" class="btn-cms-action" onclick="openEditArtworkModal('${art.id}')">Edit</button>
-              <button type="button" class="btn-cms-action" onclick="togglePublishStatus('${art.id}')">${art.status === 'published' ? 'Unpublish' : 'Publish'}</button>
-              <button type="button" class="btn-cms-action btn-danger" onclick="deleteArtwork('${art.id}')">Delete</button>
+              <button type="button" class="btn-cms-action" onclick="openEditArtworkModal('${art.id}')">编辑</button>
+              <button type="button" class="btn-cms-action" onclick="togglePublishStatus('${art.id}')">${art.status === 'published' ? '下架' : '发布'}</button>
+              <button type="button" class="btn-cms-action btn-danger" onclick="deleteArtwork('${art.id}')">删除</button>
             </td>
           </tr>
         `;
@@ -3088,7 +3123,7 @@
     }
 
     function openAddArtworkModal(presetCoverUrl = '') {
-      document.getElementById('artworkEditModalTitle').textContent = 'Publish New Project / Artwork';
+      document.getElementById('artworkEditModalTitle').textContent = '发布新项目 / 艺术作品';
       document.getElementById('editArtId').value = '';
       document.getElementById('editArtTitle').value = '';
       document.getElementById('editArtYear').value = new Date().getFullYear();
@@ -3151,7 +3186,7 @@
       const previewBox = document.getElementById('editArtCoverPreview');
       const img = document.getElementById('editArtCoverPreviewImg');
       if (url) {
-        img.src = url;
+        img.src = resolveAssetPath(url);
         previewBox.style.display = 'block';
       } else {
         previewBox.style.display = 'none';
@@ -3216,7 +3251,7 @@
         saveData();
         renderFrontendWorks();
         renderCmsArtworksTable();
-        showToast(`Project "${art.title}" is now ${art.status === 'published' ? 'Published' : 'Draft'}`);
+        showToast(`Project "${art.title}" is now ${art.status === 'published' ? '已发布' : '草稿'}`);
       }
     }
 
@@ -3243,11 +3278,11 @@
             <td><strong>${cat.code}</strong></td>
             <td><strong>${cat.name}</strong></td>
             <td>${cat.medium || '-'}</td>
-            <td><strong>${count}</strong> projects</td>
+            <td><strong>${count}</strong> 个项目</td>
             <td style="max-width:280px; font-size:12px; color:#666;">${cat.description || ''}</td>
             <td>
-              <button type="button" class="btn-cms-action" onclick="openEditCategoryModal('${cat.id}')">Edit</button>
-              <button type="button" class="btn-cms-action btn-danger" onclick="deleteCategory('${cat.id}')">Delete</button>
+              <button type="button" class="btn-cms-action" onclick="openEditCategoryModal('${cat.id}')">编辑</button>
+              <button type="button" class="btn-cms-action btn-danger" onclick="deleteCategory('${cat.id}')">删除</button>
             </td>
           </tr>
         `;
@@ -3255,7 +3290,7 @@
     }
 
     function openAddCategoryModal() {
-      document.getElementById('catModalTitle').textContent = 'Create New Category';
+      document.getElementById('catModalTitle').textContent = '新增分类';
       document.getElementById('editCatId').value = '';
       document.getElementById('editCatCode').value = '05';
       document.getElementById('editCatName').value = '';
@@ -3315,7 +3350,7 @@
       state.data.categories = state.data.categories.filter(c => c.id !== catId);
       saveData();
       renderCmsCategoriesTable();
-      showToast('Category deleted.');
+      showToast('分类已删除。');
     }
 
     // 3. Media Library
@@ -3328,15 +3363,18 @@
         if (a.gallery) a.gallery.forEach(img => urls.add(img));
       });
 
-      grid.innerHTML = Array.from(urls).map(url => `
+      grid.innerHTML = Array.from(urls).map(url => {
+        const resolvedUrl = resolveAssetPath(url);
+        return `
         <div class="media-item">
-          <img src="${url}" onerror="this.src='assets/arch/arch1_preview.jpg'">
+          <img src="${resolvedUrl}" onerror="this.src='../assets/arch/arch1_preview.jpg'">
           <div class="media-overlay">
-            <button type="button" class="btn-cms-action" onclick="copyToClipboard('${url}')">Copy Link</button>
-            <button type="button" class="btn-cms-action" onclick="openLightbox('${url}', 'Media Asset')">View Full</button>
+            <button type="button" class="btn-cms-action" onclick="copyToClipboard('${resolvedUrl}')">Copy Link</button>
+            <button type="button" class="btn-cms-action" onclick="openLightbox('${resolvedUrl}', 'Media Asset')">View Full</button>
           </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
     }
 
     function handleLocalImageUpload(event) {
@@ -3350,27 +3388,27 @@
         saveData();
         copyToClipboard(dataUrl);
         renderCmsMediaGrid();
-        showToast('Local image converted and link copied to clipboard!');
+        showToast('本地图片已转换并复制链接至剪贴板！');
       };
       reader.readAsDataURL(file);
     }
 
     function promptAddImageUrl() {
-      const url = prompt('Enter external image URL:');
+      const url = prompt('请输入外部图片 URL 链接：');
       if (url && url.trim()) {
         if (!state.data.mediaList) state.data.mediaList = [];
         state.data.mediaList.unshift(url.trim());
         saveData();
         renderCmsMediaGrid();
-        showToast('Image URL added to media library.');
+        showToast('图片链接已添加至媒体库。');
       }
     }
 
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(() => {
-        showToast('Copied to clipboard!');
+        showToast('已复制到剪贴板！');
       }).catch(() => {
-        showToast('Copy failed, URL: ' + text.slice(0, 30));
+        showToast('复制失败，链接: ' + text.slice(0, 30));
       });
     }
 
@@ -3380,8 +3418,9 @@
       document.getElementById('profArtistName').value = info.artistName || '';
       document.getElementById('profHeroTitle').value = info.heroTitle || '';
       document.getElementById('profHeroSlogan').value = info.slogan || '';
-      document.getElementById('profAboutPhoto').value = info.aboutPhoto || 'me.jpg';
-      updateProfilePhotoPreview(info.aboutPhoto || 'me.jpg');
+      const photoPath = resolveAssetPath(info.aboutPhoto || '../me.jpg');
+      document.getElementById('profAboutPhoto').value = photoPath;
+      updateProfilePhotoPreview(photoPath);
       document.getElementById('profAboutBio').value = (info.aboutBio || []).join(String.fromCharCode(10) + String.fromCharCode(10));
       document.getElementById('profEmail').value = info.contact.email || '';
       document.getElementById('profPhone').value = info.contact.phone || '';
@@ -3391,7 +3430,7 @@
     function updateProfilePhotoPreview(url) {
       const img = document.getElementById('profAboutPhotoPreviewImg');
       if (img && url) {
-        img.src = url;
+        img.src = resolveAssetPath(url);
       }
     }
 
@@ -3403,7 +3442,7 @@
         const dataUrl = e.target.result;
         document.getElementById('profAboutPhoto').value = dataUrl;
         updateProfilePhotoPreview(dataUrl);
-        showToast('Photo loaded in 2:3 preview. Click Save to apply.');
+        showToast('照片已加载至 2:3 预览框。点击保存即可生效。');
       };
       reader.readAsDataURL(file);
     }
@@ -3414,7 +3453,7 @@
       info.artistName = document.getElementById('profArtistName').value.trim();
       info.heroTitle = document.getElementById('profHeroTitle').value.trim();
       info.slogan = document.getElementById('profHeroSlogan').value.trim();
-      info.aboutPhoto = document.getElementById('profAboutPhoto').value.trim() || 'me.jpg';
+      info.aboutPhoto = document.getElementById('profAboutPhoto').value.trim() || '../me.jpg';
 
       const rawBio = document.getElementById('profAboutBio').value.trim();
       info.aboutBio = rawBio.split(String.fromCharCode(10) + String.fromCharCode(10)).map(p => p.trim()).filter(p => p);
@@ -3425,7 +3464,7 @@
 
       saveData();
       renderFrontendAll();
-      showToast('Profile and statements saved and synced to site!');
+      showToast('个人资料与叙事陈述已保存并同步至前台！');
     }
 
     // 5. Inquiries
@@ -3433,7 +3472,7 @@
       const tbody = document.getElementById('cmsInquiriesTableBody');
       const inqs = state.data.inquiries || [];
       if (inqs.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#999; padding:24px;">No visitor inquiries received yet.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#999; padding:24px;">暂无访客留言咨询。</td></tr>`;
         return;
       }
       tbody.innerHTML = inqs.map((inq, idx) => `
@@ -3444,8 +3483,8 @@
           <td style="color:#777; font-size:11px;">${inq.date}</td>
           <td style="max-width:300px; font-size:12px;">${inq.message}</td>
           <td>
-            <button type="button" class="btn-cms-action" onclick="toggleInquiryStatus(${idx})">${inq.status === 'unread' ? 'Mark Read' : 'Mark Unread'}</button>
-            <button type="button" class="btn-cms-action btn-danger" onclick="deleteInquiry(${idx})">Delete</button>
+            <button type="button" class="btn-cms-action" onclick="toggleInquiryStatus(${idx})">${inq.status === 'unread' ? '标记已读' : '标记未读'}</button>
+            <button type="button" class="btn-cms-action btn-danger" onclick="deleteInquiry(${idx})">删除</button>
           </td>
         </tr>
       `).join('');
@@ -3464,7 +3503,7 @@
         state.data.inquiries.splice(idx, 1);
         saveData();
         renderCmsInquiriesTable();
-        showToast('Inquiry deleted.');
+        showToast('留言已删除。');
       }
     }
 
@@ -3499,24 +3538,24 @@
             saveData();
             renderFrontendAll();
             renderCmsPanes();
-            showToast('Backup restored successfully! Site refreshed.');
+            showToast('备份已成功恢复！页面已刷新。');
           } else {
-            showToast('Invalid JSON schema. Missing required portfolio nodes.');
+            showToast('无效的 JSON 格式。缺少必要的节点。');
           }
         } catch (err) {
-          showToast('Failed to parse JSON file: ' + err.message);
+          showToast('解析 JSON 文件失败: ' + err.message);
         }
       };
       reader.readAsText(file);
     }
 
     function resetToInitialData() {
-      if (confirm('Warning: This will clear local edits and restore the factory seed data. Continue?')) {
+      if (confirm('警告：此操作将清除本地修改并恢复初始默认数据，是否继续？')) {
         state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
         saveData();
         renderFrontendAll();
         if (state.isAdmin) renderCmsPanes();
-        showToast('Restored to factory seed data!');
+        showToast('已恢复为初始出厂数据！');
       }
     }
 

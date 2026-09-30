@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>木构转译 — 明城墙脚下的多功能木构 | 马楚然 Churan (Olivia) Ma</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CORE DESIGN SYSTEM & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      --font-serif: "Cormorant Garamond", "Songti SC", "SimSun", serif;
+      --font-sans: "Montserrat", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-display: "Montserrat", "PingFang SC", sans-serif;
+
+      --color-bg-page: #fcfbfa;
+      --color-bg-card: #ffffff;
+      --color-bg-subtle: #f6f4f2;
+      --color-hero-band: #e7dee1; /* Signature exhibition pinkish-taupe tint */
+      --color-wix-footer: #e7dee1;
+
+      --color-text-black: #1a1918;
+      --color-text-body: #3c3a38;
+      --color-text-muted: #73706c;
+      --color-text-dim: #999590;
+
+      --color-border-line: #e8e5e0;
+      --color-border-dark: #1a1918;
+      --color-bar-accent: #2e2b29;
+
+      --container-max: 1380px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 15px;
+    }
+
+    body {
+      background-color: var(--color-bg-page);
+      color: var(--color-text-body);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 1. FIXED TOP NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(252, 251, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border-line);
+      height: 70px;
+    }
+
+    .wix-nav-container {
+      max-width: var(--container-max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wix-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .wix-nav-item {
+      position: relative;
+    }
+
+    .wix-nav-link {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      padding: 8px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wix-nav-link:hover,
+    .wix-nav-link.active {
+      color: #000000;
+      font-weight: 500;
+    }
+
+    .wix-nav-link svg {
+      width: 8px;
+      height: 5px;
+      transition: transform 0.2s ease;
+    }
+
+    /* Dropdown */
+    .wix-dropdown:hover .wix-dropdown-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .wix-dropdown:hover .wix-nav-link svg {
+      transform: rotate(180deg);
+    }
+
+    .wix-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      min-width: 290px;
+      padding: 8px 0;
+      list-style: none;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: all 0.2s ease;
+      z-index: 1010;
+    }
+
+    .wix-dropdown-item a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      color: var(--color-text-body);
+      border-bottom: 1px solid #fafafa;
+    }
+
+    .wix-dropdown-item a:hover {
+      background: var(--color-bg-subtle);
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    .wix-dropdown-item:last-child a {
+      border-bottom: none;
+    }
+
+    .nav-btn-back {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      border: 1px solid var(--color-border-dark);
+      padding: 6px 14px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn-back:hover {
+      background: var(--color-text-black);
+      color: #ffffff;
+    }
+
+    .wix-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wix-star-icon {
+      width: 24px;
+      height: 24px;
+      fill: #1a1918;
+    }
+
+    .wix-brand-text {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    /* 2. PROJECT HERO BAND (#e7dee1) */
+    .project-hero-band {
+      margin-top: 70px;
+      background-color: var(--color-hero-band);
+      padding: 70px 32px 60px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-category-tag {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-spread-count {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .hero-title-main {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.8vw, 56px);
+      font-weight: 400;
+      color: var(--color-text-black);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(14px, 1.6vw, 17px);
+      color: var(--color-text-body);
+      max-width: 860px;
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 520px) {
+      .hero-meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-meta-item .meta-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-meta-item .meta-val {
+      font-size: 13px;
+      color: var(--color-text-black);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* 3. STICKY SUB-NAV / QUICK JUMP */
+    .subnav-sticky-bar {
+      position: sticky;
+      top: 70px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border-line);
+      padding: 12px 32px;
+    }
+
+    .subnav-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .subnav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .subnav-pills {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .subnav-pill {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      color: var(--color-text-body);
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    .subnav-pill:hover,
+    .subnav-pill.active {
+      background: var(--color-text-black);
+      color: #ffffff;
+      border-color: var(--color-text-black);
+    }
+
+    .subnav-count-badge {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+    }
+
+    /* 4. MAIN GALLERY CONTENT FEED */
+    .gallery-main-feed {
+      max-width: var(--container-max);
+      margin: 50px auto 80px;
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    .plate-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-line);
+      padding: 36px 40px 32px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.02);
+      transition: border-color 0.25s ease;
+    }
+    .plate-card:hover {
+      border-color: #d2ceca;
+    }
+
+    @media (max-width: 768px) {
+      .plate-card {
+        padding: 20px 18px 20px;
+      }
+    }
+
+    .plate-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border-line);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .plate-index-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .plate-badge {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: var(--color-bar-accent);
+      padding: 3px 10px;
+    }
+
+    .plate-theme-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    .plate-scan-link {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .plate-scan-link:hover {
+      color: var(--color-text-black);
+    }
+
+    .img-zoom-target {
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: #f2efeb;
+      border: 1px solid #eae7e2;
+    }
+
+    .img-zoom-target img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-zoom-target:hover img {
+      transform: scale(1.012);
+    }
+
+    .img-zoom-target::after {
+      content: '⤢ 点击放大';
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(18, 17, 16, 0.82);
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
+    .img-zoom-target:hover::after {
+      opacity: 1;
+    }
+
+    .plate-caption {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--color-bg-subtle);
+      border-left: 2px solid var(--color-bar-accent);
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-body);
+    }
+
+    .caption-highlight {
+      font-weight: 600;
+      color: var(--color-text-black);
+    }
+
+    /* CURATORIAL ESSAY SECTION */
+    .essay-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      padding: 50px 60px;
+      margin-top: 20px;
+      border-left: 4px solid var(--color-bar-accent);
+    }
+    @media (max-width: 768px) {
+      .essay-card {
+        padding: 30px 24px;
+      }
+    }
+
+    .essay-card h2 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--color-text-black);
+      margin-bottom: 24px;
+    }
+
+    .essay-body p {
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #444;
+    }
+
+    .essay-quote {
+      margin: 28px 0;
+      padding: 20px 28px;
+      background: var(--color-bg-subtle);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #222;
+      border-left: 3px solid #888;
+    }
+
+    /* 5. BOTTOM PROJECT NAVIGATION STRIP */
+    .project-bottom-nav {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project-nav-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      transition: var(--transition);
+      min-width: 280px;
+    }
+    .project-nav-card:hover {
+      border-color: var(--color-text-black);
+      background: var(--color-bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .pnav-sub {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+    .pnav-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    /* 6. FOOTER AREA */
+    .wix-footer-area {
+      background-color: var(--color-wix-footer);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 60px 32px 50px;
+    }
+
+    .footer-content-grid {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      margin-bottom: 16px;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-link-list a {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      transition: color 0.2s;
+    }
+    .footer-link-list a:hover {
+      color: var(--color-text-black);
+    }
+
+    .footer-bottom-bar {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--color-text-dim);
+    }
+
+    .footer-nav-jump {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-nav-jump a {
+      color: var(--color-text-black);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* 7. LIGHTBOX MODAL WITH ZOOM & PAN */
+    .lightbox-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(14, 13, 12, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .lightbox-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content-box {
+      position: relative;
+      width: 95vw;
+      height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 60px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .lightbox-img-wrapper.is-dragging {
+      cursor: grabbing;
+    }
+
+    .lightbox-img-wrapper img {
+      max-width: 96%;
+      max-height: 96%;
+      object-fit: contain;
+      transform-origin: center center;
+      transition: transform 0.08s ease-out;
+      will-change: transform;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -36px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 30px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 6px;
+      z-index: 2010;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s;
+      z-index: 2010;
+    }
+    .lightbox-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .lightbox-prev-btn { left: -10px; }
+    .lightbox-next-btn { right: -10px; }
+
+    @media (max-width: 860px) {
+      .lightbox-prev-btn { left: 10px; }
+      .lightbox-next-btn { right: 10px; }
+    }
+
+    .lightbox-zoom-toolbar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 4px 14px;
+      z-index: 2010;
+    }
+
+    .lightbox-zoom-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lightbox-zoom-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-zoom-badge {
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: 500;
+      min-width: 46px;
+      text-align: center;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .lightbox-zoom-hint {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- 1. FIXED TOP NAVBAR -->
+  <header>
+    <div class="wix-nav-container">
+      <nav>
+        <ul class="wix-nav-menu">
+          <li class="wix-nav-item">
+            <a href="index.html" class="wix-nav-link">首页</a>
+          </li>
+          <li class="wix-nav-item wix-dropdown">
+            <a href="index.html#works" class="wix-nav-link active wix-dropdown-trigger">
+              全部项目
+              <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 5 5-5z"/></svg>
+            </a>
+            <ul class="wix-dropdown-menu">
+              <li class="wix-dropdown-item"><a href="project01.html" style="font-weight:600; color:#111;">01 &middot; 木构转译</a></li>
+              <li class="wix-dropdown-item"><a href="project02.html">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+              <li class="wix-dropdown-item"><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+              <li class="wix-dropdown-item"><a href="project04.html">04 &middot; 手工模型合集</a></li>
+              <li class="wix-dropdown-item"><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+              <li class="wix-dropdown-item"><a href="project06.html">06 &middot; 摄影作品合集</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#about" class="wix-nav-link">关于我</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#contact" class="wix-nav-link">联系方式</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#works" class="nav-btn-back">
+              <span>&larr;</span> 返回作品集
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="index.html" class="wix-brand-link" aria-label="返回作品集首页">
+        <svg class="wix-star-icon" viewBox="0 0 24 24">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+        <span class="wix-brand-text">马楚然 (Churan Olivia Ma)</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. SIGNATURE HERO BAND (#e7dee1) -->
+  <section class="project-hero-band">
+    <div class="hero-container">
+      <div class="hero-badge-row">
+        <span class="hero-category-tag">项目 01 &middot; 自适应木构建筑</span>
+        <span class="hero-spread-count">12张高清展板画卷</span>
+      </div>
+      <h1 class="hero-title-main">木构转译</h1>
+      <p class="hero-subtitle">
+        明城墙脚下的多功能木构
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="hero-meta-item">
+          <div class="meta-label">设计类型</div>
+          <div class="meta-val">城市更新与自适应木构展亭</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">项目区位</div>
+          <div class="meta-val">中国南京 · 菱角市国创园（明代外郭城墙畔）</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">结构体系</div>
+          <div class="meta-val">辐射状胶合木肋拱 + 半透明PTFE张拉膜屋盖</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">核心机制</div>
+          <div class="meta-val">Super Trend Box 升降机械与四维场景转换</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. STICKY SUB-NAV / QUICK JUMP PILLS -->
+  <nav class="subnav-sticky-bar" aria-label="展板快速导航">
+    <div class="subnav-inner">
+      <div class="subnav-pills">
+        <a href="#plate-01" class="subnav-pill">01·轴测生成</a>
+        <a href="#plate-02" class="subnav-pill">02·结构总成</a>
+        <a href="#plate-03" class="subnav-pill">03·榫卯节点</a>
+        <a href="#plate-04" class="subnav-pill">04·日常休闲</a>
+        <a href="#plate-05" class="subnav-pill">05·创意市集</a>
+        <a href="#plate-06" class="subnav-pill">06·商业路演</a>
+        <a href="#plate-07" class="subnav-pill">07·文化策展</a>
+        <a href="#plate-08" class="subnav-pill">08·首层平面</a>
+        <a href="#plate-09" class="subnav-pill">09·立面剖面</a>
+        <a href="#plate-10" class="subnav-pill">10·构件分解</a>
+        <a href="#plate-11" class="subnav-pill">11·日景漫游</a>
+        <a href="#plate-12" class="subnav-pill">12·夜景照明</a>
+        <a href="#statement" class="subnav-pill" style="background:#f0ebe6;">策展陈述</a>
+      </div>
+      <div class="subnav-count-badge">共 12 展板</div>
+    </div>
+  </nav>
+
+  <!-- 4. MAIN GALLERY CONTENT FEED -->
+  <main class="gallery-main-feed">
+
+    <!-- PLATE 01 -->
+    <article class="plate-card" id="plate-01">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 01</span>
+          <span class="plate-theme-title">总体轴测与空间概念生成</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/01.jpg', '展板 01: 总体轴测与空间概念生成')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/01.jpg', '展板 01: 总体轴测与空间概念生成')">
+        <img src="../assets/projects/project01/01.jpg" alt="展板 01 - 总体轴测与空间概念生成" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 01：</span>场地肌理分析、空间演进轴测，呈现外圈圆形辐射胶合木结构与内嵌“Super Trend Box”多功能核心盒的体量交织关系。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 02 -->
+    <article class="plate-card" id="plate-02">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 02</span>
+          <span class="plate-theme-title">结构分层爆炸轴测与受力传递</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/02.jpg', '展板 02: 结构分层爆炸轴测与受力传递')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/02.jpg', '展板 02: 结构分层爆炸轴测与受力传递')">
+        <img src="../assets/projects/project01/02.jpg" alt="展板 02 - 结构分层爆炸图" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 02：</span>结构分层爆炸图，清晰拆解PTFE半透明张拉网膜、辐射状胶合木肋拱、环向受拉钢构件以及混凝土地梁基础的逐层组装与力学逻辑。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 03 -->
+    <article class="plate-card" id="plate-03">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 03</span>
+          <span class="plate-theme-title">核心构造节点与现代木构榫卯</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/03.jpg', '展板 03: 核心构造节点与现代木构榫卯')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/03.jpg', '展板 03: 核心构造节点与现代木构榫卯')">
+        <img src="../assets/projects/project01/03.jpg" alt="展板 03 - 木构节点细部" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 03：</span>现代木构榫卯与钢插板节点轴测图，包含拱脚铰接节点、膜面拉索夹具、抗剪钢板装配与耐候收口构造。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 04 -->
+    <article class="plate-card" id="plate-04">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 04</span>
+          <span class="plate-theme-title">运营场景 A · 日常市民漫步与休闲</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/04.jpg', '展板 04: 运营场景 A · 日常市民漫步与休闲')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/04.jpg', '展板 04: 运营场景 A · 日常市民漫步与休闲')">
+        <img src="../assets/projects/project01/04.jpg" alt="展板 04 - 日常休闲场景" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 04：</span>场景模式 A —— 日常状态下展亭向南京城墙步道完全敞开，遮阳透风，容纳周边居民晨练、下棋与游客休憩。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 05 -->
+    <article class="plate-card" id="plate-05">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 05</span>
+          <span class="plate-theme-title">运营场景 B · 周末文创手作市集</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/05.jpg', '展板 05: 运营场景 B · 周末文创手作市集')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/05.jpg', '展板 05: 运营场景 B · 周末文创手作市集')">
+        <img src="../assets/projects/project01/05.jpg" alt="展板 05 - 创意市集场景" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 05：</span>场景模式 B —— 展亭转换为环形文创手作市集，辐射状柱跨自然形成单元摊位，多孔环道引导高密度游人动线。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 06 -->
+    <article class="plate-card" id="plate-06">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 06</span>
+          <span class="plate-theme-title">运营场景 C · 创新科技与商业路演</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/06.jpg', '展板 06: 运营场景 C · 创新科技与商业路演')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/06.jpg', '展板 06: 运营场景 C · 创新科技与商业路演')">
+        <img src="../assets/projects/project01/06.jpg" alt="展板 06 - 科技路演场景" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 06：</span>场景模式 C —— 核心盒展开多媒体幕布与阶梯观众席，联动周边声学反射构件，举办企业产品发布与创客路演。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 07 -->
+    <article class="plate-card" id="plate-07">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 07</span>
+          <span class="plate-theme-title">运营场景 D · 历史遗产沉浸式艺术策展</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/07.jpg', '展板 07: 运营场景 D · 历史遗产沉浸式艺术策展')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/07.jpg', '展板 07: 运营场景 D · 历史遗产沉浸式艺术策展')">
+        <img src="../assets/projects/project01/07.jpg" alt="展板 07 - 艺术策展场景" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 07：</span>场景模式 D —— 通过悬挂柔性展帘与可调导轨，在圆环展厅内构建环状艺术巡礼动线，对话城砖沧桑历史。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 08 -->
+    <article class="plate-card" id="plate-08">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 08</span>
+          <span class="plate-theme-title">首层平面图与场地流线整合</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/08.jpg', '展板 08: 首层平面图与场地流线整合')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/08.jpg', '展板 08: 首层平面图与场地流线整合')">
+        <img src="../assets/projects/project01/08.jpg" alt="展板 08 - 首层平面图" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 08：</span>1:100 详细首层平面图，标注轴网尺寸、地面铺装渐变、主要出入口疏散宽度及与园区主干道的标高衔接关系。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 09 -->
+    <article class="plate-card" id="plate-09">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 09</span>
+          <span class="plate-theme-title">正立面与关键纵横剖面图</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/09.jpg', '展板 09: 正立面与关键纵横剖面图')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/09.jpg', '展板 09: 正立面与关键纵横剖面图')">
+        <img src="../assets/projects/project01/09.jpg" alt="展板 09 - 立剖面图" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 09：</span>纵横主剖面图，清晰呈现拱顶标高、天窗自然采光拔风井、地下管线预埋槽以及与城墙顶部的视线对位关系。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 10 -->
+    <article class="plate-card" id="plate-10">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 10</span>
+          <span class="plate-theme-title">Super Trend Box 构件分解与机械原理</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/10.jpg', '展板 10: Super Trend Box 构件分解与机械原理')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/10.jpg', '展板 10: Super Trend Box 构件分解与机械原理')">
+        <img src="../assets/projects/project01/10.jpg" alt="展板 10 - 构件分解图" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 10：</span>中枢核心盒轴测爆炸图，解构旋转LED屏、液压升降台面、内部储藏仓室与模块化机电设施的精细配合。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 11 -->
+    <article class="plate-card" id="plate-11">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 11</span>
+          <span class="plate-theme-title">日间建筑空间体验漫游</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/11.jpg', '展板 11: 日间建筑空间体验漫游')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/11.jpg', '展板 11: 日间建筑空间体验漫游')">
+        <img src="../assets/projects/project01/11.jpg" alt="展板 11 - 日间空间漫游透视" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 11：</span>日间漫游透视渲染：阳光穿透张拉膜滤下柔和漫射光，木拱光影在地面随日照推移，游人穿梭其间，气氛温润而充满张力。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 12 -->
+    <article class="plate-card" id="plate-12">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 12</span>
+          <span class="plate-theme-title">暮色氛围、灯光设计与材质说明</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project01/12.jpg', '展板 12: 暮色氛围、灯光设计与材质说明')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/12.jpg', '展板 12: 暮色氛围、灯光设计与材质说明')">
+        <img src="../assets/projects/project01/12.jpg" alt="展板 12 - 夜景照明透视" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 12：</span>暮色灯光透视：嵌入胶合木肋的线性暖光洗亮木构纹理，半透张拉膜宛如城市灯笼在城墙脚下呼吸发光，附完整建筑材质规格表。</p>
+      </div>
+    </article>
+
+    <!-- CURATORIAL & ARCHITECTURAL ESSAY -->
+    <article class="essay-card" id="statement">
+      <h2>建筑设计与策展陈述</h2>
+      <div class="essay-body">
+        <p>
+          本方案坐落于中国南京国创园内，紧邻历经六百年风雨的明代外郭城墙砖石遗迹。设计直面历史保护与当代市民活力的张力，探讨如何在沉重厚实的城垣前，植入轻质、可呼吸且极具弹性的现代木构建筑。
+        </p>
+        <p>
+          方案汲取中国传统建筑“天圆地方”的哲学意象，将外圈形态转化为由辐射状胶合木肋拱构成的开放圆环，以富有韵律感的拱形序列呼应城墙门券的意象；中央则置入方形多功能动力盒子“Super Trend Box”。轻质张拉膜屋面既能阻隔烈日暴雨，又将日光转化为柔和漫射光，营造出类似古代森林冠层的庇护感。
+        </p>
+        <div class="essay-quote">
+          “轻与重、柔与刚、瞬时活动与永恒城垣在此对话 —— 木构展亭不再是封闭的静态纪念碑，而是催生社区温度与文化交流的城市自适应发生器。”
+        </div>
+        <p>
+          展亭通过精密的机电液压中枢与模块化装配节点，实现了四种典型城市场景模式的快速切换：从日常的市民漫步休闲、周末的文创手作集市，到科技企业的商业路演、文化遗产的艺术巡礼。12张展板从宏观区位、轴测生成、构造节点、平立剖面一直推进至日夜实景漫游，完整构建了一座连接历史与当代城市生活的空间媒介。
+        </p>
+      </div>
+    </article>
+
+    <!-- 5. PROJECT NAVIGATION STRIP -->
+    <nav class="project-bottom-nav">
+      <a href="project06.html" class="project-nav-card">
+        <div>
+          <div class="pnav-sub">&larr; 上一个项目</div>
+          <div class="pnav-title">06 &middot; 摄影作品合集</div>
+        </div>
+      </a>
+
+      <a href="project02.html" class="project-nav-card" style="margin-left: auto;">
+        <div style="text-align: right;">
+          <div class="pnav-sub">下一个项目 &rarr;</div>
+          <div class="pnav-title">02 &middot; 塞拉峡谷校园改造：诊断</div>
+        </div>
+      </a>
+    </nav>
+
+  </main>
+
+  <!-- 6. WIX FOOTER -->
+  <footer class="wix-footer-area">
+    <div class="footer-content-grid">
+      <div>
+        <div class="footer-brand-title">马楚然 (Churan Olivia Ma)</div>
+        <p class="footer-brand-desc">
+          建筑设计与视觉艺术作品集，探索空间围护、动态门槛与家庭身体规训。
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">作品项目</div>
+        <ul class="footer-link-list">
+          <li><a href="project01.html">01 &middot; 木构转译</a></li>
+          <li><a href="project02.html">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+          <li><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+          <li><a href="project04.html">04 &middot; 手工模型合集</a></li>
+          <li><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+          <li><a href="project06.html">06 &middot; 摄影作品合集</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">快捷导航</div>
+        <ul class="footer-link-list">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="index.html#works">浏览作品</a></li>
+          <li><a href="index.html#about">关于艺术家</a></li>
+          <li><a href="index.html#contact">联系方式</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 马楚然 (Churan Olivia Ma)。保留所有权利。</div>
+      <div class="footer-nav-jump">
+        <a href="#top">返回顶部 &uarr;</a>
+        <a href="index.html#works">&larr; 返回全部作品</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 7. LIGHTBOX MODAL -->
+  <div class="lightbox-backdrop" id="lightbox-modal">
+    <div class="lightbox-content-box" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="关闭">&times;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="上一张">&#10094;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="下一张">&#10095;</button>
+
+      <div class="lightbox-img-wrapper" id="lightboxWrapper">
+        <img id="lightbox-current-img" src="" alt="大图浏览">
+      </div>
+
+      <!-- Zoom Toolbar -->
+      <div class="lightbox-zoom-toolbar">
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="缩小" title="缩小">&minus;</button>
+        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="点击恢复 100%">100%</span>
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="放大" title="放大">&plus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="复位" title="复位">&#x21bb;</button>
+      </div>
+      <div class="lightbox-zoom-hint">滚轮缩放 &bull; 拖拽平移 &bull; 双击复位</div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 12 PLATES DATASET
+    const projectPlates = [
+      { num: 1, src: "../assets/projects/project01/01.jpg", title: "展板 01: 总体轴测与空间概念生成" },
+      { num: 2, src: "../assets/projects/project01/02.jpg", title: "展板 02: 结构分层爆炸轴测与受力传递" },
+      { num: 3, src: "../assets/projects/project01/03.jpg", title: "展板 03: 核心构造节点与现代木构榫卯" },
+      { num: 4, src: "../assets/projects/project01/04.jpg", title: "展板 04: 运营场景 A · 日常市民漫步与休闲" },
+      { num: 5, src: "../assets/projects/project01/05.jpg", title: "展板 05: 运营场景 B · 周末文创手作市集" },
+      { num: 6, src: "../assets/projects/project01/06.jpg", title: "展板 06: 运营场景 C · 创新科技与商业路演" },
+      { num: 7, src: "../assets/projects/project01/07.jpg", title: "展板 07: 运营场景 D · 历史遗产沉浸式艺术策展" },
+      { num: 8, src: "../assets/projects/project01/08.jpg", title: "展板 08: 首层平面图与场地流线整合" },
+      { num: 9, src: "../assets/projects/project01/09.jpg", title: "展板 09: 正立面与关键纵横剖面图" },
+      { num: 10, src: "../assets/projects/project01/10.jpg", title: "展板 10: Super Trend Box 构件分解与机械原理" },
+      { num: 11, src: "../assets/projects/project01/11.jpg", title: "展板 11: 日间建筑空间体验漫游" },
+      { num: 12, src: "../assets/projects/project01/12.jpg", title: "展板 12: 暮色氛围、灯光设计与材质说明" }
+    ];
+
+    let currentPlateIndex = 0;
+
+    // LIGHTBOX & INTERACTIVE ZOOM / DRAG STATE
+    let lbScale = 1.0;
+    let lbTransX = 0;
+    let lbTransY = 0;
+    let lbIsDragging = false;
+    let lbStartX = 0;
+    let lbStartY = 0;
+    let lbInitialTransX = 0;
+    let lbInitialTransY = 0;
+    let lbActivePointerId = null;
+
+    const modal = document.getElementById("lightbox-modal");
+    const currentImg = document.getElementById("lightbox-current-img");
+    const wrapper = document.getElementById("lightboxWrapper");
+    const zoomLevelText = document.getElementById("lightbox-zoom-level");
+
+    function applyTransform(withTransition = false) {
+      if (!currentImg) return;
+      currentImg.style.transition = withTransition ? "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)" : "none";
+      currentImg.style.transform = `translate(${lbTransX}px, ${lbTransY}px) scale(${lbScale})`;
+      if (zoomLevelText) {
+        zoomLevelText.innerText = Math.round(lbScale * 100) + "%";
+      }
+    }
+
+    function clampTranslation() {
+      if (!wrapper || !currentImg || lbScale <= 1.0) {
+        lbTransX = 0;
+        lbTransY = 0;
+        return;
+      }
+      const rect = wrapper.getBoundingClientRect();
+      const scaledW = currentImg.offsetWidth * lbScale;
+      const scaledH = currentImg.offsetHeight * lbScale;
+
+      const maxDragX = Math.max(0, (scaledW - rect.width) / 2 + 100);
+      const maxDragY = Math.max(0, (scaledH - rect.height) / 2 + 100);
+
+      lbTransX = Math.min(Math.max(lbTransX, -maxDragX), maxDragX);
+      lbTransY = Math.min(Math.max(lbTransY, -maxDragY), maxDragY);
+    }
+
+    function resetLightboxZoom() {
+      lbScale = 1.0;
+      lbTransX = 0;
+      lbTransY = 0;
+      applyTransform(true);
+      wrapper.classList.remove("is-dragging");
+    }
+
+    function lightboxZoomStep(direction) {
+      const step = 0.3;
+      let newScale = lbScale + direction * step;
+      if (newScale < 0.6) newScale = 0.6;
+      if (newScale > 5.0) newScale = 5.0;
+      lbScale = newScale;
+      if (lbScale <= 1.0) {
+        lbTransX = 0;
+        lbTransY = 0;
+      } else {
+        clampTranslation();
+      }
+      applyTransform(true);
+    }
+
+    function openLightbox(src, title) {
+      const foundIdx = projectPlates.findIndex(p => p.src === src);
+      currentPlateIndex = foundIdx !== -1 ? foundIdx : 0;
+      currentImg.src = projectPlates[currentPlateIndex].src;
+      currentImg.alt = projectPlates[currentPlateIndex].title;
+      resetLightboxZoom();
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+      resetLightboxZoom();
+    }
+
+    function lightboxNavigate(dir) {
+      currentPlateIndex += dir;
+      if (currentPlateIndex < 0) currentPlateIndex = projectPlates.length - 1;
+      if (currentPlateIndex >= projectPlates.length) currentPlateIndex = 0;
+      currentImg.src = projectPlates[currentPlateIndex].src;
+      currentImg.alt = projectPlates[currentPlateIndex].title;
+      resetLightboxZoom();
+    }
+
+    // MOUSE WHEEL ZOOM
+    wrapper.addEventListener("wheel", function(e) {
+      e.preventDefault();
+      const rect = wrapper.getBoundingClientRect();
+      const pointerX = e.clientX - rect.left - rect.width / 2;
+      const pointerY = e.clientY - rect.top - rect.height / 2;
+
+      const zoomFactor = e.deltaY < 0 ? 1.18 : 0.85;
+      let newScale = lbScale * zoomFactor;
+      if (newScale < 0.6) newScale = 0.6;
+      if (newScale > 5.5) newScale = 5.5;
+
+      if (newScale > 1.0) {
+        lbTransX = pointerX - (pointerX - lbTransX) * (newScale / lbScale);
+        lbTransY = pointerY - (pointerY - lbTransY) * (newScale / lbScale);
+      } else {
+        lbTransX = 0;
+        lbTransY = 0;
+      }
+
+      lbScale = newScale;
+      clampTranslation();
+      applyTransform(false);
+    }, { passive: false });
+
+    // POINTER DRAG PANNING (WITH POINTER CAPTURE)
+    wrapper.addEventListener("pointerdown", function(e) {
+      if (e.button !== 0) return;
+      lbActivePointerId = e.pointerId;
+      try { wrapper.setPointerCapture(e.pointerId); } catch (err) {}
+      lbIsDragging = true;
+      lbStartX = e.clientX;
+      lbStartY = e.clientY;
+      lbInitialTransX = lbTransX;
+      lbInitialTransY = lbTransY;
+      wrapper.classList.add("is-dragging");
+    });
+
+    wrapper.addEventListener("pointermove", function(e) {
+      if (!lbIsDragging || e.pointerId !== lbActivePointerId) return;
+      const dx = e.clientX - lbStartX;
+      const dy = e.clientY - lbStartY;
+      lbTransX = lbInitialTransX + dx;
+      lbTransY = lbInitialTransY + dy;
+      clampTranslation();
+      applyTransform(false);
+    });
+
+    function endDrag(e) {
+      if (e && e.pointerId !== lbActivePointerId) return;
+      if (lbIsDragging) {
+        lbIsDragging = false;
+        wrapper.classList.remove("is-dragging");
+        try { if (lbActivePointerId !== null) wrapper.releasePointerCapture(lbActivePointerId); } catch (err) {}
+        lbActivePointerId = null;
+        clampTranslation();
+        applyTransform(true);
+      }
+    }
+
+    wrapper.addEventListener("pointerup", endDrag);
+    wrapper.addEventListener("pointercancel", endDrag);
+
+    // DOUBLE CLICK ZOOM
+    wrapper.addEventListener("dblclick", function(e) {
+      if (lbScale > 1.1) {
+        resetLightboxZoom();
+      } else {
+        lbScale = 2.4;
+        const rect = wrapper.getBoundingClientRect();
+        const pointerX = e.clientX - rect.left - rect.width / 2;
+        const pointerY = e.clientY - rect.top - rect.height / 2;
+        lbTransX = -pointerX * 0.8;
+        lbTransY = -pointerY * 0.8;
+        clampTranslation();
+        applyTransform(true);
+      }
+    });
+
+    // KEYBOARD NAVIGATION
+    window.addEventListener("keydown", function(e) {
+      if (!modal.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") lightboxNavigate(-1);
+      if (e.key === "ArrowRight") lightboxNavigate(1);
+      if (e.key === "+" || e.key === "=") lightboxZoomStep(1);
+      if (e.key === "-" || e.key === "_") lightboxZoomStep(-1);
+      if (e.key === "0") resetLightboxZoom();
+    });
+
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) closeLightbox();
+    });
+  </script>
+</body>
+</html>

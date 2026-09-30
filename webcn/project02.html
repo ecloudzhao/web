@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塞拉峡谷校园改造：诊断 — 空间诊断 — 日常摩擦 | 马楚然 Churan (Olivia) Ma</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CORE DESIGN SYSTEM & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      --font-serif: "Cormorant Garamond", "Songti SC", "SimSun", serif;
+      --font-sans: "Montserrat", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-display: "Montserrat", "PingFang SC", sans-serif;
+
+      --color-bg-page: #fcfbfa;
+      --color-bg-card: #ffffff;
+      --color-bg-subtle: #f6f4f2;
+      --color-hero-band: #e7dee1;
+      --color-wix-footer: #e7dee1;
+
+      --color-text-black: #1a1918;
+      --color-text-body: #3c3a38;
+      --color-text-muted: #73706c;
+      --color-text-dim: #999590;
+
+      --color-border-line: #e8e5e0;
+      --color-border-dark: #1a1918;
+      --color-bar-accent: #2e2b29;
+
+      --container-max: 1380px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 15px;
+    }
+
+    body {
+      background-color: var(--color-bg-page);
+      color: var(--color-text-body);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 1. FIXED TOP NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(252, 251, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border-line);
+      height: 70px;
+    }
+
+    .wix-nav-container {
+      max-width: var(--container-max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wix-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .wix-nav-item {
+      position: relative;
+    }
+
+    .wix-nav-link {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      padding: 8px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wix-nav-link:hover,
+    .wix-nav-link.active {
+      color: #000000;
+      font-weight: 500;
+    }
+
+    .wix-nav-link svg {
+      width: 8px;
+      height: 5px;
+      transition: transform 0.2s ease;
+    }
+
+    /* Dropdown */
+    .wix-dropdown:hover .wix-dropdown-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .wix-dropdown:hover .wix-nav-link svg {
+      transform: rotate(180deg);
+    }
+
+    .wix-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      min-width: 290px;
+      padding: 8px 0;
+      list-style: none;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: all 0.2s ease;
+      z-index: 1010;
+    }
+
+    .wix-dropdown-item a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      color: var(--color-text-body);
+      border-bottom: 1px solid #fafafa;
+    }
+
+    .wix-dropdown-item a:hover {
+      background: var(--color-bg-subtle);
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    .wix-dropdown-item:last-child a {
+      border-bottom: none;
+    }
+
+    .nav-btn-back {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      border: 1px solid var(--color-border-dark);
+      padding: 6px 14px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn-back:hover {
+      background: var(--color-text-black);
+      color: #ffffff;
+    }
+
+    .wix-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wix-star-icon {
+      width: 24px;
+      height: 24px;
+      fill: #1a1918;
+    }
+
+    .wix-brand-text {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    /* 2. PROJECT HERO BAND (#e7dee1) */
+    .project-hero-band {
+      margin-top: 70px;
+      background-color: var(--color-hero-band);
+      padding: 70px 32px 60px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-category-tag {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-spread-count {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .hero-title-main {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.8vw, 56px);
+      font-weight: 400;
+      color: var(--color-text-black);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(14px, 1.6vw, 17px);
+      color: var(--color-text-body);
+      max-width: 860px;
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 520px) {
+      .hero-meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-meta-item .meta-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-meta-item .meta-val {
+      font-size: 13px;
+      color: var(--color-text-black);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* 3. STICKY SUB-NAV / QUICK JUMP */
+    .subnav-sticky-bar {
+      position: sticky;
+      top: 70px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border-line);
+      padding: 12px 32px;
+    }
+
+    .subnav-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .subnav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .subnav-pills {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .subnav-pill {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      color: var(--color-text-body);
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    .subnav-pill:hover,
+    .subnav-pill.active {
+      background: var(--color-text-black);
+      color: #ffffff;
+      border-color: var(--color-text-black);
+    }
+
+    .subnav-count-badge {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+    }
+
+    /* 4. MAIN GALLERY CONTENT FEED */
+    .gallery-main-feed {
+      max-width: var(--container-max);
+      margin: 50px auto 80px;
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    .plate-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-line);
+      padding: 36px 40px 32px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.02);
+      transition: border-color 0.25s ease;
+    }
+    .plate-card:hover {
+      border-color: #d2ceca;
+    }
+
+    @media (max-width: 768px) {
+      .plate-card {
+        padding: 20px 18px 20px;
+      }
+    }
+
+    .plate-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border-line);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .plate-index-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .plate-badge {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: var(--color-bar-accent);
+      padding: 3px 10px;
+    }
+
+    .plate-theme-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    .plate-scan-link {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .plate-scan-link:hover {
+      color: var(--color-text-black);
+    }
+
+    .img-zoom-target {
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: #f2efeb;
+      border: 1px solid #eae7e2;
+    }
+
+    .img-zoom-target img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-zoom-target:hover img {
+      transform: scale(1.012);
+    }
+
+    .img-zoom-target::after {
+      content: '⤢ 点击放大';
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(18, 17, 16, 0.82);
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
+    .img-zoom-target:hover::after {
+      opacity: 1;
+    }
+
+    .plate-caption {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--color-bg-subtle);
+      border-left: 2px solid var(--color-bar-accent);
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-body);
+    }
+
+    .caption-highlight {
+      font-weight: 600;
+      color: var(--color-text-black);
+    }
+
+    /* CURATORIAL ESSAY SECTION */
+    .essay-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border-line);
+      padding: 50px 60px;
+      margin-top: 20px;
+      border-left: 4px solid var(--color-bar-accent);
+    }
+    @media (max-width: 768px) {
+      .essay-card {
+        padding: 30px 24px;
+      }
+    }
+
+    .essay-card h2 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--color-text-black);
+      margin-bottom: 24px;
+    }
+
+    .essay-body p {
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #444;
+    }
+
+    .essay-quote {
+      margin: 28px 0;
+      padding: 20px 28px;
+      background: var(--color-bg-subtle);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #222;
+      border-left: 3px solid #888;
+    }
+
+    /* 5. BOTTOM PROJECT NAVIGATION STRIP */
+    .project-bottom-nav {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project-nav-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      border: 1px solid var(--color-border-line);
+      background: #ffffff;
+      transition: var(--transition);
+      min-width: 280px;
+    }
+    .project-nav-card:hover {
+      border-color: var(--color-text-black);
+      background: var(--color-bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .pnav-sub {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+    .pnav-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
+    /* 6. FOOTER AREA */
+    .wix-footer-area {
+      background-color: var(--color-wix-footer);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 60px 32px 50px;
+    }
+
+    .footer-content-grid {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      margin-bottom: 16px;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-link-list a {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      transition: color 0.2s;
+    }
+    .footer-link-list a:hover {
+      color: var(--color-text-black);
+    }
+
+    .footer-bottom-bar {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--color-text-dim);
+    }
+
+    .footer-nav-jump {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-nav-jump a {
+      color: var(--color-text-black);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* 7. LIGHTBOX MODAL WITH ZOOM & PAN */
+    .lightbox-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(14, 13, 12, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .lightbox-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content-box {
+      position: relative;
+      width: 95vw;
+      height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 60px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .lightbox-img-wrapper.is-dragging {
+      cursor: grabbing;
+    }
+
+    .lightbox-img-wrapper img {
+      max-width: 96%;
+      max-height: 96%;
+      object-fit: contain;
+      transform-origin: center center;
+      transition: transform 0.08s ease-out;
+      will-change: transform;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -36px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 30px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 6px;
+      z-index: 2010;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s;
+      z-index: 2010;
+    }
+    .lightbox-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .lightbox-prev-btn { left: -10px; }
+    .lightbox-next-btn { right: -10px; }
+
+    @media (max-width: 860px) {
+      .lightbox-prev-btn { left: 10px; }
+      .lightbox-next-btn { right: 10px; }
+    }
+
+    .lightbox-zoom-toolbar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 4px 14px;
+      z-index: 2010;
+    }
+
+    .lightbox-zoom-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lightbox-zoom-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-zoom-badge {
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: 500;
+      min-width: 46px;
+      text-align: center;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .lightbox-zoom-hint {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- 1. FIXED TOP NAVBAR -->
+  <header>
+    <div class="wix-nav-container">
+      <nav>
+        <ul class="wix-nav-menu">
+          <li class="wix-nav-item">
+            <a href="index.html" class="wix-nav-link">首页</a>
+          </li>
+          <li class="wix-nav-item wix-dropdown">
+            <a href="index.html#works" class="wix-nav-link active wix-dropdown-trigger">
+              全部项目
+              <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 5 5-5z"/></svg>
+            </a>
+            <ul class="wix-dropdown-menu">
+              <li class="wix-dropdown-item"><a href="project01.html">01 &middot; 木构转译</a></li>
+              <li class="wix-dropdown-item"><a href="project02.html" style="font-weight:600; color:#111;">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+              <li class="wix-dropdown-item"><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+              <li class="wix-dropdown-item"><a href="project04.html">04 &middot; 手工模型合集</a></li>
+              <li class="wix-dropdown-item"><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+              <li class="wix-dropdown-item"><a href="project06.html">06 &middot; 摄影作品合集</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#about" class="wix-nav-link">关于我</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#contact" class="wix-nav-link">联系方式</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#works" class="nav-btn-back">
+              <span>&larr;</span> 返回作品集
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="index.html" class="wix-brand-link" aria-label="返回作品集首页">
+        <svg class="wix-star-icon" viewBox="0 0 24 24">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+        <span class="wix-brand-text">马楚然 (Churan Olivia Ma)</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. SIGNATURE HERO BAND (#e7dee1) -->
+  <section class="project-hero-band">
+    <div class="hero-container">
+      <div class="hero-badge-row">
+        <span class="hero-category-tag">项目 02 &middot; 校园城市学与时空诊断</span>
+        <span class="hero-spread-count">8张高清展板画卷</span>
+      </div>
+      <h1 class="hero-title-main">塞拉峡谷校园改造：诊断</h1>
+      <p class="hero-subtitle">
+        空间诊断 — 日常摩擦
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="hero-meta-item">
+          <div class="meta-label">研究类型</div>
+          <div class="meta-val">校园时空调研与流线诊断</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">调研基地</div>
+          <div class="meta-val">美国洛杉矶·查茨沃斯 Sierra Canyon 中学校园</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">研究方法</div>
+          <div class="meta-val">分时段行为热力追踪、轴测剖切与高差冲突诊断</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">核心成果</div>
+          <div class="meta-val">确立空间织补纲领，为后续项目03门廊设计提供依据</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. STICKY SUB-NAV / QUICK JUMP PILLS -->
+  <nav class="subnav-sticky-bar" aria-label="展板快速导航">
+    <div class="subnav-inner">
+      <div class="subnav-pills">
+        <a href="#plate-01" class="subnav-pill">01·区位地势</a>
+        <a href="#plate-02" class="subnav-pill">02·车人交织</a>
+        <a href="#plate-03" class="subnav-pill">03·时空密度</a>
+        <a href="#plate-04" class="subnav-pill">04·高差落差</a>
+        <a href="#plate-05" class="subnav-pill">05·微气候痛点</a>
+        <a href="#plate-06" class="subnav-pill">06·动线死角</a>
+        <a href="#plate-07" class="subnav-pill">07·冲突叠加</a>
+        <a href="#plate-08" class="subnav-pill">08·织补导则</a>
+        <a href="#statement" class="subnav-pill" style="background:#f0ebe6;">调研陈述</a>
+      </div>
+      <div class="subnav-count-badge">共 8 展板</div>
+    </div>
+  </nav>
+
+  <!-- 4. MAIN GALLERY CONTENT FEED -->
+  <main class="gallery-main-feed">
+
+    <!-- PLATE 01 -->
+    <article class="plate-card" id="plate-01">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 01</span>
+          <span class="plate-theme-title">区位地形剖切与自然/交通边界诊断</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/01.jpg', '展板 01: 区位地形剖切与自然/交通边界诊断')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/01.jpg', '展板 01: 区位地形剖切与自然/交通边界诊断')">
+        <img src="../assets/projects/project02/01.jpg" alt="展板 01 - 区位地形与边界" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 01：</span>区域宏观地理区位图与地形剖切，揭示圣苏珊娜山脉山体坡度与里根高速公路（CA-118）对校园形成的双重地理围困。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 02 -->
+    <article class="plate-card" id="plate-02">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 02</span>
+          <span class="plate-theme-title">早高峰接送车流与学生步行流线冲突分析</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/02.jpg', '展板 02: 早高峰接送车流与学生步行流线冲突分析')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/02.jpg', '展板 02: 早高峰接送车流与学生步行流线冲突分析')">
+        <img src="../assets/projects/project02/02.jpg" alt="展板 02 - 接送冲突分析" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 02：</span>早晨 7:30-8:15 进校接送流线冲突测绘：狭长行车道迫使下车学生穿行于车流盲区，暴露出极易引发事故的平面交织瓶颈。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 03 -->
+    <article class="plate-card" id="plate-03">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 03</span>
+          <span class="plate-theme-title">课间学生聚集行为与时间密度热力演变</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/03.jpg', '展板 03: 课间学生聚集行为与时间密度热力演变')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/03.jpg', '展板 03: 课间学生聚集行为与时间密度热力演变')">
+        <img src="../assets/projects/project02/03.jpg" alt="展板 03 - 行为热力演变" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 03：</span>全天5个关键时间节点（晨间、课间、午餐、课后训练、离校）的学生行为热力图，显示人流在狭窄廊道过度拥堵而在大片开敞草坪利用率极低的失衡现象。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 04 -->
+    <article class="plate-card" id="plate-04">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 04</span>
+          <span class="plate-theme-title">剧烈地形落差与教学组团垂直连接断层</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/04.jpg', '展板 04: 剧烈地形落差与教学组团垂直连接断层')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/04.jpg', '展板 04: 剧烈地形落差与教学组团垂直连接断层')">
+        <img src="../assets/projects/project02/04.jpg" alt="展板 04 - 垂直高差断层" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 04：</span>轴测剖切透视展示校园北高南低达12米的台地断崖，现有纯功能性室外混凝土铁梯不仅通达体验恶劣，更割裂了上部教学组团与下部体育场馆的有机联动。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 05 -->
+    <article class="plate-card" id="plate-05">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 05</span>
+          <span class="plate-theme-title">微气候舒适度实测与室外遮阳节点缺失</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/05.jpg', '展板 05: 微气候舒适度实测与室外遮阳节点缺失')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/05.jpg', '展板 05: 微气候舒适度实测与室外遮阳节点缺失')">
+        <img src="../assets/projects/project02/05.jpg" alt="展板 05 - 微气候舒适度" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 05：</span>查茨沃斯干燥炎热气候下的日照辐射与风场模拟，指出校园中央缺乏具备遮阳降温性能的灰空间，迫使学生在午间滞留于室内走廊。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 06 -->
+    <article class="plate-card" id="plate-06">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 06</span>
+          <span class="plate-theme-title">现有流线死角与突发疏散瓶颈全景解剖</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/06.jpg', '展板 06: 现有流线死角与突发疏散瓶颈全景解剖')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/06.jpg', '展板 06: 现有流线死角与突发疏散瓶颈全景解剖')">
+        <img src="../assets/projects/project02/06.jpg" alt="展板 06 - 动线死角解剖" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 06：</span>空间死角与盲端分类图，标注因围墙与附属用房封堵形成的3处流线死胡同，以及大型活动疏散时存在的逆流风险。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 07 -->
+    <article class="plate-card" id="plate-07">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 07</span>
+          <span class="plate-theme-title">综合空间摩擦图谱与多维冲突数据叠加</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/07.jpg', '展板 07: 综合空间摩擦图谱与多维冲突数据叠加')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/07.jpg', '展板 07: 综合空间摩擦图谱与多维冲突数据叠加')">
+        <img src="../assets/projects/project02/07.jpg" alt="展板 07 - 综合摩擦图谱" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 07：</span>多源数据叠加的“校园空间摩擦总谱”：将坡度阻力、视线盲区、车速风险与噪声污染融合分级，准确定位校园空间急需手术式介入的红线区域。</p>
+      </div>
+    </article>
+
+    <!-- PLATE 08 -->
+    <article class="plate-card" id="plate-08">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 08</span>
+          <span class="plate-theme-title">空间织补策略与项目03门廊设计指引</span>
+        </div>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project02/08.jpg', '展板 08: 空间织补策略与项目03门廊设计指引')">查看高清大图 &oplus;</span>
+      </div>
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project02/08.jpg', '展板 08: 空间织补策略与项目03门廊设计指引')">
+        <img src="../assets/projects/project02/08.jpg" alt="展板 08 - 空间织补策略" loading="lazy">
+      </div>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 08：</span>空间织补总体概念图：确立“空中立体人行慢行飘带（S-C Ribbon）”与“峡谷退台式艺术聚集核心”两大规划原则，为项目03的建筑实体落地奠定逻辑支撑。</p>
+      </div>
+    </article>
+
+    <!-- CURATORIAL & ARCHITECTURAL ESSAY -->
+    <article class="essay-card" id="statement">
+      <h2>调研陈述与空间诊断纲要</h2>
+      <div class="essay-body">
+        <p>
+          Sierra Canyon School 坐落于洛杉矶北部查茨沃斯的险峻峡谷坡地之上，南邻呼啸而过的加州118号里根高速公路，北靠粗犷的圣苏珊娜山脉。得天独厚的自然地理风貌背后，潜藏着极为尖锐的校园空间冲突与身体体验摩擦。
+        </p>
+        <p>
+          本研究摒弃了传统的自上而下臆想，采取了以“行为注视与时空实证”为核心的诊断方法。通过连续数周的早晚接送追踪、学生下课后微观路径测绘与高程落差断面分析，清晰锁定了三组核心结构性矛盾：第一是早晨高密度车流与下车学生的平面交叉危险；第二是高达12米台地落差被简陋铁梯阻断的垂直断层；第三是干热季风下缺乏遮蔽的荒漠化集聚体验。
+        </p>
+        <div class="essay-quote">
+          “建筑学不应始于盲目的形体游戏，而应始于对日常摩擦的精密诊断 —— 唯有精准丈量空间的痛点，重构的门廊与艺术中心才能获得其不容置疑的真实性。”
+        </div>
+        <p>
+          8张展板通过严密的信息可视化图谱，将看似杂乱的校园日常行为提炼为具象的空间力学模型，最终推导出一份详实的“空间织补导则”，直接孕育并指导了项目 03《塞拉峡谷校园改造：设计介入》的建筑生成。
+        </p>
+      </div>
+    </article>
+
+    <!-- 5. PROJECT NAVIGATION STRIP -->
+    <nav class="project-bottom-nav">
+      <a href="project01.html" class="project-nav-card">
+        <div>
+          <div class="pnav-sub">&larr; 上一个项目</div>
+          <div class="pnav-title">01 &middot; 木构转译</div>
+        </div>
+      </a>
+
+      <a href="project03.html" class="project-nav-card" style="margin-left: auto;">
+        <div style="text-align: right;">
+          <div class="pnav-sub">下一个项目 &rarr;</div>
+          <div class="pnav-title">03 &middot; 塞拉峡谷校园改造：设计介入</div>
+        </div>
+      </a>
+    </nav>
+
+  </main>
+
+  <!-- 6. WIX FOOTER -->
+  <footer class="wix-footer-area">
+    <div class="footer-content-grid">
+      <div>
+        <div class="footer-brand-title">马楚然 (Churan Olivia Ma)</div>
+        <p class="footer-brand-desc">
+          建筑设计与视觉艺术作品集，探索空间围护、动态门槛与家庭身体规训。
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">作品项目</div>
+        <ul class="footer-link-list">
+          <li><a href="project01.html">01 &middot; 木构转译</a></li>
+          <li><a href="project02.html">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+          <li><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+          <li><a href="project04.html">04 &middot; 手工模型合集</a></li>
+          <li><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+          <li><a href="project06.html">06 &middot; 摄影作品合集</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">快捷导航</div>
+        <ul class="footer-link-list">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="index.html#works">浏览作品</a></li>
+          <li><a href="index.html#about">关于艺术家</a></li>
+          <li><a href="index.html#contact">联系方式</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 马楚然 (Churan Olivia Ma)。保留所有权利。</div>
+      <div class="footer-nav-jump">
+        <a href="#top">返回顶部 &uarr;</a>
+        <a href="index.html#works">&larr; 返回全部作品</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 7. LIGHTBOX MODAL -->
+  <div class="lightbox-backdrop" id="lightbox-modal">
+    <div class="lightbox-content-box" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="关闭">&times;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="上一张">&#10094;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="下一张">&#10095;</button>
+
+      <div class="lightbox-img-wrapper" id="lightboxWrapper">
+        <img id="lightbox-current-img" src="" alt="大图浏览">
+      </div>
+
+      <!-- Zoom Toolbar -->
+      <div class="lightbox-zoom-toolbar">
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="缩小" title="缩小">&minus;</button>
+        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="点击恢复 100%">100%</span>
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="放大" title="放大">&plus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="复位" title="复位">&#x21bb;</button>
+      </div>
+      <div class="lightbox-zoom-hint">滚轮缩放 &bull; 拖拽平移 &bull; 双击复位</div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 8 PLATES DATASET
+    const projectPlates = [
+      { num: 1, src: "../assets/projects/project02/01.jpg", title: "展板 01: 区位地形剖切与自然/交通边界诊断" },
+      { num: 2, src: "../assets/projects/project02/02.jpg", title: "展板 02: 早高峰接送车流与学生步行流线冲突分析" },
+      { num: 3, src: "../assets/projects/project02/03.jpg", title: "展板 03: 课间学生聚集行为与时间密度热力演变" },
+      { num: 4, src: "../assets/projects/project02/04.jpg", title: "展板 04: 剧烈地形落差与教学组团垂直连接断层" },
+      { num: 5, src: "../assets/projects/project02/05.jpg", title: "展板 05: 微气候舒适度实测与室外遮阳节点缺失" },
+      { num: 6, src: "../assets/projects/project02/06.jpg", title: "展板 06: 现有流线死角与突发疏散瓶颈全景解剖" },
+      { num: 7, src: "../assets/projects/project02/07.jpg", title: "展板 07: 综合空间摩擦图谱与多维冲突数据叠加" },
+      { num: 8, src: "../assets/projects/project02/08.jpg", title: "展板 08: 空间织补策略与项目03门廊设计指引" }
+    ];
+
+    let currentPlateIndex = 0;
+
+    // LIGHTBOX & INTERACTIVE ZOOM / DRAG STATE
+    let lbScale = 1.0;
+    let lbTransX = 0;
+    let lbTransY = 0;
+    let lbIsDragging = false;
+    let lbStartX = 0;
+    let lbStartY = 0;
+    let lbInitialTransX = 0;
+    let lbInitialTransY = 0;
+    let lbActivePointerId = null;
+
+    const modal = document.getElementById("lightbox-modal");
+    const currentImg = document.getElementById("lightbox-current-img");
+    const wrapper = document.getElementById("lightboxWrapper");
+    const zoomLevelText = document.getElementById("lightbox-zoom-level");
+
+    function applyTransform(withTransition = false) {
+      if (!currentImg) return;
+      currentImg.style.transition = withTransition ? "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)" : "none";
+      currentImg.style.transform = `translate(${lbTransX}px, ${lbTransY}px) scale(${lbScale})`;
+      if (zoomLevelText) {
+        zoomLevelText.innerText = Math.round(lbScale * 100) + "%";
+      }
+    }
+
+    function clampTranslation() {
+      if (!wrapper || !currentImg || lbScale <= 1.0) {
+        lbTransX = 0;
+        lbTransY = 0;
+        return;
+      }
+      const rect = wrapper.getBoundingClientRect();
+      const scaledW = currentImg.offsetWidth * lbScale;
+      const scaledH = currentImg.offsetHeight * lbScale;
+
+      const maxDragX = Math.max(0, (scaledW - rect.width) / 2 + 100);
+      const maxDragY = Math.max(0, (scaledH - rect.height) / 2 + 100);
+
+      lbTransX = Math.min(Math.max(lbTransX, -maxDragX), maxDragX);
+      lbTransY = Math.min(Math.max(lbTransY, -maxDragY), maxDragY);
+    }
+
+    function resetLightboxZoom() {
+      lbScale = 1.0;
+      lbTransX = 0;
+      lbTransY = 0;
+      applyTransform(true);
+      wrapper.classList.remove("is-dragging");
+    }
+
+    function lightboxZoomStep(direction) {
+      const step = 0.3;
+      let newScale = lbScale + direction * step;
+      if (newScale < 0.6) newScale = 0.6;
+      if (newScale > 5.0) newScale = 5.0;
+      lbScale = newScale;
+      if (lbScale <= 1.0) {
+        lbTransX = 0;
+        lbTransY = 0;
+      } else {
+        clampTranslation();
+      }
+      applyTransform(true);
+    }
+
+    function openLightbox(src, title) {
+      const foundIdx = projectPlates.findIndex(p => p.src === src);
+      currentPlateIndex = foundIdx !== -1 ? foundIdx : 0;
+      currentImg.src = projectPlates[currentPlateIndex].src;
+      currentImg.alt = projectPlates[currentPlateIndex].title;
+      resetLightboxZoom();
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+      resetLightboxZoom();
+    }
+
+    function lightboxNavigate(dir) {
+      currentPlateIndex += dir;
+      if (currentPlateIndex < 0) currentPlateIndex = projectPlates.length - 1;
+      if (currentPlateIndex >= projectPlates.length) currentPlateIndex = 0;
+      currentImg.src = projectPlates[currentPlateIndex].src;
+      currentImg.alt = projectPlates[currentPlateIndex].title;
+      resetLightboxZoom();
+    }
+
+    // MOUSE WHEEL ZOOM
+    wrapper.addEventListener("wheel", function(e) {
+      e.preventDefault();
+      const rect = wrapper.getBoundingClientRect();
+      const pointerX = e.clientX - rect.left - rect.width / 2;
+      const pointerY = e.clientY - rect.top - rect.height / 2;
+
+      const zoomFactor = e.deltaY < 0 ? 1.18 : 0.85;
+      let newScale = lbScale * zoomFactor;
+      if (newScale < 0.6) newScale = 0.6;
+      if (newScale > 5.5) newScale = 5.5;
+
+      if (newScale > 1.0) {
+        lbTransX = pointerX - (pointerX - lbTransX) * (newScale / lbScale);
+        lbTransY = pointerY - (pointerY - lbTransY) * (newScale / lbScale);
+      } else {
+        lbTransX = 0;
+        lbTransY = 0;
+      }
+
+      lbScale = newScale;
+      clampTranslation();
+      applyTransform(false);
+    }, { passive: false });
+
+    // POINTER DRAG PANNING (WITH POINTER CAPTURE)
+    wrapper.addEventListener("pointerdown", function(e) {
+      if (e.button !== 0) return;
+      lbActivePointerId = e.pointerId;
+      try { wrapper.setPointerCapture(e.pointerId); } catch (err) {}
+      lbIsDragging = true;
+      lbStartX = e.clientX;
+      lbStartY = e.clientY;
+      lbInitialTransX = lbTransX;
+      lbInitialTransY = lbTransY;
+      wrapper.classList.add("is-dragging");
+    });
+
+    wrapper.addEventListener("pointermove", function(e) {
+      if (!lbIsDragging || e.pointerId !== lbActivePointerId) return;
+      const dx = e.clientX - lbStartX;
+      const dy = e.clientY - lbStartY;
+      lbTransX = lbInitialTransX + dx;
+      lbTransY = lbInitialTransY + dy;
+      clampTranslation();
+      applyTransform(false);
+    });
+
+    function endDrag(e) {
+      if (e && e.pointerId !== lbActivePointerId) return;
+      if (lbIsDragging) {
+        lbIsDragging = false;
+        wrapper.classList.remove("is-dragging");
+        try { if (lbActivePointerId !== null) wrapper.releasePointerCapture(lbActivePointerId); } catch (err) {}
+        lbActivePointerId = null;
+        clampTranslation();
+        applyTransform(true);
+      }
+    }
+
+    wrapper.addEventListener("pointerup", endDrag);
+    wrapper.addEventListener("pointercancel", endDrag);
+
+    // DOUBLE CLICK ZOOM
+    wrapper.addEventListener("dblclick", function(e) {
+      if (lbScale > 1.1) {
+        resetLightboxZoom();
+      } else {
+        lbScale = 2.4;
+        const rect = wrapper.getBoundingClientRect();
+        const pointerX = e.clientX - rect.left - rect.width / 2;
+        const pointerY = e.clientY - rect.top - rect.height / 2;
+        lbTransX = -pointerX * 0.8;
+        lbTransY = -pointerY * 0.8;
+        clampTranslation();
+        applyTransform(true);
+      }
+    });
+
+    // KEYBOARD NAVIGATION
+    window.addEventListener("keydown", function(e) {
+      if (!modal.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") lightboxNavigate(-1);
+      if (e.key === "ArrowRight") lightboxNavigate(1);
+      if (e.key === "+" || e.key === "=") lightboxZoomStep(1);
+      if (e.key === "-" || e.key === "_") lightboxZoomStep(-1);
+      if (e.key === "0") resetLightboxZoom();
+    });
+
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) closeLightbox();
+    });
+  </script>
+</body>
+</html>

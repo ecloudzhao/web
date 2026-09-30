@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Model Making: Wood, Cardboard, and Spatial Structure &mdash; Project 04 | Churan (Olivia) Ma</title>
-  <meta name="description" content="Model Making: Wood, Cardboard, and Spatial Structure – Project 04 by Churan (Olivia) Ma. Handcrafted models exploring material behavior, structural logic, and spatial composition.">
+  <title>手工模型合集：木材、卡纸与空间结构探索 — 项目 04 | 马楚然 Churan (Olivia) Ma</title>
+  <meta name="description" content="手工模型合集：木材、卡纸与空间结构探索 — 项目 04 马楚然 Churan (Olivia) Ma。包含彩色木棍网格立方体、中式重檐木构凉亭与白色折叠卡纸模型研究。">
 
-  <!-- Google Fonts: Aboreto & Inter -->
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --color-wix-banner: #e7dee1;
-      --color-wix-footer: #e7dee1;
-      --color-bar-accent: #c5b8bc;
-      --color-bg-page: #ffffff;
-      --color-bg-subtle: #faf8f8;
+      --font-serif: "Cormorant Garamond", "Songti SC", "SimSun", serif;
+      --font-sans: "Montserrat", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-display: "Montserrat", "PingFang SC", sans-serif;
+
+      --color-bg-page: #fcfbfa;
       --color-bg-card: #ffffff;
-      --color-text-black: #111111;
-      --color-text-body: #2c2c2c;
-      --color-text-muted: #666666;
-      --color-text-dim: #8e8880;
-      --color-border-subtle: #eae6e7;
-      --color-border-line: #e2dcde;
-      --color-accent-dark: #3a3235;
+      --color-bg-subtle: #f6f4f2;
+      --color-hero-band: #e7dee1;
+      --color-wix-footer: #e7dee1;
 
-      --font-display: 'Aboreto', Georgia, 'Times New Roman', serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --color-text-black: #1a1918;
+      --color-text-body: #3c3a38;
+      --color-text-muted: #73706c;
+      --color-text-dim: #999590;
 
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      --container-max: 1240px;
+      --color-border-line: #e8e5e0;
+      --color-border-dark: #1a1918;
+      --color-bar-accent: #2e2b29;
+
+      --container-max: 1380px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -42,6 +44,7 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: 15px;
     }
 
     body {
@@ -50,15 +53,14 @@
       font-family: var(--font-sans);
       font-weight: 300;
       line-height: 1.8;
-      font-size: 15px;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+      transition: var(--transition);
     }
 
     img {
@@ -67,61 +69,34 @@
       display: block;
     }
 
-    /* 1. FIXED WIX NAVBAR */
+    /* 1. FIXED TOP NAVBAR */
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       z-index: 1000;
-      background: #ffffff;
+      background: rgba(252, 251, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--color-border-line);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      height: 70px;
     }
 
     .wix-nav-container {
       max-width: var(--container-max);
+      height: 100%;
       margin: 0 auto;
-      height: 72px;
       padding: 0 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .wix-brand-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      margin-left: auto;
-    }
-
-    .wix-star-icon {
-      width: 18px;
-      height: 18px;
-      stroke: var(--color-text-black);
-      stroke-width: 1.5;
-      fill: none;
-      transition: transform 0.5s ease;
-    }
-    .wix-brand-link:hover .wix-star-icon {
-      transform: rotate(90deg);
-    }
-
-    .wix-brand-text {
-      font-family: var(--font-display);
-      font-size: 15px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-text-black);
-      font-weight: 400;
-    }
-
     .wix-nav-menu {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 32px;
       list-style: none;
     }
 
@@ -130,38 +105,30 @@
     }
 
     .wix-nav-link {
-      font-family: var(--font-sans);
       font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: var(--color-text-body);
-      text-transform: capitalize;
-      transition: var(--transition);
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      padding: 8px 0;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 6px 0;
+      gap: 6px;
     }
 
     .wix-nav-link:hover,
     .wix-nav-link.active {
       color: var(--color-text-black);
-      font-weight: 500;
     }
 
-    .wix-nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 1.5px;
-      background: var(--color-text-black);
+    .wix-dropdown:hover .wix-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .wix-dropdown-trigger svg {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       transition: transform 0.2s;
     }
     .wix-dropdown:hover .wix-dropdown-trigger svg {
@@ -174,50 +141,38 @@
       left: 0;
       background: #ffffff;
       min-width: 290px;
-      padding: 12px 0;
       border: 1px solid var(--color-border-line);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
       list-style: none;
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: var(--transition);
       z-index: 1001;
-    }
-
-    .wix-dropdown:hover .wix-dropdown-menu {
-      display: block;
     }
 
     .wix-dropdown-item a {
       display: block;
-      padding: 10px 20px;
+      padding: 10px 24px;
       font-size: 13px;
-      color: var(--color-text-muted);
-      transition: var(--transition);
+      color: var(--color-text-body);
       line-height: 1.4;
-    }
-    .wix-dropdown-item a strong {
-      display: block;
-      color: var(--color-text-black);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .wix-dropdown-item a span {
-      font-size: 11px;
-      color: #888;
     }
     .wix-dropdown-item a:hover {
       background: var(--color-bg-subtle);
+      color: var(--color-text-black);
+      padding-left: 28px;
     }
 
     .nav-btn-back {
-      font-family: var(--font-display);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      padding: 7px 16px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
       border: 1px solid var(--color-border-line);
-      background: transparent;
+      background: #ffffff;
       color: var(--color-text-black);
-      transition: var(--transition);
       border-radius: 2px;
       display: inline-flex;
       align-items: center;
@@ -229,11 +184,36 @@
       border-color: var(--color-text-black);
     }
 
+    .wix-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wix-star-icon {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-text-black);
+      transition: transform 0.4s;
+    }
+    .wix-brand-link:hover .wix-star-icon {
+      transform: rotate(72deg);
+    }
+
+    .wix-brand-text {
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-black);
+      font-weight: 500;
+    }
+
     /* 2. SIGNATURE HERO BAND */
     .project-hero-band {
-      background-color: var(--color-wix-banner);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 70px 32px 60px;
+      background-color: var(--color-hero-band);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 130px 32px 70px;
     }
 
     .hero-container {
@@ -245,82 +225,93 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
     .hero-category-tag {
       font-family: var(--font-display);
       font-size: 11px;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-accent-dark);
-      background: rgba(255, 255, 255, 0.6);
-      padding: 5px 14px;
-      border-radius: 2px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      color: var(--color-text-black);
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .hero-spread-count {
-      font-size: 12px;
-      letter-spacing: 0.1em;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
       color: var(--color-text-muted);
       text-transform: uppercase;
     }
 
     .hero-title-main {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 4vw, 42px);
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.8vw, 56px);
       font-weight: 400;
-      letter-spacing: 0.1em;
-      line-height: 1.25;
       color: var(--color-text-black);
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
     }
 
     .hero-subtitle {
-      font-size: 16px;
-      color: var(--color-text-muted);
-      font-weight: 300;
-      letter-spacing: 0.03em;
+      font-size: clamp(14px, 1.6vw, 17px);
+      color: var(--color-text-body);
+      max-width: 860px;
       margin-bottom: 36px;
-      max-width: 900px;
+      line-height: 1.65;
     }
 
     .hero-meta-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       padding-top: 24px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 900px) {
+      .hero-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 520px) {
+      .hero-meta-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .hero-meta-item .meta-label {
       font-family: var(--font-display);
-      font-size: 10px;
-      letter-spacing: 0.2em;
+      font-size: 11px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--color-text-dim);
-      margin-bottom: 4px;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
     }
 
     .hero-meta-item .meta-val {
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--color-text-black);
       font-weight: 400;
-      letter-spacing: 0.02em;
+      line-height: 1.5;
     }
 
-    /* 3. STICKY SUB-NAV */
+    /* 3. STICKY SUBNAV BAR */
     .sticky-subnav {
       position: sticky;
-      top: 72px;
+      top: 70px;
       z-index: 990;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
+      background: rgba(252, 251, 250, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--color-border-line);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     }
 
     .subnav-container {
@@ -338,7 +329,7 @@
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--color-text-dim);
+      color: var(--color-text-muted);
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -374,7 +365,7 @@
       font-family: var(--font-display);
       letter-spacing: 0.08em;
       padding: 5px 12px;
-      border: 1px solid var(--color-border-subtle);
+      border: 1px solid var(--color-border-line);
       border-radius: 2px;
       color: var(--color-text-muted);
       white-space: nowrap;
@@ -393,19 +384,13 @@
     .subnav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 6px;
       flex-shrink: 0;
     }
 
-    .subnav-arrows-group {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
     .subnav-arrow-btn {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border: 1px solid var(--color-border-line);
       background: #ffffff;
       color: var(--color-text-black);
@@ -414,105 +399,113 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 12px;
       transition: var(--transition);
       user-select: none;
     }
     .subnav-arrow-btn:hover {
-      background: var(--color-wix-banner);
+      background: var(--color-hero-band);
       border-color: var(--color-bar-accent);
-      color: var(--color-text-black);
     }
 
-    /* 4. MAIN CONTAINER & PAGE CARDS */
+    /* 4. MAIN ESSAY & PLATES */
     .storyboard-wrapper {
       max-width: var(--container-max);
       margin: 0 auto;
-      padding: 50px 32px 80px;
+      padding: 60px 32px 100px;
     }
 
-    .project-statement-card {
-      margin-bottom: 60px;
+    .project-essay-card {
+      margin-bottom: 70px;
       background: #ffffff;
-      border: 1px solid var(--color-border-subtle);
-      padding: 40px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid var(--color-border-line);
+      padding: 44px 48px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
       border-left: 4px solid var(--color-bar-accent);
     }
 
-    .statement-title {
-      font-family: var(--font-display);
-      font-size: 16px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    @media (max-width: 600px) {
+      .project-essay-card {
+        padding: 30px 24px;
+      }
+    }
+
+    .essay-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
       color: var(--color-text-black);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
     }
 
-    .statement-body {
+    .essay-body {
       font-size: 15px;
-      line-height: 1.9;
-      color: #333333;
-      font-weight: 300;
+      line-height: 1.95;
+      color: var(--color-text-body);
     }
-    .statement-body p + p {
-      margin-top: 14px;
+    .essay-body p + p {
+      margin-top: 18px;
     }
 
-    .page-unit {
+    .plate-card {
       margin-bottom: 60px;
       background: #ffffff;
-      border: 1px solid var(--color-border-subtle);
-      border-radius: 2px;
+      border: 1px solid var(--color-border-line);
       padding: 36px 36px 32px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       transition: box-shadow 0.3s ease, border-color 0.3s ease;
-      position: relative;
     }
-    .page-unit:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    .plate-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
       border-color: #d8cec8;
     }
 
-    .page-unit-header {
+    @media (max-width: 600px) {
+      .plate-card {
+        padding: 24px 20px 20px;
+      }
+    }
+
+    .plate-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 16px;
       margin-bottom: 24px;
-      border-bottom: 1px solid var(--color-border-subtle);
+      border-bottom: 1px solid var(--color-border-line);
       flex-wrap: wrap;
       gap: 12px;
     }
 
-    .page-indicator {
+    .plate-index-title {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    .page-badge {
+    .plate-badge {
       font-family: var(--font-display);
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.16em;
       font-weight: 600;
       color: var(--color-text-black);
-      background: var(--color-wix-banner);
+      background: var(--color-hero-band);
       padding: 4px 12px;
       border-radius: 2px;
     }
 
-    .page-theme-title {
+    .plate-theme-title {
       font-family: var(--font-display);
-      font-size: 13px;
-      letter-spacing: 0.12em;
+      font-size: 13.5px;
+      letter-spacing: 0.06em;
       color: var(--color-text-black);
-      text-transform: uppercase;
+      font-weight: 500;
     }
 
-    .page-scan-link {
-      font-size: 11px;
+    .plate-scan-link {
+      font-size: 11.5px;
       font-family: var(--font-sans);
       color: var(--color-text-dim);
       display: inline-flex;
@@ -520,10 +513,8 @@
       gap: 6px;
       cursor: pointer;
       transition: color 0.2s;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
     }
-    .page-scan-link:hover {
+    .plate-scan-link:hover {
       color: var(--color-text-black);
     }
 
@@ -549,7 +540,7 @@
     }
 
     .img-zoom-target::after {
-      content: '⤢ Click to Zoom';
+      content: '⤢ 点击放大检视';
       position: absolute;
       bottom: 14px;
       right: 14px;
@@ -558,8 +549,6 @@
       font-size: 11px;
       letter-spacing: 1px;
       padding: 6px 14px;
-      text-transform: uppercase;
-      font-family: var(--font-sans);
       border-radius: 2px;
       opacity: 0;
       transition: opacity 0.2s;
@@ -571,7 +560,7 @@
       opacity: 1;
     }
 
-    .page-caption {
+    .plate-caption {
       margin-top: 20px;
       padding: 16px 20px;
       background: var(--color-bg-subtle);
@@ -584,7 +573,6 @@
     .caption-highlight {
       font-weight: 600;
       color: var(--color-text-black);
-      font-family: var(--font-sans);
     }
 
     /* 5. BOTTOM PROJECT NAVIGATION STRIP */
@@ -626,7 +614,6 @@
       font-family: var(--font-display);
       font-size: 13px;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: var(--color-text-black);
       font-weight: 500;
     }
@@ -664,12 +651,10 @@
     }
 
     .footer-brand-desc {
-      font-family: var(--font-sans);
       font-size: 13px;
       color: #666666;
       line-height: 1.7;
       max-width: 380px;
-      font-weight: 300;
     }
 
     .footer-col-title {
@@ -689,7 +674,6 @@
     }
 
     .footer-link-list a {
-      font-family: var(--font-sans);
       font-size: 13px;
       color: #666666;
       transition: color 0.2s;
@@ -881,76 +865,53 @@
       font-size: 11px;
       letter-spacing: 0.5px;
       margin-top: 6px;
-      text-transform: uppercase;
       font-family: var(--font-sans);
     }
   </style>
 </head>
 <body id="top">
 
-  <!-- 1. FIXED NAVBAR -->
+  <!-- 1. FIXED TOP NAVBAR -->
   <header>
     <div class="wix-nav-container">
-      <ul class="wix-nav-menu">
-        <li class="wix-nav-item">
-          <a href="index.html" class="nav-btn-back">&larr; Portfolio Home</a>
-        </li>
-        <li class="wix-nav-item wix-dropdown">
-          <a href="index.html#works" class="wix-nav-link wix-dropdown-trigger">
-            All Projects
-            <svg viewBox="0 0 10 6" fill="none" stroke="currentColor"><path d="M1 1L5 5L9 1" stroke-width="1.5"/></svg>
-          </a>
-          <ul class="wix-dropdown-menu">
-            <li class="wix-dropdown-item">
-              <a href="project01.html">
-                <strong>Ⅰ. Wooden Structure Translation</strong>
-                <span>A Multi-functional Wooden Structure at the Foot of the Ming City Wall</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project02.html">
-                <strong>Ⅱ. Sierra Canyon Campus Reconfiguration: Diagnosis</strong>
-                <span>Spatial Diagnosis — Everyday Frictions</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project03.html">
-                <strong>Ⅲ. Sierra Canyon Campus Reconfiguration: Design Interventions</strong>
-                <span>Gateway &amp; Art Center</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project04.html" style="background: var(--color-bg-subtle);">
-                <strong>Ⅳ. Model Making</strong>
-                <span>Wood, Cardboard, and Spatial Structure · 5 Plates</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project05.html">
-                <strong>Ⅴ. The Blurred Boundary</strong>
-                <span>Visual Art &amp; Archival Installation · 34 Pages</span>
-              </a>
-            </li>
-            <li class="wix-dropdown-item">
-              <a href="project06.html">
-                <strong>Ⅵ. Visual Studies</strong>
-                <span>Light, Composition, and Everyday Life · 7 Plates</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <nav>
+        <ul class="wix-nav-menu">
+          <li class="wix-nav-item">
+            <a href="index.html" class="wix-nav-link">首页</a>
+          </li>
+          <li class="wix-nav-item wix-dropdown">
+            <a href="index.html#works" class="wix-nav-link active wix-dropdown-trigger">
+              全部项目
+              <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 5 5-5z"/></svg>
+            </a>
+            <ul class="wix-dropdown-menu">
+              <li class="wix-dropdown-item"><a href="project01.html">01 &middot; 木构转译</a></li>
+              <li class="wix-dropdown-item"><a href="project02.html">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+              <li class="wix-dropdown-item"><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+              <li class="wix-dropdown-item"><a href="project04.html" style="font-weight:600; color:#111;">04 &middot; 手工模型合集</a></li>
+              <li class="wix-dropdown-item"><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+              <li class="wix-dropdown-item"><a href="project06.html">06 &middot; 摄影作品合集</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#about" class="wix-nav-link">关于我</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#contact" class="wix-nav-link">联系方式</a>
+          </li>
+          <li class="wix-nav-item">
+            <a href="index.html#works" class="nav-btn-back">
+              <span>&larr;</span> 返回作品集
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <a href="index.html" class="wix-brand-link">
-        <svg class="wix-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polygon points="50,5 95,50 50,95 5,50" stroke="#000000" fill="none"/>
-          <polygon points="50,20 80,50 50,80 20,50" stroke="#000000" fill="none"/>
-          <line x1="50" y1="5" x2="50" y2="95" stroke="#000000"/>
-          <line x1="5" y1="50" x2="95" y2="50" stroke="#000000"/>
-          <line x1="18" y1="18" x2="82" y2="82" stroke="#000000"/>
-          <line x1="18" y1="82" x2="82" y2="18" stroke="#000000"/>
+      <a href="index.html" class="wix-brand-link" aria-label="返回作品集首页">
+        <svg class="wix-star-icon" viewBox="0 0 24 24">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
-        <span class="wix-brand-text">Churan (Olivia) Ma</span>
+        <span class="wix-brand-text">马楚然 (Olivia Ma)</span>
       </a>
     </div>
   </header>
@@ -959,31 +920,31 @@
   <section class="project-hero-band">
     <div class="hero-container">
       <div class="hero-badge-row">
-        <span class="hero-category-tag">Project 04 // Handcrafted Models</span>
-        <span class="hero-spread-count">5 Portfolio Plates &middot; Material &amp; Structure Studies</span>
+        <span class="hero-category-tag">项目 04 &middot; 手工实体模型</span>
+        <span class="hero-spread-count">5 张精选作品板 &middot; 材料与结构深化探索</span>
       </div>
 
-      <h1 class="hero-title-main">Model Making</h1>
+      <h1 class="hero-title-main">手工模型合集</h1>
       <p class="hero-subtitle">
-        Wood, Cardboard, and Spatial Structure
+        木材、卡纸与空间结构探索
       </p>
 
       <div class="hero-meta-grid">
         <div class="hero-meta-item">
-          <div class="meta-label">Location &amp; Year</div>
-          <div class="meta-val">Various &middot; 2025&ndash;2026</div>
+          <div class="meta-label">创作年份</div>
+          <div class="meta-val">2025&ndash;2026</div>
         </div>
         <div class="hero-meta-item">
-          <div class="meta-label">Typology</div>
-          <div class="meta-val">Physical Model Making / Material Study</div>
+          <div class="meta-label">类别</div>
+          <div class="meta-val">物理手工模型 / 材料逻辑研究</div>
         </div>
         <div class="hero-meta-item">
-          <div class="meta-label">Media</div>
-          <div class="meta-val">Wood, Cardboard, Wooden Sticks, Glue</div>
+          <div class="meta-label">材质媒介</div>
+          <div class="meta-val">木材、卡纸、木棍、白乳胶</div>
         </div>
         <div class="hero-meta-item">
-          <div class="meta-label">Scope &amp; Artifacts</div>
-          <div class="meta-val">5 Plates &middot; Process Photos, Model Views, Detail Shots</div>
+          <div class="meta-label">展板构成</div>
+          <div class="meta-val">5 张展板 &middot; 制作过程、模型全景、节点特写</div>
         </div>
       </div>
     </div>
@@ -992,21 +953,19 @@
   <!-- 3. STICKY SUB-NAV FOR QUICK JUMP -->
   <nav class="sticky-subnav">
     <div class="subnav-container">
-      <span class="subnav-label">Jump to Plate:</span>
+      <span class="subnav-label">快速跳转展板:</span>
       <div class="subnav-scroll-wrapper" id="subnav-scroll-wrapper">
         <ul class="subnav-pages-scroll">
-          <li><a href="#plate-01" class="subnav-pill" data-target="plate-01">01 &middot; Wooden Lattice</a></li>
-          <li><a href="#plate-02" class="subnav-pill" data-target="plate-02">02 &middot; Lattice Projection</a></li>
-          <li><a href="#plate-03" class="subnav-pill" data-target="plate-03">03 &middot; Timber Pavilion</a></li>
-          <li><a href="#plate-04" class="subnav-pill" data-target="plate-04">04 &middot; Pavilion Details</a></li>
-          <li><a href="#plate-05" class="subnav-pill" data-target="plate-05">05 &middot; Folding Model</a></li>
+          <li><a href="#plate-01" class="subnav-pill" data-target="plate-01">01 &middot; 木构网格</a></li>
+          <li><a href="#plate-02" class="subnav-pill" data-target="plate-02">02 &middot; 投影分析</a></li>
+          <li><a href="#plate-03" class="subnav-pill" data-target="plate-03">03 &middot; 木构凉亭</a></li>
+          <li><a href="#plate-04" class="subnav-pill" data-target="plate-04">04 &middot; 榫卯细节</a></li>
+          <li><a href="#plate-05" class="subnav-pill" data-target="plate-05">05 &middot; 折叠模型</a></li>
         </ul>
       </div>
       <div class="subnav-actions">
-        <div class="subnav-arrows-group">
-          <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(-1)" aria-label="Scroll left">&larr;</button>
-          <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(1)" aria-label="Scroll right">&rarr;</button>
-        </div>
+        <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(-1)" aria-label="向左滚动">&larr;</button>
+        <button type="button" class="subnav-arrow-btn" onclick="scrollSubnav(1)" aria-label="向右滚动">&rarr;</button>
       </div>
     </div>
   </nav>
@@ -1015,100 +974,100 @@
   <main class="storyboard-wrapper">
 
     <!-- DESIGN STATEMENT CARD -->
-    <section class="project-statement-card">
-      <h2 class="statement-title">Design Statement &amp; Architectural Core Value</h2>
-      <div class="statement-body">
+    <section class="project-essay-card">
+      <h2 class="essay-title">设计陈述与空间核心价值</h2>
+      <div class="essay-body">
         <p>
-          This collection brings together three handcrafted models that explore material behavior, structural logic, and spatial composition. From a digitally modeled lattice cube assembled with wooden sticks, to a traditional Chinese double-eave pavilion that reveals its joinery, to a folded cardboard study of flexibility and rhythm—each model translates digital or conceptual ideas into physical form.
+          本系列汇集了三组手工物理模型，分别探索材料物理性能、结构传力逻辑与空间构成法则。从以数字建模为基础、手工木棍搭建的网格立方体，到展示精准榫卯梁架构造的传统中式重檐木构凉亭，再到探索材料柔韧度与韵律节奏的白色折叠卡纸空间模型——每一组作品都致力于将数字化与概念构思转化为真实的物理空间形态。
         </p>
         <p>
-          Together they demonstrate my commitment to learning through making, and to understanding how structure and material can shape spatial experience. By engaging directly with tactile joinery, gravitational loads, and material tolerances, physical modeling serves as an irreplaceable foundation for my spatial and tectonic design thinking.
+          这些模型记录了我“在制作中学习”（Learning through making）的严谨探索，展现了结构与材料如何共同界定和塑造身体的空间体验。通过双手触摸材料的公差、感知重力与连接的真实阻力，手工物理模型构成了我建筑空间思考不可替代的基石。
         </p>
       </div>
     </section>
 
     <!-- PLATE 01 -->
-    <article class="page-unit" id="plate-01">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 01</span>
-          <span class="page-theme-title">Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix</span>
+    <article class="plate-card" id="plate-01">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 01</span>
+          <span class="plate-theme-title">彩色木棍网格立方体 &middot; 轴测全景与空间生成</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/01.jpg', 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix')">Inspect Full Plate &oplus;</span>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project04/01.jpg', '展板 01: 彩色木棍网格立方体 &middot; 轴测全景与空间生成')">查看高清大图 &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/01.jpg', 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix')">
-        <img src="assets/projects/project04/01.jpg" alt="Plate 01 - Wooden Lattice Cube Axonometric and Spatial Matrix" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project04/01.jpg', '展板 01: 彩色木棍网格立方体 &middot; 轴测全景与空间生成')">
+        <img src="../assets/projects/project04/01.jpg" alt="展板 01 - 彩色木棍网格立方体 轴测全景与空间生成" loading="lazy">
       </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 01:</span> Exploration of modular spatial grids constructed from handcrafted timber sticks. The complex multi-axial lattice cube translates 3D coordinate logic into tactile wood tectonics, examining porosity, density, and structural self-support.</p>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 01：</span>手工木棍搭建的模块化空间网格。复杂的空间网格立方体将抽象的三维坐标系统转化为触手可及的木质构造，探索空间的通透度、密度渐变与自承重力学关系。</p>
       </div>
     </article>
 
     <!-- PLATE 02 -->
-    <article class="page-unit" id="plate-02">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 02</span>
-          <span class="page-theme-title">Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies</span>
+    <article class="plate-card" id="plate-02">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 02</span>
+          <span class="plate-theme-title">彩色木棍网格立方体 &middot; 正交投影与虚实演变</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/02.jpg', 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies')">Inspect Full Plate &oplus;</span>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project04/02.jpg', '展板 02: 彩色木棍网格立方体 &middot; 正交投影与虚实演变')">查看高清大图 &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/02.jpg', 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies')">
-        <img src="assets/projects/project04/02.jpg" alt="Plate 02 - Wooden Lattice Cube Orthographic Projections and Process Studies" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project04/02.jpg', '展板 02: 彩色木棍网格立方体 &middot; 正交投影与虚实演变')">
+        <img src="../assets/projects/project04/02.jpg" alt="展板 02 - 彩色木棍网格立方体 正交投影与虚实演变" loading="lazy">
       </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 02:</span> Analytical drawings, orthographic elevation projections, and physical fabrication iterations studying the geometric progression from conceptual coordinate frameworks to physical joint assembly.</p>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 02：</span>立面投影图、正交视点分析与手工制作演进记录，呈现从概念坐标框架向物理节点装配推进的几何逻辑与虚实空间变化。</p>
       </div>
     </article>
 
     <!-- PLATE 03 -->
-    <article class="page-unit" id="plate-03">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 03</span>
-          <span class="page-theme-title">Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition</span>
+    <article class="plate-card" id="plate-03">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 03</span>
+          <span class="plate-theme-title">中式重檐木构凉亭 &middot; 构造全景与建筑比例</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/03.jpg', 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition')">Inspect Full Plate &oplus;</span>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project04/03.jpg', '展板 03: 中式重檐木构凉亭 &middot; 构造全景与建筑比例')">查看高清大图 &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/03.jpg', 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition')">
-        <img src="assets/projects/project04/03.jpg" alt="Plate 03 - Timber Pavilion Traditional Double-Eave Tectonic Composition" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project04/03.jpg', '展板 03: 中式重檐木构凉亭 &middot; 构造全景与建筑比例')">
+        <img src="../assets/projects/project04/03.jpg" alt="展板 03 - 中式重檐木构凉亭 构造全景与建筑比例" loading="lazy">
       </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 03:</span> Full architectural model of a traditional Chinese double-eave wooden pavilion. The physical assembly investigates post-and-beam logic, layered hip roofs, and structural hierarchy through meticulous woodcraft.</p>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 03：</span>中式传统重檐木构凉亭完整手工模型。作品深入探讨了梁柱体系、歇山与四角攒尖屋顶的层次结构，以严谨木作工艺展现传统建筑的模数与秩序之美。</p>
       </div>
     </article>
 
     <!-- PLATE 04 -->
-    <article class="page-unit" id="plate-04">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 04</span>
-          <span class="page-theme-title">Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details</span>
+    <article class="plate-card" id="plate-04">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 04</span>
+          <span class="plate-theme-title">木构凉亭 &middot; 梁架榫卯、飞檐与结构节点研究</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/04.jpg', 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details')">Inspect Full Plate &oplus;</span>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project04/04.jpg', '展板 04: 木构凉亭 &middot; 梁架榫卯、飞檐与结构节点研究')">查看高清大图 &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/04.jpg', 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details')">
-        <img src="assets/projects/project04/04.jpg" alt="Plate 04 - Timber Pavilion Joinery Tectonics and Eave Bracket Details" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project04/04.jpg', '展板 04: 木构凉亭 &middot; 梁架榫卯、飞檐与结构节点研究')">
+        <img src="../assets/projects/project04/04.jpg" alt="展板 04 - 木构凉亭 梁架榫卯、飞檐与结构节点研究" loading="lazy">
       </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 04:</span> Macro process photographs focusing on interlocking mortise-and-tenon joints, corner eave rafter cantilevers, and timber craftsmanship, revealing tectonic discipline at an intimate scale.</p>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 04：</span>微距摄影呈现的梁架穿插、角梁飞檐挑出与榫卯咬合细部，展现传统大木作构造在微观手工尺度下的严谨性与力学传导美学。</p>
       </div>
     </article>
 
     <!-- PLATE 05 -->
-    <article class="page-unit" id="plate-05">
-      <div class="page-unit-header">
-        <div class="page-indicator">
-          <span class="page-badge">PLATE 05</span>
-          <span class="page-theme-title">Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity</span>
+    <article class="plate-card" id="plate-05">
+      <div class="plate-header">
+        <div class="plate-index-title">
+          <span class="plate-badge">展板 05</span>
+          <span class="plate-theme-title">白色折叠卡纸模型 &middot; 曲面节奏与连续流体空间</span>
         </div>
-        <span class="page-scan-link" onclick="openLightbox('assets/projects/project04/05.jpg', 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity')">Inspect Full Plate &oplus;</span>
+        <span class="plate-scan-link" onclick="openLightbox('../assets/projects/project04/05.jpg', '展板 05: 白色折叠卡纸模型 &middot; 曲面节奏与连续流体空间')">查看高清大图 &oplus;</span>
       </div>
-      <div class="img-zoom-target" onclick="openLightbox('assets/projects/project04/05.jpg', 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity')">
-        <img src="assets/projects/project04/05.jpg" alt="Plate 05 - Folding Model Curved Cardboard Rhythm and Spatial Continuity" loading="lazy">
+      <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project04/05.jpg', '展板 05: 白色折叠卡纸模型 &middot; 曲面节奏与连续流体空间')">
+        <img src="../assets/projects/project04/05.jpg" alt="展板 05 - 白色折叠卡纸模型 曲面节奏与连续流体空间" loading="lazy">
       </div>
-      <div class="page-caption">
-        <p><span class="caption-highlight">Plate 05:</span> Parametric paper folding investigation utilizing scored and curved white cardboard. Demonstrating how planar sheet material transitions into fluid, self-supporting spatial shells with dynamic light and shadow gradients.</p>
+      <div class="plate-caption">
+        <p><span class="caption-highlight">展板 05：</span>基于平面纸张压痕与曲面弯折的参数化折叠实验。二维平整卡纸通过规律性剪裁与折叠转化为连续、自承重的三维流动外壳，在不同光线下投射出富有韵律的明暗渐变。</p>
       </div>
     </article>
 
@@ -1116,15 +1075,15 @@
     <nav class="project-bottom-nav">
       <a href="project03.html" class="project-nav-card">
         <div>
-          <div class="pnav-sub">&larr; Previous Project</div>
-          <div class="pnav-title">03 &middot; Sierra Canyon: Design Interventions</div>
+          <div class="pnav-sub">&larr; 上一个项目</div>
+          <div class="pnav-title">03 &middot; 塞拉峡谷校园改造：设计介入</div>
         </div>
       </a>
 
       <a href="project05.html" class="project-nav-card" style="margin-left: auto;">
         <div style="text-align: right;">
-          <div class="pnav-sub">Next Project &rarr;</div>
-          <div class="pnav-title">05 &middot; The Blurred Boundary</div>
+          <div class="pnav-sub">下一个项目 &rarr;</div>
+          <div class="pnav-title">05 &middot; 爱的边界：关怀、庇护与控制</div>
         </div>
       </a>
     </nav>
@@ -1135,40 +1094,40 @@
   <footer class="wix-footer-area">
     <div class="footer-content-grid">
       <div>
-        <div class="footer-brand-title">Churan (Olivia) Ma</div>
+        <div class="footer-brand-title">马楚然 (Olivia Ma)</div>
         <p class="footer-brand-desc">
-          Architectural and visual art portfolio exploring spatial envelopes, kinetic thresholds, and domestic bodily discipline.
+          建筑与视觉艺术作品集，探索空间围合、动力学阈值与日常身体规训。
         </p>
       </div>
 
       <div>
-        <div class="footer-col-title">Portfolio Projects</div>
+        <div class="footer-col-title">作品集项目</div>
         <ul class="footer-link-list">
-          <li><a href="project01.html">01 &middot; Wooden Structure Translation</a></li>
-          <li><a href="project02.html">02 &middot; Sierra Canyon: Diagnosis</a></li>
-          <li><a href="project03.html">03 &middot; Sierra Canyon: Design Interventions</a></li>
-          <li><a href="project04.html">04 &middot; Model Making</a></li>
-          <li><a href="project05.html">05 &middot; The Blurred Boundary</a></li>
-          <li><a href="project06.html">06 &middot; Visual Studies</a></li>
+          <li><a href="project01.html">01 &middot; 木构转译</a></li>
+          <li><a href="project02.html">02 &middot; 塞拉峡谷校园改造：诊断</a></li>
+          <li><a href="project03.html">03 &middot; 塞拉峡谷校园改造：设计介入</a></li>
+          <li><a href="project04.html">04 &middot; 手工模型合集</a></li>
+          <li><a href="project05.html">05 &middot; 爱的边界：关怀、庇护与控制</a></li>
+          <li><a href="project06.html">06 &middot; 摄影作品合集</a></li>
         </ul>
       </div>
 
       <div>
-        <div class="footer-col-title">Navigation</div>
+        <div class="footer-col-title">快速导航</div>
         <ul class="footer-link-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#works">View Works</a></li>
-          <li><a href="index.html#about">About the Artist</a></li>
-          <li><a href="mailto:formcr@126.com">Get in Touch</a></li>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="index.html#works">浏览作品</a></li>
+          <li><a href="index.html#about">关于我</a></li>
+          <li><a href="mailto:formcr@126.com">联系作者</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom-bar">
-      <div>&copy; 2026 Churan (Olivia) Ma. All rights reserved.</div>
+      <div>&copy; 2026 马楚然 (Olivia Ma). 保留所有权利.</div>
       <div class="footer-nav-jump">
-        <a href="#top">Back to Top &uarr;</a>
-        <a href="index.html#works">&larr; Return to All Works</a>
+        <a href="#top">返回顶部 &uarr;</a>
+        <a href="index.html#works">&larr; 返回全部作品</a>
       </div>
     </div>
   </footer>
@@ -1176,24 +1135,24 @@
   <!-- 7. LIGHTBOX MODAL -->
   <div class="lightbox-backdrop" id="lightbox-modal">
     <div class="lightbox-content-box" onclick="event.stopPropagation()">
-      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
-      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="Previous Image">&#10094;</button>
-      <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="Next Image">&#10095;</button>
+      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="关闭">&times;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="上一张">&#10094;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="下一张">&#10095;</button>
 
       <div class="lightbox-img-wrapper">
-        <img id="lightbox-current-img" src="" alt="Expanded View">
+        <img id="lightbox-current-img" src="" alt="放大视图">
       </div>
 
       <!-- Zoom Toolbar & Hint -->
       <div class="lightbox-zoom-toolbar">
-        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="Zoom Out" title="Zoom Out">&minus;</button>
-        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="Click to Reset 100%">100%</span>
-        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="Zoom In" title="Zoom In">&plus;</button>
-        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="Reset Zoom" title="Reset Zoom">&#x21bb;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="缩小" title="缩小">&minus;</button>
+        <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="点击复位 100%">100%</span>
+        <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="放大" title="放大">&plus;</button>
+        <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="复位" title="复位">&#x21bb;</button>
       </div>
 
       <div class="lightbox-caption-text" id="lightbox-caption"></div>
-      <div class="lightbox-zoom-hint">Scroll wheel to zoom &middot; Drag to pan &middot; Double-click to reset</div>
+      <div class="lightbox-zoom-hint">滚轮缩放 &middot; 拖拽平移 &middot; 双击复位</div>
     </div>
   </div>
 
@@ -1208,11 +1167,11 @@
     }
 
     const allGalleryImages = [
-      { src: 'assets/projects/project04/01.jpg', caption: 'Plate 01: Wooden Lattice Cube &middot; Axonometric &amp; Spatial Matrix' },
-      { src: 'assets/projects/project04/02.jpg', caption: 'Plate 02: Wooden Lattice Cube &middot; Orthographic Projections &amp; Process Studies' },
-      { src: 'assets/projects/project04/03.jpg', caption: 'Plate 03: Timber Pavilion &middot; Traditional Double-Eave Tectonic Composition' },
-      { src: 'assets/projects/project04/04.jpg', caption: 'Plate 04: Timber Pavilion &middot; Joinery Tectonics &amp; Eave Bracket Details' },
-      { src: 'assets/projects/project04/05.jpg', caption: 'Plate 05: Folding Model &middot; Curved Cardboard Rhythm &amp; Spatial Continuity' }
+      { src: '../assets/projects/project04/01.jpg', caption: '展板 01: 彩色木棍网格立方体 &middot; 轴测全景与空间生成' },
+      { src: '../assets/projects/project04/02.jpg', caption: '展板 02: 彩色木棍网格立方体 &middot; 正交投影与虚实演变' },
+      { src: '../assets/projects/project04/03.jpg', caption: '展板 03: 中式重檐木构凉亭 &middot; 构造全景与建筑比例' },
+      { src: '../assets/projects/project04/04.jpg', caption: '展板 04: 木构凉亭 &middot; 梁架榫卯、飞檐与结构节点研究' },
+      { src: '../assets/projects/project04/05.jpg', caption: '展板 05: 白色折叠卡纸模型 &middot; 曲面节奏与连续流体空间' }
     ];
 
     let currentLightboxIdx = 0;
@@ -1314,7 +1273,7 @@
       currentLightboxIdx = foundIdx !== -1 ? foundIdx : 0;
 
       img.src = src;
-      img.alt = captionText || 'Plate Zoom';
+      img.alt = captionText || '展板大图';
       if (caption) {
         caption.innerHTML = captionText || (allGalleryImages[currentLightboxIdx] ? allGalleryImages[currentLightboxIdx].caption : '');
       }
@@ -1431,7 +1390,7 @@
     }
 
     // Scroll active link tracking for subnav
-    const observerSections = document.querySelectorAll('.page-unit');
+    const observerSections = document.querySelectorAll('.plate-card');
     const subnavPills = document.querySelectorAll('.subnav-pill');
 
     window.addEventListener('scroll', () => {
