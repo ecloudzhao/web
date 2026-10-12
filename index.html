@@ -384,24 +384,37 @@
 
     .about-bio-text p {
       font-family: var(--font-sans);
-      font-size: 15px;
-      color: #222222;
-      line-height: 1.95;
-      margin-bottom: 24px;
+      font-size: 14.5px;
+      color: #2b2b2b;
+      line-height: 1.88;
+      margin-bottom: 22px;
       font-weight: 300;
+      letter-spacing: 0.1px;
+    }
+
+    .about-bio-text p:first-of-type {
+      font-size: 16px;
+      line-height: 1.95;
+      color: #111111;
+      font-weight: 400;
+      letter-spacing: 0.15px;
+      margin-bottom: 24px;
     }
 
     .about-bio-text p:last-child {
       margin-bottom: 0;
     }
 
-    /* Layered Offset Portrait Frame - Harmonized with Bio Column */
+    /* Layered Offset Portrait Frame - Sticky Parallax & Harmonized with Bio Column */
     .wix-layered-frame-wrapper {
-      position: relative;
+      position: sticky;
+      top: 110px;
+      align-self: start;
       width: 440px;
       height: 645px;
       max-width: 100%;
       margin: 0 auto;
+      z-index: 10;
     }
 
     .frame-outline-box {
@@ -1511,6 +1524,10 @@
       .about-wix-layout {
         grid-template-columns: 1fr;
         gap: 50px;
+      }
+      .wix-layered-frame-wrapper {
+        position: relative;
+        top: auto;
       }
     }
 

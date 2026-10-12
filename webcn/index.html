@@ -379,38 +379,50 @@
     }
 
     .about-bio-text {
-      padding-top: 4px;
+      padding-top: 6px;
     }
 
     .about-bio-text p {
       font-family: var(--font-sans);
-      font-size: 15px;
-      color: #222222;
-      line-height: 2.15;
-      letter-spacing: 0.04em;
-      margin-bottom: 28px;
+      font-size: 14.5px;
+      color: #2b2b2b;
+      line-height: 2.05;
+      letter-spacing: 0.03em;
+      margin-bottom: 22px;
       font-weight: 300;
+    }
+
+    .about-bio-text p:first-of-type {
+      font-size: 16px;
+      line-height: 2.1;
+      color: #111111;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
     }
 
     .about-bio-text p:last-child {
       margin-bottom: 0;
     }
 
-    /* Layered Offset Portrait Frame - Harmonized with Bio Column */
+    /* Layered Offset Portrait Frame - Sticky Parallax & Harmonized with Bio Column */
     .wix-layered-frame-wrapper {
-      position: relative;
-      width: 400px;
-      height: 550px;
+      position: sticky;
+      top: 110px;
+      align-self: start;
+      width: 440px;
+      height: 645px;
       max-width: 100%;
       margin: 0 auto;
+      z-index: 10;
     }
 
     .frame-outline-box {
       position: absolute;
       top: 0;
       left: 0;
-      width: 360px;
-      height: 510px;
+      width: 400px;
+      height: 600px;
       border: 1px solid #cfc5bb;
       z-index: 2;
       pointer-events: none;
@@ -419,10 +431,10 @@
 
     .frame-bg-tan-block {
       position: absolute;
-      top: 36px;
-      left: 36px;
-      width: 360px;
-      height: 510px;
+      top: 40px;
+      left: 40px;
+      width: 400px;
+      height: 600px;
       background: linear-gradient(145deg, #e4ded7 0%, #d8cec4 100%);
       border: 1px solid #d0c5ba;
       z-index: 1;
@@ -431,13 +443,13 @@
 
     .frame-photo-container {
       position: absolute;
-      top: 18px;
-      left: 18px;
-      width: 360px;
-      height: 510px;
+      top: 20px;
+      left: 20px;
+      width: 400px;
+      height: 600px;
       z-index: 3;
       background: #faf8f5;
-      box-shadow: 0 18px 48px rgba(0,0,0,0.09), 0 4px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.09), 0 4px 14px rgba(0,0,0,0.03);
       cursor: zoom-in;
       overflow: hidden;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -1513,6 +1525,10 @@
         grid-template-columns: 1fr;
         gap: 50px;
       }
+      .wix-layered-frame-wrapper {
+        position: relative;
+        top: auto;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1645,10 +1661,16 @@
           <!-- Bio Narrative Column -->
           <div class="about-bio-text" id="aboutBioContent">
             <p>
-              从孩提时代起，身为建筑师的父亲就教我透过设计的视角去观察世界。我们的家里摆满了建筑书籍和模型；我常听他讲述他的项目，那时我虽无法完全理解复杂的工程细节，却能深切感受到他对建筑那份极具感染力的热爱。无论我们去哪里旅行，从北京的央视大楼到巴黎的埃菲尔铁塔，他总会兴奋地停下脚步，向我们剖析身旁的建筑结构。我逐渐学会去觉察那些唯有建筑师才能看到的细节：楼梯的置入如何引导人们的动线，窗户如何将自然光引入室内，以及入口为何会朝向某一特定的方位。
+              我成长于南京明城墙脚下。斑驳的风化城砖、流转的光影与静谧的场域，最早启迪我将建筑视作超越实体构筑物的存在。随着时间推移，我逐渐学会去觉察那些唯有通过建筑师视线才能辨识的线索：楼梯如何塑形人们的行进动线，窗洞如何将光线引入室内，或者入口为何会朝向某一特定的方位。
             </p>
             <p>
-              如果说父亲塑造了我最初感知世界的方式，那么后来我便开始用自己的双眼去观察和体验这个世界。我回想起生命中最难忘的那些时刻——当我完全沉浸在当下环境之中：不论是伫立在雪山之巅眺望辽阔的天地，还是穿行在一座构思精妙的建筑之中。这些经历让我领悟到，空间深刻地影响着我们的情绪、思维以及与他人的连接方式。作为一名满怀憧憬的年轻建筑与空间创作者，我时刻关注人与周围环境的互动，探寻为何某些场所能激发灵感、抚慰心灵或令人久久难以忘怀。这份好奇心构成了我对建筑热情的基石。在设计实践中，我努力在创造力与实用性之间探寻平衡，打造能够回应人与周围环境的空间。我的目标是在材料与结构的自由探索中逐步建立属于自己的设计语言。
+              当逐渐形成属于自己的观察方式时，我发现与我内心产生最深共鸣的，始终是空间体验本身。我生命中最难忘的那些记忆，往往与全然沉浸于当下的“临在感”相连——例如伫立在雪山之巅眺望辽阔的天地，或是专注凝视光线、风声与声音如何重构我对某一场所的感知。我也由此产生好奇：建筑是否同样能够唤醒人对周围环境的敏锐感知，并让我们在空间中更加真切地体验当下？
+            </p>
+            <p>
+              正是这种临在感，塑造着我渴望成为的建筑师模样。我的追求不仅是打造满足功能需求或带来视觉美感的空间，更是激发使用者更深层的觉察力：对自我、对彼此、以及对周围自然环境的敏锐感知，让人在场所之中更深刻地立足。光线的幽微变幻、材料的肌理质感、向天空敞开的框景，或是静谧隐退的角落，都能引导人们驻足停歇，去觉察那些在匆忙中容易被忽视的日常细微。
+            </p>
+            <p>
+              建筑赋予我创造这种专注时刻的能力。在实践中，我渴望构建属于自己的设计语言——让人们不仅能栖居于空间之中，更能于其中获得深刻的精神感知与共鸣。
             </p>
           </div>
 
