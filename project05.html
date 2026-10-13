@@ -1194,43 +1194,46 @@
        8. PROJECT BOTTOM NAVIGATION STRIP
        ========================================================================== */
     .project-bottom-nav {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 0 32px 80px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border-line);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
     .project-nav-card {
       display: flex;
       align-items: center;
+      gap: 16px;
       padding: 18px 24px;
-      background: #ffffff;
       border: 1px solid var(--color-border-line);
-      border-radius: 4px;
+      background: #ffffff;
       transition: var(--transition);
-      max-width: 420px;
+      min-width: 280px;
     }
     .project-nav-card:hover {
       border-color: var(--color-text-black);
       background: var(--color-bg-subtle);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
     }
+
     .pnav-sub {
-      font-size: 11px;
       font-family: var(--font-display);
-      letter-spacing: 0.14em;
-      color: var(--color-text-muted);
+      font-size: 10px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      color: var(--color-text-dim);
     }
     .pnav-title {
-      font-size: 14px;
-      font-weight: 500;
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--color-text-black);
+      font-weight: 500;
     }
 
     /* ==========================================================================
@@ -1496,7 +1499,7 @@
       .wix-nav-container {
         padding: 0 20px;
       }
-      .hero-inner, .subnav-inner, .storyboard-wrapper, .project-bottom-nav, .wix-footer-area {
+      .hero-inner, .subnav-inner, .storyboard-wrapper, .wix-footer-area {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -2245,24 +2248,25 @@
             </div>
             
         </article>
-        
-  </main>
 
-  <!-- 5. PROJECT BOTTOM NAVIGATION STRIP -->
-  <nav class="project-bottom-nav">
-    <a href="project04.html" class="project-nav-card">
-      <div>
-        <div class="pnav-sub">&larr; Previous Project</div>
-        <div class="pnav-title">04 · Model Making</div>
-      </div>
-    </a>
-    <a href="project06.html" class="project-nav-card" style="margin-left: auto;">
-      <div style="text-align: right;">
-        <div class="pnav-sub">Next Project &rarr;</div>
-        <div class="pnav-title">06 · Visual Studies</div>
-      </div>
-    </a>
-  </nav>
+    <!-- 5. PROJECT NAVIGATION STRIP -->
+    <nav class="project-bottom-nav">
+      <a href="project04.html" class="project-nav-card">
+        <div>
+          <div class="pnav-sub">&larr; Previous Project</div>
+          <div class="pnav-title">04 &middot; Model Making</div>
+        </div>
+      </a>
+
+      <a href="project06.html" class="project-nav-card" style="margin-left: auto;">
+        <div style="text-align: right;">
+          <div class="pnav-sub">Next Project &rarr;</div>
+          <div class="pnav-title">06 &middot; Visual Studies</div>
+        </div>
+      </a>
+    </nav>
+
+  </main>
 
   <!-- 6. WIX FOOTER -->
   <footer class="wix-footer-area">
@@ -2290,9 +2294,9 @@
         <div class="footer-col-title">Navigation</div>
         <ul class="footer-link-list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#works">All Projects</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#works">View Works</a></li>
+          <li><a href="index.html#about">About the Artist</a></li>
+          <li><a href="mailto:formcr@126.com">Get in Touch</a></li>
         </ul>
       </div>
     </div>

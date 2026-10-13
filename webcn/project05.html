@@ -1194,43 +1194,45 @@
        8. PROJECT BOTTOM NAVIGATION STRIP
        ========================================================================== */
     .project-bottom-nav {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 0 32px 80px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border-line);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
     .project-nav-card {
       display: flex;
       align-items: center;
+      gap: 16px;
       padding: 18px 24px;
-      background: #ffffff;
       border: 1px solid var(--color-border-line);
-      border-radius: 4px;
+      background: #ffffff;
       transition: var(--transition);
-      max-width: 420px;
+      min-width: 280px;
     }
     .project-nav-card:hover {
       border-color: var(--color-text-black);
       background: var(--color-bg-subtle);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
     }
+
     .pnav-sub {
-      font-size: 11px;
       font-family: var(--font-display);
-      letter-spacing: 0.14em;
-      color: var(--color-text-muted);
+      font-size: 10px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      color: var(--color-text-dim);
     }
     .pnav-title {
-      font-size: 14px;
-      font-weight: 500;
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
       color: var(--color-text-black);
+      font-weight: 500;
     }
 
     /* ==========================================================================
@@ -1496,7 +1498,7 @@
       .wix-nav-container {
         padding: 0 20px;
       }
-      .hero-inner, .subnav-inner, .storyboard-wrapper, .project-bottom-nav, .wix-footer-area {
+      .hero-inner, .subnav-inner, .storyboard-wrapper, .wix-footer-area {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -2215,37 +2217,38 @@
             </div>
             
         </article>
-        
-  </main>
 
-  <!-- 5. PROJECT BOTTOM NAVIGATION STRIP -->
-  <nav class="project-bottom-nav">
-    <a href="project04.html" class="project-nav-card">
-      <div>
-        <div class="pnav-sub">&larr; 上一个项目</div>
-        <div class="pnav-title">04 · 手工模型合集</div>
-      </div>
-    </a>
-    <a href="project06.html" class="project-nav-card" style="margin-left: auto;">
-      <div style="text-align: right;">
-        <div class="pnav-sub">下一个项目 &rarr;</div>
-        <div class="pnav-title">06 · 摄影作品合集</div>
-      </div>
-    </a>
-  </nav>
+    <!-- 5. PROJECT NAVIGATION STRIP -->
+    <nav class="project-bottom-nav">
+      <a href="project04.html" class="project-nav-card">
+        <div>
+          <div class="pnav-sub">&larr; 上一个项目</div>
+          <div class="pnav-title">04 &middot; 手工模型合集</div>
+        </div>
+      </a>
+
+      <a href="project06.html" class="project-nav-card" style="margin-left: auto;">
+        <div style="text-align: right;">
+          <div class="pnav-sub">下一个项目 &rarr;</div>
+          <div class="pnav-title">06 &middot; 摄影作品合集</div>
+        </div>
+      </a>
+    </nav>
+
+  </main>
 
   <!-- 6. WIX FOOTER -->
   <footer class="wix-footer-area">
     <div class="footer-content-grid">
       <div>
-        <div class="footer-brand-title">Churan (Olivia) Ma</div>
+        <div class="footer-brand-title">马楚然 (Olivia Ma)</div>
         <p class="footer-brand-desc">
-          建筑设计与视觉艺术作品集，探讨空间围合、动态阈值与日常身体规训。
+          建筑与视觉艺术作品集，探索空间围合、动力学阈值与日常身体规训。
         </p>
       </div>
 
       <div>
-                        <div class="footer-col-title">作品集项目</div>
+        <div class="footer-col-title">作品集项目</div>
         <ul class="footer-link-list">
           <li><a href="project01.html">01 &middot; 塞拉峡谷校园改造：诊断</a></li>
           <li><a href="project02.html">02 &middot; 塞拉峡谷校园改造：设计介入</a></li>
@@ -2257,21 +2260,21 @@
       </div>
 
       <div>
-        <div class="footer-col-title">导航</div>
+        <div class="footer-col-title">快速导航</div>
         <ul class="footer-link-list">
           <li><a href="index.html">首页</a></li>
-          <li><a href="index.html#works">全部项目</a></li>
+          <li><a href="index.html#works">浏览作品</a></li>
           <li><a href="index.html#about">关于我</a></li>
-          <li><a href="index.html#contact">联系</a></li>
+          <li><a href="mailto:formcr@126.com">联系作者</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom-bar">
-      <div>&copy; 2026 Churan (Olivia) Ma. All rights reserved.</div>
+      <div>&copy; 2026 马楚然 (Olivia Ma). 保留所有权利.</div>
       <div class="footer-nav-jump">
-        <a href="#top">回到顶部 ↑</a>
-        <a href="index.html#works">← 返回全部作品</a>
+        <a href="#top">返回顶部 &uarr;</a>
+        <a href="index.html#works">&larr; 返回全部作品</a>
       </div>
     </div>
   </footer>
