@@ -1686,11 +1686,11 @@
           <!-- CARD 1: SIERRA CANYON CAMPUS RECONFIGURATION: DIAGNOSIS (Position 1) -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project01.html'">
-              <img src="assets/projects/project01/01.jpg" alt="Campus Reconfiguration: Diagnosis">
+              <img src="assets/projects/project01/01.jpg" alt="Sierra Canyon Campus Reconfiguration: Diagnosis">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Campus Reconfiguration: Diagnosis</h3>
+                <h3 class="card-work-title">Sierra Canyon Campus Reconfiguration: Diagnosis</h3>
                 <div class="card-work-medium">Spatial Diagnosis — Everyday Frictions</div>
               </div>
               <a href="project01.html" class="btn-show-more">
@@ -1718,11 +1718,11 @@
           <!-- CARD 3: TRANSLATION / WOODEN STRUCTURE TRANSLATION (Position 3) -->
           <article class="wix-work-card">
             <div class="card-thumb-frame" onclick="window.location.href='project03.html'">
-              <img src="assets/projects/project03/07.jpg" alt="Translation">
+              <img src="assets/projects/project03/07.jpg" alt="Wooden Structure Translation">
             </div>
             <div class="card-info-pane">
               <div>
-                <h3 class="card-work-title">Translation</h3>
+                <h3 class="card-work-title">Wooden Structure Translation</h3>
                 <div class="card-work-medium">A Multi-functional Wooden Structure at the Foot of the Ming City Wall</div>
               </div>
               <a href="project03.html" class="btn-show-more">
@@ -1799,8 +1799,8 @@
       <div>
                 <div class="footer-col-title">Portfolio Projects</div>
         <ul class="footer-link-list">
-          <li><a href="project01.html">01 &middot; Sierra Canyon: Diagnosis</a></li>
-          <li><a href="project02.html">02 &middot; Sierra Canyon: Design Interventions</a></li>
+          <li><a href="project01.html">01 &middot; Sierra Canyon Campus Reconfiguration: Diagnosis</a></li>
+          <li><a href="project02.html">02 &middot; Sierra Canyon Campus Reconfiguration: Design Interventions</a></li>
           <li><a href="project03.html">03 &middot; Wooden Structure Translation</a></li>
           <li><a href="project04.html">04 &middot; Model Making</a></li>
           <li><a href="project05.html">05 &middot; The Blurred Boundary</a></li>
@@ -2269,11 +2269,11 @@
 
 <!-- JAVASCRIPT LOGIC -->
   <script>
-    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V22";
+    const STORAGE_KEY = "CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V25";
     const AUTH_KEY = "CHURAN_OLIVIA_MA_AUTH_STATUS";
 
     const INITIAL_SEED_DATA = {
-      version: "22.0",
+      version: "23.0",
       siteInfo: {
         artistName: "Churan (Olivia) Ma",
         navBrand: "Churan (Olivia) Ma",
@@ -2342,7 +2342,7 @@
         {
           id: "proj-1",
           categoryId: "cat-urban",
-          title: "Campus Reconfiguration: Diagnosis",
+          title: "Sierra Canyon Campus Reconfiguration: Diagnosis",
           subtitle: "Spatial Diagnosis — Everyday Frictions",
           year: "2026",
           medium: "Time-Space Behavioral Mapping, Axonometric Survey & Flow Diagnosis",
@@ -2395,7 +2395,7 @@
         {
           id: "proj-3",
           categoryId: "cat-arch",
-          title: "Translation",
+          title: "Wooden Structure Translation",
           subtitle: "A Multi-functional Wooden Structure at the Foot of the Ming City Wall",
           year: "2026",
           medium: "Glulam Arches, Tensile Membrane & Central Kinetic Stage",
@@ -2547,6 +2547,9 @@
 
     function initData() {
       try {
+        ['CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V22', 'CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_V23', 'CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_CN_V22', 'CHURAN_OLIVIA_MA_PORTFOLIO_CMS_DATA_CN_V23', 'CHURAN_OLIVIA_MA_PORTFOLIO_DATA'].forEach(k => {
+          try { localStorage.removeItem(k); } catch(e){}
+        });
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
           const parsed = JSON.parse(saved);
@@ -2559,6 +2562,12 @@
         } else {
           state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
           saveData();
+        }
+        if (state.data && state.data.artworks && state.data.artworks[3]) {
+          if (state.data.artworks[3].coverImage && state.data.artworks[3].coverImage.includes('01.jpg')) {
+            state.data.artworks[3].coverImage = state.data.artworks[3].coverImage.replace('01.jpg', '05.jpg');
+            saveData();
+          }
         }
       } catch(e) {
         state.data = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
