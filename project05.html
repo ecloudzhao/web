@@ -124,7 +124,7 @@
     .wix-nav-menu {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       list-style: none;
     }
 
@@ -138,10 +138,11 @@
       font-weight: 400;
       letter-spacing: 0.05em;
       color: var(--color-text-body);
+      text-transform: capitalize;
       transition: var(--transition);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       padding: 6px 0;
     }
 
@@ -161,11 +162,13 @@
       background: var(--color-text-black);
     }
 
-    /* Wix Dropdown Menu */
-    .wix-dropdown:hover .wix-dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+    .wix-dropdown-trigger svg {
+      width: 10px;
+      height: 10px;
+      transition: transform 0.2s;
+    }
+    .wix-dropdown:hover .wix-dropdown-trigger svg {
+      transform: rotate(180deg);
     }
 
     .wix-dropdown-menu {
@@ -173,48 +176,60 @@
       top: 100%;
       left: 0;
       background: #ffffff;
+      min-width: 260px;
+      padding: 12px 0;
       border: 1px solid var(--color-border-line);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      border-radius: 2px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
       list-style: none;
-      padding: 10px 0;
-      min-width: 300px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: all 0.25s ease;
-      z-index: 1010;
+      display: none;
+      z-index: 1001;
+    }
+
+    .wix-dropdown:hover .wix-dropdown-menu {
+      display: block;
     }
 
     .wix-dropdown-item a {
       display: block;
-      padding: 9px 20px;
-      font-size: 12.5px;
-      color: var(--color-text-body);
-      transition: background 0.2s, color 0.2s;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+      line-height: 1.4;
+    }
+    .wix-dropdown-item a strong {
+      display: block;
+      color: var(--color-text-black);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .wix-dropdown-item a span {
+      font-size: 11px;
+      color: #888;
     }
     .wix-dropdown-item a:hover {
       background: var(--color-bg-subtle);
-      color: var(--color-text-black);
     }
 
     .nav-btn-back {
-      font-size: 11.5px;
       font-family: var(--font-display);
-      letter-spacing: 0.08em;
-      padding: 6px 14px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 7px 16px;
       border: 1px solid var(--color-border-line);
-      border-radius: 2px;
+      background: transparent;
       color: var(--color-text-black);
+      transition: var(--transition);
+      border-radius: 2px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: var(--transition);
-      background: #ffffff;
     }
     .nav-btn-back:hover {
-      background: var(--color-wix-banner);
-      border-color: var(--color-bar-accent);
+      background: var(--color-text-black);
+      color: #ffffff;
+      border-color: var(--color-text-black);
     }
 
     /* ==========================================================================
@@ -1521,17 +1536,16 @@
   <!-- 1. FIXED WIX NAVBAR -->
   <header>
     <div class="wix-nav-container">
-      <nav>
-        <ul class="wix-nav-menu">
-          <li class="wix-nav-item">
-            <a href="index.html" class="wix-nav-link">Home</a>
-          </li>
-          <li class="wix-nav-item wix-dropdown">
-            <a href="index.html#works" class="wix-nav-link active">
-              All Projects
-              <svg viewBox="0 0 10 6" fill="currentColor" style="width:8px; height:5px;"><path d="M0 0l5 5 5-5z"/></svg>
-            </a>
-            <ul class="wix-dropdown-menu">
+      <ul class="wix-nav-menu">
+        <li class="wix-nav-item">
+          <a href="index.html" class="nav-btn-back">&larr; Portfolio Home</a>
+        </li>
+        <li class="wix-nav-item wix-dropdown">
+          <a href="index.html#works" class="wix-nav-link wix-dropdown-trigger">
+            All Projects
+            <svg viewBox="0 0 10 6" fill="none" stroke="currentColor"><path d="M1 1L5 5L9 1" stroke-width="1.5"/></svg>
+          </a>
+          <ul class="wix-dropdown-menu">
             <li class="wix-dropdown-item">
               <a href="project01.html">
                 <strong>Ⅰ. Sierra Canyon Campus Reconfiguration: Diagnosis</strong>
@@ -1569,24 +1583,17 @@
               </a>
             </li>
           </ul>
-          </li>
-          <li class="wix-nav-item">
-            <a href="index.html#about" class="wix-nav-link">About</a>
-          </li>
-          <li class="wix-nav-item">
-            <a href="index.html#contact" class="wix-nav-link">Contact</a>
-          </li>
-          <li class="wix-nav-item">
-            <a href="index.html#works" class="nav-btn-back">
-              <span>&larr;</span> Back to Works
-            </a>
-          </li>
-        </ul>
-      </nav>
+        </li>
+      </ul>
 
-      <a href="index.html" class="wix-brand-link" aria-label="Portfolio Homepage">
-        <svg class="wix-star-icon" viewBox="0 0 24 24">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      <a href="index.html" class="wix-brand-link">
+        <svg class="wix-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="50,5 95,50 50,95 5,50" stroke="#000000" fill="none"/>
+          <polygon points="50,20 80,50 50,80 20,50" stroke="#000000" fill="none"/>
+          <line x1="50" y1="5" x2="50" y2="95" stroke="#000000"/>
+          <line x1="5" y1="50" x2="95" y2="50" stroke="#000000"/>
+          <line x1="18" y1="18" x2="82" y2="82" stroke="#000000"/>
+          <line x1="18" y1="82" x2="82" y2="18" stroke="#000000"/>
         </svg>
         <span class="wix-brand-text">Churan (Olivia) Ma</span>
       </a>
