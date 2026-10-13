@@ -670,152 +670,167 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(14, 13, 12, 0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 17, 16, 0.94);
+      backdrop-filter: blur(10px);
       z-index: 2000;
       display: none;
-      opacity: 0;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      justify-content: center;
       align-items: center;
-      user-select: none;
+      justify-content: center;
+      padding: 30px;
     }
-
-    .lightbox-backdrop.active {
+    .lightbox-backdrop.show {
       display: flex;
-      opacity: 1;
     }
 
     .lightbox-content-box {
+      max-width: 92vw;
+      max-height: 90vh;
       position: relative;
-      width: 95vw;
-      height: 92vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox-img-wrapper {
-      position: relative;
-      width: 100%;
-      height: calc(100% - 60px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      cursor: grab;
-    }
-
-    .lightbox-img-wrapper.is-dragging {
-      cursor: grabbing;
-    }
-
-    .lightbox-img-wrapper img {
-      max-width: 96%;
-      max-height: 96%;
-      object-fit: contain;
-      transform-origin: center center;
-      transition: transform 0.08s ease-out;
-      will-change: transform;
-      user-select: none;
-      -webkit-user-drag: none;
     }
 
     .lightbox-close-btn {
-      position: absolute;
-      top: -36px;
-      right: 0;
-      background: transparent;
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      background: none;
       border: none;
       color: #ffffff;
-      font-size: 30px;
+      font-size: 36px;
       cursor: pointer;
       line-height: 1;
-      padding: 6px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
       z-index: 2010;
+    }
+    .lightbox-close-btn:hover {
+      opacity: 1;
     }
 
     .lightbox-nav-btn {
-      position: absolute;
+      position: fixed;
       top: 50%;
       transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 18px;
-      transition: all 0.2s;
+      transition: var(--transition);
       z-index: 2010;
+      backdrop-filter: blur(4px);
     }
     .lightbox-nav-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.25);
       transform: translateY(-50%) scale(1.08);
     }
-    .lightbox-prev-btn { left: -10px; }
-    .lightbox-next-btn { right: -10px; }
+    .lightbox-prev-btn { left: 24px; }
+    .lightbox-next-btn { right: 24px; }
 
-    @media (max-width: 860px) {
-      .lightbox-prev-btn { left: 10px; }
-      .lightbox-next-btn { right: 10px; }
+    .lightbox-img-wrapper {
+      max-width: 100%;
+      max-height: 74vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    #lightbox-current-img {
+      max-width: 100%;
+      max-height: 74vh;
+      object-fit: contain;
+      cursor: grab;
+      will-change: transform;
+      transform-origin: center center;
+    }
+    #lightbox-current-img.is-zoomed {
+      cursor: grab;
+    }
+    #lightbox-current-img.is-dragging {
+      cursor: grabbing !important;
+      user-select: none;
     }
 
     .lightbox-zoom-toolbar {
-      display: inline-flex;
+      position: fixed;
+      bottom: 24px;
+      left: 28px;
+      display: flex;
       align-items: center;
       gap: 8px;
-      margin-top: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(25, 24, 23, 0.82);
       backdrop-filter: blur(8px);
-      border-radius: 30px;
-      padding: 4px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+      padding: 5px 10px;
       z-index: 2010;
     }
 
     .lightbox-zoom-btn {
-      background: transparent;
+      background: none;
       border: none;
       color: #ffffff;
-      font-size: 16px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: inline-flex;
+      width: 26px;
+      height: 26px;
+      display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.2s;
+      opacity: 0.85;
+      transition: opacity 0.2s, background-color 0.2s;
+      border-radius: 2px;
     }
     .lightbox-zoom-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .lightbox-zoom-badge {
-      font-size: 12px;
+      font-family: var(--font-sans);
+      font-size: 11px;
       color: #ffffff;
-      font-weight: 500;
-      min-width: 46px;
+      min-width: 44px;
       text-align: center;
+      letter-spacing: 0.5px;
+      font-weight: 500;
       cursor: pointer;
-      padding: 2px 6px;
-      border-radius: 4px;
+      user-select: none;
+      padding: 2px 4px;
+    }
+
+    .lightbox-caption-text {
+      color: #ffffff;
+      margin-top: 14px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      text-align: center;
+      max-width: 800px;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
     }
 
     .lightbox-zoom-hint {
-      font-size: 11px;
       color: rgba(255, 255, 255, 0.5);
-      letter-spacing: 0.05em;
+      font-size: 11px;
+      letter-spacing: 0.5px;
       margin-top: 6px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
     }
   </style>
 </head>
@@ -1123,231 +1138,309 @@
     </div>
   </footer>
 
-  <!-- 7. LIGHTBOX MODAL -->
+  <!-- 7. LIGHTBOX MODAL WITH ZOOM & PAN -->
   <div class="lightbox-backdrop" id="lightbox-modal">
     <div class="lightbox-content-box" onclick="event.stopPropagation()">
       <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="关闭">&times;</button>
       <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="lightboxNavigate(-1)" aria-label="上一张">&#10094;</button>
       <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="lightboxNavigate(1)" aria-label="下一张">&#10095;</button>
 
-      <div class="lightbox-img-wrapper" id="lightboxWrapper">
+      <div class="lightbox-img-wrapper">
         <img id="lightbox-current-img" src="" alt="大图浏览">
       </div>
 
-      <!-- Zoom Toolbar -->
+      <!-- Zoom Toolbar & Hint -->
       <div class="lightbox-zoom-toolbar">
         <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(-1)" aria-label="缩小" title="缩小">&minus;</button>
         <span class="lightbox-zoom-badge" id="lightbox-zoom-level" onclick="resetLightboxZoom()" title="点击恢复 100%">100%</span>
         <button type="button" class="lightbox-zoom-btn" onclick="lightboxZoomStep(1)" aria-label="放大" title="放大">&plus;</button>
         <button type="button" class="lightbox-zoom-btn" onclick="resetLightboxZoom()" aria-label="复位" title="复位">&#x21bb;</button>
       </div>
-      <div class="lightbox-zoom-hint">滚轮缩放 &bull; 拖拽平移 &bull; 双击复位</div>
+
+      <div class="lightbox-caption-text" id="lightbox-caption"></div>
+      <div class="lightbox-zoom-hint">滚轮缩放 &middot; 拖拽平移 &middot; 双击复位</div>
     </div>
   </div>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
     // 13 PLATES DATASET
-    const projectPlates = [
-      { num: 1, src: "../assets/projects/project02/01.jpg", title: "展板 01: 校园立体慢行飘带概念生成与鸟瞰总图" },
-      { num: 2, src: "../assets/projects/project02/02.jpg", title: "展板 02: 峡谷岩层形态转译与折面体量生成逻辑" },
-      { num: 3, src: "../assets/projects/project02/03.jpg", title: "展板 03: 校园总平面图与三维地形整合" },
-      { num: 4, src: "../assets/projects/project02/04.jpg", title: "展板 04: 首层与地下剧场精密建筑平面图" },
-      { num: 5, src: "../assets/projects/project02/05.jpg", title: "展板 05: 二层与三层视觉艺术工作室及露台平面" },
-      { num: 6, src: "../assets/projects/project02/06.jpg", title: "展板 06: 全景主剖面图与峡谷坡地自然排水拔风" },
-      { num: 7, src: "../assets/projects/project02/07.jpg", title: "展板 07: 建筑东西正立面与耐候折面幕墙肌理" },
-      { num: 8, src: "../assets/projects/project02/08.jpg", title: "展板 08: S-C 结构慢行悬索桥节点与落柱细部" },
-      { num: 9, src: "../assets/projects/project02/09.jpg", title: "展板 09: 1:100 手工实体模型：总体形态与材质肌理" },
-      { num: 10, src: "../assets/projects/project02/10.jpg", title: "展板 10: 实体模型剖切：阶梯剧场与空中展廊光影空间" },
-      { num: 11, src: "../assets/projects/project02/11.jpg", title: "展板 11: 实体模型近景特写：立面折板与峡谷光影穿透" },
-      { num: 12, src: "../assets/projects/project02/12.jpg", title: "展板 12: 黄昏实景灯光模型：暗室发光与立体层次" },
-      { num: 13, src: "../assets/projects/project02/13.jpg", title: "展板 13: 暮色鸟瞰氛围与校园落日透视漫游" }
+    const allGalleryImages = [
+      { src: "../assets/projects/project02/01.jpg", caption: "展板 01: 校园立体慢行飘带概念生成与鸟瞰总图" },
+      { src: "../assets/projects/project02/02.jpg", caption: "展板 02: 峡谷岩层形态转译与折面体量生成逻辑" },
+      { src: "../assets/projects/project02/03.jpg", caption: "展板 03: 校园总平面图与三维地形整合" },
+      { src: "../assets/projects/project02/04.jpg", caption: "展板 04: 首层与地下剧场精密建筑平面图" },
+      { src: "../assets/projects/project02/05.jpg", caption: "展板 05: 二层与三层视觉艺术工作室及露台平面" },
+      { src: "../assets/projects/project02/06.jpg", caption: "展板 06: 全景主剖面图与峡谷坡地自然排水拔风" },
+      { src: "../assets/projects/project02/07.jpg", caption: "展板 07: 建筑东西正立面与耐候折面幕墙肌理" },
+      { src: "../assets/projects/project02/08.jpg", caption: "展板 08: S-C 结构慢行悬索桥节点与落柱细部" },
+      { src: "../assets/projects/project02/09.jpg", caption: "展板 09: 1:100 手工实体模型：总体形态与材质肌理" },
+      { src: "../assets/projects/project02/10.jpg", caption: "展板 10: 实体模型剖切：阶梯剧场与空中展廊光影空间" },
+      { src: "../assets/projects/project02/11.jpg", caption: "展板 11: 实体模型近景特写：立面折板与峡谷光影穿透" },
+      { src: "../assets/projects/project02/12.jpg", caption: "展板 12: 黄昏实景灯光模型：暗室发光与立体层次" },
+      { src: "../assets/projects/project02/13.jpg", caption: "展板 13: 暮色鸟瞰氛围与校园落日透视漫游" }
     ];
+    const projectPlates = allGalleryImages;
 
-    let currentPlateIndex = 0;
-
-    // LIGHTBOX & INTERACTIVE ZOOM / DRAG STATE
+    let currentLightboxIdx = 0;
     let lbScale = 1.0;
-    let lbTransX = 0;
-    let lbTransY = 0;
+    let lbTranslateX = 0;
+    let lbTranslateY = 0;
     let lbIsDragging = false;
     let lbStartX = 0;
     let lbStartY = 0;
-    let lbInitialTransX = 0;
-    let lbInitialTransY = 0;
-    let lbActivePointerId = null;
+    let lbDragBaseX = 0;
+    let lbDragBaseY = 0;
 
-    const modal = document.getElementById("lightbox-modal");
-    const currentImg = document.getElementById("lightbox-current-img");
-    const wrapper = document.getElementById("lightboxWrapper");
-    const zoomLevelText = document.getElementById("lightbox-zoom-level");
+    function applyLightboxTransform(smooth = true) {
+      const img = document.getElementById('lightbox-current-img');
+      const badge = document.getElementById('lightbox-zoom-level');
+      if (!img) return;
 
-    function applyTransform(withTransition = false) {
-      if (!currentImg) return;
-      currentImg.style.transition = withTransition ? "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)" : "none";
-      currentImg.style.transform = `translate(${lbTransX}px, ${lbTransY}px) scale(${lbScale})`;
-      if (zoomLevelText) {
-        zoomLevelText.innerText = Math.round(lbScale * 100) + "%";
+      if (smooth) {
+        img.style.transition = 'transform 0.08s ease-out';
+      } else {
+        img.style.transition = 'none';
+      }
+
+      img.style.transform = `translate(${lbTranslateX}px, ${lbTranslateY}px) scale(${lbScale})`;
+
+      if (lbScale > 1.02) {
+        img.classList.add('is-zoomed');
+      } else {
+        img.classList.remove('is-zoomed');
+      }
+
+      if (badge) {
+        badge.textContent = Math.round(lbScale * 100) + '%';
       }
     }
 
-    function clampTranslation() {
-      if (!wrapper || !currentImg || lbScale <= 1.0) {
-        lbTransX = 0;
-        lbTransY = 0;
+    function clampLightboxTranslation() {
+      const img = document.getElementById('lightbox-current-img');
+      const wrapper = img ? img.parentElement : null;
+      if (!img || !wrapper) return;
+
+      if (lbScale <= 1.0) {
+        lbTranslateX = 0;
+        lbTranslateY = 0;
         return;
       }
-      const rect = wrapper.getBoundingClientRect();
-      const scaledW = currentImg.offsetWidth * lbScale;
-      const scaledH = currentImg.offsetHeight * lbScale;
 
-      const maxDragX = Math.max(0, (scaledW - rect.width) / 2 + 100);
-      const maxDragY = Math.max(0, (scaledH - rect.height) / 2 + 100);
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const naturalW = img.offsetWidth || wrapperRect.width;
+      const naturalH = img.offsetHeight || wrapperRect.height;
+      const scaledW = naturalW * lbScale;
+      const scaledH = naturalH * lbScale;
 
-      lbTransX = Math.min(Math.max(lbTransX, -maxDragX), maxDragX);
-      lbTransY = Math.min(Math.max(lbTransY, -maxDragY), maxDragY);
+      const maxPanX = Math.max(0, (scaledW - wrapperRect.width) / 2) + Math.min(wrapperRect.width * 0.4, 160);
+      const maxPanY = Math.max(0, (scaledH - wrapperRect.height) / 2) + Math.min(wrapperRect.height * 0.4, 160);
+
+      lbTranslateX = Math.max(-maxPanX, Math.min(maxPanX, lbTranslateX));
+      lbTranslateY = Math.max(-maxPanY, Math.min(maxPanY, lbTranslateY));
     }
 
     function resetLightboxZoom() {
       lbScale = 1.0;
-      lbTransX = 0;
-      lbTransY = 0;
-      applyTransform(true);
-      wrapper.classList.remove("is-dragging");
+      lbTranslateX = 0;
+      lbTranslateY = 0;
+      applyLightboxTransform(true);
     }
 
-    function lightboxZoomStep(direction) {
-      const step = 0.3;
-      let newScale = lbScale + direction * step;
-      if (newScale < 0.6) newScale = 0.6;
-      if (newScale > 5.0) newScale = 5.0;
-      lbScale = newScale;
-      if (lbScale <= 1.0) {
-        lbTransX = 0;
-        lbTransY = 0;
-      } else {
-        clampTranslation();
+    function zoomLightboxAt(targetScale, clientX, clientY) {
+      const img = document.getElementById('lightbox-current-img');
+      if (!img) return;
+
+      targetScale = Math.max(1.0, Math.min(6.0, targetScale));
+
+      if (targetScale <= 1.01) {
+        resetLightboxZoom();
+        return;
       }
-      applyTransform(true);
+
+      const rect = img.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      const mouseX = (clientX !== undefined ? clientX : cx) - cx;
+      const mouseY = (clientY !== undefined ? clientY : cy) - cy;
+
+      const scaleRatio = targetScale / lbScale;
+      lbTranslateX = mouseX - (mouseX - lbTranslateX) * scaleRatio;
+      lbTranslateY = mouseY - (mouseY - lbTranslateY) * scaleRatio;
+      lbScale = targetScale;
+
+      clampLightboxTranslation();
+      applyLightboxTransform(true);
     }
 
-    function openLightbox(src, title) {
-      const foundIdx = projectPlates.findIndex(p => p.src === src);
-      currentPlateIndex = foundIdx !== -1 ? foundIdx : 0;
-      currentImg.src = projectPlates[currentPlateIndex].src;
-      currentImg.alt = projectPlates[currentPlateIndex].title;
+    function lightboxZoomStep(step) {
+      const factor = step > 0 ? 1.25 : (1 / 1.25);
+      const img = document.getElementById('lightbox-current-img');
+      const rect = img ? img.getBoundingClientRect() : null;
+      const cx = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+      const cy = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+      zoomLightboxAt(lbScale * factor, cx, cy);
+    }
+
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-current-img');
+      const cap = document.getElementById('lightbox-caption');
+      if (!modal || !img) return;
+
+      let foundIdx = allGalleryImages.findIndex(item => item.src === src || (src && item.src && (src.endsWith(item.src) || item.src.endsWith(src))));
+      if (foundIdx === -1) {
+        foundIdx = 0;
+      }
+      currentLightboxIdx = foundIdx;
+
       resetLightboxZoom();
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
+      img.src = src;
+
+      const itemTitle = (allGalleryImages[foundIdx] && allGalleryImages[foundIdx].caption) ? allGalleryImages[foundIdx].caption : '';
+      const displayCaption = (itemTitle && (!caption || caption.startsWith('Page '))) ? itemTitle : (caption || itemTitle);
+      if (cap) {
+        cap.innerHTML = displayCaption;
+      }
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal) return;
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
       resetLightboxZoom();
     }
 
-    function lightboxNavigate(dir) {
-      currentPlateIndex += dir;
-      if (currentPlateIndex < 0) currentPlateIndex = projectPlates.length - 1;
-      if (currentPlateIndex >= projectPlates.length) currentPlateIndex = 0;
-      currentImg.src = projectPlates[currentPlateIndex].src;
-      currentImg.alt = projectPlates[currentPlateIndex].title;
+    function lightboxNavigate(delta) {
+      if (!allGalleryImages || allGalleryImages.length === 0) return;
+
+      currentLightboxIdx += delta;
+      if (currentLightboxIdx < 0) currentLightboxIdx = allGalleryImages.length - 1;
+      if (currentLightboxIdx >= allGalleryImages.length) currentLightboxIdx = 0;
+
+      const item = allGalleryImages[currentLightboxIdx];
+      const img = document.getElementById('lightbox-current-img');
+      const cap = document.getElementById('lightbox-caption');
+
       resetLightboxZoom();
-    }
-
-    // MOUSE WHEEL ZOOM
-    wrapper.addEventListener("wheel", function(e) {
-      e.preventDefault();
-      const rect = wrapper.getBoundingClientRect();
-      const pointerX = e.clientX - rect.left - rect.width / 2;
-      const pointerY = e.clientY - rect.top - rect.height / 2;
-
-      const zoomFactor = e.deltaY < 0 ? 1.18 : 0.85;
-      let newScale = lbScale * zoomFactor;
-      if (newScale < 0.6) newScale = 0.6;
-      if (newScale > 5.5) newScale = 5.5;
-
-      if (newScale > 1.0) {
-        lbTransX = pointerX - (pointerX - lbTransX) * (newScale / lbScale);
-        lbTransY = pointerY - (pointerY - lbTransY) * (newScale / lbScale);
-      } else {
-        lbTransX = 0;
-        lbTransY = 0;
+      if (img && item) {
+        img.src = item.src;
       }
-
-      lbScale = newScale;
-      clampTranslation();
-      applyTransform(false);
-    }, { passive: false });
-
-    // POINTER DRAG PANNING (WITH POINTER CAPTURE)
-    wrapper.addEventListener("pointerdown", function(e) {
-      if (e.button !== 0) return;
-      lbActivePointerId = e.pointerId;
-      try { wrapper.setPointerCapture(e.pointerId); } catch (err) {}
-      lbIsDragging = true;
-      lbStartX = e.clientX;
-      lbStartY = e.clientY;
-      lbInitialTransX = lbTransX;
-      lbInitialTransY = lbTransY;
-      wrapper.classList.add("is-dragging");
-    });
-
-    wrapper.addEventListener("pointermove", function(e) {
-      if (!lbIsDragging || e.pointerId !== lbActivePointerId) return;
-      const dx = e.clientX - lbStartX;
-      const dy = e.clientY - lbStartY;
-      lbTransX = lbInitialTransX + dx;
-      lbTransY = lbInitialTransY + dy;
-      clampTranslation();
-      applyTransform(false);
-    });
-
-    function endDrag(e) {
-      if (e && e.pointerId !== lbActivePointerId) return;
-      if (lbIsDragging) {
-        lbIsDragging = false;
-        wrapper.classList.remove("is-dragging");
-        try { if (lbActivePointerId !== null) wrapper.releasePointerCapture(lbActivePointerId); } catch (err) {}
-        lbActivePointerId = null;
-        clampTranslation();
-        applyTransform(true);
+      if (cap && item) {
+        cap.innerHTML = item.caption;
       }
     }
 
-    wrapper.addEventListener("pointerup", endDrag);
-    wrapper.addEventListener("pointercancel", endDrag);
+    (function initLightboxInteractions() {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-current-img');
+      if (!modal || !img) return;
 
-    // DOUBLE CLICK ZOOM
-    wrapper.addEventListener("dblclick", function(e) {
-      if (lbScale > 1.1) {
-        resetLightboxZoom();
-      } else {
-        lbScale = 2.4;
-        const rect = wrapper.getBoundingClientRect();
-        const pointerX = e.clientX - rect.left - rect.width / 2;
-        const pointerY = e.clientY - rect.top - rect.height / 2;
-        lbTransX = -pointerX * 0.8;
-        lbTransY = -pointerY * 0.8;
-        clampTranslation();
-        applyTransform(true);
+      let lbMouseDownTarget = null;
+      let lbDidDrag = false;
+      let lbDragEndTime = 0;
+
+      modal.addEventListener('mousedown', function(e) {
+        lbMouseDownTarget = e.target;
+      });
+
+      modal.addEventListener('click', function(e) {
+        if (e.target.closest('.lightbox-close-btn')) {
+          closeLightbox();
+          return;
+        }
+        if (lbDidDrag || (Date.now() - lbDragEndTime < 300)) {
+          return;
+        }
+        if (e.target === modal && lbMouseDownTarget === modal) {
+          closeLightbox();
+        }
+      });
+
+      modal.addEventListener('wheel', function(e) {
+        if (!modal.classList.contains('show')) return;
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.18 : (1 / 1.18);
+        zoomLightboxAt(lbScale * factor, e.clientX, e.clientY);
+      }, { passive: false });
+
+      img.addEventListener('pointerdown', function(e) {
+        if (lbScale > 1.02 && e.button === 0) {
+          lbIsDragging = true;
+          lbDidDrag = false;
+          lbStartX = e.clientX;
+          lbStartY = e.clientY;
+          lbDragBaseX = lbTranslateX;
+          lbDragBaseY = lbTranslateY;
+          try {
+            img.setPointerCapture(e.pointerId);
+          } catch (err) {}
+          img.classList.add('is-dragging');
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+
+      img.addEventListener('pointermove', function(e) {
+        if (lbIsDragging) {
+          const dx = e.clientX - lbStartX;
+          const dy = e.clientY - lbStartY;
+          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+            lbDidDrag = true;
+          }
+          lbTranslateX = lbDragBaseX + dx;
+          lbTranslateY = lbDragBaseY + dy;
+          clampLightboxTranslation();
+          applyLightboxTransform(false);
+        }
+      });
+
+      function finishPointerDrag(e) {
+        if (lbIsDragging) {
+          lbIsDragging = false;
+          if (lbDidDrag) {
+            lbDragEndTime = Date.now();
+          }
+          try {
+            if (img.hasPointerCapture(e.pointerId)) {
+              img.releasePointerCapture(e.pointerId);
+            }
+          } catch (err) {}
+          img.classList.remove('is-dragging');
+          clampLightboxTranslation();
+          applyLightboxTransform(true);
+          setTimeout(() => { lbDidDrag = false; }, 250);
+        }
       }
-    });
 
-    // KEYBOARD NAVIGATION
-    window.addEventListener("keydown", function(e) {
-      if (!modal.classList.contains("active")) return;
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowLeft") lightboxNavigate(-1);
-      if (e.key === "ArrowRight") lightboxNavigate(1);
-      if (e.key === "+" || e.key === "=") lightboxZoomStep(1);
-      if (e.key === "-" || e.key === "_") lightboxZoomStep(-1);
-      if (e.key === "0") resetLightboxZoom();
-    });
+      img.addEventListener('pointerup', finishPointerDrag);
+      img.addEventListener('pointercancel', finishPointerDrag);
 
-    modal.addEventListener("click", function(e) {
-      if (e.target === modal) closeLightbox();
+      img.addEventListener('dblclick', function(e) {
+        e.preventDefault();
+        if (lbScale > 1.05) {
+          resetLightboxZoom();
+        } else {
+          zoomLightboxAt(2.5, e.clientX, e.clientY);
+        }
+      });
+    })();
+
+    window.addEventListener('keydown', function(e) {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal && modal.classList.contains('show')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxNavigate(-1);
+        if (e.key === 'ArrowRight') lightboxNavigate(1);
+        if (e.key === '+' || e.key === '=') lightboxZoomStep(1);
+        if (e.key === '-' || e.key === '_') lightboxZoomStep(-1);
+        if (e.key === '0') resetLightboxZoom();
+      }
     });
   </script>
 </body>
