@@ -415,37 +415,43 @@
       padding: 60px 32px 100px;
     }
 
-    .project-essay-card {
-      margin-bottom: 70px;
+    .project-statement-card {
+      margin-bottom: 60px;
       background: #ffffff;
-      border: 1px solid var(--color-border-line);
-      padding: 44px 48px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+      border: 1px solid var(--color-border-subtle);
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       border-left: 4px solid var(--color-bar-accent);
     }
 
-    @media (max-width: 600px) {
-      .project-essay-card {
-        padding: 30px 24px;
-      }
-    }
-
-    .essay-title {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      font-weight: 400;
+    .statement-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--color-text-black);
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .essay-body {
-      font-size: 15px;
-      line-height: 1.95;
-      color: var(--color-text-body);
+    .statement-title-en {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      color: var(--color-text-dim);
+      font-weight: 400;
     }
-    .essay-body p + p {
-      margin-top: 18px;
+
+    .statement-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #333333;
+      font-weight: 300;
+    }
+    .statement-body p + p {
+      margin-top: 14px;
     }
 
     .plate-card {
@@ -938,15 +944,10 @@
   <main class="storyboard-wrapper">
 
     <!-- DESIGN STATEMENT CARD -->
-    <section class="project-essay-card">
-      <h2 class="essay-title">设计陈述与空间核心价值</h2>
-      <div class="essay-body">
-        <p>
-          本系列汇集了三组手工物理模型，分别探索材料物理性能、结构传力逻辑与空间构成法则。从以数字建模为基础、手工木棍搭建的网格立方体，到展示精准榫卯梁架构造的传统中式重檐木构凉亭，再到探索材料柔韧度与韵律节奏的白色折叠卡纸空间模型——每一组作品都致力于将数字化与概念构思转化为真实的物理空间形态。
-        </p>
-        <p>
-          这些模型记录了我“在制作中学习”（Learning through making）的严谨探索，展现了结构与材料如何共同界定和塑造身体的空间体验。通过双手触摸材料的公差、感知重力与连接的真实阻力，手工物理模型构成了我建筑空间思考不可替代的基石。
-        </p>
+    <section class="project-statement-card" id="statement">
+      <h2 class="statement-title">设计陈述 <span class="statement-title-en">Design Statement</span></h2>
+      <div class="statement-body">
+        <p>这个合集汇集了手工模型，探索材料性能、结构逻辑与空间构成。从用木棍组装而成的数字建模网格立方体，到展现节点构造的中式重檐亭，再到以折叠纸板研究柔韧与韵律的练习——每件模型都将数字或概念想法转化为实体形态，体现了我通过动手制作来学习的态度。</p>
       </div>
     </section>
 
@@ -1043,14 +1044,6 @@
       </div>
       <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project04/08.jpg', 'Page 08')">
         <img src="../assets/projects/project04/08.jpg" alt="Page 08" loading="lazy">
-      </div>
-    </article>
-
-        <!-- CURATORIAL & ARCHITECTURAL ESSAY -->
-    <article class="essay-card" id="statement">
-      <h2>设计陈述</h2>
-      <div class="essay-body">
-        <p>这个合集汇集了手工模型，探索材料性能、结构逻辑与空间构成。从用木棍组装而成的数字建模网格立方体，到展现节点构造的中式重檐亭，再到以折叠纸板研究柔韧与韵律的练习——每件模型都将数字或概念想法转化为实体形态，体现了我通过动手制作来学习的态度。</p>
       </div>
     </article>
 

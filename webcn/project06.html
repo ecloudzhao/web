@@ -415,37 +415,43 @@
       padding: 60px 32px 100px;
     }
 
-    .project-essay-card {
-      margin-bottom: 70px;
+    .project-statement-card {
+      margin-bottom: 60px;
       background: #ffffff;
-      border: 1px solid var(--color-border-line);
-      padding: 44px 48px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+      border: 1px solid var(--color-border-subtle);
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       border-left: 4px solid var(--color-bar-accent);
     }
 
-    @media (max-width: 600px) {
-      .project-essay-card {
-        padding: 30px 24px;
-      }
-    }
-
-    .essay-title {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      font-weight: 400;
+    .statement-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--color-text-black);
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .essay-body {
-      font-size: 15px;
-      line-height: 1.95;
-      color: var(--color-text-body);
+    .statement-title-en {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      color: var(--color-text-dim);
+      font-weight: 400;
     }
-    .essay-body p + p {
-      margin-top: 18px;
+
+    .statement-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #333333;
+      font-weight: 300;
+    }
+    .statement-body p + p {
+      margin-top: 14px;
     }
 
     .plate-card {
@@ -943,15 +949,10 @@
   <main class="storyboard-wrapper">
 
     <!-- DESIGN STATEMENT CARD -->
-    <section class="project-essay-card">
-      <h2 class="essay-title">视觉设计陈述与空间核心价值</h2>
-      <div class="essay-body">
-        <p>
-          这一摄影系列探索了构图、光影与框景如何重塑我们对空间与场所的感知。从积雪覆盖的冬日林道，到现代与传统建筑的内部光影，再到日常人物的不经意瞬间，每一幅图像都是对视觉平衡与空间观察的实验。
-        </p>
-        <p>
-          系列第一幅作品《雪霁长路》（<em>Through the Silent Snow</em>）荣膺 <strong>2026 年 Scholastic Art &amp; Writing Awards 全美艺术与写作大奖银钥匙奖（Silver Key）</strong>。摄影训练极大磨砺了我对建筑比例、空间纵深与光影氛围的敏锐洞察力——这些视觉素养直接反哺并深刻影响了我的建筑设计实践。
-        </p>
+    <section class="project-statement-card" id="statement">
+      <h2 class="statement-title">设计陈述 <span class="statement-title-en">Design Statement</span></h2>
+      <div class="statement-body">
+        <p>这组摄影作品探索不同主题下的构图、光线与视觉平衡。最左侧作品《Through the Silent Snow》获得 2026 年 Scholastic 艺术与写作奖银钥匙奖。摄影提升了我对取景、比例和空间关系的敏感度，并将这些观察延伸到我的建筑作品中。</p>
       </div>
     </section>
 
@@ -1064,14 +1065,6 @@
       </div>
       <div class="plate-caption">
         <p>视线穿过多排书架，远处的书架上整齐陈列着复古杂志。</p>
-      </div>
-    </article>
-
-        <!-- CURATORIAL & ARCHITECTURAL ESSAY -->
-    <article class="essay-card" id="statement">
-      <h2>设计陈述</h2>
-      <div class="essay-body">
-        <p>这组摄影作品探索不同主题下的构图、光线与视觉平衡。最左侧作品《Through the Silent Snow》获得 2026 年 Scholastic 艺术与写作奖银钥匙奖。摄影提升了我对取景、比例和空间关系的敏感度，并将这些观察延伸到我的建筑作品中。</p>
       </div>
     </article>
 

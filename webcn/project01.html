@@ -492,45 +492,44 @@
       color: var(--color-text-black);
     }
 
-    /* CURATORIAL ESSAY SECTION */
-    .essay-card {
+    /* DESIGN STATEMENT CARD */
+    .project-statement-card {
+      margin-bottom: 60px;
       background: #ffffff;
-      border: 1px solid var(--color-border-line);
-      padding: 50px 60px;
-      margin-top: 20px;
+      border: 1px solid var(--color-border-subtle);
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       border-left: 4px solid var(--color-bar-accent);
     }
-    @media (max-width: 768px) {
-      .essay-card {
-        padding: 30px 24px;
-      }
-    }
 
-    .essay-card h2 {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      font-weight: 400;
+    .statement-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--color-text-black);
-      margin-bottom: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .essay-body p {
-      margin-bottom: 20px;
+    .statement-title-en {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      color: var(--color-text-dim);
+      font-weight: 400;
+    }
+
+    .statement-body {
       font-size: 15px;
-      line-height: 1.85;
-      color: #444;
+      line-height: 1.9;
+      color: #333333;
+      font-weight: 300;
     }
-
-    .essay-quote {
-      margin: 28px 0;
-      padding: 20px 28px;
-      background: var(--color-bg-subtle);
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #222;
-      border-left: 3px solid #888;
+    .statement-body p + p {
+      margin-top: 14px;
     }
 
     /* 5. BOTTOM PROJECT NAVIGATION STRIP */
@@ -897,6 +896,14 @@
   <!-- 4. MAIN GALLERY CONTENT FEED -->
   <main class="gallery-main-feed">
 
+    <!-- DESIGN STATEMENT CARD -->
+    <section class="project-statement-card" id="statement">
+      <h2 class="statement-title">设计陈述 <span class="statement-title-en">Design Statement</span></h2>
+      <div class="statement-body">
+        <p>通过场地观察、流线分析和八个日常场景的梳理，我发现了学校中的空间冲突、未充分利用的区域以及公共空间的缺口。我对一百多位学生进行了问卷调查以验证这些观察，并将学生需求转化为设计机会。这一诊断为后续的设计介入提供了实证基础。</p>
+      </div>
+    </section>
+
     <!-- PLATE 01 -->
     <article class="plate-card" id="plate-01">
       <div class="plate-header">
@@ -990,14 +997,6 @@
       </div>
       <div class="img-zoom-target" onclick="openLightbox('../assets/projects/project01/08.jpg', 'Page 08')">
         <img src="../assets/projects/project01/08.jpg" alt="Page 08" loading="lazy">
-      </div>
-    </article>
-
-    <!-- CURATORIAL & ARCHITECTURAL ESSAY -->
-    <article class="essay-card" id="statement">
-      <h2>设计陈述</h2>
-      <div class="essay-body">
-        <p>通过场地观察、流线分析和八个日常场景的梳理，我发现了学校中的空间冲突、未充分利用的区域以及公共空间的缺口。我对一百多位学生进行了问卷调查以验证这些观察，并将学生需求转化为设计机会。这一诊断为后续的设计介入提供了实证基础。</p>
       </div>
     </article>
 
